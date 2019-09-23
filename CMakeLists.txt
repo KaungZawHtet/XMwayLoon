@@ -10,10 +10,12 @@ else()
     message(WARNING "The file conanbuildinfo.cmake doesn't exist, you have to run conan install first")
 endif()
 
+#include_directories(lib/FakeDataGeneration/src/english_date.h lib/FakeDataGeneration/src/global_objects.h)
 
-
-
-
-add_executable(FakeDataGenerator main.cpp
+add_library(FakeDataGeneratorLib
         lib/FakeDataGeneration/src/english_date.cpp
-        lib/FakeDataGeneration/src/english_date.h)
+        lib/FakeDataGeneration/include/CSVwriter.h lib/FakeDataGeneration/src/CSVwriter.cpp)
+
+add_executable(Executable main.cpp)
+
+target_link_libraries(Executable FakeDataGeneratorLib)
