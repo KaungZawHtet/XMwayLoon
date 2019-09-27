@@ -6,9 +6,10 @@
 #define FAKEDATAGENERATOR_GLOBAL_OBJECTS_H
 #include <boost/random/mersenne_twister.hpp>
 #include <boost/random/uniform_int_distribution.hpp>
+#include <ctime>
 
 namespace Xlotgative{
-static boost::random::mt19937 generatorObject(static_cast<unsigned int>(std::time(0)));
+static boost::random::mt19937 generatorObject(static_cast<unsigned int>(time(0)));
 
 #define ZAWGYI "Zawgyi"
 #define UNICODE "Unicode"

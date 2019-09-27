@@ -12,75 +12,54 @@
 #include <boost/random/mersenne_twister.hpp>
 #include <boost/random/uniform_int_distribution.hpp>
 #include <boost/date_time.hpp>
+#include <fstream>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 using namespace std;
 using namespace Xlotgative;
 
 EnglishDate::EnglishDate() {
 
 
-    this->myanmarDate["0"]="၀";
-    this->myanmarDate["1"]="၁";
-    this->myanmarDate["2"]="၂";
-    this->myanmarDate["3"]="၃";
-    this->myanmarDate["4"]="၄";
-    this->myanmarDate["5"]="၅";
-    this->myanmarDate["6"]="၆";
-    this->myanmarDate["7"]="၇";
-    this->myanmarDate["8"]="၈";
-    this->myanmarDate["9"]="၉";
+    this->myanmarDateKeywords["0"]=pair<string,string>("၀","၀");
+    this->myanmarDateKeywords["1"]=pair<string,string>("၁","၁");
+    this->myanmarDateKeywords["2"]=pair<string,string>("၂","၂");
+    this->myanmarDateKeywords["3"]=pair<string,string>("၃","၃");
+    this->myanmarDateKeywords["4"]=pair<string,string>("၄","၄");
+    this->myanmarDateKeywords["5"]=pair<string,string>("၅","၅");
+    this->myanmarDateKeywords["6"]=pair<string,string>("၆","၆");
+    this->myanmarDateKeywords["7"]=pair<string,string>("၇","၇");
+    this->myanmarDateKeywords["8"]=pair<string,string>("၈","၈");
+    this->myanmarDateKeywords["9"]=pair<string,string>("၉","၉");
 
-    this->myanmarDate["January"]="ဇန်နဝါရီ";
-    this->myanmarDate["February"]="ဖေဖဝါရီ";
-    this->myanmarDate["March"]="မတ်";
-    this->myanmarDate["April"]="ဧပရယ်";
-    this->myanmarDate["May"]="မေ";
-    this->myanmarDate["June"]="ဂျွန်";
-    this->myanmarDate["July"]="ဂျူလိုင်";
-    this->myanmarDate["August"]="ဩဂုတ်";
-    this->myanmarDate["September"]="စက်တင်ဘာ";
-    this->myanmarDate["October"]="အောက်တိုဘာ";
-    this->myanmarDate["November"]="နိုဝင်ဘာ";
-    this->myanmarDate["December"]="ဒီဇင်ဘာ";
+    this->myanmarDateKeywords["January"]=pair<string,string>("ဇန်နဝါရီ","ဇန္နဝါရီ");
+    this->myanmarDateKeywords["February"]=pair<string,string>("ဖေဖော်ဝါရီ","ေဖေဖာ္ဝါရီ");
+    this->myanmarDateKeywords["March"]=pair<string,string>("မတ်","မတ္");
+    this->myanmarDateKeywords["April"]=pair<string,string>("ဧပရယ်","ဧပရယ္");
+    this->myanmarDateKeywords["May"]=pair<string,string>("မေ","ေမ");
+    this->myanmarDateKeywords["June"]=pair<string,string>("ဇွန်","ဇြန္");
+    this->myanmarDateKeywords["July"]=pair<string,string>("ဇူလိုင်","ဇူလိုင္");
+    this->myanmarDateKeywords["August"]=pair<string,string>("ဩဂုတ်","ဩဂုတ္");
+    this->myanmarDateKeywords["September"]=pair<string,string>("စက်တင်ဘာ","စက္တင္ဘာ");
+    this->myanmarDateKeywords["October"]=pair<string,string>("အောက်တိုဘာ","ေအာက္တိုဘာ");
+    this->myanmarDateKeywords["November"]=pair<string,string>("နိုဝင်ဘာ","ႏိုဝင္ဘာ");
+    this->myanmarDateKeywords["December"]=pair<string,string>("ဒီဇင်ဘာ","ဒီဇင္ဘာ");
 
-
-
-
-    /*this->myanmarDate.insert(pair<string,string>("January", "ဇန်နဝါရီ"));
-    this->myanmarDate.insert(pair<string,string>("February", "ဖေဖဝါရီ"));
-    this->myanmarDate.insert(pair<string,string>("March", "မတ်"));
-    this->myanmarDate.insert(pair<string,string>("April", "ဧပရယ်"));
-    this->myanmarDate.insert(pair<string,string>("May", "မေ"));
-    this->myanmarDate.insert(pair<string,string>("June", "ဂျွန်"));
-    this->myanmarDate.insert(pair<string,string>("July", "ဂျူလိုင်"));
-    this->myanmarDate.insert(pair<string,string>("August", "ဩဂုတ်"));
-    this->myanmarDate.insert(pair<string,string>("September", "စက်တင်ဘာ"));
-    this->myanmarDate.insert(pair<string,string>("October", "အောက်တိုဘာ"));
-    this->myanmarDate.insert(pair<string,string>("November", "နိုဝင်ဘာ"));
-    this->myanmarDate.insert(pair<string,string>("December", "ဒီဇင်ဘာ"));
-    this->myanmarDate.insert(pair<string,string>("0", "၀"));
-    this->myanmarDate.insert(pair<string,string>("1", "၁"));
-    this->myanmarDate.insert(pair<string,string>("2", "၂"));
-    this->myanmarDate.insert(pair<string,string>("3", "၃"));
-    this->myanmarDate.insert(pair<string,string>("4", "၄"));
-    this->myanmarDate.insert(pair<string,string>("5", "၅"));
-    this->myanmarDate.insert(pair<string,string>("6", "၆"));
-    this->myanmarDate.insert(pair<string,string>("7", "၇"));
-    this->myanmarDate.insert(pair<string,string>("8", "၈"));
-    this->myanmarDate.insert(pair<string,string>("9", "၉"));*/
 
 }
 
- void EnglishDate::convertEnglishNumberToMyanmar(std::string & englishNumber){
+ void EnglishDate::convertEnglishNumberToMyanmar(string & englishNumber,string &encoding){
 
     string result;
 
-    std::for_each(englishNumber.begin(),englishNumber.end(),[this](auto &englishCharacter){
+    std::for_each(englishNumber.begin(),englishNumber.end(),[this,encoding](auto &englishCharacter){
 
         string stringCache;
         stringCache.push_back(englishCharacter);
-        std::map<string,string>::iterator iterator=  this->myanmarDate.find(stringCache);
+        auto iterator=  this->myanmarDateKeywords.find(stringCache);
 
-       cout<< iterator->second;
+        if(encoding == UNICODE )cout << iterator->second.first;
+        else  cout << iterator->second.second;
 
 
     });
@@ -88,11 +67,12 @@ EnglishDate::EnglishDate() {
 
 }
 
-void EnglishDate::convertEnglishMonthToMyanmar(std::string & englishMonth)
+void EnglishDate::convertEnglishMonthToMyanmar(string & englishMonth,string &encoding)
 {
-    std::map<string,string>::iterator iterator= this->myanmarDate.find(englishMonth);
+    std::map<string,pair<string,string>>::iterator iterator= this->myanmarDateKeywords.find(englishMonth);
 
-    cout << iterator->second;
+    if(encoding == UNICODE )cout << iterator->second.first;
+    else  cout << iterator->second.second;
 }
 
 boost::gregorian::date EnglishDate::generateRandomDate(std::string &format)
@@ -109,6 +89,8 @@ boost::gregorian::date EnglishDate::generateRandomDate(std::string &format)
 
     boost::posix_time::ptime timeLocal = boost::posix_time::second_clock::local_time();
     int currentYear= timeLocal.date().year();
+
+
 
 
     boost::random::uniform_int_distribution<> febDistribution(1, 28);
@@ -141,10 +123,45 @@ boost::gregorian::date EnglishDate::generateRandomDate(std::string &format)
 
     }
 
-    boost::gregorian::date dateObj { year, month, days };
+    boost::gregorian::date dateObj { 11, 2, 3 };
 
 
     return dateObj;
 
 
 }
+
+std::map<std::string, pair <string,string>> EnglishDate::getData(){
+
+    return this->myanmarDateKeywords;
+}
+
+/*
+template<class Archive>
+void EnglishDate::serialize(Archive &archieve, const unsigned int version){
+    archieve & myanmarDateKeywords;
+}
+
+void EnglishDate::saveMyanmarKeywords(const std::string & filename){
+    // make an archive
+    std::ofstream outputFileStream(filename);
+    boost::archive::text_oarchive outputArchieve(outputFileStream);
+    outputArchieve << this->myanmarDateKeywords;
+
+
+
+}
+void EnglishDate::restoreMyanmarKeywords(const std::string & filename){
+
+    // open the archive
+    std::ifstream outputFileStream(filename);
+    boost::archive::text_iarchive inputArchieve(outputFileStream);
+
+    // restore the schedule from the archive
+    inputArchieve >> this->myanmarDateKeywords;
+
+}
+
+*/
+
+

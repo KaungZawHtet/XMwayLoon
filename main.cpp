@@ -1,19 +1,28 @@
 #include <iostream>
 #include "lib/FakeDataGeneration/include/english_date.h"
-
+#include "lib/FakeDataGeneration/include/ph_number.h"
+#include "lib/FakeDataGeneration/include/global_objects.h"
+#include "lib/FakeDataGeneration/include/inserter.h"
+#include "lib/FakeDataGeneration/include/retriever.h"
 
 using namespace std;
 using namespace Xlotgative;
 int main() {
 
     EnglishDate objED;
+    PhoneNumber objPhNum;
+    Inserter objInserter;
+
     string month="January";
 
 
 
     //objED.convertEnglishMonthToMyanmar(month);
 
-   cout<<objED.generateRandomDate(month);
+   //cout<<objPhNum.generatePhoneNumber(month);
+
+ //  objInserter.initializeEnglishDateInfo();
+
     return 0;
 }
 
