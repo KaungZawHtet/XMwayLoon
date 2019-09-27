@@ -2,7 +2,7 @@
 #include "lib/FakeDataGeneration/include/english_date.h"
 #include "lib/FakeDataGeneration/include/ph_number.h"
 #include "lib/FakeDataGeneration/include/global_objects.h"
-#include "lib/FakeDataGeneration/include/inserter.h"
+//#include "lib/FakeDataGeneration/include/inserter.h"
 #include "lib/FakeDataGeneration/include/retriever.h"
 
 using namespace std;
@@ -11,7 +11,7 @@ int main() {
 
     EnglishDate objED;
     PhoneNumber objPhNum;
-    Inserter objInserter;
+  //  Inserter objInserter;
 
     string month="January";
 

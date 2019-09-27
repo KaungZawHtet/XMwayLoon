@@ -22,6 +22,7 @@ add_library(FakeDataGeneratorLib
         lib/FakeDataGeneration/src/inserter.cpp
         )
 
+
 add_executable(Executable main.cpp)
 
 target_link_libraries(Executable FakeDataGeneratorLib)

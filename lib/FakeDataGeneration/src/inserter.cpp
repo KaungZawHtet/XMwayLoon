@@ -12,7 +12,7 @@
 
 
 
-/*void Xlotgative::Inserter::insertGeneralInfo() {
+void Xlotgative::Inserter::insertGeneralInfo() {
 
     std::string a;
 
@@ -23,20 +23,20 @@
     //std:: cout<< str2;
 
 
-}*/
+}
 
-/*void Xlotgative::Inserter::initializeEnglishDateInfo(){
+void Xlotgative::Inserter::initializeEnglishDateInfo(){
 
-   *//* Xlotgative::EnglishDate objEnglishDate;
+    Xlotgative::EnglishDate objEnglishDate;
 
     std::string filename = "initial_date.txt";
-    objEnglishDate.saveMyanmarKeywords(filename);*//*
+   // objEnglishDate.saveMyanmarKeywords(filename);
 
 
 
 
 
-*//*    Xlotgative::EnglishDate objEnglishDate;
+
 
 
     ofstream englishDateBinaryData("english_date.bin", std::ios::binary | std::ios::out);
@@ -57,16 +57,15 @@
         englishDateBinaryData.close();
 
 
-    }*//*
+    }
 
 
-    *//*englishDateBinaryData.write(reinterpret_cast<char*>(ptrMyanmarDateKeywords) , sizeof(ptrMyanmarDateKeywords));
-*//*
+    /*englishDateBinaryData.write(reinterpret_cast<char*>(ptrMyanmarDateKeywords) , sizeof(ptrMyanmarDateKeywords));
+*/
 
 
 
-
-}*/
+}
 
  /*Inserter::Inserter() {
      phoneNumberBinaryData("ph_number.bin", std::ios::in | std::ios::out);

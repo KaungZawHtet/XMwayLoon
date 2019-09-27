@@ -136,13 +136,13 @@ std::map<std::string, pair <string,string>> EnglishDate::getData(){
     return this->myanmarDateKeywords;
 }
 
-/*
 template<class Archive>
 void EnglishDate::serialize(Archive &archieve, const unsigned int version){
     archieve & myanmarDateKeywords;
 }
 
-void EnglishDate::saveMyanmarKeywords(const std::string & filename){
+
+/*void EnglishDate::saveMyanmarKeywords(const std::string & filename){
     // make an archive
     std::ofstream outputFileStream(filename);
     boost::archive::text_oarchive outputArchieve(outputFileStream);
@@ -150,18 +150,31 @@ void EnglishDate::saveMyanmarKeywords(const std::string & filename){
 
 
 
-}
-void EnglishDate::restoreMyanmarKeywords(const std::string & filename){
+}*/
 
-    // open the archive
-    std::ifstream outputFileStream(filename);
-    boost::archive::text_iarchive inputArchieve(outputFileStream);
+
+    void EnglishDate::restoreMyanmarKeywords(const char * filename){
+
+
+
+        /*// open the archive
+        std::ifstream inputFileStream(filename, std::ios::binary);
+        std::ifstream a("good.bin", std::ios::binary);
+        boost::archive::text_iarchive inputArchieve();*/
+
+    {
+        std::ifstream ifs("file.txt");
+
+
+        boost::archive::text_iarchive iar(ifs); // no exception!
+        ifs.close();
+
+    }
 
     // restore the schedule from the archive
-    inputArchieve >> this->myanmarDateKeywords;
+      //  inputArchieve >> this->myanmarDateKeywords;
 
-}
+    }
 
-*/
 
 

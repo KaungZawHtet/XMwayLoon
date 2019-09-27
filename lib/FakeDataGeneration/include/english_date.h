@@ -14,58 +14,71 @@
 #include <boost/serialization/utility.hpp>
 #include <boost/serialization/list.hpp>
 #include <boost/serialization/assume_abstract.hpp>
-
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 
 using namespace std;
-namespace  Xlotgative
-{
-
-
-class EnglishDate{
 
 
 
-public:
-    std::map<std::string, pair <string,string>> myanmarDateKeywords;
-    EnglishDate();
-    std::map<std::string, pair <string,string>> getData();
-    void convertEnglishNumberToMyanmar(std::string &,string&);
-    void convertEnglishMonthToMyanmar(std::string &,string &);
-    boost::gregorian::date generateRandomDate(std::string &);
+namespace Xlotgative{
 
-/*
-    friend class boost::serialization::access;
-    friend std::ostream & operator<<(std::ostream &os, const EnglishDate &englishDate);
-   // friend std::ostream & operator<<(std::ostream &os, const bus_schedule::trip_info &ti);
-  //  std::list<std::pair<trip_info, bus_route *> > schedule;
-    template<class Archive>
-    void serialize(Archive &archieve, const unsigned int version);
-    void saveMyanmarKeywords( const std::string & filename);
-    void restoreMyanmarKeywords( const std::string & filename);
+    class EnglishDate{
 
 
 
-};
+    public:
+        std::map<std::string, pair <string,string>> myanmarDateKeywords;
+        EnglishDate();
+        std::map<std::string, pair <string,string>> getData();
+        void convertEnglishNumberToMyanmar(std::string &,string&);
+        void convertEnglishMonthToMyanmar(std::string &,string &);
+        boost::gregorian::date generateRandomDate(std::string &);
 
-    std::ostream & operator<< (std::ostream & outputStream, const std::map<std::string, pair <string,string>> &myanmarDateKeywords)
-    {
+        friend class boost::serialization::access;
+      //  friend std::ostream & operator<<(std::ostream &os, const EnglishDate &englishDate);
+        // friend std::ostream & operator<<(std::ostream &os, const bus_schedule::trip_info &ti);
+        //  std::list<std::pair<trip_info, bus_route *> > schedule;
+        template<class Archive>
+        void serialize(Archive &archieve, const unsigned int version);
+        void saveMyanmarKeywords( const char * filename);
+        void restoreMyanmarKeywords( const char * filename);
 
-
-        for (auto loopIterator=myanmarDateKeywords.begin(),endIterator = myanmarDateKeywords.end();
-             loopIterator!=endIterator;loopIterator++)
+        friend std::ostream & operator<< (std::ostream & outputStream, const std::map<std::string, pair <string,string>> &myanmarDateKeywords)
         {
 
-            outputStream << loopIterator->first << loopIterator->second.first << loopIterator->second.second;
+
+            for (auto loopIterator=myanmarDateKeywords.begin(),endIterator = myanmarDateKeywords.end();
+                 loopIterator!=endIterator;loopIterator++)
+            {
+
+                outputStream << loopIterator->first << loopIterator->second.first << loopIterator->second.second;
+
+            }
+            return outputStream;
+
 
         }
-        return outputStream;
 
 
-    }*/
 
-};
 
-//BOOST_CLASS_VERSION(Xlotgative::EnglishDate,2);
+
+    };
+
+
+
+
+
+
+}
+
+
+
+
+
+BOOST_CLASS_VERSION(Xlotgative::EnglishDate,2);
+
 
 
 
