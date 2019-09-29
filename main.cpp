@@ -4,10 +4,6 @@
 #include "lib/FakeDataGeneration/include/global_objects.h"
 //#include "lib/FakeDataGeneration/include/inserter.h"
 #include "lib/FakeDataGeneration/include/retriever.h"
-
-#include <boost/serialization/export.hpp>
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
 #include <sstream>
 #include <iostream>
 
@@ -15,20 +11,11 @@ using namespace std;
 using namespace Xlotgative;
 int main() {
 
-    std::stringstream ss;
-    int numbers1[10], numbers2[10];
-    for (int i = 0; i < 10; i++) {
-        numbers1[i] = i;
-    }
+    EnglishDate objEnglishDate;
+    std::string ad="helo";
 
-    boost::archive::text_oarchive oar(ss);
-    oar << numbers1;
+    cout<< objEnglishDate.generateRandomDate(ad);
 
-    boost::archive::text_iarchive iar(ss);
-    iar >> numbers2;
-
-    for (auto i : numbers2)
-        std::cout << i << " ";
 
     return  0;
 }

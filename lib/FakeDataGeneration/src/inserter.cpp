@@ -30,7 +30,7 @@ void Xlotgative::Inserter::initializeEnglishDateInfo(){
     Xlotgative::EnglishDate objEnglishDate;
 
     std::string filename = "initial_date.txt";
-   // objEnglishDate.saveMyanmarKeywords(filename);
+
 
 
 
