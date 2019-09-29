@@ -18,20 +18,22 @@
 using namespace std;
 
 
-using namespace boost::multi_index;
+
 namespace Xlotgative{
+
+    typedef boost::multi_index::multi_index_container<
+            pair <string,string>,
+            boost::multi_index::indexed_by<
+                    boost::multi_index::ordered_unique<boost::multi_index::identity<std::string>>,
+                    boost::multi_index::ordered_unique<boost::multi_index::identity<std::string>>
+            >> myanmarMonthsContainer;
 
     class EnglishDate{
 
 
-        /*typedef multi_index_container<
-                pair <string,string>,
-                        indexed_by<
-                                ordered_unique<identity<std::string>>,
-                                ordered_unique<identity<std::string>>
-                                >
-                        > myanmarMonthContainer;
-        myanmarMonthContainer myanmarMonths;*/
+
+
+      //  myanmarMonthsContainer myanmarMonths2;
 
         std::map<string, pair <string,string>> myanmarMonths;
         std::map<pair <string,string>, pair <string,string>> englishMonths;
