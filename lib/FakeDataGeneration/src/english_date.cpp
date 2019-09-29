@@ -162,14 +162,7 @@ void EnglishDate::serialize(Archive &archieve, const unsigned int version){
         std::ifstream a("good.bin", std::ios::binary);
         boost::archive::text_iarchive inputArchieve();*/
 
-    {
-        std::ifstream ifs("file.txt");
 
-
-        boost::archive::text_iarchive iar(ifs); // no exception!
-        ifs.close();
-
-    }
 
     // restore the schedule from the archive
       //  inputArchieve >> this->myanmarDateKeywords;

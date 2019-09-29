@@ -5,25 +5,32 @@
 //#include "lib/FakeDataGeneration/include/inserter.h"
 #include "lib/FakeDataGeneration/include/retriever.h"
 
+#include <boost/serialization/export.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <sstream>
+#include <iostream>
+
 using namespace std;
 using namespace Xlotgative;
 int main() {
 
-    EnglishDate objED;
-    PhoneNumber objPhNum;
-  //  Inserter objInserter;
+    std::stringstream ss;
+    int numbers1[10], numbers2[10];
+    for (int i = 0; i < 10; i++) {
+        numbers1[i] = i;
+    }
 
-    string month="January";
+    boost::archive::text_oarchive oar(ss);
+    oar << numbers1;
 
+    boost::archive::text_iarchive iar(ss);
+    iar >> numbers2;
 
+    for (auto i : numbers2)
+        std::cout << i << " ";
 
-    //objED.convertEnglishMonthToMyanmar(month);
-
-   //cout<<objPhNum.generatePhoneNumber(month);
-
- //  objInserter.initializeEnglishDateInfo();
-
-    return 0;
+    return  0;
 }
 
 /*
