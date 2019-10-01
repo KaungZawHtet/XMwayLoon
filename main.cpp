@@ -5,16 +5,29 @@
 //#include "lib/FakeDataGeneration/include/inserter.h"
 #include "lib/FakeDataGeneration/include/retriever.h"
 #include <sstream>
+
 #include <iostream>
+#include <boost/date_time/gregorian/gregorian.hpp>
 
-using namespace std;
-using namespace Xlotgative;
 int main() {
+    Xlotgative::EnglishDate objEnglishDate;
 
-    EnglishDate objEnglishDate;
-    std::string ad="helo";
+    Xlotgative::ptr_string ptr= objEnglishDate.getRandomMyanDate("%d-%b-%Y",UNICODE);
 
-    cout<< objEnglishDate.generateRandomDate(ad);
+    cout<<*ptr;
+
+
+    /*Xlotgative::EnglishDate objEnglishDate;
+    std::string format="%d-%b-%Y";
+    Xlotgative::ptr_string date=objEnglishDate.generateRandomEngDate(format) ;
+    std::stringstream stream  ;
+    stream << (*date);
+    std::string dateString = stream.str();
+
+
+    cout<<dateString<<endl;
+
+    cout<< (*objEnglishDate.convertEngDateToMyan(dateString,UNICODE));*/
 
 
     return  0;

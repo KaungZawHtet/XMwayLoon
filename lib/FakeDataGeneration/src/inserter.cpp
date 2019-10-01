@@ -25,7 +25,7 @@ void Xlotgative::Inserter::insertGeneralInfo() {
 
 }
 
-void Xlotgative::Inserter::initializeEnglishDateInfo(){
+/*void Xlotgative::Inserter::initializeEnglishDateInfo(){
 
     Xlotgative::EnglishDate objEnglishDate;
 
@@ -60,12 +60,12 @@ void Xlotgative::Inserter::initializeEnglishDateInfo(){
     }
 
 
-    /*englishDateBinaryData.write(reinterpret_cast<char*>(ptrMyanmarDateKeywords) , sizeof(ptrMyanmarDateKeywords));
-*/
+    *//*englishDateBinaryData.write(reinterpret_cast<char*>(ptrMyanmarDateKeywords) , sizeof(ptrMyanmarDateKeywords));
+*//*
 
 
 
-}
+}*/
 
  /*Inserter::Inserter() {
      phoneNumberBinaryData("ph_number.bin", std::ios::in | std::ios::out);
