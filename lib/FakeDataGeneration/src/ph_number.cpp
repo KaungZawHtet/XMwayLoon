@@ -31,7 +31,7 @@ X_PhoneNumber::PhoneNumber() {
 
 Xlotgative::ptr_string X_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
     boost::random::uniform_int_distribution<> operatorDistribution(1, 4);
-    boost::random::uniform_int_distribution<> numberDistribution(0, 9);
+    boost::random::uniform_int_distribution<> numDistribution(0, 9);
 
     boost::random::uniform_int_distribution<> telenorPrefixDistribution(0, 4);
     boost::random::uniform_int_distribution<> ooredooPrefixDistribution(0, 2);
@@ -45,7 +45,7 @@ Xlotgative::ptr_string X_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCo
 
     for (int i = 0; i < 7; i++) {
 
-        cacheNum = numberDistribution(generatorObject);
+        cacheNum = numDistribution(generatorObject);
         str_cache = std::to_string(cacheNum);
         result += str_cache;
 

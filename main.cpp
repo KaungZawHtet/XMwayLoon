@@ -1,34 +1,35 @@
 #include <iostream>
 #include "lib/FakeDataGeneration/include/english_date.h"
 #include "lib/FakeDataGeneration/include/ph_number.h"
+#include "lib/FakeDataGeneration/include/number.h"
 #include "lib/FakeDataGeneration/include/global_objects.h"
 //#include "lib/FakeDataGeneration/include/inserter.h"
 #include "lib/FakeDataGeneration/include/retriever.h"
 #include <sstream>
-
+#include <thread>
 #include <iostream>
 #include <boost/date_time/gregorian/gregorian.hpp>
 
 int main() {
 
-      /*Xlotgative::EnglishDate objEnglishDate;
+      /*
+       * IMPORTANT
+       * Xlotgative::EnglishDate objEnglishDate;
       Xlotgative::ptr_string ptr= objEnglishDate.getRandomMyanDate("%d-%Switch-%Y",UNICODE);
       std::cout<<*ptr;*/
 
 
-    Xlotgative::PhoneNumber objPhoneNumber;
-    boost::logic::tribool Switch;
-
-
-   // std::cout<<Switch;
-
-
-    Switch= boost::logic::indeterminate;
-   // Switch=true;
+    /*Xlotgative::PhoneNumber objPhoneNumber;
     Xlotgative::ptr_string ptr=objPhoneNumber.getRandomMyanPhNum(Xlotgative::PhoneNumber::CountryCodeFlag::random);
+    std::cout<<*ptr;*/
 
-    std::cout<<*ptr;
+    /*Xlotgative::Number objNumber;
+    Xlotgative::ptr_string ptr=objNumber.generateMyanNum(2000);
+    std::cout<<*ptr;*/
 
+
+    unsigned int n = std::thread::hardware_concurrency();
+    std::cout << n << " concurrent threads are supported.\n";
 
 
 

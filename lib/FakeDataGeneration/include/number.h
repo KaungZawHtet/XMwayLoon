@@ -17,6 +17,7 @@ namespace Xlotgative
 
     public:
         Xlotgative::ptr_string convertEngNumToMyan(const std::string &engNum);
+        Xlotgative::ptr_string generateMyanNum( const unsigned long max);
         Number();
 
     };

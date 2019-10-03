@@ -5,7 +5,7 @@
 #include "../include/number.h"
 #include <regex>
 #include <iostream>
-
+#include "../include/global_objects.h"
 typedef Xlotgative::Number X_Number;
 
 X_Number::Number() {
@@ -51,5 +51,22 @@ Xlotgative::ptr_string X_Number::convertEngNumToMyan(const std::string &engNum) 
 
 }
 
+
+Xlotgative::ptr_string X_Number::generateMyanNum( const unsigned long max){
+
+    boost::random::uniform_int_distribution<> myanNumDistribution(0, 9);
+    std::string result="";
+    int cacheNum;
+    std::string index;
+
+    for(unsigned long i =0;i < max;i++)
+    {
+         cacheNum = myanNumDistribution(Xlotgative::generatorObject);
+        index = std::to_string(cacheNum);
+        result += this->myanNum->find(index)->second;
+    }
+    return std::make_unique<std::string>(result);
+
+}
 
 
