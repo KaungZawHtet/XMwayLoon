@@ -12,7 +12,7 @@
 namespace Xlotgative{
 static boost::random::mt19937 generatorObject(static_cast<unsigned int>(time(0)));
 
-    typedef  std::shared_ptr<std::string> ptr_string;
+    typedef  std::unique_ptr<std::string> ptr_string;
 
 #define ZAWGYI "Zawgyi"
 #define UNICODE "Unicode"

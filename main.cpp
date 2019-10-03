@@ -10,24 +10,34 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 
 int main() {
-    Xlotgative::EnglishDate objEnglishDate;
 
-    Xlotgative::ptr_string ptr= objEnglishDate.getRandomMyanDate("%d-%b-%Y",UNICODE);
-
-    cout<<*ptr;
-
-
-    /*Xlotgative::EnglishDate objEnglishDate;
-    std::string format="%d-%b-%Y";
-    Xlotgative::ptr_string date=objEnglishDate.generateRandomEngDate(format) ;
-    std::stringstream stream  ;
-    stream << (*date);
-    std::string dateString = stream.str();
+      /*Xlotgative::EnglishDate objEnglishDate;
+      Xlotgative::ptr_string ptr= objEnglishDate.getRandomMyanDate("%d-%Switch-%Y",UNICODE);
+      std::cout<<*ptr;*/
 
 
-    cout<<dateString<<endl;
+    Xlotgative::PhoneNumber objPhoneNumber;
+    boost::logic::tribool Switch;
 
-    cout<< (*objEnglishDate.convertEngDateToMyan(dateString,UNICODE));*/
+
+   // std::cout<<Switch;
+
+
+    Switch= boost::logic::indeterminate;
+   // Switch=true;
+    Xlotgative::ptr_string ptr=objPhoneNumber.getRandomMyanPhNum(Xlotgative::PhoneNumber::CountryCodeFlag::random);
+
+    std::cout<<*ptr;
+
+
+
+
+
+
+
+
+
+
 
 
     return  0;

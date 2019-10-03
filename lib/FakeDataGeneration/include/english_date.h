@@ -12,7 +12,7 @@
 #include <boost/date_time.hpp>
 #include "global_objects.h"
 
-
+#include "../include/number.h"
 #include <boost/multi_index_container.hpp>
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/multi_index/hashed_index.hpp>
@@ -37,7 +37,7 @@ namespace Xlotgative{
     class EnglishDate{
 
         typedef std::map<std::pair <std::string,std::string>, std::pair <std::string,std::string>> type_englishMonths;
-        typedef std::map<std::string, std::pair <std::string,std::string>> type_myanNumbers;
+        typedef std::map<std::string, std::string> type_myanNum;
 
 
 
@@ -72,24 +72,23 @@ namespace Xlotgative{
 
                 >> myanMonthsContainer;
 
+        Xlotgative::Number obj_number;
+
 
         std::unique_ptr<myanMonthsContainer> myanMonths;
         std::unique_ptr<type_englishMonths> englishMonths;
-        std::unique_ptr<type_myanNumbers> myanNumbers;
+    //    std::unique_ptr<type_myanNum> myanNum;
 //        std::map<std::string, pair <string,string>> myanDateKeywords;
 
     public:
 
         EnglishDate();
-        ptr_string convertEngNumberToMyan(std::string &,const std::string &encoding);
         ptr_string convertCompleteEngMonthToMyan(const std::string &,const std::string &encoding);
         ptr_string convertShortEngMonthToMyan(const std::string &,const std::string &encoding);
         ptr_string generateRandomEngDate(const std::string &encoding);
-        ptr_string convertEngDateToMyan(const std::string &, const std::string &encoding);
+        ptr_string convertEngDateToMyan(const std::string &engDate, const std::string &encoding);
         ptr_string getRandomMyanDate(const std::string &format,const std::string &encoding);
-/*
-        std::unique_ptr<myanMonthsContainer> getMonths();
-        std::unique_ptr<type_myanNumbers> getNumbers();*/
+
 
 
 

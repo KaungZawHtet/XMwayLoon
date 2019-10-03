@@ -8,30 +8,45 @@
 #include "../include/global_objects.h"
 #include <map>
 #include <array>
+#include <boost/logic/tribool.hpp>
+#include "../include/number.h"
 
-using namespace std;
+
 namespace Xlotgative
 {
 
     class PhoneNumber
     {
 
+        typedef std::map<std::string, std::string> type_myanNum;
+        typedef std::array<std::pair<std::string,int>,5> type_telenor;
+        typedef std::array<std::pair<std::string,int>,3> type_ooredoo;
+        typedef std::array<std::pair<std::string,int>,1> type_mytel;
+        typedef std::array<std::pair<std::string,int>,10> type_mpt;
+
         //prefix and length. In prefix, 09 is not included
-        array<pair<string,int>,10> mpt{pair("98",9),pair("99",9),pair("76",9),pair("76",9),pair("40",9),pair("42",9),pair("44",9),pair("45",9),pair("46",9),pair("48",9)};
+        std::unique_ptr<type_mpt> mpt;
 
 
 
+        std::unique_ptr<type_telenor> telenor;
+        std::unique_ptr<type_ooredoo> ooredoo;
+        std::unique_ptr<type_mytel> mytel;
 
-        array<pair<string,int>,5> telenor{pair("75",9),pair("76",9),pair("77",9),pair("78",9),pair("79",9)};
-        array<pair<string,int>,3> ooredoo{pair("95",9),pair("96",9),pair("97",9)  };
-        array<pair<string,int>,1> mytel{pair("69",9)};
+        Xlotgative::Number obj_number;
 
 
-        std::map<std::string, pair <string,string>> myanmarNumberKeywords;
+
     public:
+
+        enum class CountryCodeFlag{withCountryCode,noCountryCode,random};
+        enum class PhoneOperator{MPT,Telenor,Ooredoo,Mytel};
+
         PhoneNumber();
-        void convertEnglishNumberToMyanmar(std::string &,string&);
-        string generatePhoneNumber(string&);
+
+
+        ptr_string generateEngPhNum(const CountryCodeFlag countryCodeSwitch);
+       ptr_string getRandomMyanPhNum(const CountryCodeFlag countryCodeSwitch);
 
 
     };

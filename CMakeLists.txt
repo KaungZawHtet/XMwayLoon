@@ -20,6 +20,7 @@ add_library(FakeDataGeneratorLib
         lib/FakeDataGeneration/src/ph_number.cpp
         lib/FakeDataGeneration/src/CSVwriter.cpp
         lib/FakeDataGeneration/src/inserter.cpp
+        lib/FakeDataGeneration/src/number.cpp
         )
 
 
