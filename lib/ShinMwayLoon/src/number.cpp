@@ -52,7 +52,7 @@ XMwayLoon::ptr_string XMwayLoon_Number::convertEngNumToMyan(const std::string &e
 }
 
 
-XMwayLoon::ptr_string XMwayLoon_Number::generateMyanNum( const unsigned long max){
+XMwayLoon::ptr_string XMwayLoon_Number::getRandomMyanNum( const unsigned long max){
 
     boost::random::uniform_int_distribution<> myanNumDistribution(0, 9);
     std::string result="";

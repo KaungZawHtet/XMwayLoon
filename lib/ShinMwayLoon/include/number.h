@@ -17,7 +17,7 @@ namespace Xlotgative::ShinMwayLoon
 
     public:
         Xlotgative::ShinMwayLoon::ptr_string convertEngNumToMyan(const std::string &engNum);
-        Xlotgative::ShinMwayLoon::ptr_string generateMyanNum( const unsigned long max);
+        Xlotgative::ShinMwayLoon::ptr_string getRandomMyanNum( const unsigned long max);
         Number();
 
     };

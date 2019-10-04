@@ -1,10 +1,11 @@
 #include <iostream>
-#include "lib/FakeDataGeneration/include/english_date.h"
-#include "lib/FakeDataGeneration/include/ph_number.h"
-#include "lib/FakeDataGeneration/include/number.h"
-#include "lib/FakeDataGeneration/include/global_objects.h"
+#include "lib/ShinMwayLoon/include/english_date.h"
+#include "lib/ShinMwayLoon/include/ph_number.h"
+#include "lib/ShinMwayLoon/include/number.h"
+#include "lib/ShinMwayLoon/include/global_objects.h"
 //#include "lib/ShinMwayLoon/include/inserter.h"
-#include "lib/FakeDataGeneration/include/retriever.h"
+#include "lib/ShinMwayLoon/include/retriever.h"
+#include "lib/ShinMwayLoon/include/pangram.h"
 #include <sstream>
 #include <thread>
 #include <iostream>
@@ -14,23 +15,26 @@ int main() {
 
       /*
        * IMPORTANT
-       * Xlotgative::ShinMwayLoon::ShinMwayLoonEnglishDate objEnglishDate;
+       * Xlotgative::ShinMwayLoon::ShinMwayLoonEnglishDate obj_EnglishDate;
       Xlotgative::ShinMwayLoon::ptr_string ptr= objEnglishDate.getRandomMyanDate("%d-%Switch-%Y",UNICODE);
       std::cout<<*ptr;*/
 
 
-    /*Xlotgative::ShinMwayLoon::PhoneNumber objPhoneNumber;
+    /*Xlotgative::ShinMwayLoon::PhoneNumber obj_PhoneNumber;
     Xlotgative::ShinMwayLoon::ptr_string ptr=objPhoneNumber.getRandomMyanPhNum(Xlotgative::ShinMwayLoon::PhoneNumber::CountryCodeFlag::random);
     std::cout<<*ptr;*/
 
-    /*Xlotgative::ShinMwayLoon::Number objNumber;
-    Xlotgative::ShinMwayLoon::ptr_string ptr=objNumber.generateMyanNum(2000);
+    /*Xlotgative::ShinMwayLoon::Number obj_Number;
+    Xlotgative::ShinMwayLoon::ptr_string ptr=objNumber.generateMyanNum(30);
     std::cout<<*ptr;*/
 
 
-    unsigned int n = std::thread::hardware_concurrency();
-    std::cout << n << " concurrent threads are supported.\n";
+    /*unsigned int n = std::thread::hardware_concurrency();
+    std::cout << n << " concurrent threads are supported.\n";*/
 
+    /*Xlotgative::ShinMwayLoon::Pangram obj_Pangram;
+    Xlotgative::ShinMwayLoon::ptr_string ptr = obj_Pangram.getPangram(Xlotgative::ShinMwayLoon::Encoding::Zawgyi);
+    std::cout<<*ptr;*/
 
 
 

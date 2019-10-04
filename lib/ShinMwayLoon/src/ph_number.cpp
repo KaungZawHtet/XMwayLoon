@@ -49,6 +49,8 @@ XMwayLoon::ptr_string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag co
         str_cache = std::to_string(cacheNum);
         result += str_cache;
 
+    }
+
 
         switch (operatorDistribution(generatorObject)) {
 
@@ -89,13 +91,10 @@ XMwayLoon::ptr_string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag co
                 if (innerCountryCodeSwitch == 1) result = "+95" + result;
                 break;
 
-
         }
 
 
-        return std::make_unique<std::string>(result);
-
-    }
+    return std::make_unique<std::string>(result);
 }
 
 
