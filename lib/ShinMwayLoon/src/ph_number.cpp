@@ -8,9 +8,9 @@
 #include <stdlib.h>
 #include <regex>
 
+namespace XMwayLoon=Xlotgative::ShinMwayLoon;
 
-
-typedef Xlotgative::ShinMwayLoon::PhoneNumber XMwayLoon_PhoneNumber;
+typedef XMwayLoon::PhoneNumber XMwayLoon_PhoneNumber;
 XMwayLoon_PhoneNumber::PhoneNumber() {
 
 
@@ -29,7 +29,7 @@ XMwayLoon_PhoneNumber::PhoneNumber() {
 }
 
 
-Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
+XMwayLoon::ptr_string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
     boost::random::uniform_int_distribution<> operatorDistribution(1, 4);
     boost::random::uniform_int_distribution<> numDistribution(0, 9);
 
@@ -99,10 +99,10 @@ Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_PhoneNumber::generateEngPhNum(Cou
 }
 
 
-Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_PhoneNumber::getRandomMyanPhNum(const PhoneNumber::CountryCodeFlag countryCodeSwitch) {
+XMwayLoon::ptr_string XMwayLoon_PhoneNumber::getRandomMyanPhNum(const PhoneNumber::CountryCodeFlag countryCodeSwitch) {
 
 
-    Xlotgative::ShinMwayLoon::ptr_string result = PhoneNumber::generateEngPhNum(countryCodeSwitch);
+    XMwayLoon::ptr_string result = PhoneNumber::generateEngPhNum(countryCodeSwitch);
 
     result = this->obj_number.convertEngNumToMyan(*result);
 

@@ -7,7 +7,7 @@
 #include <iostream>
 #include "../include/global_objects.h"
 typedef Xlotgative::ShinMwayLoon::Number XMwayLoon_Number;
-
+namespace XMwayLoon=Xlotgative::ShinMwayLoon;
 XMwayLoon_Number::Number() {
     this->myanNum = std::make_unique<type_myanNum>();
 
@@ -26,7 +26,7 @@ XMwayLoon_Number::Number() {
 
 }
 
-Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
+XMwayLoon::ptr_string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
 
 
     std::string result = "";
@@ -52,7 +52,7 @@ Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_Number::convertEngNumToMyan(const
 }
 
 
-Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_Number::generateMyanNum( const unsigned long max){
+XMwayLoon::ptr_string XMwayLoon_Number::generateMyanNum( const unsigned long max){
 
     boost::random::uniform_int_distribution<> myanNumDistribution(0, 9);
     std::string result="";
@@ -61,7 +61,7 @@ Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_Number::generateMyanNum( const un
 
     for(unsigned long i =0;i < max;i++)
     {
-         cacheNum = myanNumDistribution(Xlotgative::ShinMwayLoon::generatorObject);
+         cacheNum = myanNumDistribution(XMwayLoon::generatorObject);
         index = std::to_string(cacheNum);
         result += this->myanNum->find(index)->second;
     }

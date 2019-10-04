@@ -5,3 +5,7 @@
 #include "../include/pangram.h"
 #include <iostream>
 #include "../include/global_objects.h"
+
+typedef Xlotgative::ShinMwayLoon::Pangram XMwayLoon_Pangram;
+namespace XMwayLoon =  Xlotgative::ShinMwayLoon;
+
