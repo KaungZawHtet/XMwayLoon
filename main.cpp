@@ -3,7 +3,7 @@
 #include "lib/FakeDataGeneration/include/ph_number.h"
 #include "lib/FakeDataGeneration/include/number.h"
 #include "lib/FakeDataGeneration/include/global_objects.h"
-//#include "lib/FakeDataGeneration/include/inserter.h"
+//#include "lib/ShinMwayLoon/include/inserter.h"
 #include "lib/FakeDataGeneration/include/retriever.h"
 #include <sstream>
 #include <thread>
@@ -14,17 +14,17 @@ int main() {
 
       /*
        * IMPORTANT
-       * Xlotgative::EnglishDate objEnglishDate;
-      Xlotgative::ptr_string ptr= objEnglishDate.getRandomMyanDate("%d-%Switch-%Y",UNICODE);
+       * Xlotgative::ShinMwayLoon::ShinMwayLoonEnglishDate objEnglishDate;
+      Xlotgative::ShinMwayLoon::ptr_string ptr= objEnglishDate.getRandomMyanDate("%d-%Switch-%Y",UNICODE);
       std::cout<<*ptr;*/
 
 
-    /*Xlotgative::PhoneNumber objPhoneNumber;
-    Xlotgative::ptr_string ptr=objPhoneNumber.getRandomMyanPhNum(Xlotgative::PhoneNumber::CountryCodeFlag::random);
+    /*Xlotgative::ShinMwayLoon::PhoneNumber objPhoneNumber;
+    Xlotgative::ShinMwayLoon::ptr_string ptr=objPhoneNumber.getRandomMyanPhNum(Xlotgative::ShinMwayLoon::PhoneNumber::CountryCodeFlag::random);
     std::cout<<*ptr;*/
 
-    /*Xlotgative::Number objNumber;
-    Xlotgative::ptr_string ptr=objNumber.generateMyanNum(2000);
+    /*Xlotgative::ShinMwayLoon::Number objNumber;
+    Xlotgative::ShinMwayLoon::ptr_string ptr=objNumber.generateMyanNum(2000);
     std::cout<<*ptr;*/
 
 

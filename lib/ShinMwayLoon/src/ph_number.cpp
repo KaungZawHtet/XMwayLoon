@@ -10,8 +10,8 @@
 
 
 
-typedef Xlotgative::PhoneNumber X_PhoneNumber;
-X_PhoneNumber::PhoneNumber() {
+typedef Xlotgative::ShinMwayLoon::PhoneNumber XMwayLoon_PhoneNumber;
+XMwayLoon_PhoneNumber::PhoneNumber() {
 
 
     this->telenor = std::make_unique<type_telenor>(
@@ -29,7 +29,7 @@ X_PhoneNumber::PhoneNumber() {
 }
 
 
-Xlotgative::ptr_string X_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
+Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
     boost::random::uniform_int_distribution<> operatorDistribution(1, 4);
     boost::random::uniform_int_distribution<> numDistribution(0, 9);
 
@@ -99,10 +99,10 @@ Xlotgative::ptr_string X_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCo
 }
 
 
-Xlotgative::ptr_string X_PhoneNumber::getRandomMyanPhNum(const PhoneNumber::CountryCodeFlag countryCodeSwitch) {
+Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_PhoneNumber::getRandomMyanPhNum(const PhoneNumber::CountryCodeFlag countryCodeSwitch) {
 
 
-    Xlotgative::ptr_string result = PhoneNumber::generateEngPhNum(countryCodeSwitch);
+    Xlotgative::ShinMwayLoon::ptr_string result = PhoneNumber::generateEngPhNum(countryCodeSwitch);
 
     result = this->obj_number.convertEngNumToMyan(*result);
 

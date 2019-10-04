@@ -2,11 +2,11 @@
 // Created by Kaung Zaw Htet on 2019-09-24.
 //
 
-#ifndef FAKEDATAGENERATOR_INSERTER_H
-#define FAKEDATAGENERATOR_INSERTER_H
+#ifndef SHINMWAYLOON_INSERTER_H
+#define SHINMWAYLOON_INSERTER_H
 #include <fstream>
 
-namespace Xlotgative{
+namespace Xlotgative::ShinMwayLoon{
 
 
 class Inserter
@@ -31,4 +31,4 @@ public:
 
 };
 }
-#endif //FAKEDATAGENERATOR_INSERTER_H
+#endif //SHINMWAYLOON_INSERTER_H

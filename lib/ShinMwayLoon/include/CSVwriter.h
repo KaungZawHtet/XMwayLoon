@@ -2,8 +2,8 @@
 // Created by Kaung Zaw Htet on 2019-09-23.
 //
 
-#ifndef FAKEDATAGENERATOR_CSVWRITE_H
-#define FAKEDATAGENERATOR_CSVWRITE_H
+#ifndef SHINMWAYLOON_CSVWRITE_H
+#define SHINMWAYLOON_CSVWRITE_H
 
 #include <iostream>
 #include <fstream>
@@ -18,7 +18,7 @@
  */
 
 
-namespace Xlotgative{
+namespace Xlotgative::ShinMwayLoon{
 
 
 template<typename T>
@@ -44,4 +44,4 @@ public:
 
 
 
-#endif //FAKEDATAGENERATOR_CSVWRITE_H
+#endif //SHINMWAYLOON_CSVWRITE_H

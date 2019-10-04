@@ -6,9 +6,9 @@
 #include <regex>
 #include <iostream>
 #include "../include/global_objects.h"
-typedef Xlotgative::Number X_Number;
+typedef Xlotgative::ShinMwayLoon::Number XMwayLoon_Number;
 
-X_Number::Number() {
+XMwayLoon_Number::Number() {
     this->myanNum = std::make_unique<type_myanNum>();
 
 
@@ -26,7 +26,7 @@ X_Number::Number() {
 
 }
 
-Xlotgative::ptr_string X_Number::convertEngNumToMyan(const std::string &engNum) {
+Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
 
 
     std::string result = "";
@@ -52,7 +52,7 @@ Xlotgative::ptr_string X_Number::convertEngNumToMyan(const std::string &engNum) 
 }
 
 
-Xlotgative::ptr_string X_Number::generateMyanNum( const unsigned long max){
+Xlotgative::ShinMwayLoon::ptr_string XMwayLoon_Number::generateMyanNum( const unsigned long max){
 
     boost::random::uniform_int_distribution<> myanNumDistribution(0, 9);
     std::string result="";
@@ -61,7 +61,7 @@ Xlotgative::ptr_string X_Number::generateMyanNum( const unsigned long max){
 
     for(unsigned long i =0;i < max;i++)
     {
-         cacheNum = myanNumDistribution(Xlotgative::generatorObject);
+         cacheNum = myanNumDistribution(Xlotgative::ShinMwayLoon::generatorObject);
         index = std::to_string(cacheNum);
         result += this->myanNum->find(index)->second;
     }

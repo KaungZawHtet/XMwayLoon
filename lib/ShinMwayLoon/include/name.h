@@ -2,13 +2,13 @@
 // Created by Kaung Zaw Htet on 2019-09-23.
 //
 
-#ifndef FAKEDATAGENERATOR_NAME_H
-#define FAKEDATAGENERATOR_NAME_H
+#ifndef SHINMWAYLOON_NAME_H
+#define SHINMWAYLOON_NAME_H
 
 class Name
 {
 
-    map
+    
 public:
 
 };
@@ -47,4 +47,4 @@ public:
  *
  *
  */
-#endif //FAKEDATAGENERATOR_NAME_H
+#endif //SHINMWAYLOON_NAME_H

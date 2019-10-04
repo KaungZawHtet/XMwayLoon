@@ -2,8 +2,8 @@
 // Created by Kaung Zaw Htet on 2019-09-26.
 //
 
-#ifndef FAKEDATAGENERATOR_RETRIEVER_H
-#define FAKEDATAGENERATOR_RETRIEVER_H
+#ifndef SHINMWAYLOON_RETRIEVER_H
+#define SHINMWAYLOON_RETRIEVER_H
 
 #include <filesystem>
 #include <fstream>
@@ -24,4 +24,4 @@ void retrieveDate()
     }
 }
 
-#endif //FAKEDATAGENERATOR_RETRIEVER_H
+#endif //SHINMWAYLOON_RETRIEVER_H

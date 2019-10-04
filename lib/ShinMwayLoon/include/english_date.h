@@ -2,8 +2,8 @@
 // Created by Kaung Zaw Htet on 2019-09-21.
 //
 
-#ifndef FAKEDATAGENERATOR_ENGLISH_DATE_H
-#define FAKEDATAGENERATOR_ENGLISH_DATE_H
+#ifndef SHINMWAYLOON_ENGLISH_DATE_H
+#define SHINMWAYLOON_ENGLISH_DATE_H
 #include <map>
 #include <string>
 #include <boost/date_time/gregorian/gregorian.hpp>
@@ -23,7 +23,7 @@
 
 
 
-namespace Xlotgative{
+namespace Xlotgative::ShinMwayLoon{
 
     namespace tag {
         struct shortEngMonth;
@@ -72,7 +72,7 @@ namespace Xlotgative{
 
                 >> myanMonthsContainer;
 
-        Xlotgative::Number obj_number;
+        Xlotgative::ShinMwayLoon::Number obj_number;
 
 
         std::unique_ptr<myanMonthsContainer> myanMonths;
@@ -83,11 +83,11 @@ namespace Xlotgative{
     public:
 
         EnglishDate();
-        ptr_string convertCompleteEngMonthToMyan(const std::string &,const std::string &encoding);
-        ptr_string convertShortEngMonthToMyan(const std::string &,const std::string &encoding);
-        ptr_string generateRandomEngDate(const std::string &encoding);
-        ptr_string convertEngDateToMyan(const std::string &engDate, const std::string &encoding);
-        ptr_string getRandomMyanDate(const std::string &format,const std::string &encoding);
+        ptr_string convertCompleteEngMonthToMyan(const std::string &,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        ptr_string convertShortEngMonthToMyan(const std::string &,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        ptr_string generateRandomEngDate(const std::string &format);
+        ptr_string convertEngDateToMyan(const std::string &engDate, const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        ptr_string getRandomMyanDate(const std::string &format,const Xlotgative::ShinMwayLoon::Encoding &encoding);
 
 
 
@@ -112,4 +112,4 @@ namespace Xlotgative{
 
 
 
-#endif //FAKEDATAGENERATOR_ENGLISH_DATE_H
+#endif //SHINMWAYLOON_ENGLISH_DATE_H

@@ -5,7 +5,7 @@
 
 #include "../include/CSVwriter.h"
 
-using namespace Xlotgative;
+using namespace Xlotgative::ShinMwayLoon;
 
 
 /*

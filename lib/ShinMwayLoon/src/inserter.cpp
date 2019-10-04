@@ -12,7 +12,7 @@
 
 
 
-void Xlotgative::Inserter::insertGeneralInfo() {
+void Xlotgative::ShinMwayLoon::Inserter::insertGeneralInfo() {
 
     std::string a;
 
@@ -25,9 +25,9 @@ void Xlotgative::Inserter::insertGeneralInfo() {
 
 }
 
-/*void Xlotgative::Inserter::initializeEnglishDateInfo(){
+/*void Xlotgative::ShinMwayLoon::Inserter::initializeEnglishDateInfo(){
 
-    Xlotgative::EnglishDate objEnglishDate;
+    Xlotgative::ShinMwayLoon::EnglishDate objEnglishDate;
 
     std::string filename = "initial_date.txt";
 

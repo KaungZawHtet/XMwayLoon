@@ -13,14 +13,16 @@ else()
     message(WARNING "The file conanbuildinfo.cmake doesn't exist, you have to run conan install first")
 endif()
 
-#include_directories(lib/FakeDataGeneration/src/english_date.h lib/FakeDataGeneration/src/global_objects.h)
+#include_directories(lib/ShinMwayLoon/src/english_date.h lib/ShinMwayLoon/src/global_objects.h)
 
 add_library(FakeDataGeneratorLib
-        lib/FakeDataGeneration/src/english_date.cpp
-        lib/FakeDataGeneration/src/ph_number.cpp
-        lib/FakeDataGeneration/src/CSVwriter.cpp
-        lib/FakeDataGeneration/src/inserter.cpp
-        lib/FakeDataGeneration/src/number.cpp
+        lib/ShinMwayLoon/src/english_date.cpp
+        lib/ShinMwayLoon/src/ph_number.cpp
+        lib/ShinMwayLoon/src/CSVwriter.cpp
+        lib/ShinMwayLoon/src/inserter.cpp
+        lib/ShinMwayLoon/src/number.cpp
+        lib/ShinMwayLoon/src/name.cpp
+        lib/ShinMwayLoon/src/pangram.cpp
         )
 
 

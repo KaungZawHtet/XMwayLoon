@@ -2,8 +2,8 @@
 // Created by Kaung Zaw Htet on 2019-09-23.
 //
 
-#ifndef FAKEDATAGENERATOR_PH_NUMBER_H
-#define FAKEDATAGENERATOR_PH_NUMBER_H
+#ifndef SHINMWAYLOON_PH_NUMBER_H
+#define SHINMWAYLOON_PH_NUMBER_H
 
 #include "../include/global_objects.h"
 #include <map>
@@ -12,7 +12,7 @@
 #include "../include/number.h"
 
 
-namespace Xlotgative
+namespace Xlotgative::ShinMwayLoon
 {
 
     class PhoneNumber
@@ -33,7 +33,7 @@ namespace Xlotgative
         std::unique_ptr<type_ooredoo> ooredoo;
         std::unique_ptr<type_mytel> mytel;
 
-        Xlotgative::Number obj_number;
+        Xlotgative::ShinMwayLoon::Number obj_number;
 
 
 
@@ -56,4 +56,4 @@ namespace Xlotgative
 
 
 
-#endif //FAKEDATAGENERATOR_PH_NUMBER_H
+#endif //SHINMWAYLOON_PH_NUMBER_H
