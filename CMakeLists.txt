@@ -15,6 +15,8 @@ endif()
 
 #include_directories(lib/ShinMwayLoon/src/english_date.h lib/ShinMwayLoon/src/global_objects.h)
 
+
+add_subdirectory(lib/googletest)
 add_library(FakeDataGeneratorLib
         lib/ShinMwayLoon/src/english_date.cpp
         lib/ShinMwayLoon/src/ph_number.cpp
