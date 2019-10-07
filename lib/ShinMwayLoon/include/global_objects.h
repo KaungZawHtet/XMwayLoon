@@ -20,6 +20,29 @@ static boost::random::mt19937 generatorObject(static_cast<unsigned int>(time(0))
 
 
 
+    template <typename T>
+   void decideEncoding(T &first,T &second,T &result,Encoding &encoding)
+    {
+        if(encoding==Encoding::Unicode){
+            result= first;
+
+        } else if(encoding==Encoding::Zawgyi){
+            result= second;
+
+        } else
+        {
+            boost::random::uniform_int_distribution<> encodingDistribution(1, 2);
+            int encoding = encodingDistribution(generatorObject);
+            if (encoding == 1) {
+                result= first;
+            } else {
+                result= second;
+            }
+        }
+    }
+
+
+
 };
 
 

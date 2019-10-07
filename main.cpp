@@ -33,7 +33,7 @@ int main() {
     std::cout << n << " concurrent threads are supported.\n";*/
 
     /*Xlotgative::ShinMwayLoon::Pangram obj_Pangram;
-    Xlotgative::ShinMwayLoon::ptr_string ptr = obj_Pangram.getPangram(Xlotgative::ShinMwayLoon::Encoding::Zawgyi);
+    Xlotgative::ShinMwayLoon::ptr_string ptr = obj_Pangram.getPangram(Xlotgative::ShinMwayLoon::Encoding::Random);
     std::cout<<*ptr;*/
 
 
