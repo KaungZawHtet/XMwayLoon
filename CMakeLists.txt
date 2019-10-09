@@ -16,7 +16,13 @@ endif()
 #include_directories(lib/ShinMwayLoon/src/english_date.h lib/ShinMwayLoon/src/global_objects.h)
 
 
+
+#TODO:: gtest's subdirectory condition
 add_subdirectory(lib/googletest)
+enable_testing()
+add_subdirectory(test)
+
+
 add_library(FakeDataGeneratorLib
         lib/ShinMwayLoon/src/english_date.cpp
         lib/ShinMwayLoon/src/ph_number.cpp
@@ -26,8 +32,5 @@ add_library(FakeDataGeneratorLib
         lib/ShinMwayLoon/src/name.cpp
         lib/ShinMwayLoon/src/pangram.cpp
         )
-
-
 add_executable(Executable main.cpp)
-
 target_link_libraries(Executable FakeDataGeneratorLib)
