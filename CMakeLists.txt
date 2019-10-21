@@ -17,10 +17,12 @@ endif()
 
 
 
-#TODO:: gtest's subdirectory condition
+#TODO:: gtest's subdirectory condition for other contributors
 add_subdirectory(lib/googletest)
 enable_testing()
 add_subdirectory(test)
+
+add_subdirectory(benchmark)
 
 
 add_library(FakeDataGeneratorLib

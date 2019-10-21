@@ -1,5 +1,6 @@
 [requires]
 boost/1.71.0@conan/stable
+google-benchmark/1.4.1@mpusz/stable
 
 [generators]
 cmake
