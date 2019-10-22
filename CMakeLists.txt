@@ -18,14 +18,15 @@ endif()
 
 
 #TODO:: gtest's subdirectory condition for other contributors
-add_subdirectory(lib/googletest)
+add_subdirectory(vendor/benchmark/googletest)
 enable_testing()
 add_subdirectory(test)
 
+add_subdirectory(vendor/benchmark)
 add_subdirectory(benchmark)
 
 
-add_library(FakeDataGeneratorLib
+add_library(ShinMwayLoon
         lib/ShinMwayLoon/src/english_date.cpp
         lib/ShinMwayLoon/src/ph_number.cpp
         lib/ShinMwayLoon/src/CSVwriter.cpp
@@ -34,5 +35,8 @@ add_library(FakeDataGeneratorLib
         lib/ShinMwayLoon/src/name.cpp
         lib/ShinMwayLoon/src/pangram.cpp
         )
+target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
+
+
 add_executable(Executable main.cpp)
-target_link_libraries(Executable FakeDataGeneratorLib)
+target_link_libraries(Executable ShinMwayLoon)

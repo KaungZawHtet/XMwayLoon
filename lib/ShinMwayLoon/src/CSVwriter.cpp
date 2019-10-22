@@ -13,8 +13,8 @@ using namespace Xlotgative::ShinMwayLoon;
  * to the last row, seperated by delimeter (Default is comma)
  */
 
-
+/*
 template<typename T>
 void CSVwriter<T>::addDatainRow(T first, T last) {
 
-}
+}*/

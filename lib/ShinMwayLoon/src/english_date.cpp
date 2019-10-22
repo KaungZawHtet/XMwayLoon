@@ -78,7 +78,7 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertEngDateToMyan(const std::str
 
     //return std::make_unique<std::string>(tempEngMonth) ;
 
-    std::cout<<std::endl<<(*tempEngMonth).size()<<std::endl;
+   // std::cout<<std::endl<<(*tempEngMonth).size()<<std::endl;
 
     if((*tempEngMonth).size()==3)
         tempMyanMonth= XMwayLoon_EnglishDate::convertShortEngMonthToMyan((*tempEngMonth),encoding);

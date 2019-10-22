@@ -10,10 +10,15 @@
 #include <thread>
 #include <iostream>
 #include <boost/date_time/gregorian/gregorian.hpp>
-#include <benchmark/benchmark.h>
+
+
+
+
 int main() {
 
-
+    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
+    Xlotgative::ShinMwayLoon::ptr_string ptr= obj_EnglishDate.getRandomMyanDate("%d-%B-%Y",Xlotgative::ShinMwayLoon::Encoding::Random);
+    std::cout<<*ptr;
 
       /*
        * IMPORTANT

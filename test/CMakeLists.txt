@@ -2,21 +2,20 @@
 cmake_minimum_required(VERSION 3.12)
 
 #TODO: consider this
-set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
+#set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/test)
 
 
 add_executable(NumberTest number_test.cpp)
 add_executable(PhNumTest ph_num_test.cpp)
+add_executable(EnglishDateTest english_date_test.cpp)
 
-target_link_libraries(NumberTest gtest_main)
-target_link_libraries(PhNumTest gtest_main)
+target_link_libraries(NumberTest gtest_main ShinMwayLoon)
+target_link_libraries(PhNumTest gtest_main ShinMwayLoon)
+target_link_libraries(EnglishDateTest gtest_main ShinMwayLoon)
 
-#[[
 add_test(Name NumberTest
-        COMMAND NumberTest
-
-        )
+        COMMAND NumberTest)
 add_test(Name PhNumTest
-        COMMAND PhNumTest
-
-        )]]
+        COMMAND PhNumTest)
+add_test(Name EnglishDateTest
+        COMMAND EnglishDateTest)
