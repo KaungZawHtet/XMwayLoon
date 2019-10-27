@@ -6,6 +6,8 @@
 #include <iostream>
 #include "../lib/ShinMwayLoon/include/english_date.h"
 
+
+
 TEST(EnglishDateTest,myanmarDateGeneration){
 
     Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
@@ -14,5 +16,16 @@ TEST(EnglishDateTest,myanmarDateGeneration){
 
     std::cerr<< *ptr <<std::endl;
   //  EXPECT_TRUE(true);
+
+}
+
+TEST(EnglishDateTest,generateRandomEngDate){
+
+    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
+    Xlotgative::ShinMwayLoon::ptr_string ptr= obj_EnglishDate.generateRandomEngDate("%d-%B-%Y");
+
+
+    std::cerr<< *ptr <<std::endl;
+    //  EXPECT_TRUE(true);
 
 }

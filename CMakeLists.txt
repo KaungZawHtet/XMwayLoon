@@ -35,7 +35,7 @@ add_library(ShinMwayLoon
         lib/ShinMwayLoon/src/name.cpp
         lib/ShinMwayLoon/src/pangram.cpp
         )
-target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
+#target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
 
 
 add_executable(Executable main.cpp)

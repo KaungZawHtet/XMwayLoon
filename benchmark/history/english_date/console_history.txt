@@ -1,0 +1,42 @@
+Default:
+
+2019-10-27 04:17:06
+Running /Users/kaungzawhtet/ClionProjects/FakeDataGenerator/cmake-build-debug/bin/date_benchmark
+Run on (8 X 2000 MHz CPU s)
+CPU Caches:
+  L1 Data 32K (x4)
+  L1 Instruction 32K (x4)
+  L2 Unified 262K (x4)
+  L3 Unified 6291K (x1)
+Load Average: 3.35, 2.80, 2.59
+***WARNING*** Library was built as DEBUG. Timings may be affected.
+---------------------------------------------------------------------------
+Benchmark                                 Time             CPU   Iterations
+---------------------------------------------------------------------------
+create_BM                             47543 ns        46534 ns        15597
+convertEngDateToMyan_BM              168935 ns       164107 ns         4390
+convertCompleteEngMonthToMyan_BM       1256 ns         1255 ns       546713
+convertShortEngMonthToMyan_BM          1252 ns         1250 ns       558659
+
+=========================================
+O3 Optimization:
+
+2019-10-27 04:21:16
+Running /Users/kaungzawhtet/ClionProjects/FakeDataGenerator/cmake-build-debug/bin/date_benchmark
+Run on (8 X 2000 MHz CPU s)
+CPU Caches:
+  L1 Data 32K (x4)
+  L1 Instruction 32K (x4)
+  L2 Unified 262K (x4)
+  L3 Unified 6291K (x1)
+Load Average: 4.28, 3.26, 2.80
+***WARNING*** Library was built as DEBUG. Timings may be affected.
+---------------------------------------------------------------------------
+Benchmark                                 Time             CPU   Iterations
+---------------------------------------------------------------------------
+create_BM                             54637 ns        53816 ns        10000
+convertEngDateToMyan_BM              166179 ns       165776 ns         3878
+convertCompleteEngMonthToMyan_BM       1277 ns         1273 ns       563948
+convertShortEngMonthToMyan_BM          1239 ns         1235 ns       541465
+
+
