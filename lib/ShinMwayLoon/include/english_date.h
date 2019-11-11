@@ -32,8 +32,6 @@ namespace Xlotgative::ShinMwayLoon{
         struct zawgyiMyanMonth;
     }
 
-
-
     class EnglishDate{
 
         typedef std::map<std::pair <std::string,std::string>, std::pair <std::string,std::string>> type_englishMonths;
@@ -43,12 +41,10 @@ namespace Xlotgative::ShinMwayLoon{
 
         struct Month
         {
-
-
-            std::string shortEngMonth;
-            std::string completeEngMonth;
-            std::string unicodeMyanMonth;
-            std::string zawgyiMyanMonth;
+             std::string shortEngMonth;
+             std::string completeEngMonth;
+             std::string unicodeMyanMonth;
+             std::string zawgyiMyanMonth;
 
             Month(std::string tempshortEngMonth,std::string tempCompleteEngMonth,
                   std::string tempUnicodeMyanMonth, std::string tempZawgyiMyanMonth)
@@ -75,14 +71,30 @@ namespace Xlotgative::ShinMwayLoon{
         Xlotgative::ShinMwayLoon::Number obj_number;
 
 
-        std::unique_ptr<myanMonthsContainer> myanMonths;
+
+
+        const myanMonthsContainer myanMonths{
+                Month("Jan", "January", "ဇန်နဝါရီ", "ဇန္နဝါရီ"),
+                Month("Feb", "February", "ဖေဖော်ဝါရီ", "ေဖေဖာ္ဝါရီ"),
+                Month("Mar", "March", "မတ်", "မတ္"),
+                Month("Apr", "April", "ဧပရယ်", "ဧပရယ္"),
+                Month("May", "May", "မေ", "ေမ"),
+                Month("Jun", "June", "ဇွန်", "ဇြန္"),
+                Month("Jul", "July", "ဇူလိုင်", "ဇူလိုင္"),
+                Month("Aug", "August", "ဩဂုတ်", "ဩဂုတ္"),
+                Month("Sept", "September", "စက်တင်ဘာ", "စက္တင္ဘာ"),
+                Month("Oct", "October", "အောက်တိုဘာ", "ေအာက္တိုဘာ"),
+                Month("Nov", "November", "နိုဝင်ဘာ", "ႏိုဝင္ဘာ"),
+                Month("Dec", "December", "ဒီဇင်ဘာ", "ဒီဇင္ဘာ")
+
+        };
+        
         std::unique_ptr<type_englishMonths> englishMonths;
-    //    std::unique_ptr<type_myanNum> myanNum;
-//        std::map<std::string, pair <string,string>> myanDateKeywords;
+
 
     public:
 
-        EnglishDate();
+        EnglishDate()= default;
         ptr_string convertCompleteEngMonthToMyan(const std::string &,const Xlotgative::ShinMwayLoon::Encoding &encoding);
         ptr_string convertShortEngMonthToMyan(const std::string &,const Xlotgative::ShinMwayLoon::Encoding &encoding);
         ptr_string generateRandomEngDate(const std::string &format);

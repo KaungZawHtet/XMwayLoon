@@ -29,3 +29,25 @@ TEST(EnglishDateTest,generateRandomEngDate){
     //  EXPECT_TRUE(true);
 
 }
+
+TEST(EnglishDateTest,convertShortEngMonthToMyan){
+
+    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
+    Xlotgative::ShinMwayLoon::ptr_string ptr= obj_EnglishDate.convertShortEngMonthToMyan("Jan",Xlotgative::ShinMwayLoon::Encoding::Random);
+    std::cerr<< *ptr <<std::endl;
+
+}
+TEST(EnglishDateTest,convertCompleteEngMonthToMyan){
+
+    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
+    Xlotgative::ShinMwayLoon::ptr_string ptr= obj_EnglishDate.convertCompleteEngMonthToMyan("January",Xlotgative::ShinMwayLoon::Encoding::Random);
+    std::cerr<< *ptr <<std::endl;
+
+}
+
+TEST(EnglishDateTest,create){
+
+    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
+    //  EXPECT_TRUE(true);
+
+}
