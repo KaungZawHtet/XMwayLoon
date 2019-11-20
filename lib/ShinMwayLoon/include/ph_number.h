@@ -45,8 +45,8 @@ namespace Xlotgative::ShinMwayLoon
         PhoneNumber();
 
 
-        ptr_string generateEngPhNum(const CountryCodeFlag countryCodeSwitch);
-       ptr_string getRandomMyanPhNum(const CountryCodeFlag countryCodeSwitch);
+        std::string generateEngPhNum(const CountryCodeFlag countryCodeSwitch);
+        std::string getRandomMyanPhNum(const CountryCodeFlag countryCodeSwitch);
 
 
     };

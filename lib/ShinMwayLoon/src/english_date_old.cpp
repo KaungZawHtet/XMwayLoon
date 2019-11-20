@@ -2,19 +2,13 @@
 // Created by Kaung Zaw Htet on 2019-09-21.
 //
 
-#include "../include/english_date.h"
-#include "../include/global_objects.h"
+#include "../include/english_date_old.h"
 #include <map>
-#include <string>
 #include <iterator>
 #include <iostream>
 #include <boost/date_time/gregorian/gregorian.hpp>
-#include <boost/random/mersenne_twister.hpp>
 #include <boost/random/uniform_int_distribution.hpp>
 #include <boost/date_time.hpp>
-#include <fstream>
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
 #include <regex>
 
 typedef Xlotgative::ShinMwayLoon::EnglishDate XMwayLoon_EnglishDate;
@@ -58,8 +52,10 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertEngDateToMyan(const std::str
     else
         tempMyanMonth= XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan((*tempEngMonth),encoding);
 
-    tempMyanDay=obj_number.convertEngNumToMyan(*tempEngDay);
-    tempMyanYear=obj_number.convertEngNumToMyan(*tempEngYear);
+
+    //API is broken here
+    *tempMyanDay="Myanmar";
+    *tempMyanYear="Myanmar";
 
 
     boost::replace_all(*result,*tempEngMonth, *tempMyanMonth);
@@ -68,19 +64,11 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertEngDateToMyan(const std::str
 
    // std::cout<<std::endl<<"Result : "<<(*result)<<std::endl;
 
-
-
-
-
     return result;
-
-
 }
 
 XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan(const std::string &engMonth,const XMwayLoon::Encoding &encoding) {
     std::string result;
-
-
 
     if (encoding == XMwayLoon::Encoding::Unicode) {
       //  cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;

@@ -84,12 +84,39 @@ static void BM_MoveUnique(benchmark::State& state) {
     for (auto _ : state)
     {
       std::unique_ptr<vecStr> receiver = moveUniquePtr();
-
     }
-
 }
-
 BENCHMARK(BM_MoveUnique);
+
+
+
+
+void passValue(const std::string name){}
+static void BM_PASSVALUE(benchmark::State& state) {
+
+    for (auto _ : state)
+    {
+        passValue("Kaung");
+    }
+}
+BENCHMARK(BM_PASSVALUE);
+
+
+
+
+
+void passRef(std::string &name){}
+static void BM_PASSREF(benchmark::State& state) {
+
+    for (auto _ : state)
+    {
+        std::string name {"Kaung"};
+        passRef(name);
+    }
+}
+BENCHMARK(BM_PASSREF);
+
+
 
 
 

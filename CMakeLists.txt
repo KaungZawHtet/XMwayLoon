@@ -25,18 +25,19 @@ add_subdirectory(test)
 add_subdirectory(vendor/benchmark)
 add_subdirectory(benchmark)
 
+file(GLOB parallel_hashmap_files
+        "vendor/parallel_hashmap/*.h")
+add_library(parallel_hashmap INTERFACE)
+target_include_directories(parallel_hashmap INTERFACE ${parallel_hashmap_files})
 
+
+
+file(GLOB XMwayloon
+        "lib/ShinMwayLoon/src/*.cpp")
 add_library(ShinMwayLoon
-        lib/ShinMwayLoon/src/english_date.cpp
-        lib/ShinMwayLoon/src/ph_number.cpp
-        lib/ShinMwayLoon/src/CSVwriter.cpp
-        lib/ShinMwayLoon/src/inserter.cpp
-        lib/ShinMwayLoon/src/number.cpp
-        lib/ShinMwayLoon/src/name.cpp
-        lib/ShinMwayLoon/src/pangram.cpp
-        )
+        ${XMwayloon})
 #target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
 
 
 add_executable(Executable main.cpp)
-target_link_libraries(Executable ShinMwayLoon)
+target_link_libraries(Executable ShinMwayLoon parallel_hashmap)

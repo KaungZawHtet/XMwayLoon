@@ -26,7 +26,7 @@ XMwayLoon_Number::Number() {
 
 }
 
-XMwayLoon::ptr_string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
+std::string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
 
 
     std::string result = "";
@@ -47,12 +47,12 @@ XMwayLoon::ptr_string XMwayLoon_Number::convertEngNumToMyan(const std::string &e
     });
 
 
-    return std::make_unique<std::string>(result);
+    return result;
 
 }
 
 
-XMwayLoon::ptr_string XMwayLoon_Number::getRandomMyanNum( const unsigned long max){
+std::string XMwayLoon_Number::getRandomMyanNum( const unsigned long max){
 
     boost::random::uniform_int_distribution<> myanNumDistribution(0, 9);
     std::string result="";
@@ -65,7 +65,7 @@ XMwayLoon::ptr_string XMwayLoon_Number::getRandomMyanNum( const unsigned long ma
         index = std::to_string(cacheNum);
         result += this->myanNum->find(index)->second;
     }
-    return std::make_unique<std::string>(result);
+    return result;
 
 }
 

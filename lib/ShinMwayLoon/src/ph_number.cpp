@@ -29,7 +29,7 @@ XMwayLoon_PhoneNumber::PhoneNumber() {
 }
 
 
-XMwayLoon::ptr_string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
+std::string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
     boost::random::uniform_int_distribution<> operatorDistribution(1, 4);
     boost::random::uniform_int_distribution<> numDistribution(0, 9);
 
@@ -94,16 +94,16 @@ XMwayLoon::ptr_string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag co
         }
 
 
-    return std::make_unique<std::string>(result);
+    return result;
 }
 
 
-XMwayLoon::ptr_string XMwayLoon_PhoneNumber::getRandomMyanPhNum(const PhoneNumber::CountryCodeFlag countryCodeSwitch) {
+std::string XMwayLoon_PhoneNumber::getRandomMyanPhNum(const PhoneNumber::CountryCodeFlag countryCodeSwitch) {
 
 
-    XMwayLoon::ptr_string result = PhoneNumber::generateEngPhNum(countryCodeSwitch);
+    std::string result = PhoneNumber::generateEngPhNum(countryCodeSwitch);
 
-    result = this->obj_number.convertEngNumToMyan(*result);
+    result = this->obj_number.convertEngNumToMyan(result);
 
     return result;
 
