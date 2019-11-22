@@ -12,13 +12,19 @@ namespace Xlotgative::ShinMwayLoon
 {
     class Number
     {
-        typedef std::map<std::string, std::string> type_myanNum;
-        std::unique_ptr<type_myanNum> myanNum;
+      //  typedef std::map<std::string, std::string> type_myanNum;
+      //  std::string myanNum[10]{"၀","၁","၂","၃","၄","၅","၆","၇","၈","၉" } ;
+
 
     public:
+        enum class Sign{
+            Positive=1,Negative=2,Random=3
+        };
+
         std::string convertEngNumToMyan(const std::string &engNum);
-        std::string getRandomMyanNum( const unsigned long max);
-        Number();
+        std::string getRandomMyanNum
+        (  const unsigned long long min,const unsigned long long max,Sign isMinus);
+        std::string convertSingleEngDigitToMyan(char);
 
     };
 }

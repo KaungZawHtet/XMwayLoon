@@ -25,6 +25,9 @@ add_subdirectory(test)
 add_subdirectory(vendor/benchmark)
 add_subdirectory(benchmark)
 
+add_subdirectory(vendor/abseil)
+
+
 file(GLOB parallel_hashmap_files
         "vendor/parallel_hashmap/*.h")
 add_library(parallel_hashmap INTERFACE)
@@ -40,4 +43,4 @@ add_library(ShinMwayLoon
 
 
 add_executable(Executable main.cpp)
-target_link_libraries(Executable ShinMwayLoon parallel_hashmap)
+target_link_libraries(Executable ShinMwayLoon absl)

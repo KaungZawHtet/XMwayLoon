@@ -3,28 +3,10 @@
 //
 
 #include "../include/number.h"
-#include <regex>
-#include <iostream>
-#include "../include/global_objects.h"
+#include <string>
 typedef Xlotgative::ShinMwayLoon::Number XMwayLoon_Number;
 namespace XMwayLoon=Xlotgative::ShinMwayLoon;
-XMwayLoon_Number::Number() {
-    this->myanNum = std::make_unique<type_myanNum>();
 
-
-    this->myanNum->operator[]("0") = "၀";
-    this->myanNum->operator[]("1") = "၁";
-    this->myanNum->operator[]("2") = "၂";
-    this->myanNum->operator[]("3") = "၃";
-    this->myanNum->operator[]("4") = "၄";
-    this->myanNum->operator[]("5") = "၅";
-    this->myanNum->operator[]("6") = "၆";
-    this->myanNum->operator[]("7") = "၇";
-    this->myanNum->operator[]("8") = "၈";
-    this->myanNum->operator[]("9") = "၉";
-
-
-}
 
 std::string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
 
@@ -34,7 +16,11 @@ std::string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
     std::for_each(engNum.begin(), engNum.end(), [this, &result](auto &engChar) {
 
 
-        std::regex numRegex("[0-9]{1,2}");
+
+      //  std::cout<<std::endl<< typeid(engChar).name()  <<std::endl;
+        result+= this->convertSingleEngDigitToMyan(engChar);
+
+       /* std::regex numRegex("[0-9]{1,2}");
         std::string str_Cache;
         str_Cache.push_back(engChar);
 
@@ -43,7 +29,7 @@ std::string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
         auto iterator = this->myanNum->find(str_Cache);
         result += iterator->second;
     } else result +=str_Cache;
-
+*/
     });
 
 
@@ -52,21 +38,53 @@ std::string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
 }
 
 
-std::string XMwayLoon_Number::getRandomMyanNum( const unsigned long max){
+std::string XMwayLoon_Number::getRandomMyanNum
+( const unsigned long long min, const unsigned long long max,XMwayLoon_Number::Sign isMinus){
 
-    boost::random::uniform_int_distribution<> myanNumDistribution(0, 9);
-    std::string result="";
-    int cacheNum;
-    std::string index;
+    boost::random::uniform_int_distribution<unsigned long long> myanNumDistribution(min, max);
+    unsigned long long randomNum= myanNumDistribution(XMwayLoon::generatorObject);
 
-    for(unsigned long i =0;i < max;i++)
+
+    switch (isMinus)
     {
-         cacheNum = myanNumDistribution(XMwayLoon::generatorObject);
+        case XMwayLoon_Number::Sign::Positive:
+            return this->convertEngNumToMyan(std::to_string(randomNum));
+
+        case XMwayLoon_Number::Sign::Negative:
+            return "-"+this->convertEngNumToMyan(std::to_string(randomNum));
+        default:
+            if(randomNum%2)  return this->convertEngNumToMyan(std::to_string(randomNum));
+            else  return "-"+this->convertEngNumToMyan(std::to_string(randomNum));
+
+    }
+
+
+   /* for(unsigned long i =0;i < max;i++)
+    {
+         cacheNum
         index = std::to_string(cacheNum);
         result += this->myanNum->find(index)->second;
-    }
-    return result;
+    }*/
+
 
 }
 
+std::string XMwayLoon_Number::convertSingleEngDigitToMyan(char engNum)
+{
+    switch (engNum)
+    {
+
+        case '1': return "၁";
+        case '2': return "၂";
+        case '3': return "၃";
+        case '4': return "၄";
+        case '5': return "၅";
+        case '6': return "၆";
+        case '7': return "၇";
+        case '8': return "၈";
+        case '9': return "၉";
+        default : return "၀";
+    }
+
+}
 

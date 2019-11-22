@@ -12,48 +12,40 @@
 #include "../include/number.h"
 
 
-namespace Xlotgative::ShinMwayLoon
-{
+namespace Xlotgative::ShinMwayLoon {
 
-    class PhoneNumber
-    {
+    class PhoneNumber {
 
         typedef std::map<std::string, std::string> type_myanNum;
-        typedef std::array<std::pair<std::string,int>,5> type_telenor;
-        typedef std::array<std::pair<std::string,int>,3> type_ooredoo;
-        typedef std::array<std::pair<std::string,int>,1> type_mytel;
-        typedef std::array<std::pair<std::string,int>,10> type_mpt;
+        std::array<std::pair<std::string, int>, 5> telenor
+                {std::pair("75", 9), std::pair("76", 9), std::pair("77", 9),
+                 std::pair("78", 9), std::pair("79", 9)};
+        std::array<std::pair<std::string, int>, 3> ooredoo
+                {std::pair("95", 9), std::pair("96", 9), std::pair("97", 9)};
+        std::array<std::pair<std::string, int>, 1> mytel{std::pair("69", 9)};
+        std::array<std::pair<std::string, int>, 10> mpt{std::pair("98", 9), std::pair("99", 9),
+                                                             std::pair("76", 9), std::pair("76", 9),
+                                                             std::pair("40", 9), std::pair("42", 9),
+                                                             std::pair("44", 9), std::pair("45", 9),
+                                                             std::pair("46", 9), std::pair("48", 9)};
 
-        //prefix and length. In prefix, 09 is not included
-        std::unique_ptr<type_mpt> mpt;
 
 
-
-        std::unique_ptr<type_telenor> telenor;
-        std::unique_ptr<type_ooredoo> ooredoo;
-        std::unique_ptr<type_mytel> mytel;
 
         Xlotgative::ShinMwayLoon::Number obj_number;
 
 
-
     public:
 
-        enum class CountryCodeFlag{withCountryCode,noCountryCode,random};
-        enum class PhoneOperator{MPT,Telenor,Ooredoo,Mytel};
-
-        PhoneNumber();
-
-
+        enum class CountryCodeFlag {
+            withCountryCode, noCountryCode, random
+        };
+        enum class PhoneOperator {
+            MPT, Telenor, Ooredoo, Mytel
+        };
         std::string generateEngPhNum(const CountryCodeFlag countryCodeSwitch);
         std::string getRandomMyanPhNum(const CountryCodeFlag countryCodeSwitch);
-
-
     };
-
-
 };
-
-
 
 #endif //SHINMWAYLOON_PH_NUMBER_H

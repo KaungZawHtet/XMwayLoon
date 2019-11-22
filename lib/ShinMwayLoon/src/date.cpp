@@ -18,9 +18,8 @@ std::string XMwayLoon_Date::convertCompleteEngMonthToMyan
             case XMwayLoon::Encoding::Zawgyi:
                 return this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
             default :
-                boost::random::uniform_int_distribution<> encodingDistribution(1, 2);
-                int encoding = encodingDistribution(generatorObject);
-                if (encoding == 1) {
+                boost::random::uniform_int_distribution<> encodingDistribution(0, 1);
+                if (encodingDistribution(generatorObject)) {
                     // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                     return this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                 } else {

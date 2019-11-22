@@ -7,13 +7,16 @@
 #include "../lib/ShinMwayLoon/include/ph_number.h"
 
 
-TEST(NumberTest,NumberTest1){
-    std::cerr<<"This is number test 1"<<std::endl;
-    EXPECT_TRUE(true);
+TEST(NumberTest,convertEngNumToMyan){
 
+    Xlotgative::ShinMwayLoon::Number obj_Number;
+    std::string myanNum =obj_Number.convertEngNumToMyan("645875423486");
+    std::cerr<<myanNum<<std::endl;
 }
 
-TEST(NumberTest,NumberTest2){
-    EXPECT_TRUE(false);
-    std::cerr<<"This is number test 2"<<std::endl;
+TEST(NumberTest,getRandomMyanNum){
+    Xlotgative::ShinMwayLoon::Number obj_Number;
+    std::string myanNum =obj_Number.getRandomMyanNum(4345364,78322424,Xlotgative::ShinMwayLoon::Number::Sign::Random);
+    std::cerr<<myanNum<<std::endl;
+
 }

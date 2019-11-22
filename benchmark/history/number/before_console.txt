@@ -1,0 +1,39 @@
+Optimization 03:
+
+2019-11-21 08:02:33
+Running /Users/kaungzawhtet/ClionProjects/FakeDataGenerator/cmake-build-debug/bin/number_benchmark
+Run on (8 X 2000 MHz CPU s)
+CPU Caches:
+  L1 Data 32K (x4)
+  L1 Instruction 32K (x4)
+  L2 Unified 262K (x4)
+  L3 Unified 6291K (x1)
+Load Average: 2.48, 2.96, 2.92
+***WARNING*** Library was built as DEBUG. Timings may be affected.
+-----------------------------------------------------
+Benchmark           Time             CPU   Iterations
+-----------------------------------------------------
+create_BM       13624 ns        13559 ns        50354
+
+Process finished with exit code 0
+
+---------------------------------------------------------------------------------------------------------------
+
+default:
+
+2019-11-21 08:04:48
+Running /Users/kaungzawhtet/ClionProjects/FakeDataGenerator/cmake-build-debug/bin/number_benchmark
+Run on (8 X 2000 MHz CPU s)
+CPU Caches:
+  L1 Data 32K (x4)
+  L1 Instruction 32K (x4)
+  L2 Unified 262K (x4)
+  L3 Unified 6291K (x1)
+Load Average: 2.70, 2.81, 2.86
+***WARNING*** Library was built as DEBUG. Timings may be affected.
+-----------------------------------------------------
+Benchmark           Time             CPU   Iterations
+-----------------------------------------------------
+create_BM       13604 ns        13548 ns        48803
+
+Process finished with exit code 0
