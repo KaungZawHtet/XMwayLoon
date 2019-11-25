@@ -7,18 +7,25 @@
 #include "../lib/ShinMwayLoon/include/ph_number.h"
 
 
+typedef Xlotgative::ShinMwayLoon::Number XMwayLoon_Number;
+
 TEST(NumberTest,convertEngNumToMyan){
 
-    Xlotgative::ShinMwayLoon::Number obj_Number;
-    std::string myanNum =obj_Number.convertEngNumToMyan("645875423486");
+    XMwayLoon_Number objNumber(XMwayLoon_Number::Sign::Negative ,XMwayLoon_Number::System::Fraction
+            //,"Pre","MMK"
+                               );
+    std::string myanNum =objNumber.convertEngNumToMyan("645875423486");
     std::cerr<<myanNum<<std::endl;
 }
 
 TEST(NumberTest,getRandomMyanNum){
-    Xlotgative::ShinMwayLoon::Number obj_Number;
+    Xlotgative::ShinMwayLoon::Number objNumber
+    (XMwayLoon_Number::Sign::Random ,XMwayLoon_Number::System ::Fraction
+            ,"F"
+            );
 
     for (int i = 0; i < 100 ; ++i) {
-        std::string myanNum =obj_Number.getRandomMyanNum(4345364,78322424,Xlotgative::ShinMwayLoon::Number::Sign::Random);
+        std::string myanNum =objNumber.getRandomMyanNum(4345364,78322424);
         std::cerr<<myanNum<<std::endl;
     }
     

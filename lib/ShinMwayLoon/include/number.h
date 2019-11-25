@@ -17,17 +17,32 @@ namespace Xlotgative::ShinMwayLoon
 
     private:
         std::random_device objRandomDevice;
+        void addFracNSignToNumberSequence();
+        std::string myanNumSequence{};
+        std::string engNumSequence{};
+        std::string prefix{},postfix{};
 
     public:
         enum class Sign{
             Positive=1,Negative=2,Random=3
         };
 
+        enum class System{
+            Integer=1,Fraction=2,Random=3
+        };
+
+        Sign isSigned;
+        System isFraction;
+        Number(Sign tempIsSigned,System tempIsFraction,std::string tempPrefix="",std::string tempPostfix="")
+        : isSigned(std::move(tempIsSigned)) , isFraction(std::move(tempIsFraction)),
+          prefix(std::move(tempPrefix)) , postfix(std::move(tempPostfix))
+        {}
 
         std::string convertEngNumToMyan(const std::string &engNum);
         std::string getRandomMyanNum
-        (  const unsigned long long min,const unsigned long long max,Sign isMinus);
-        std::string convertSingleEngDigitToMyan(char);
+        (  const unsigned long long min,const unsigned long long max);
+        static std::string convertSingleEngDigitToMyan(char);
+
 
     };
 }
