@@ -17,6 +17,9 @@ namespace Xlotgative::ShinMwayLoon {
     class PhoneNumber {
 
         typedef std::map<std::string, std::string> type_myanNum;
+
+
+    private:
         std::array<std::pair<std::string, int>, 5> telenor
                 {std::pair("75", 9), std::pair("76", 9), std::pair("77", 9),
                  std::pair("78", 9), std::pair("79", 9)};
@@ -28,11 +31,8 @@ namespace Xlotgative::ShinMwayLoon {
                                                              std::pair("40", 9), std::pair("42", 9),
                                                              std::pair("44", 9), std::pair("45", 9),
                                                              std::pair("46", 9), std::pair("48", 9)};
-
-
-
-
         Xlotgative::ShinMwayLoon::Number obj_number;
+        std::random_device objRandomDevice;
 
 
     public:

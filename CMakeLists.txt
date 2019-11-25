@@ -25,7 +25,7 @@ add_subdirectory(test)
 add_subdirectory(vendor/benchmark)
 add_subdirectory(benchmark)
 
-add_subdirectory(vendor/abseil)
+#add_subdirectory(vendor/abseil)
 
 
 file(GLOB parallel_hashmap_files

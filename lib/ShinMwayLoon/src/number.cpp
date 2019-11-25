@@ -41,8 +41,9 @@ std::string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {
 std::string XMwayLoon_Number::getRandomMyanNum
 ( const unsigned long long min, const unsigned long long max,XMwayLoon_Number::Sign isMinus){
 
-    boost::random::uniform_int_distribution<unsigned long long> myanNumDistribution(min, max);
-    unsigned long long randomNum= myanNumDistribution(XMwayLoon::generatorObject);
+    std::uniform_int_distribution<unsigned long long> myanNumDistribution(min, max);
+    pcg objPCG(this->objRandomDevice);
+    unsigned long long randomNum= myanNumDistribution(objPCG);
 
 
     switch (isMinus)

@@ -12,32 +12,30 @@ typedef XMwayLoon::PhoneNumber XMwayLoon_PhoneNumber;
 
 
 std::string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
-    boost::random::uniform_int_distribution<> operatorDistribution(1, 4);
-    boost::random::uniform_int_distribution<> numDistribution(1000000, 9999999);
-
-    std::string result = std::to_string(numDistribution(generatorObject));
-
-
-        switch (operatorDistribution(generatorObject)) {
+    std::uniform_int_distribution<> operatorDistribution(1, 4);
+    std::uniform_int_distribution<> numDistribution(1000000, 9999999);
+    pcg objPCG(this->objRandomDevice);
+    std::string result = std::to_string(numDistribution(objPCG));
+        switch (operatorDistribution(objPCG)) {
 
             case 1: //MPT
             {
-                boost::random::uniform_int_distribution<> MPTPrefixDistribution(0, 9);
-                result = "09" + this->mpt.operator[](MPTPrefixDistribution(generatorObject)).first + result;
+                std::uniform_int_distribution<> MPTPrefixDistribution(0, 9);
+                result = "09" + this->mpt.operator[](MPTPrefixDistribution(objPCG)).first + result;
             }
                 break;
 
             case 2: //Telenor
             {
-                boost::random::uniform_int_distribution<> telenorPrefixDistribution(0, 4);
-                result = "09" + this->telenor.operator[](telenorPrefixDistribution(generatorObject)).first + result;
+                std::uniform_int_distribution<> telenorPrefixDistribution(0, 4);
+                result = "09" + this->telenor.operator[](telenorPrefixDistribution(objPCG)).first + result;
             }
                 break;
             case 3: //Ooredoo
 
             {
-                boost::random::uniform_int_distribution<> ooredooPrefixDistribution(0, 2);
-                result = "09" + this->ooredoo.operator[](ooredooPrefixDistribution(generatorObject)).first + result;
+                std::uniform_int_distribution<> ooredooPrefixDistribution(0, 2);
+                result = "09" + this->ooredoo.operator[](ooredooPrefixDistribution(objPCG)).first + result;
             }
                  break;
 
@@ -56,8 +54,8 @@ std::string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeS
             case PhoneNumber::CountryCodeFlag::noCountryCode :
                 break;
             case PhoneNumber::CountryCodeFlag::random :
-                boost::random::uniform_int_distribution<> encodingDistribution(0, 1);
-                if (encodingDistribution(generatorObject)) result = "+95" + result;
+                std::uniform_int_distribution<> encodingDistribution(0, 1);
+                if (encodingDistribution(objPCG)) result = "+95" + result;
                 break;
 
         }

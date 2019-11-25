@@ -15,11 +15,14 @@ namespace Xlotgative::ShinMwayLoon
       //  typedef std::map<std::string, std::string> type_myanNum;
       //  std::string myanNum[10]{"၀","၁","၂","၃","၄","၅","၆","၇","၈","၉" } ;
 
+    private:
+        std::random_device objRandomDevice;
 
     public:
         enum class Sign{
             Positive=1,Negative=2,Random=3
         };
+
 
         std::string convertEngNumToMyan(const std::string &engNum);
         std::string getRandomMyanNum

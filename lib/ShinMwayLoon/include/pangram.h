@@ -18,6 +18,9 @@ namespace Xlotgative::ShinMwayLoon
                 "သီဟိုဠ္မွ ဉာဏ္ႀကီးရွင္သည္ အာယုဝၯနေဆးၫႊန္းစာကို ဇလြန္ေဈးေဘး ဗာဒံပင္ထက္ အဓိ႒ာန္လ်က္ ဂဃနဏဖတ္ခဲ့သည္။"
         };
 
+    private:
+        std::random_device objRandomDevice;
+
     public:
         std::string getPangram(Xlotgative::ShinMwayLoon::Encoding encoding);
 

@@ -28,6 +28,7 @@ TEST(DateTest,generateRandomEngDate){
 }
 
 TEST(DateTest,convertEngDateToMyan){
+    std::random_device gen;
     Xlotgative::ShinMwayLoon::Date obj_Date;
     std::string MyanMonth= obj_Date.generateRandomEngDate("%d-%B-%Y");
     std::cerr<<MyanMonth <<std::endl;

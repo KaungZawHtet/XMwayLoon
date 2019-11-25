@@ -88,7 +88,7 @@ namespace Xlotgative::ShinMwayLoon{
                 Month("Dec", "December", "ဒီဇင်ဘာ", "ဒီဇင္ဘာ")
 
         };
-        
+        std::random_device objRandomDevice;
         std::unique_ptr<type_englishMonths> englishMonths;
 
 

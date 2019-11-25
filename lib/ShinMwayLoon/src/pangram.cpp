@@ -14,14 +14,15 @@ std::string XMwayLoon_Pangram::getPangram(XMwayLoon::Encoding encoding){
 
 
     return [&]() {
+        pcg objPCG(this->objRandomDevice);
         switch (encoding) {
             case XMwayLoon::Encoding::Unicode:
                 return this->myanPangram.first;
             case XMwayLoon::Encoding::Zawgyi:
                 return this->myanPangram.second;
             default :
-                boost::random::uniform_int_distribution<> encodingDistribution(0, 1);
-                if (encodingDistribution(generatorObject)) {
+                std::uniform_int_distribution<> encodingDistribution(0, 1);
+                if (encodingDistribution(objPCG)) {
                     // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                     return this->myanPangram.first;
                 } else {

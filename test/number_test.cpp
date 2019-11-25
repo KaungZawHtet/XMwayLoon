@@ -16,7 +16,10 @@ TEST(NumberTest,convertEngNumToMyan){
 
 TEST(NumberTest,getRandomMyanNum){
     Xlotgative::ShinMwayLoon::Number obj_Number;
-    std::string myanNum =obj_Number.getRandomMyanNum(4345364,78322424,Xlotgative::ShinMwayLoon::Number::Sign::Random);
-    std::cerr<<myanNum<<std::endl;
 
+    for (int i = 0; i < 100 ; ++i) {
+        std::string myanNum =obj_Number.getRandomMyanNum(4345364,78322424,Xlotgative::ShinMwayLoon::Number::Sign::Random);
+        std::cerr<<myanNum<<std::endl;
+    }
+    
 }

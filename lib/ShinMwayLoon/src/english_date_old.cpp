@@ -70,6 +70,7 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertEngDateToMyan(const std::str
 XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan(const std::string &engMonth,const XMwayLoon::Encoding &encoding) {
     std::string result;
 
+    pcg objPCG(this->objRandomDevice);
     if (encoding == XMwayLoon::Encoding::Unicode) {
       //  cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
         result = this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
@@ -78,8 +79,9 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan(const
         result =  this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
 
     } else {
-        boost::random::uniform_int_distribution<> encodingDistribution(1, 2);
-        int encoding = encodingDistribution(generatorObject);
+        std::uniform_int_distribution<> encodingDistribution(1, 2);
+        pcg objPCG(this->objRandomDevice);
+        int encoding = encodingDistribution(objPCG);
         if (encoding == 1) {
            // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
             result =   this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
@@ -108,8 +110,9 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertShortEngMonthToMyan(const st
         result =  this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
 
     } else {
-        boost::random::uniform_int_distribution<> encodingDistribution(1, 2);
-        int encoding = encodingDistribution(generatorObject);
+        std::uniform_int_distribution<> encodingDistribution(1, 2);
+        pcg objPCG(this->objRandomDevice);
+        int encoding = encodingDistribution(objPCG);
         if (encoding == 1) {
             // cout << this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
             result =   this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
@@ -140,21 +143,22 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::generateRandomEngDate(const std::st
     int currentYear = timeLocal.date().year();
 
 
-    boost::random::uniform_int_distribution<> febDistribution(1, 28);
-    boost::random::uniform_int_distribution<> thirdyOneDistribution(1, 31);
-    boost::random::uniform_int_distribution<> thirdyDistribution(1, 30);
-    boost::random::uniform_int_distribution<> monthDistribution(1, 12);
-    boost::random::uniform_int_distribution<> yearDistribution(currentYear - 20, currentYear);
+    std::uniform_int_distribution<> febDistribution(1, 28);
+    std::uniform_int_distribution<> thirdyOneDistribution(1, 31);
+    std::uniform_int_distribution<> thirdyDistribution(1, 30);
+    std::uniform_int_distribution<> monthDistribution(1, 12);
+    std::uniform_int_distribution<> yearDistribution(currentYear - 20, currentYear);
 
     // c = (a>b) ? a : b;
-    int month = monthDistribution(generatorObject);
-    int year = yearDistribution(generatorObject);
+    pcg objPCG(this->objRandomDevice);
+    int month = monthDistribution(objPCG);
+    int year = yearDistribution(objPCG);
     int days;
 
     switch (month) {
 
         case 2:
-            days = febDistribution(generatorObject);
+            days = febDistribution(objPCG);
 
             break;
         case 1:
@@ -164,7 +168,7 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::generateRandomEngDate(const std::st
         case 8:
         case 10:
         case 12: //31-day months
-            days = thirdyOneDistribution(generatorObject);
+            days = thirdyOneDistribution(objPCG);
 
             break;
 
@@ -172,7 +176,7 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::generateRandomEngDate(const std::st
         case 6:
         case 9:
         case 11: //30-day months
-            days = thirdyDistribution(generatorObject);
+            days = thirdyDistribution(objPCG);
 
             break;
 

@@ -18,6 +18,7 @@
 #include <boost/multi_index/hashed_index.hpp>
 #include <boost/multi_index/identity.hpp>
 #include <boost/multi_index/member.hpp>
+#include "../include/faster_random.h"
 
 
 
@@ -64,8 +65,9 @@ namespace Xlotgative::ShinMwayLoon{
 
                 >> myanMonthsContainer;
 
-        Xlotgative::ShinMwayLoon::Number xNumber;
 
+    private:
+        Xlotgative::ShinMwayLoon::Number objNumber;
         const myanMonthsContainer myanMonths{
                 Month("Jan", "January", "ဇန်နဝါရီ", "ဇန္နဝါရီ"),
                 Month("Feb", "February", "ဖေဖော်ဝါရီ", "ေဖေဖာ္ဝါရီ"),
@@ -81,6 +83,7 @@ namespace Xlotgative::ShinMwayLoon{
                 Month("Dec", "December", "ဒီဇင်ဘာ", "ဒီဇင္ဘာ")
 
         };
+        std::random_device objRandomDevice;
 
     public:
 
