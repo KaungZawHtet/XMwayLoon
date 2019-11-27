@@ -25,7 +25,7 @@ add_subdirectory(test)
 add_subdirectory(vendor/benchmark)
 add_subdirectory(benchmark)
 
-#add_subdirectory(vendor/abseil)
+#add_subdirectory(vendor/wxWidgets)
 
 
 file(GLOB parallel_hashmap_files
@@ -35,10 +35,7 @@ target_include_directories(parallel_hashmap INTERFACE ${parallel_hashmap_files})
 
 
 
-file(GLOB XMwayloon
-        "lib/ShinMwayLoon/src/*.cpp")
-add_library(ShinMwayLoon
-        ${XMwayloon})
+add_subdirectory(lib)
 #target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
 
 

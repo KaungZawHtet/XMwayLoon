@@ -2,7 +2,7 @@
 // Created by Kaung Zaw Htet on 2019-09-23.
 //
 
-#include "../include/ph_number.h"
+#include <ShinMwayLoon/ph_number.h>
 #include <regex>
 
 namespace XMwayLoon=Xlotgative::ShinMwayLoon;
@@ -45,7 +45,6 @@ std::string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeS
                 break;
         }
 
-
         switch (countryCodeSwitch) {
             case PhoneNumber::CountryCodeFlag::withCountryCode :
                 result = "+95" + result;
@@ -57,10 +56,7 @@ std::string XMwayLoon_PhoneNumber::generateEngPhNum(CountryCodeFlag countryCodeS
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
                 if (encodingDistribution(objPCG)) result = "+95" + result;
                 break;
-
         }
-
-
     return result;
 }
 

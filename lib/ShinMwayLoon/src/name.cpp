@@ -3,6 +3,6 @@
 //
 
 
-#include "../include/name.h"
+#include "ShinMwayLoon/name.h"
 #include <iostream>
-#include "../include/global_objects.h"
+#include "ShinMwayLoon/global_objects.h"

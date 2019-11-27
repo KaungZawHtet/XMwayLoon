@@ -2,8 +2,8 @@
 // Created by Kaung Zaw Htet on 2019-11-13.
 //
 
-#include "../include/date.h"
-#include "../include/global_objects.h"
+#include <ShinMwayLoon/date.h>
+#include <ShinMwayLoon/global_objects.h>
 #include <regex>
 
 typedef Xlotgative::ShinMwayLoon::Date XMwayLoon_Date;
@@ -156,3 +156,4 @@ std::string XMwayLoon_Date::getRandomMyanDate
     return XMwayLoon_Date::convertEngDateToMyan(
             XMwayLoon_Date::generateRandomEngDate(format),encoding);
 }
+

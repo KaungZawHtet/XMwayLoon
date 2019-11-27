@@ -14,12 +14,7 @@ add_executable(GeneralTest general_test.cpp)
 
 #target_compile_options(DateTest -Werror -Wextra -Wshadow -Wnon-virtual-dtor -pedantic)
 
-target_link_libraries(NumberTest gtest_main ShinMwayLoon)
-target_link_libraries(PhNumTest gtest_main ShinMwayLoon)
-target_link_libraries(DateTest gtest_main ShinMwayLoon)
-target_link_libraries(PangramTest gtest_main ShinMwayLoon)
-target_link_libraries(GeneralTest gtest_main ShinMwayLoon)
-#target_link_libraries(EnglishDateTest gtest_main ShinMwayLoon)
+
 
 add_test(Name NumberTest
         COMMAND NumberTest)
@@ -34,3 +29,11 @@ add_test(Name PangramTest
 add_test(Name GeneralTest
         COMMAND GeneralTest)
 #add_test(Name EnglishDateTest COMMAND EnglishDateTest)
+
+
+target_link_libraries(NumberTest gtest_main ShinMwayLoon)
+target_link_libraries(PhNumTest gtest_main ShinMwayLoon)
+target_link_libraries(DateTest gtest_main ShinMwayLoon)
+target_link_libraries(PangramTest gtest_main ShinMwayLoon)
+target_link_libraries(GeneralTest gtest_main ShinMwayLoon)
+#target_link_libraries(EnglishDateTest gtest_main ShinMwayLoon)

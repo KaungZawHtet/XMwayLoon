@@ -5,11 +5,11 @@
 #ifndef SHINMWAYLOON_PH_NUMBER_H
 #define SHINMWAYLOON_PH_NUMBER_H
 
-#include "../include/global_objects.h"
+#include <ShinMwayLoon/global_objects.h>
 #include <map>
 #include <array>
 #include <boost/logic/tribool.hpp>
-#include "../include/number.h"
+#include <ShinMwayLoon/number.h>
 
 
 namespace Xlotgative::ShinMwayLoon {

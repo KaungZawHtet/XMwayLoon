@@ -5,7 +5,7 @@
 #ifndef SHINMWAYLOON_NUMBER_H
 #define SHINMWAYLOON_NUMBER_H
 #include <map>
-#include "../include/global_objects.h"
+#include <random>
 
 
 namespace Xlotgative::ShinMwayLoon

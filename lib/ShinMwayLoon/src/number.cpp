@@ -2,8 +2,9 @@
 // Created by Kaung Zaw Htet on 2019-10-03.
 //
 
-#include "../include/number.h"
+#include <ShinMwayLoon/number.h>
 #include <string>
+#include <ShinMwayLoon/faster_random.h>
 typedef Xlotgative::ShinMwayLoon::Number XMwayLoon_Number;
 namespace XMwayLoon=Xlotgative::ShinMwayLoon;
 

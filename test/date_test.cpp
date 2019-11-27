@@ -4,8 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include "../lib/ShinMwayLoon/include/date.h"
-
+#include <ShinMwayLoon/date.h>
 
 
 TEST(DateTest,convertCompleteEngMonthToMyan){

@@ -5,7 +5,7 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include "../lib/ShinMwayLoon/include/pangram.h"
+#include <ShinMwayLoon/pangram.h>
 
 TEST(PangramTest,getPangram){
 

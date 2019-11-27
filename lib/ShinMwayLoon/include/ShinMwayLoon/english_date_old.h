@@ -1,10 +1,9 @@
 //
-// Created by Kaung Zaw Htet on 2019-11-13.
+// Created by Kaung Zaw Htet on 2019-09-21.
 //
 
-#ifndef FAKEDATAGENERATOR_DATE_H
-#define FAKEDATAGENERATOR_DATE_H
-
+#ifndef SHINMWAYLOON_ENGLISH_DATE_H
+#define SHINMWAYLOON_ENGLISH_DATE_H
 #include <map>
 #include <string>
 #include <boost/date_time/gregorian/gregorian.hpp>
@@ -12,14 +11,13 @@
 #include <boost/random/uniform_int_distribution.hpp>
 #include <boost/date_time.hpp>
 #include "global_objects.h"
-#include "../include/number.h"
+
+#include <ShinMwayLoon/number.h>
 #include <boost/multi_index_container.hpp>
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/multi_index/hashed_index.hpp>
 #include <boost/multi_index/identity.hpp>
 #include <boost/multi_index/member.hpp>
-#include "../include/faster_random.h"
-
 
 
 
@@ -34,7 +32,12 @@ namespace Xlotgative::ShinMwayLoon{
         struct zawgyiMyanMonth;
     }
 
-    class Date{
+    class EnglishDate{
+
+        typedef std::map<std::pair <std::string,std::string>, std::pair <std::string,std::string>> type_englishMonths;
+        typedef std::map<std::string, std::string> type_myanNum;
+
+
 
         struct Month
         {
@@ -43,13 +46,13 @@ namespace Xlotgative::ShinMwayLoon{
              std::string unicodeMyanMonth;
              std::string zawgyiMyanMonth;
 
-            Month(std::string tempShortEngMonth,std::string tempCompleteEngMonth,
+            Month(std::string tempshortEngMonth,std::string tempCompleteEngMonth,
                   std::string tempUnicodeMyanMonth, std::string tempZawgyiMyanMonth)
-                    : shortEngMonth(std::move(tempShortEngMonth)),
-                      completeEngMonth(std::move(tempCompleteEngMonth)),
-                      unicodeMyanMonth(std::move(tempUnicodeMyanMonth)),
-                      zawgyiMyanMonth(std::move(tempZawgyiMyanMonth))
-            {}
+                    : shortEngMonth(tempshortEngMonth),
+                      completeEngMonth(tempCompleteEngMonth),
+                      unicodeMyanMonth(tempUnicodeMyanMonth),
+                      zawgyiMyanMonth(tempZawgyiMyanMonth)
+                    {}
 
         };
 
@@ -65,9 +68,11 @@ namespace Xlotgative::ShinMwayLoon{
 
                 >> myanMonthsContainer;
 
+        Xlotgative::ShinMwayLoon::Number obj_number;
 
-    private:
-        Xlotgative::ShinMwayLoon::Number objNumber;
+
+
+
         const myanMonthsContainer myanMonths{
                 Month("Jan", "January", "ဇန်နဝါရီ", "ဇန္နဝါရီ"),
                 Month("Feb", "February", "ဖေဖော်ဝါရီ", "ေဖေဖာ္ဝါရီ"),
@@ -84,24 +89,22 @@ namespace Xlotgative::ShinMwayLoon{
 
         };
         std::random_device objRandomDevice;
+        std::unique_ptr<type_englishMonths> englishMonths;
+
 
     public:
 
-       // Date()= default;
-        std::string convertCompleteEngMonthToMyan(const std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        std::string convertShortEngMonthToMyan(const std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        std::string generateRandomEngDate(const std::string &format);
-        std::string convertEngDateToMyan(std::string engDate, const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        std::string getRandomMyanDate(const std::string &format,const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        
+        EnglishDate()= default;
+        ptr_string convertCompleteEngMonthToMyan(const std::string &,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        ptr_string convertShortEngMonthToMyan(const std::string &,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        ptr_string generateRandomEngDate(const std::string &format);
+        ptr_string convertEngDateToMyan(const std::string &engDate, const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        ptr_string getRandomMyanDate(const std::string &format,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+
     };
-
-
-
-
 
 
 }
 
 
-#endif //FAKEDATAGENERATOR_DATE_H
+#endif //SHINMWAYLOON_ENGLISH_DATE_H

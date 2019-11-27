@@ -2,13 +2,13 @@
 // Created by Kaung Zaw Htet on 2019-09-24.
 //
 
-#include "../include/inserter.h"
-#include "../include/english_date_old.h"
+#include <ShinMwayLoon/inserter.h>
+#include <ShinMwayLoon/english_date_old.h>
 //#include <filesystem>
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "../include/english_date_old.h"
+#include "ShinMwayLoon/english_date_old.h"
 
 
 

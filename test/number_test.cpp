@@ -4,7 +4,8 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include "../lib/ShinMwayLoon/include/ph_number.h"
+#include <ShinMwayLoon/number.h>
+
 
 
 typedef Xlotgative::ShinMwayLoon::Number XMwayLoon_Number;
