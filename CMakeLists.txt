@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
-project(FakeDataGenerator)
-
+project(XMwayLoon)
+#CMAKE_PREFIX_PATH=~/Desktop/c++/wxWidgets/cmake-build
 
 
 set(CMAKE_CXX_STANDARD 17)
@@ -28,16 +28,31 @@ add_subdirectory(benchmark)
 #add_subdirectory(vendor/wxWidgets)
 
 
-file(GLOB parallel_hashmap_files
+#[[file(GLOB parallel_hashmap_files
         "vendor/parallel_hashmap/*.h")
 add_library(parallel_hashmap INTERFACE)
-target_include_directories(parallel_hashmap INTERFACE ${parallel_hashmap_files})
+target_include_directories(parallel_hashmap INTERFACE ${parallel_hashmap_files})]]
 
 
 
-add_subdirectory(lib)
+add_subdirectory(lib/ShinMwayLoon)
+
+
+# Request the required wxWidgets libs
+find_package(wxWidgets 3.1.3 COMPONENTS all REQUIRED)
+# Include the wxWidgets use file to initialize various settings
+include(${wxWidgets_USE_FILE})
+# Define a variable containing a list of source files for the project
+if(WIN32)
+    # Include a RC file for windows
+    list(APPEND SRC_FILES ../sample.rc)
+elseif(APPLE)
+    # Add an icon for the apple .app file
+    list(APPEND SRC_FILES ../../src/osx/carbon/wxmac.icns)
+endif()
+add_subdirectory(lib/GUI)
 #target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
 
 
 add_executable(Executable main.cpp)
-target_link_libraries(Executable ShinMwayLoon absl)
+target_link_libraries(Executable ShinMwayLoon ${wxWidgets_LIBRARIES} GUI)
