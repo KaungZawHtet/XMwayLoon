@@ -87,7 +87,7 @@ namespace Xlotgative::ShinMwayLoon{
 
     public:
 
-        Date()=default;
+        Date();
         std::string convertCompleteEngMonthToMyan(const std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
         std::string convertShortEngMonthToMyan(const std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
         std::string generateRandomEngDate(const std::string &format);

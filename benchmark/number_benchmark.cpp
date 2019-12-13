@@ -4,7 +4,7 @@
 
 
 #include <benchmark/benchmark.h>
-#include "../lib/ShinMwayLoon/include/number.h"
+#include <ShinMwayLoon/number.h>
 
 static void create_BM(benchmark::State& state) {
 

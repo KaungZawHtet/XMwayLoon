@@ -30,6 +30,8 @@ namespace Xlotgative::ShinMwayLoon
         enum class System{
             Integer=1,Fraction=2,Random=3
         };
+        
+        Number();
 
         Sign isSigned;
         System isFraction;

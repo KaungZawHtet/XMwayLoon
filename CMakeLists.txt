@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 project(XMwayLoon)
 #CMAKE_PREFIX_PATH=~/Desktop/c++/wxWidgets/cmake-build
-
+#conan install . -s build_type=Debug --install-folder=cmake-build-debug
+#conan install . -s build_type=Release --install-folder=cmake-build-release
 
 set(CMAKE_CXX_STANDARD 17)
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")

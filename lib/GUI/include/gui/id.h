@@ -29,11 +29,16 @@
  *
  * */
 
-#define BTN_ADD_TYPE_ID 1110
-#define CB_CHOOSE_TYPE_ID 1120
+#define BTN_ADD_TYPE_ID 1120
+#define CB_ADD_TYPE_ID 1110
+#define LC_ADD_TYPE_ID 1130
 
-#define SB_RECORD_NUMBER_ID 1220
-#define TC_RECORD_NUMBER_ID 1220
+#define SB_RECORD_NUMBER_ID 1220 //not use anymore
+#define TC_RECORD_NUMBER_ID 1221 //not use anymore
+#define RD_RECORD_NUMBER_ID 1210
+#define RD_FILE_SIZE_ID 1230
+
+
 
 #define BTN_GENERATE_ID 1500
 

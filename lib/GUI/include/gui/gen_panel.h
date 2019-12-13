@@ -2,24 +2,18 @@
 #define GEN_PANEL_H
 #include <wx/wx.h>
 #include <gui/type_list.h>
-#include <gui/type_listview.h>
 #include <wx/statline.h>
 #include <wx/spinctrl.h>
-#include <gui/record_number_spin_ctrl.h>
+#include <gui/type_grid.h>
+#include <gui/type_generation.h>
 class GenPanel : public wxPanel
 {
 public:
     GenPanel(wxWindow*);
     wxBoxSizer *bsMain;
 
-    wxStaticText *stAddTypeTitle;
-    wxButton *btnAddType;
-    wxComboBox *cbAddType;
-    wxBoxSizer *bsAddType;
-    wxBoxSizer *bsAddTypeTitle;
+    TypeGeneration *objTypeGeneration;
 
-    wxBoxSizer *bsTypeList;
-    TypeList *lcTypeList;
 
 
 
@@ -28,9 +22,8 @@ public:
     wxBoxSizer *bsRecordSize;
     wxRadioButton *rdRecordNumber;
     wxRadioButton *rdFileSize;
-   // wxSpinCtrl *scRecordNumber;
+    wxSpinCtrl *scRecordNumber;
     wxSpinCtrlDouble *scFileSize;
-    std::unique_ptr<RecordNumberSpinCtrl> scRecordNumber;
     wxStaticText *stRecordNumberUnit;
     wxStaticText *stFileSizeUnit;
 
@@ -54,7 +47,6 @@ public:
     wxBoxSizer *bsGenerate;
     wxButton *btnGenerate;
 
-    wxStaticLine *sl0;
     wxStaticLine *sl1;
     wxStaticLine *sl2;
     wxStaticLine *sl3;
@@ -66,7 +58,14 @@ public:
     void createOutputFormatGroup();
     void createEncodeTypeGroup();
     void createGenerateButton();
+
+
     void onGenerate(wxCommandEvent& event);
+    void onChangeOutputAmountType(wxCommandEvent& event);
+    void onTargetUnicode(wxCommandEvent& event);
+    void onTargetZawgyi(wxCommandEvent& event);
+    void onTargetRandom(wxCommandEvent& event);
+    void onTargetCustom(wxCommandEvent& event);
 
 private:
      DECLARE_EVENT_TABLE()

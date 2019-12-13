@@ -4,8 +4,8 @@
 #include <gui/main_frame.h>
 #include <gui/type_list.h>
 
-TypeList::TypeList(wxPanel *parent)
-    :wxListCtrl(parent,wxID_ANY, wxDefaultPosition, wxSize(-1,-1), wxLC_REPORT|wxLC_VIRTUAL)
+TypeList::TypeList(wxWindow *parent) //, wxLC_REPORT|wxLC_VIRTUAL
+    :wxListCtrl(parent,wxID_ANY, wxDefaultPosition, wxSize(-1,-1),wxLC_REPORT)
 {
 
     // Add first column
@@ -54,13 +54,15 @@ TypeList::TypeList(wxPanel *parent)
 
 
         //This should reflect your data
-        SetItemCount(15);
+        //SetItemCount(15);
 
 
 }
 
+/*
 wxString TypeList::OnGetItemText(long item, long column) const{
     //Use item and column to return the correct data for that particular cell. This example just returns "bawls" no matter what
 return _("bawls");
 }
 
+*/

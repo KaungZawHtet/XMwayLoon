@@ -129,6 +129,9 @@ std::string XMwayLoon_Number::getRandomMyanNum
 
 }
 
+XMwayLoon_Number::Number(){
+}
+
 
 
 

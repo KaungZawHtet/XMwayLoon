@@ -7,8 +7,8 @@ class TypeList: public wxListCtrl{
 
 
 public:
-    TypeList(wxPanel *parent);
-    wxString OnGetItemText(long item, long column) const ;
+    TypeList(wxWindow *parent);
+    //wxString OnGetItemText(long item, long column) const ;
 
 };
 
