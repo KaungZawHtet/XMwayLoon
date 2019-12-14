@@ -1,17 +1,17 @@
 
 #include <wx/wx.h>
 #include <gui/main_frame.h>
-#include <gui/gen_panel.h>
-#include <gui/extend_panel.h>
+#include <gui/generate_page.h>
+#include <gui/extend_page.h>
 
 MainFrame::MainFrame():
     wxFrame(nullptr, wxID_ANY, wxString("XMwayLoon"), wxDefaultPosition, wxSize(770, 540))
 {
     nbMain = new wxNotebook(this,-1);
-    this->pnGen = new GenPanel(nbMain);
-    this->pnExtend = new ExtendPanel(nbMain);
+    this->pnGenerate = new GeneratePage(nbMain);
+    this->pnExtend = new ExtendPage(nbMain);
 
-    nbMain->AddPage(this->pnGen,"Data Generation");
+    nbMain->AddPage(this->pnGenerate, "Data Generation");
     nbMain->AddPage(this->pnExtend,"Type Extension");
     Bind(wxEVT_NOTEBOOK_PAGE_CHANGED,&MainFrame::onTabChanged,this);
     Centre();

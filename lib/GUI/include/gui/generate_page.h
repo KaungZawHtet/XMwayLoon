@@ -1,20 +1,22 @@
 #ifndef GEN_PANEL_H
 #define GEN_PANEL_H
 #include <wx/wx.h>
-#include <gui/type_list.h>
 #include <wx/statline.h>
 #include <wx/spinctrl.h>
 #include <gui/type_grid.h>
-#include <gui/type_generation.h>
-class GenPanel : public wxPanel
+#include <gui/type_generation_panel.h>
+#include <gui/encoding_type_panel.h>
+#include <gui/output_amount_panel.h>
+#include <gui/output_format_panel.h>
+class GeneratePage : public wxPanel
 {
 public:
-    GenPanel(wxWindow*);
+    GeneratePage(wxWindow*);
     wxBoxSizer *bsMain;
 
-    TypeGeneration *objTypeGeneration;
-
-
+    TypeGenerationPanel *pnlTypeGeneration;
+    EncodingTypePanel *pnlEncodeingTypePanel;
+    OutputAmountPanel *pnlOutputAmountPanel;
 
 
     wxStaticText *stRecordSizeTitle;
@@ -26,6 +28,8 @@ public:
     wxSpinCtrlDouble *scFileSize;
     wxStaticText *stRecordNumberUnit;
     wxStaticText *stFileSizeUnit;
+    wxStaticLine *sl1;
+
 
 
     wxStaticText *stFormatTypeTitle;
@@ -36,39 +40,27 @@ public:
     wxCheckBox *cbXML;
     wxCheckBox *cbHTML;
 
-    wxStaticText *stEncodeTypeTitle;
-    wxBoxSizer *bsEncodeTypeTitle;
-    wxBoxSizer *bsEncodeType;
-    wxRadioButton *rdUnicode;
-    wxRadioButton *rdZawgyi;
-    wxRadioButton *rdRandom;
-    wxRadioButton *rdCustom;
+
 
     wxBoxSizer *bsGenerate;
     wxButton *btnGenerate;
 
-    wxStaticLine *sl1;
+
     wxStaticLine *sl2;
-    wxStaticLine *sl3;
 
 
 
-    void createTypeAdditionGroup();
-    void createOutputAmountGroup();
+
     void createOutputFormatGroup();
-    void createEncodeTypeGroup();
     void createGenerateButton();
 
 
     void onGenerate(wxCommandEvent& event);
-    void onChangeOutputAmountType(wxCommandEvent& event);
-    void onTargetUnicode(wxCommandEvent& event);
-    void onTargetZawgyi(wxCommandEvent& event);
-    void onTargetRandom(wxCommandEvent& event);
-    void onTargetCustom(wxCommandEvent& event);
+
+
 
 private:
-     DECLARE_EVENT_TABLE()
+
 
 
 

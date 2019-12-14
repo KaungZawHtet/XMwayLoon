@@ -2,13 +2,13 @@
 // Created by Kaung Zaw Htet on 2019-12-13.
 //
 
-#ifndef XMWAYLOON_TYPE_GENERATION_H
-#define XMWAYLOON_TYPE_GENERATION_H
+#ifndef XMWAYLOON_TYPE_GENERATION_PANEL_H
+#define XMWAYLOON_TYPE_GENERATION_PANEL_H
 
 #include <wx/wx.h>
 #include <gui/type_grid.h>
 
-class TypeGeneration //: public wxWindow
+class TypeGenerationPanel : public wxPanel
 {
 public:
     wxString encoding[3]={"Unicode","Zawgyi","Random"};
@@ -36,15 +36,14 @@ public:
     wxStaticLine *sl0;
 
 
-    TypeGeneration(wxWindow *parent,wxBoxSizer *tmp_bsMain);
+    TypeGenerationPanel(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
     void onAddType(wxCommandEvent& event);
 
-  //  virtual bool AcceptsFocus() const;
-  //  virtual bool AcceptsFocusFromKeyboard() const;
 
-/*private:
-DECLARE_EVENT_TABLE()*/
+
+private:
+//DECLARE_EVENT_TABLE()
 
 };
 
-#endif //XMWAYLOON_TYPE_GENERATION_H
+#endif //XMWAYLOON_TYPE_GENERATION_PANEL_H

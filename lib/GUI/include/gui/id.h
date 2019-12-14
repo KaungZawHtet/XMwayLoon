@@ -4,7 +4,7 @@
 /*
  *wxFrame 100000 as MainFrame
  * wxNotebook 10000 as Main Notebook
- *  GenPanel 1000
+ *  GeneratePage 1000
  *   Type Addition   : 100
  *      Add Combo    : 10
  *      Add Button   : 20
@@ -22,7 +22,7 @@
  *
  *
  *
- *  ExtendPanel 2000
+ *  ExtendPage 2000
  *
  *
  *

@@ -3,8 +3,8 @@
 
 #include <wx/wx.h>
 #include <wx/notebook.h>
-#include <gui/gen_panel.h>
-#include <gui/extend_panel.h>
+#include <gui/generate_page.h>
+#include <gui/extend_page.h>
 
 
 
@@ -17,8 +17,8 @@ private:
 
 public:
     wxNotebook* nbMain ;
-    GenPanel *pnGen;
-    ExtendPanel *pnExtend;
+    GeneratePage *pnGenerate;
+    ExtendPage *pnExtend;
 
     void onTabChanged(wxCommandEvent &event );
 

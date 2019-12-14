@@ -3,19 +3,18 @@
 //
 
 #include <gui/main_frame.h>
-#include <gui/gen_panel.h>
+#include <gui/generate_page.h>
 #include <wx/wx.h>
-#include <gui/type_generation.h>
+#include <gui/type_generation_panel.h>
 #include <gui/id.h>
 
-/*BEGIN_EVENT_TABLE(GenPanel, wxPanel)
-                EVT_BUTTON(BTN_ADD_TYPE_ID, TypeGeneration::onAddType)
-END_EVENT_TABLE()*/
 
 
-TypeGeneration::TypeGeneration(wxWindow *parent,wxBoxSizer *tmp_bsMain)//:wxWindow(parent,-1)
+
+TypeGenerationPanel::TypeGenerationPanel(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
+: wxPanel(tmp_parent, -1)
 {
-    this->parent= parent;
+    this->parent= tmp_parent;
     this->bsMain=tmp_bsMain;
     //allocate Type Addition group
     this->bsAddType = new wxBoxSizer(wxHORIZONTAL);
@@ -27,6 +26,9 @@ TypeGeneration::TypeGeneration(wxWindow *parent,wxBoxSizer *tmp_bsMain)//:wxWind
     this->btnAddType = new wxButton(this->parent, BTN_ADD_TYPE_ID, wxT("+"));
     this->cbAddType = new wxComboBox(this->parent, CB_ADD_TYPE_ID, wxT("Number"));
 
+    //this->Connect(BTN_ADD_TYPE_ID,wxEVT_BUTTON,wxCommandEventHandler(TypeGenerationPanel::onAddType));
+     this->parent->Bind(wxEVT_BUTTON, &TypeGenerationPanel::onAddType, this, BTN_ADD_TYPE_ID);
+
     //connect Type Addition's widgets to horrizontal BoxSizer
     this->bsAddTypeTitle->Add(this->stAddTypeTitle);
     this->bsAddType->Add(this->cbAddType, 2, wxRIGHT, 8);
@@ -36,17 +38,21 @@ TypeGeneration::TypeGeneration(wxWindow *parent,wxBoxSizer *tmp_bsMain)//:wxWind
     this->bsMain->Add(this->bsAddType, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
 
 
-    //allocate and connect type listctrl
+    //allocate and connect type grid
     this->bsTypeGrid = new wxBoxSizer(wxHORIZONTAL);
-    // this->lcTypeList = new TypeList(this);
     this->gTypeGrid =new TypeGrid(this->parent);
     this->bsTypeGrid->Add(this->gTypeGrid, 2, wxRIGHT, 8);
     this->bsMain->Add(this->bsTypeGrid, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
     this->bsMain->Add(sl0, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
     ///
+
+
+
+
 }
 
-void TypeGeneration::onAddType(wxCommandEvent &event) {
+void TypeGenerationPanel::onAddType(wxCommandEvent &event) {
+
 
     if(this->gTypeGrid->GetNumberRows()< ((this->gTypeGrid->row_pointer)+1))
     {
@@ -64,11 +70,6 @@ void TypeGeneration::onAddType(wxCommandEvent &event) {
     ++(this->gTypeGrid->row_pointer);
 }
 
-/*
-bool TypeGeneration::AcceptsFocus() const {
-    return true;
-}
 
-bool TypeGeneration::AcceptsFocusFromKeyboard() const {
-    return true;
-}*/
+
+

@@ -2,13 +2,13 @@
 #define EXTEND_PANEL_H
 #include <wx/wx.h>
 
-class ExtendPanel : public wxPanel
+class ExtendPage : public wxPanel
 {
 
 
 public:
 
-    ExtendPanel(wxWindow *parent);
+    ExtendPage(wxWindow *parent);
 };
 
 

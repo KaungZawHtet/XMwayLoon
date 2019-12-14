@@ -1,0 +1,8 @@
+//
+// Created by Kaung Zaw Htet on 2019-12-14.
+//
+
+#ifndef XMWAYLOON_OUTPUT_FORMAT_PANEL_H
+#define XMWAYLOON_OUTPUT_FORMAT_PANEL_H
+
+#endif //XMWAYLOON_OUTPUT_FORMAT_PANEL_H
