@@ -5,13 +5,13 @@
 #include <gui/main_frame.h>
 #include <gui/generate_page.h>
 #include <wx/wx.h>
-#include <gui/type_generation_panel.h>
+#include <gui/type_generation_container.h>
 #include <gui/id.h>
 
 
 
 
-TypeGenerationPanel::TypeGenerationPanel(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
+TypeGenerationContainer::TypeGenerationContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
 : wxPanel(tmp_parent, -1)
 {
     this->parent= tmp_parent;
@@ -26,8 +26,8 @@ TypeGenerationPanel::TypeGenerationPanel(wxWindow *tmp_parent, wxBoxSizer *tmp_b
     this->btnAddType = new wxButton(this->parent, BTN_ADD_TYPE_ID, wxT("+"));
     this->cbAddType = new wxComboBox(this->parent, CB_ADD_TYPE_ID, wxT("Number"));
 
-    //this->Connect(BTN_ADD_TYPE_ID,wxEVT_BUTTON,wxCommandEventHandler(TypeGenerationPanel::onAddType));
-     this->parent->Bind(wxEVT_BUTTON, &TypeGenerationPanel::onAddType, this, BTN_ADD_TYPE_ID);
+    //this->Connect(BTN_ADD_TYPE_ID,wxEVT_BUTTON,wxCommandEventHandler(TypeGenerationContainer::onAddType));
+     this->parent->Bind(wxEVT_BUTTON, &TypeGenerationContainer::onAddType, this, BTN_ADD_TYPE_ID);
 
     //connect Type Addition's widgets to horrizontal BoxSizer
     this->bsAddTypeTitle->Add(this->stAddTypeTitle);
@@ -51,7 +51,7 @@ TypeGenerationPanel::TypeGenerationPanel(wxWindow *tmp_parent, wxBoxSizer *tmp_b
 
 }
 
-void TypeGenerationPanel::onAddType(wxCommandEvent &event) {
+void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
 
 
     if(this->gTypeGrid->GetNumberRows()< ((this->gTypeGrid->row_pointer)+1))

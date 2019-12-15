@@ -2,13 +2,13 @@
 // Created by Kaung Zaw Htet on 2019-12-13.
 //
 
-#ifndef XMWAYLOON_TYPE_GENERATION_PANEL_H
-#define XMWAYLOON_TYPE_GENERATION_PANEL_H
+#ifndef XMWAYLOON_TYPE_GENERATION_CONTAINER_H
+#define XMWAYLOON_TYPE_GENERATION_CONTAINER_H
 
 #include <wx/wx.h>
 #include <gui/type_grid.h>
 
-class TypeGenerationPanel : public wxPanel
+class TypeGenerationContainer : public wxPanel
 {
 public:
     wxString encoding[3]={"Unicode","Zawgyi","Random"};
@@ -36,7 +36,7 @@ public:
     wxStaticLine *sl0;
 
 
-    TypeGenerationPanel(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
+    TypeGenerationContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
     void onAddType(wxCommandEvent& event);
 
 
@@ -46,4 +46,4 @@ private:
 
 };
 
-#endif //XMWAYLOON_TYPE_GENERATION_PANEL_H
+#endif //XMWAYLOON_TYPE_GENERATION_CONTAINER_H

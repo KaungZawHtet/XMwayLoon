@@ -3,28 +3,27 @@
 //
 
 #include <wx/wx.h>
-#include <gui/encoding_type_panel.h>
+#include <gui/encoding_type_container.h>
 
-EncodingTypePanel::EncodingTypePanel(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
-:wxPanel(tmp_parent,-1)
+EncodingTypeContainer::EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
+:wxControl(tmp_parent,-1)
 {
     this->bsMain=tmp_bsMain;
     this->parent=tmp_parent;
-
     //allocate Record Size group
-    this->stEncodeTypeTitle = new wxStaticText(this, -1,
+    this->stEncodeTypeTitle = new wxStaticText(this->parent, -1,
                                                wxT("Encoding Type : "));
-    this->sl3 = new wxStaticLine(this, wxID_ANY, wxPoint(-1, -1),
+    this->sl3 = new wxStaticLine(this->parent, wxID_ANY, wxPoint(-1, -1),
                                  wxSize(300, 1));
     this->bsEncodeType = new wxBoxSizer(wxHORIZONTAL);
     this->bsEncodeTypeTitle = new wxBoxSizer(wxHORIZONTAL);
-    this->rdUnicode = new wxRadioButton(this, wxID_ANY,
-                                        wxT("Unicode"));
-    this->rdZawgyi = new wxRadioButton(this, wxID_ANY,
+    this->rdUnicode = new wxRadioButton(this->parent, wxID_ANY,
+                                        wxT("Unicode"),wxDefaultPosition,wxDefaultSize, wxRB_GROUP);
+    this->rdZawgyi = new wxRadioButton(this->parent, wxID_ANY,
                                        wxT("Zawgyi"));
-    this->rdRandom = new wxRadioButton(this, wxID_ANY,
+    this->rdRandom = new wxRadioButton(this->parent, wxID_ANY,
                                        wxT("Random"));
-    this->rdCustom = new wxRadioButton(this, wxID_ANY,
+    this->rdCustom = new wxRadioButton(this->parent, wxID_ANY,
                                        wxT("Custom"));
 
 
@@ -39,4 +38,6 @@ EncodingTypePanel::EncodingTypePanel(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMai
     this->bsMain->Add(this->bsEncodeType, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
     this->bsMain->Add(sl3, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
 
+
 }
+

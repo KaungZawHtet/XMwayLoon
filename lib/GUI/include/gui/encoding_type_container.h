@@ -2,16 +2,16 @@
 // Created by Kaung Zaw Htet on 2019-12-14.
 //
 
-#ifndef XMWAYLOON_ENCODING_TYPE_PANEL_H
-#define XMWAYLOON_ENCODING_TYPE_PANEL_H
+#ifndef XMWAYLOON_ENCODING_TYPE_CONTAINER_H
+#define XMWAYLOON_ENCODING_TYPE_CONTAINER_H
 
 #include <wx/wx.h>
 #include <wx/statline.h>
-class EncodingTypePanel : public wxPanel
+class EncodingTypeContainer : public wxControl
 {
 
 public:
-    EncodingTypePanel(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
+    EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
 
 
     wxWindow *parent;
@@ -30,6 +30,7 @@ public:
     void onTargetRandom(wxCommandEvent& event);
     void onTargetCustom(wxCommandEvent& event);
 
+
 };
 
-#endif //XMWAYLOON_ENCODING_TYPE_PANEL_H
+#endif //XMWAYLOON_ENCODING_TYPE_CONTAINER_H

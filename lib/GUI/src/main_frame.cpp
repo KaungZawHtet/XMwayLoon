@@ -5,7 +5,11 @@
 #include <gui/extend_page.h>
 
 MainFrame::MainFrame():
-    wxFrame(nullptr, wxID_ANY, wxString("XMwayLoon"), wxDefaultPosition, wxSize(770, 540))
+    wxFrame(nullptr, wxID_ANY
+            , wxString("XMwayLoon")
+            , wxDefaultPosition, wxSize(770, 540),
+            wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX)
+            )
 {
     nbMain = new wxNotebook(this,-1);
     this->pnGenerate = new GeneratePage(nbMain);
@@ -14,6 +18,7 @@ MainFrame::MainFrame():
     nbMain->AddPage(this->pnGenerate, "Data Generation");
     nbMain->AddPage(this->pnExtend,"Type Extension");
     Bind(wxEVT_NOTEBOOK_PAGE_CHANGED,&MainFrame::onTabChanged,this);
+    this->SetAutoLayout(false);
     Centre();
 }
 
