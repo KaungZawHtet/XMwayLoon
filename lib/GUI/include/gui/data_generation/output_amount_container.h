@@ -7,7 +7,7 @@
 #include <wx/statline.h>
 #include <wx/spinctrl.h>
 #include <wx/wx.h>
-#include <gui/type_grid.h>
+#include <gui/data_generation/type_grid.h>
 class OutputAmountContainer : public wxControl
 {
 public:

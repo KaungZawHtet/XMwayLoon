@@ -1,9 +1,12 @@
-file(GLOB ShinMwayLoon_CPPs
+file(GLOB XMwayLoon_logic_CPPs
         "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
-add_library(ShinMwayLoon
-        ${ShinMwayLoon_CPPs})
+add_library(logic
+        ${XMwayLoon_logic_CPPs})
 
-
-target_include_directories(ShinMwayLoon
+target_link_libraries(logic PUBLIC nlohmann_json::nlohmann_json
+        taskflow
+        ShinMwayLoon
+        )
+target_include_directories(logic
         PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 

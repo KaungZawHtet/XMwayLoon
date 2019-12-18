@@ -3,6 +3,9 @@
 
 /*
  *wxFrame 100000 as MainFrame
+ * wxMenubar 20000
+ *  FirstMenu 1000
+ *   MenuItem    1
  * wxNotebook 10000 as Main Notebook
  *  GeneratePage 1000
  *   Type Addition   : 100
@@ -18,7 +21,8 @@
  *      Checkbox            :10
  *   Encode Type     : 400
  *      Radio Encoding      :10
- *   Generate Button : 500
+ *   Generate Target : 500
+ *   Generate Button : 600
  *
  *
  *
@@ -29,18 +33,23 @@
  *
  * */
 
+#define MENU_ITEM_CREDIT_ID 21001
+#define MENU_ITEM_ABOUT_ID 21002
+//#define MENU_ITEM_PREFERENCE_ID 21002
+
 #define BTN_ADD_TYPE_ID 1120
 #define CB_ADD_TYPE_ID 1110
 #define LC_ADD_TYPE_ID 1130
 
-#define SB_RECORD_NUMBER_ID 1220 //not use anymore
-#define TC_RECORD_NUMBER_ID 1221 //not use anymore
+
 #define RD_RECORD_NUMBER_ID 1210
 #define RD_FILE_SIZE_ID 1230
 
+#define BTN_TARGET_ID 1500
+#define TC_TARGET_ID 1501
 
 
-#define BTN_GENERATE_ID 1500
+#define BTN_GENERATE_ID 1600
 
 
 

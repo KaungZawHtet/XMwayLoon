@@ -3,7 +3,7 @@
 //
 
 #include <wx/wx.h>
-#include <gui/output_format_container.h>
+#include <gui/data_generation/output_format_container.h>
 #include <wx/statline.h>
 OutputFormatContainer::OutputFormatContainer
 

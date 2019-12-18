@@ -1,12 +1,12 @@
 
 #include <limits>
-#include <gui/generate_page.h>
+#include <gui/data_generation/generate_page.h>
 #include <wx/wx.h>
-#include <gui/type_generation_container.h>
+#include <gui/data_generation/type_generation_container.h>
 #include <wx/statline.h>
 #include <gui/id.h>
 #include <wx/grid.h>
-#include <gui/output_amount_container.h>
+#include <gui/data_generation/output_amount_container.h>
 
 
 
@@ -21,6 +21,7 @@ GeneratePage::GeneratePage(wxWindow *parent)
    this->ctOutputFormatContainer= new OutputFormatContainer(this,this->bsMain);
 
     this->ctEncodeingTypeContainer =new EncodingTypeContainer(this, this->bsMain);
+    this->ctGenerateFileContainer= new GenerateFileContainer(this,this->bsMain);
 
     this->createGenerateButton();
 
@@ -39,7 +40,10 @@ void GeneratePage::createGenerateButton() {
                                      wxT("Generate"));
 
     this->bsGenerate->Add(this->btnGenerate);
-    this->bsMain->Add(this->bsGenerate, 0, wxALIGN_RIGHT | wxRIGHT | wxTOP, 10);
+
+    this->bsMain->Add(this->bsGenerate, 0
+            ,  wxALIGN_RIGHT | wxRIGHT | wxTOP, 10);
+    this->bsMain->Add(-1,10);
 
     this->Bind(wxEVT_BUTTON, &GeneratePage::onGenerate, this, BTN_GENERATE_ID);
 }

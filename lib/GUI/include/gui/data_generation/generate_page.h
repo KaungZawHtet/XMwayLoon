@@ -3,11 +3,12 @@
 #include <wx/wx.h>
 #include <wx/statline.h>
 #include <wx/spinctrl.h>
-#include <gui/type_grid.h>
-#include <gui/type_generation_container.h>
-#include <gui/encoding_type_container.h>
-#include <gui/output_amount_container.h>
-#include <gui/output_format_container.h>
+#include <gui/data_generation/type_grid.h>
+#include <gui/data_generation/type_generation_container.h>
+#include <gui/data_generation/encoding_type_container.h>
+#include <gui/data_generation/output_amount_container.h>
+#include <gui/data_generation/generated_file_container.h>
+#include <gui/data_generation/output_format_container.h>
 class GeneratePage : public wxPanel
 {
 public:
@@ -18,6 +19,7 @@ public:
     EncodingTypeContainer *ctEncodeingTypeContainer;
     OutputAmountContainer *ctOutputAmountContainer;
     OutputFormatContainer *ctOutputFormatContainer;
+    GenerateFileContainer *ctGenerateFileContainer;
 
     wxBoxSizer *bsGenerate;
     wxButton *btnGenerate;

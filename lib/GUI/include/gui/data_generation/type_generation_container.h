@@ -6,7 +6,7 @@
 #define XMWAYLOON_TYPE_GENERATION_CONTAINER_H
 
 #include <wx/wx.h>
-#include <gui/type_grid.h>
+#include <gui/data_generation/type_grid.h>
 
 class TypeGenerationContainer : public wxPanel
 {

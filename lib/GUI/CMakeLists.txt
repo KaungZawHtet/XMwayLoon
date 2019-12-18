@@ -1,18 +1,32 @@
-file(GLOB XMwayLoon_GUI_CPPs
+file(GLOB XMwayLoon_GUI_main_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/app.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/main_frame.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/generate_page.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/extend_page.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_grid.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_generation_container.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/encoding_type_container.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/output_format_container.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/output_amount_container.cpp
-
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/preference_dialog.cpp
 
         )
+
+file(GLOB XMwayLoon_GUI_data_generation_CPPs
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/generate_page.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/type_grid.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/type_generation_container.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/encoding_type_container.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/output_format_container.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/output_amount_container.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/generated_file_container.cpp
+
+        )
+file(GLOB XMwayLoon_GUI_type_extension_CPPs
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extend_page.cpp
+        )
+
 add_library(GUI
-        ${XMwayLoon_GUI_CPPs})
+        ${XMwayLoon_GUI_main_CPPs}
+        ${XMwayLoon_GUI_data_generation_CPPs}
+        ${XMwayLoon_GUI_type_extension_CPPs}
+        )
+
+target_link_libraries(GUI PRIVATE logic
+        )
 
 
 target_include_directories(GUI

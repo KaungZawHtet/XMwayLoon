@@ -3,7 +3,7 @@
 //
 
 #include <wx/wx.h>
-#include <gui/encoding_type_container.h>
+#include <gui/data_generation/encoding_type_container.h>
 
 EncodingTypeContainer::EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
 :wxControl(tmp_parent,-1)

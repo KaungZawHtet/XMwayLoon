@@ -3,9 +3,9 @@
 
 #include <wx/wx.h>
 #include <wx/notebook.h>
-#include <gui/generate_page.h>
-#include <gui/extend_page.h>
-
+#include <gui/data_generation/generate_page.h>
+#include <gui/type_extension/extend_page.h>
+#include <gui/preference_dialog.h>
 
 
 
@@ -14,13 +14,23 @@ class MainFrame : public wxFrame
 
 private:
 
-
+wxDECLARE_EVENT_TABLE();
 public:
     wxNotebook* nbMain ;
     GeneratePage *pnGenerate;
     ExtendPage *pnExtend;
+    wxMenuBar *mbMain;
+    wxMenu *mMain;
+    PreferenceDialog *dPreferenceDialog;
+
+
 
     void onTabChanged(wxCommandEvent &event );
+    void onAbout(wxCommandEvent &event);
+    void onCredit(wxCommandEvent &event);
+    void onPreference(wxCommandEvent &event);
+
+
 
     MainFrame();
     

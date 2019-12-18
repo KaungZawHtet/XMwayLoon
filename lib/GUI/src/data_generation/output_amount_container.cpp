@@ -3,7 +3,7 @@
 //
 
 #include <wx/wx.h>
-#include <gui/output_amount_container.h>
+#include <gui/data_generation/output_amount_container.h>
 #include <gui/id.h>
 OutputAmountContainer::OutputAmountContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
 :wxControl(tmp_parent,-1)

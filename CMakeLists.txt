@@ -5,14 +5,25 @@ project(XMwayLoon)
 #conan install . -s build_type=Release --install-folder=cmake-build-release
 
 set(CMAKE_CXX_STANDARD 17)
-#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
 
-if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+
+add_subdirectory(vendor/taskflow)
+set(JSON_BuildTests OFF CACHE INTERNAL "")
+add_subdirectory(vendor/nlohmann_json)
+
+
+set(BOOST_ROOT vendor/boost)
+set(BOOST_INCLUDEDIR vendor/boost/build/include)
+set(BOOST_LIBRARYDIR vendor/boost/build/lib)
+set(BOOST_NO_SYSTEM_PATHS ON)
+find_package(Boost)
+include_directories(${Boost_INCLUDE_DIRS})
+#[[if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
     include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
     conan_basic_setup()
 else()
     message(WARNING "The file conanbuildinfo.cmake doesn't exist, you have to run conan install first")
-endif()
+endif()]]
 
 #include_directories(lib/ShinMwayLoon/src/english_date.h lib/ShinMwayLoon/src/global_objects.h)
 
@@ -53,7 +64,10 @@ elseif(APPLE)
 endif()
 add_subdirectory(lib/GUI)
 #target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
+add_subdirectory(lib/logic)
+
 
 
 add_executable(Executable main.cpp)
-target_link_libraries(Executable ShinMwayLoon ${wxWidgets_LIBRARIES} GUI)
+target_link_libraries(Executable taskflow
+         ${wxWidgets_LIBRARIES} GUI logic ${Boost_LIBRARIES})

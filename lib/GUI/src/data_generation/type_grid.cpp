@@ -4,7 +4,7 @@
 
 
 #include <wx/wx.h>
-#include <gui/type_grid.h>
+#include <gui/data_generation/type_grid.h>
 
 
 TypeGrid::TypeGrid(wxWindow *parent)
