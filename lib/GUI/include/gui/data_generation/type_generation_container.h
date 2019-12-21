@@ -7,23 +7,18 @@
 
 #include <wx/wx.h>
 #include <gui/data_generation/type_grid.h>
-
+#include <logic/type_loader.h>
+#include <wx/statline.h>
 class TypeGenerationContainer : public wxPanel
 {
 public:
-    wxString encoding[3]={"Unicode","Zawgyi","Random"};
-    wxString telecom[5]={"MPT","Telenor","Ooredoo","MyTel","Random"};
-    wxString numType[2]= {"floating","integer"};
-    wxString numSign[2]= {"positive","negative"};
 
-
-    wxString myanBool[2]={"မှန်/မှား","၁/၀"};
-    wxString myanBoolN[2]={"၁၂၈","၂၅၅"};
 
     wxWindow *parent;
 
     wxStaticText *stAddTypeTitle;
     wxButton *btnAddType;
+    wxButton *btnRemoveType;
     wxComboBox *cbAddType;
     wxBoxSizer *bsAddType;
     wxBoxSizer *bsAddTypeTitle;
@@ -35,9 +30,12 @@ public:
     wxBoxSizer *bsMain;
     wxStaticLine *sl0;
 
+    TypeLoader objTypeLoader;
+
 
     TypeGenerationContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
     void onAddType(wxCommandEvent& event);
+    void onRemoveType(wxCommandEvent& event);
 
 
 

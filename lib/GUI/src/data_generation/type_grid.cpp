@@ -11,7 +11,7 @@ TypeGrid::TypeGrid(wxWindow *parent)
 :wxGrid (parent,wxID_ANY,wxDefaultPosition)
 {
 
-    this->CreateGrid(6,5);
+    this->CreateGrid(6,7);
     this->EnableEditing(true);
     this->EnableScrolling(true,true);
     this->EnableGridLines(false);
@@ -20,19 +20,23 @@ TypeGrid::TypeGrid(wxWindow *parent)
   //  this->EnableDragCell(false);
 
 
-    this->SetColLabelValue(0, _("Type"));
-    this->SetColLabelValue(1, _("Encoding"));
-    this->SetColLabelValue(2, _("Type Specific Customization 1"));
-    this->SetColLabelValue(3, _("Type Specific Customization 2 "));
-    this->SetColLabelValue(4, _("Type Specific Customization 3"));
+    this->SetColLabelValue(0, _("No."));
+    this->SetColLabelValue(1, _("Type"));
+    this->SetColLabelValue(2, _("Encoding"));
+    this->SetColLabelValue(3, _("Type Specific Option 1"));
+    this->SetColLabelValue(4, _("Type Specific Option 2"));
+    this->SetColLabelValue(5, _("Type Specific Option 3"));
+    this->SetColLabelValue(6, _(""));
 
     this->HideRowLabels();
 
-    this->SetColSize(0,100);
-    this->SetColSize(1,90);
-    this->SetColSize(2,175);
-    this->SetColSize(3,175);
-    this->SetColSize(4,182);
+    this->SetColSize(0,50);
+    this->SetColSize(1,100);
+    this->SetColSize(2,90);
+    this->SetColSize(3,135);
+    this->SetColSize(4,135);
+    this->SetColSize(5,135);
+    this->SetColSize(6,77);
 
 
 }

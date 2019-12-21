@@ -20,8 +20,9 @@ public:
 
 
 
-    wxString defaultType[7]= {
+    wxString defaultType[8]= {
             "Number",
+            "Name",
             "Pangram",
             "Boolean",
             "NRC",

@@ -19,6 +19,7 @@ public:
 
     wxTextCtrl *tcGenerateFile;
     wxButton *btnGenerateFile;
+
     wxStaticText *stGenerateFileTitle;
 
     wxStaticLine *st5;

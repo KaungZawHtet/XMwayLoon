@@ -11,7 +11,8 @@ class TypeGrid : public wxGrid
 {
 public:
     TypeGrid(wxWindow *parent);
-    int row=5,column=5,row_pointer=0,col_pointer=0;
+    int row=5,column=5,rowPointer=0,colPointer=0;
+    bool doesDataExist= false;
 
 
 };

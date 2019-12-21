@@ -7,13 +7,31 @@
 
 #include <gui/type/type_level_1.h>
 
-struct AlphaNumericType : public Type
+class AlphaNumericType : public Type
 {
-    wxString encoding;
+public:
+    explicit AlphaNumericType
+    ( const wxString& tmpTypeName,TypeGrid *tmp_gTypeGrid)
+    : Type(tmpTypeName,tmp_gTypeGrid) {
+
+    }
+
+    wxString arrEncodingType[3]= {"Unicode", "Zawgyi", "Random"};
+    int encodeCount= sizeof(arrEncodingType)/ sizeof(arrEncodingType[0]);
+    wxGridCellChoiceEditor *gcceEncoding
+    = new wxGridCellChoiceEditor(encodeCount,arrEncodingType, false);
+    void setEncodingCell();
 };
 
-struct NumericType: public Type
+
+
+class NumericType: public Type
 {
+public:
+    explicit NumericType
+    ( const wxString& tmpTypeName,TypeGrid *tmp_gTypeGrid)
+    : Type(tmpTypeName,tmp_gTypeGrid) {}
+    void setNoEncodingCell();
 
 };
 
