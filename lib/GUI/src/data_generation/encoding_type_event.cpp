@@ -6,21 +6,17 @@
 #include <gui/id.h>
 
 
-void EncodingTypeContainer::onTargetCustom(wxCommandEvent &event) {
+void EncodingTypeContainer::onTargetEncode(wxCommandEvent &event) {
 
-
-
-}
-
-void EncodingTypeContainer::onTargetUnicode(wxCommandEvent &event) {
-
-
-}
-
-void EncodingTypeContainer::onTargetZawgyi(wxCommandEvent &event) {
-
-}
-
-void EncodingTypeContainer::onTargetRandom(wxCommandEvent &event) {
+    int id = event.GetId();
+    if (id == RD_UNICODE_ID)
+    { }
+    if (id == RD_ZAWGYI_ID)
+    { }
+    if (id == RD_RANDOM_ID)
+    { }
+    if (id == RD_CUSTOM_ID)
+    { }
+    event.Skip();
 
 }

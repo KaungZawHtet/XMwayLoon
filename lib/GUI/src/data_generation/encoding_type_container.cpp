@@ -40,13 +40,8 @@ EncodingTypeContainer::EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *t
     this->bsMain->Add(sl3, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
 
     this->parent->Bind(wxEVT_RADIOBUTTON
-            ,&EncodingTypeContainer::onTargetCustom,RD_UNICODE_ID);
-    this->parent->Bind(wxEVT_RADIOBUTTON
-            ,&EncodingTypeContainer::onTargetUnicode,RD_ZAWGYI_ID);
-    this->parent->Bind(wxEVT_RADIOBUTTON
-            ,&EncodingTypeContainer::onTargetZawgyi,RD_RANDOM_ID);
-    this->parent->Bind(wxEVT_RADIOBUTTON
-            ,&EncodingTypeContainer::onTargetRandom,RD_CUSTOM_ID);
+            ,&EncodingTypeContainer::onTargetEncode,this);
+
 
 
 }

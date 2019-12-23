@@ -22,7 +22,7 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
     =this->ctOutputFormatContainer->objOutputFormat;
     objGenerateInfo.outputRecordAmount=this->ctOutputAmountContainer->outputRecordAmount;
     objGenerateInfo.outputFileSize=this->ctOutputAmountContainer->outputFileSize;
-    objGenerateInfo.encodingType=
+    //objGenerateInfo.encodingType=
 
 
 

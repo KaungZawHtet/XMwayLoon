@@ -5,14 +5,21 @@
 #ifndef XMWAYLOON_ENCODING_TYPE_CONTAINER_H
 #define XMWAYLOON_ENCODING_TYPE_CONTAINER_H
 
-#include <gui/data_generation/generate_page.h>
+
 #include <wx/wx.h>
 #include <wx/statline.h>
+
+class GeneratePage;
+
+
 class EncodingTypeContainer : public wxControl
 {
 
 public:
     EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
+
+
+    GeneratePage *p;
 
 
     wxWindow *parent;
@@ -26,10 +33,8 @@ public:
     wxRadioButton *rdCustom;
     wxStaticLine *sl3;
 
-    void onTargetUnicode(wxCommandEvent& event);
-    void onTargetZawgyi(wxCommandEvent& event);
-    void onTargetRandom(wxCommandEvent& event);
-    void onTargetCustom(wxCommandEvent& event);
+
+    void onTargetEncode(wxCommandEvent& event);
 
 
 };
