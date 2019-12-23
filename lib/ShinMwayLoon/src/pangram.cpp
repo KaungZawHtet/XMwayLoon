@@ -7,7 +7,7 @@
 #include <ShinMwayLoon/global_objects.h>
 
 typedef Xlotgative::ShinMwayLoon::Pangram XMwayLoon_Pangram;
-namespace XMwayLoon =  Xlotgative::ShinMwayLoon;
+
 
 
 std::string XMwayLoon_Pangram::getPangram(XMwayLoon::Encoding encoding){

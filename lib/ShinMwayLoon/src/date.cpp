@@ -7,7 +7,7 @@
 #include <regex>
 
 typedef Xlotgative::ShinMwayLoon::Date XMwayLoon_Date;
-namespace XMwayLoon =  Xlotgative::ShinMwayLoon;
+
 
 std::string XMwayLoon_Date::convertCompleteEngMonthToMyan
         (const std::string engMonth, const XMwayLoon::Encoding &encoding) {
@@ -41,9 +41,8 @@ std::string XMwayLoon_Date::convertShortEngMonthToMyan
             case XMwayLoon::Encoding::Zawgyi:
                 return this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
             default :
-                std::uniform_int_distribution<> encodingDistribution(1, 2);
-                int encoding = encodingDistribution(objPCG);
-                if (encoding == 1) {
+                std::uniform_int_distribution<> encodingDistribution(0, 1);
+                if (encodingDistribution(objPCG)) {
                     // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                     return this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
                 } else {

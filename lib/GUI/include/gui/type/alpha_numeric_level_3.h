@@ -42,7 +42,6 @@ public:
 class DateType :  public AlphaNumericType
 {
 public:
-    wxTextCtrl tcFormat;
     explicit DateType(const wxString& tmp_TypeName,TypeGrid *tmp_gTypeGrid)
     : AlphaNumericType(tmp_TypeName,tmp_gTypeGrid){};
     void setTypeOnGrid() override;

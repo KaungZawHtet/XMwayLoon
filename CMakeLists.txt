@@ -65,7 +65,7 @@ endif()
 add_subdirectory(lib/GUI)
 #target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
 add_subdirectory(lib/logic)
-
+add_subdirectory(lib/model)
 
 
 add_executable(Executable main.cpp)

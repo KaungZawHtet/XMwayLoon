@@ -58,6 +58,7 @@ void NRCType::setTypeOnGrid() {
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
     this->colPointer++;
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
 
 
     ++(this->gTypeGrid->rowPointer);

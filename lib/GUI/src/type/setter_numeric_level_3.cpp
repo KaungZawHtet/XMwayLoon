@@ -9,15 +9,16 @@
 void NumberType::setTypeOnGrid() {
 
     this->setNoEncodingCell();
+    this->gTypeGrid->SetCellValue
+    (this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNumberType[0]));
+    this->gTypeGrid->SetCellEditor(this->gTypeGrid->rowPointer, this->colPointer
+            ,new wxGridCellChoiceEditor(this->numberTypeCount,this->arrNumberType));
+    this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Prefix"));
 
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Postfix"));
 
-
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 

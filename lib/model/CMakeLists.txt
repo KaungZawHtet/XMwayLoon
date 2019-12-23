@@ -1,0 +1,9 @@
+file(GLOB XMwayLoon_model_CPPs
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+add_library(model
+        ${XMwayLoon_model_CPPs})
+
+
+target_include_directories(model
+        PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+

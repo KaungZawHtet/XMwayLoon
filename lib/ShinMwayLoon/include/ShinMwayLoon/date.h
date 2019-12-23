@@ -36,6 +36,7 @@ namespace Xlotgative::ShinMwayLoon{
 
     class Date{
 
+
         struct Month
         {
              std::string shortEngMonth;

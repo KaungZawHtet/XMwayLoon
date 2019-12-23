@@ -58,4 +58,5 @@ void OutputAmountContainer::onChangeOutputAmountType(wxCommandEvent &event) {
     int id = event.GetId();
     if (id == RD_FILE_SIZE_ID)  this->scRecordNumber->SetValue(100);
     if (id == RD_RECORD_NUMBER_ID) this->scFileSize->SetValue(1);
+    event.Skip();
 }

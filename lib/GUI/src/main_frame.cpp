@@ -49,6 +49,7 @@ void MainFrame::onTabChanged(wxCommandEvent &event)
     if(tabId==0) this->SetSize( wxSize(770,630) );
     if(tabId==1) this->SetSize( wxSize(600,540) );
 
+    event.Skip();
 
 }
 
@@ -90,6 +91,8 @@ void MainFrame::onAbout(wxCommandEvent &event) {
             L"IN THE SOFTWARE.");
 
     wxAboutBox(info);
+
+    event.Skip();
 }
 
 void MainFrame::onCredit(wxCommandEvent &event) {
@@ -107,6 +110,7 @@ void MainFrame::onCredit(wxCommandEvent &event) {
     info.SetDevelopers(developers);
 
     wxAboutBox(info);
+    event.Skip();
 
 }
 
@@ -114,6 +118,7 @@ void MainFrame::onPreference(wxCommandEvent &event) {
 
 this->dPreferenceDialog = new PreferenceDialog("Preference");
 this->dPreferenceDialog->Show();
+    event.Skip();
 }
 
 

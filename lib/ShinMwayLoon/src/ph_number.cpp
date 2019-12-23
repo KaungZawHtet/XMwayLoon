@@ -5,7 +5,7 @@
 #include <ShinMwayLoon/ph_number.h>
 #include <regex>
 
-namespace XMwayLoon=Xlotgative::ShinMwayLoon;
+
 
 typedef XMwayLoon::PhoneNumber XMwayLoon_PhoneNumber;
 

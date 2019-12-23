@@ -25,5 +25,5 @@ namespace Xlotgative::ShinMwayLoon{
 
 };
 
-
+namespace XMwayLoon =  Xlotgative::ShinMwayLoon;
 #endif //SHINMWAYLOON_GLOBAL_OBJECTS_H

@@ -6,7 +6,7 @@
 #include <string>
 #include <ShinMwayLoon/faster_random.h>
 typedef Xlotgative::ShinMwayLoon::Number XMwayLoon_Number;
-namespace XMwayLoon=Xlotgative::ShinMwayLoon;
+
 
 
 std::string XMwayLoon_Number::convertEngNumToMyan(const std::string &engNum) {

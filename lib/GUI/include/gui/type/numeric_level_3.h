@@ -12,6 +12,7 @@ class NumberType : public NumericType
 {
 public:
     wxString arrNumberType[3]= {"Integer","Float","Rational"};
+    int numberTypeCount= sizeof(arrNumberType)/ sizeof(arrNumberType[0]);
 
     void setTypeOnGrid();
     NumberType(wxString tmp_typeName,TypeGrid *tmp_gTypeGrid)

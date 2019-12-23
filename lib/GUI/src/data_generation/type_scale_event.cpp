@@ -67,7 +67,7 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
 
 
 
-
+    event.Skip();
 }
 
 void TypeGenerationContainer::onRemoveType(wxCommandEvent &event) {
@@ -79,5 +79,5 @@ void TypeGenerationContainer::onRemoveType(wxCommandEvent &event) {
         --(this->gTypeGrid->rowPointer);
     }
 
-
+    event.Skip();
 }

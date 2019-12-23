@@ -13,7 +13,8 @@ file(GLOB XMwayLoon_GUI_data_generation_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/output_format_container.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/output_amount_container.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/generated_file_container.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/type_scale_event.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/type_scale_event.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/generate_event.cpp)
 
 file(GLOB XMwayLoon_GUI_type_extension_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extend_page.cpp)

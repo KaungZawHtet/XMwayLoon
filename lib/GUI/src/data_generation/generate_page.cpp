@@ -47,13 +47,6 @@ void GeneratePage::createGenerateButton() {
 
     this->Bind(wxEVT_BUTTON, &GeneratePage::onGenerate, this, BTN_GENERATE_ID);
 }
-void GeneratePage::onGenerate(wxCommandEvent &event) {
-   // int a = this->scRecordNumber->GetValue();
-
-   /* wxMessageDialog *dial = new wxMessageDialog(this,
-            wxString::Format(wxT("%d"),a), wxT("Error")); dial->ShowModal();*/
-
-}
 
 
 
