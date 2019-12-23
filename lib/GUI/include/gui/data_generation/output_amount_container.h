@@ -39,6 +39,9 @@ public:
     wxStaticText *stFileSizeUnit;
     wxStaticLine *sl1;
 
+    double outputRecordAmount=NULL;
+    double outputFileSize=NULL;
+
     void onChangeOutputAmountType(wxCommandEvent& event);
 
 

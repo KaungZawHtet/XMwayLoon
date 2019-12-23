@@ -5,6 +5,7 @@
 #ifndef XMWAYLOON_OUTPUT_FORMAT_CONTAINER_H
 #define XMWAYLOON_OUTPUT_FORMAT_CONTAINER_H
 
+#include <model.h>
 #include <wx/wx.h>
 #include <wx/statline.h>
 class OutputFormatContainer : public wxControl
@@ -23,6 +24,13 @@ public:
     wxWindow *parent;
     wxBoxSizer *bsMain;
     wxStaticLine *sl2;
+
+    OutputFormat objOutputFormat;
+
+    void onChecked ( wxCommandEvent &event);
+
+private:
+
 
 };
 

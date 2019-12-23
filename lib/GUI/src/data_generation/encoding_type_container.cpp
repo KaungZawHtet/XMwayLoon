@@ -4,7 +4,7 @@
 
 #include <wx/wx.h>
 #include <gui/data_generation/encoding_type_container.h>
-
+#include <gui/id.h>
 EncodingTypeContainer::EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
 :wxControl(tmp_parent,-1)
 {
@@ -17,14 +17,15 @@ EncodingTypeContainer::EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *t
                                  wxSize(300, 1));
     this->bsEncodeType = new wxBoxSizer(wxHORIZONTAL);
     this->bsEncodeTypeTitle = new wxBoxSizer(wxHORIZONTAL);
-    this->rdUnicode = new wxRadioButton(this->parent, wxID_ANY,
+    this->rdUnicode = new wxRadioButton(this->parent, RD_UNICODE_ID,
                                         wxT("Unicode"),wxDefaultPosition,wxDefaultSize, wxRB_GROUP);
-    this->rdZawgyi = new wxRadioButton(this->parent, wxID_ANY,
+    this->rdZawgyi = new wxRadioButton(this->parent, RD_ZAWGYI_ID,
                                        wxT("Zawgyi"));
-    this->rdRandom = new wxRadioButton(this->parent, wxID_ANY,
+    this->rdRandom = new wxRadioButton(this->parent, RD_RANDOM_ID,
                                        wxT("Random"));
-    this->rdCustom = new wxRadioButton(this->parent, wxID_ANY,
+    this->rdCustom = new wxRadioButton(this->parent, RD_CUSTOM_ID,
                                        wxT("Custom"));
+    this->rdUnicode->SetFocus();
 
 
     //connect Record Size's widgets to horrizontal BoxSizer
@@ -38,6 +39,16 @@ EncodingTypeContainer::EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *t
     this->bsMain->Add(this->bsEncodeType, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
     this->bsMain->Add(sl3, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
 
+    this->parent->Bind(wxEVT_RADIOBUTTON
+            ,&EncodingTypeContainer::onTargetCustom,RD_UNICODE_ID);
+    this->parent->Bind(wxEVT_RADIOBUTTON
+            ,&EncodingTypeContainer::onTargetUnicode,RD_ZAWGYI_ID);
+    this->parent->Bind(wxEVT_RADIOBUTTON
+            ,&EncodingTypeContainer::onTargetZawgyi,RD_RANDOM_ID);
+    this->parent->Bind(wxEVT_RADIOBUTTON
+            ,&EncodingTypeContainer::onTargetRandom,RD_CUSTOM_ID);
+
 
 }
+
 

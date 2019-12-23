@@ -46,6 +46,17 @@
 #define RD_RECORD_NUMBER_ID 1210
 #define RD_FILE_SIZE_ID 1230
 
+#define CB_CSV_ID 1311
+#define CB_JSON_ID 1312
+#define CB_XML_ID 1313
+#define CB_HTML_ID 1314
+
+#define RD_UNICODE_ID 1411
+#define RD_ZAWGYI_ID 1412
+#define RD_RANDOM_ID 1413
+#define RD_CUSTOM_ID 1414
+
+
 #define BTN_TARGET_ID 1500
 #define TC_TARGET_ID 1501
 

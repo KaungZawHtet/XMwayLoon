@@ -1,7 +1,7 @@
 //
 // Created by Kaung Zaw Htet on 2019-12-14.
 //
-
+#include <gui/id.h>
 #include <wx/wx.h>
 #include <gui/data_generation/output_format_container.h>
 #include <wx/statline.h>
@@ -21,10 +21,10 @@ wxControl(tmp_parent,-1)
     this->bsFormatTypeTitle = new wxBoxSizer(wxHORIZONTAL);
     this->stFormatTypeTitle = new wxStaticText(this->parent, -1,
                                                wxT("Output Format : "));
-    this->cbCSV = new wxCheckBox(this->parent, wxID_ANY, wxT("CSV"));
-    this->cbJSON = new wxCheckBox(this->parent, wxID_ANY, wxT("JSON"));
-    this->cbXML = new wxCheckBox(this->parent, wxID_ANY, wxT("XML"));
-    this->cbHTML = new wxCheckBox(this->parent, wxID_ANY, wxT("HTML"));
+    this->cbCSV = new wxCheckBox(this->parent, CB_CSV_ID, wxT("CSV"));
+    this->cbJSON = new wxCheckBox(this->parent, CB_JSON_ID, wxT("JSON"));
+    this->cbXML = new wxCheckBox(this->parent, CB_XML_ID, wxT("XML"));
+    this->cbHTML = new wxCheckBox(this->parent, CB_HTML_ID, wxT("HTML"));
 
     //connect Output format's widgets to horrizontal BoxSizer
     this->bsFormatTypeTitle->Add(this->stFormatTypeTitle);
@@ -38,5 +38,24 @@ wxControl(tmp_parent,-1)
     this->bsMain->Add(sl2, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
 
 
+    this->parent->Bind
+    (wxEVT_CHECKBOX, &OutputFormatContainer::onChecked, this, CB_CSV_ID);
+    this->parent->Bind
+    (wxEVT_CHECKBOX, &OutputFormatContainer::onChecked, this, CB_JSON_ID);
+    this->parent->Bind
+            (wxEVT_CHECKBOX, &OutputFormatContainer::onChecked, this, CB_XML_ID);
+    this->parent->Bind
+            (wxEVT_CHECKBOX, &OutputFormatContainer::onChecked, this, CB_HTML_ID);
+
+}
+
+void OutputFormatContainer::onChecked(wxCommandEvent &event) {
+
+    if(this->cbCSV->IsChecked()) objOutputFormat.CSV= true;
+    if(this->cbHTML->IsChecked()) objOutputFormat.HTML= true;
+    if(this->cbJSON->IsChecked()) objOutputFormat.JSON= true;
+    if(this->cbXML->IsChecked()) objOutputFormat.XML= true;
+
+    event.Skip();
 
 }

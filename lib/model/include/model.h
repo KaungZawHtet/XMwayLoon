@@ -6,24 +6,30 @@
 #define XMWAYLOON_MODEL_H
 
 #include <string>
-
-
+#include <any>
+#include <vector>
 
 
 struct OutputFormat {
-    std::string CSV;
-    std::string JSON;
-    std::string XML;
-    std::string HTML;
+    bool CSV;
+    bool JSON;
+    bool XML;
+    bool HTML;
 
+};
+
+enum class EncodingType{
+    unicode,zawgyi,random,custom
 };
 
 struct GenerateInfo
 {
     OutputFormat objOutputFormat;
-    std::string encodingType;
+    EncodingType encodingType;
     std::string targetFile;
-    std::string outputAmount;
+    double outputRecordAmount=NULL;
+    double outputFileSize=NULL;
+    std::vector<std::any> types;
 
 };
 

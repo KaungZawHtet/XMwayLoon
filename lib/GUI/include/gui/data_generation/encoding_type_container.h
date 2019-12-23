@@ -5,6 +5,7 @@
 #ifndef XMWAYLOON_ENCODING_TYPE_CONTAINER_H
 #define XMWAYLOON_ENCODING_TYPE_CONTAINER_H
 
+#include <gui/data_generation/generate_page.h>
 #include <wx/wx.h>
 #include <wx/statline.h>
 class EncodingTypeContainer : public wxControl

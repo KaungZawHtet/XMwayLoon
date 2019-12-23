@@ -3,12 +3,8 @@
 //
 
 #include <gui/data_generation/generate_page.h>
-#include <wx/wx.h>
-#include <gui/data_generation/type_generation_container.h>
 #include <wx/statline.h>
-#include <gui/id.h>
-#include <wx/grid.h>
-#include <gui/data_generation/output_amount_container.h>
+#include <model.h>
 
 
 void GeneratePage::onGenerate(wxCommandEvent &event) {
@@ -16,6 +12,22 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
 
     /* wxMessageDialog *dial = new wxMessageDialog(this,
              wxString::Format(wxT("%d"),a), wxT("Error")); dial->ShowModal();*/
+
+    GenerateInfo objGenerateInfo;
+
+
+    objGenerateInfo.targetFile
+    =std::string(this->ctGenerateFileContainer->tcGenerateFile->GetValue().mb_str());
+    objGenerateInfo.objOutputFormat
+    =this->ctOutputFormatContainer->objOutputFormat;
+    objGenerateInfo.outputRecordAmount=this->ctOutputAmountContainer->outputRecordAmount;
+    objGenerateInfo.outputFileSize=this->ctOutputAmountContainer->outputFileSize;
+    objGenerateInfo.encodingType=
+
+
+
+
+
 
 
 
