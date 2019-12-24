@@ -7,6 +7,7 @@
 
 struct Type {
     std::string typeName;
+    std::string fieldName;
 };
 struct AlphanumericType : public Type
 {

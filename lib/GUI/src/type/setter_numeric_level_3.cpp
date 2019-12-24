@@ -9,6 +9,7 @@
 void NumberType::setTypeOnGrid() {
 
     this->setNoEncodingCell();
+    this->colPointer++;
     this->gTypeGrid->SetCellValue
     (this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNumberType[0]));
     this->gTypeGrid->SetCellEditor(this->gTypeGrid->rowPointer, this->colPointer
@@ -27,6 +28,7 @@ void NumberType::setTypeOnGrid() {
 void PhNumberType::setTypeOnGrid() {
     this->setNoEncodingCell();
 
+    this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrCountryCode[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
@@ -52,6 +54,7 @@ void PhNumberType::setTypeOnGrid() {
 void IPAddressType::setTypeOnGrid() {
     this->setNoEncodingCell();
 
+    this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrIPType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer

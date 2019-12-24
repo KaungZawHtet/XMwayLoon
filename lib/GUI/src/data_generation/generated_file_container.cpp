@@ -6,23 +6,23 @@
 #include <gui/data_generation/generated_file_container.h>
 #include <gui/id.h>
 GenerateFileContainer::GenerateFileContainer
-(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
-: wxControl(tmp_parent,-1)
+(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain)
+: wxControl(tmp_wParent,-1)
 {
-    this->parent= tmp_parent;
+    this->wParent= tmp_wParent;
     this->bsMain=tmp_bsMain;
 
 
-    this->st5= new wxStaticLine(this->parent, wxID_ANY, wxPoint(-1, -1),
+    this->st5= new wxStaticLine(this->wParent, wxID_ANY, wxPoint(-1, -1),
                                 wxSize(300, 1));
     this->bsGenerateFileTitle= new wxBoxSizer(wxHORIZONTAL);
     this->bsGenerateFile= new wxBoxSizer(wxHORIZONTAL);
-    this->stGenerateFileTitle= new wxStaticText(this->parent,-1,wxT("Target File : "));
-    this->btnGenerateFile = new wxButton(this->parent,BTN_TARGET_ID,wxT("Target"));
-    this->tcGenerateFile=new wxTextCtrl(this->parent,TC_TARGET_ID);
+    this->stGenerateFileTitle= new wxStaticText(this->wParent,-1,wxT("Target File : "));
+    this->btnGenerateFile = new wxButton(this->wParent,BTN_TARGET_ID,wxT("Target"));
+    this->tcGenerateFile=new wxTextCtrl(this->wParent,TC_TARGET_ID);
     this->tcGenerateFile->SetEditable(false);
 
-    this->parent->Bind(wxEVT_BUTTON,&GenerateFileContainer::onTarget,this,BTN_TARGET_ID);
+    this->wParent->Bind(wxEVT_BUTTON,&GenerateFileContainer::onTarget,this,BTN_TARGET_ID);
 
     //connect Type Addition's widgets to horrizontal BoxSizer
     this->bsGenerateFileTitle->Add(this->stGenerateFileTitle);

@@ -14,7 +14,7 @@ public:
 
 
     wxBoxSizer *bsMain;
-    wxWindow *parent;
+    wxWindow *wParent;
 
 
     wxStaticText *stFormatTypeTitle;
@@ -25,7 +25,7 @@ public:
     wxCheckBox *cbXML;
     wxCheckBox *cbHTML;
     wxStaticLine *sl2;
-    OutputAmountContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
+    OutputAmountContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain);
 
 
     wxStaticText *stRecordSizeTitle;

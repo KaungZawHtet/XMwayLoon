@@ -16,13 +16,14 @@ class EncodingTypeContainer : public wxControl
 {
 
 public:
-    EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
+    EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain);
 
 
-    GeneratePage *p;
+    GeneratePage *gpParent;
 
 
-    wxWindow *parent;
+
+    wxWindow *wParent;
     wxBoxSizer *bsMain;
     wxStaticText *stEncodeTypeTitle;
     wxBoxSizer *bsEncodeTypeTitle;

@@ -5,38 +5,38 @@
 #include <wx/wx.h>
 #include <gui/data_generation/output_amount_container.h>
 #include <gui/id.h>
-OutputAmountContainer::OutputAmountContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
-:wxControl(tmp_parent,-1)
+OutputAmountContainer::OutputAmountContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain)
+:wxControl(tmp_wParent,-1)
 {
 
     this->bsMain=tmp_bsMain;
-    this->parent=tmp_parent;
+    this->wParent=tmp_wParent;
 
 
       this->bsRecordSize = new wxBoxSizer(wxHORIZONTAL);
-      this->sl1 = new wxStaticLine(this->parent, wxID_ANY, wxPoint(-1, -1),
+      this->sl1 = new wxStaticLine(this->wParent, wxID_ANY, wxPoint(-1, -1),
                                    wxSize(300, 1));
       this->bsRecordSizeTitle = new wxBoxSizer(wxHORIZONTAL);
-      this->stRecordSizeTitle = new wxStaticText(this->parent, -1,
+      this->stRecordSizeTitle = new wxStaticText(this->wParent, -1,
                                                  wxT("Output Amount : "),
                                                  wxPoint(-1, -1), wxSize(-1, -1));
-      this->rdRecordNumber = new wxRadioButton(this->parent, RD_RECORD_NUMBER_ID,
+      this->rdRecordNumber = new wxRadioButton(this->wParent, RD_RECORD_NUMBER_ID,
                                                wxT("Record Number"),wxDefaultPosition,wxDefaultSize, wxRB_GROUP);
-      this->rdFileSize = new wxRadioButton(this->parent, RD_FILE_SIZE_ID,
+      this->rdFileSize = new wxRadioButton(this->wParent, RD_FILE_SIZE_ID,
                                            wxT("File Size"));
-      this->stRecordNumberUnit = new wxStaticText(this->parent, -1,
+      this->stRecordNumberUnit = new wxStaticText(this->wParent, -1,
                                                   wxT("records"));
-      this->stFileSizeUnit = new wxStaticText(this->parent, -1,
+      this->stFileSizeUnit = new wxStaticText(this->wParent, -1,
                                               wxT("GB"));
-      this->scRecordNumber = new wxSpinCtrl(this->parent, wxID_ANY, wxString(""),
+      this->scRecordNumber = new wxSpinCtrl(this->wParent, wxID_ANY, wxString(""),
                                             wxPoint(-1, -1), wxSize(-1, -1), wxSP_ARROW_KEYS,
                                             1, 2147483647, 100);
-      this->scFileSize = new wxSpinCtrlDouble(this->parent, wxID_ANY, wxString(""),
+      this->scFileSize = new wxSpinCtrlDouble(this->wParent, wxID_ANY, wxString(""),
                                               wxPoint(-1, -1), wxSize(-1, -1), wxSP_ARROW_KEYS,
                                               0.000001, 2147483647, 1);
 
       this->rdRecordNumber->SetValue(true);
-      this->parent->Bind(wxEVT_RADIOBUTTON, &OutputAmountContainer::onChangeOutputAmountType,
+      this->wParent->Bind(wxEVT_RADIOBUTTON, &OutputAmountContainer::onChangeOutputAmountType,
                this); //TODO:: hander 'this' need to change if refactoring
 
     //connect Record Size's widgets to horrizontal BoxSizer

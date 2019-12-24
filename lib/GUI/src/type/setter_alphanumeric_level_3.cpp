@@ -7,6 +7,7 @@
 void NameType::setTypeOnGrid() {
     this->setEncodingCell();
 
+    this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrGenderType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
@@ -33,6 +34,7 @@ void NameType::setTypeOnGrid() {
 void PangramType::setTypeOnGrid() {
     this->setEncodingCell();
 
+    this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
     this->colPointer++;
@@ -49,6 +51,7 @@ void PangramType::setTypeOnGrid() {
 void NRCType::setTypeOnGrid() {
     this->setEncodingCell();
 
+    this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNRCType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
@@ -67,6 +70,7 @@ void NRCType::setTypeOnGrid() {
 void DateType::setTypeOnGrid() {
     this->setEncodingCell();
     this->colPointer++;
+    this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
     this->colPointer++;
@@ -79,6 +83,7 @@ void DateType::setTypeOnGrid() {
 void BooleanType::setTypeOnGrid() {
     this->setEncodingCell();
 
+    this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrBoolType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer

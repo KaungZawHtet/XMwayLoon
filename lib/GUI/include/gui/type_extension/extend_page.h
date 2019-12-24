@@ -8,7 +8,7 @@ class ExtendPage : public wxPanel
 
 public:
 
-    ExtendPage(wxWindow *parent);
+    ExtendPage(wxWindow *wParent);
 };
 
 

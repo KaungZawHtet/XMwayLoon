@@ -11,7 +11,7 @@
 class OutputFormatContainer : public wxControl
 {
 public:
-    OutputFormatContainer(wxWindow *tmp_parent,wxBoxSizer *tmp_bsMain);
+    OutputFormatContainer(wxWindow *tmp_wParent,wxBoxSizer *tmp_bsMain);
 
     wxStaticText *stFormatTypeTitle;
     wxBoxSizer *bsFormatTypeTitle;
@@ -21,7 +21,7 @@ public:
     wxCheckBox *cbXML;
     wxCheckBox *cbHTML;
 
-    wxWindow *parent;
+    wxWindow *wParent;
     wxBoxSizer *bsMain;
     wxStaticLine *sl2;
 

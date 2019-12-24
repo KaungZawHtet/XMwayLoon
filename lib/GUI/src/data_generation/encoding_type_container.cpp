@@ -5,27 +5,29 @@
 #include <wx/wx.h>
 #include <gui/data_generation/encoding_type_container.h>
 #include <gui/id.h>
-EncodingTypeContainer::EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain)
-:wxControl(tmp_parent,-1)
+EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain)
+:wxControl(reinterpret_cast <wxWindow *>(tmp_gpParent),-1)
 {
     this->bsMain=tmp_bsMain;
-    this->parent=tmp_parent;
+    this->wParent=reinterpret_cast <wxWindow *>(tmp_gpParent);
+    this->gpParent=tmp_gpParent;
+
     //allocate Record Size group
-    this->stEncodeTypeTitle = new wxStaticText(this->parent, -1,
+    this->stEncodeTypeTitle = new wxStaticText(this->wParent, -1,
                                                wxT("Encoding Type : "));
-    this->sl3 = new wxStaticLine(this->parent, wxID_ANY, wxPoint(-1, -1),
+    this->sl3 = new wxStaticLine(this->wParent, wxID_ANY, wxPoint(-1, -1),
                                  wxSize(300, 1));
     this->bsEncodeType = new wxBoxSizer(wxHORIZONTAL);
     this->bsEncodeTypeTitle = new wxBoxSizer(wxHORIZONTAL);
-    this->rdUnicode = new wxRadioButton(this->parent, RD_UNICODE_ID,
+    this->rdUnicode = new wxRadioButton(this->wParent, RD_UNICODE_ID,
                                         wxT("Unicode"),wxDefaultPosition,wxDefaultSize, wxRB_GROUP);
-    this->rdZawgyi = new wxRadioButton(this->parent, RD_ZAWGYI_ID,
+    this->rdZawgyi = new wxRadioButton(this->wParent, RD_ZAWGYI_ID,
                                        wxT("Zawgyi"));
-    this->rdRandom = new wxRadioButton(this->parent, RD_RANDOM_ID,
+    this->rdRandom = new wxRadioButton(this->wParent, RD_RANDOM_ID,
                                        wxT("Random"));
-    this->rdCustom = new wxRadioButton(this->parent, RD_CUSTOM_ID,
+    this->rdCustom = new wxRadioButton(this->wParent, RD_CUSTOM_ID,
                                        wxT("Custom"));
-    this->rdUnicode->SetFocus();
+    this->rdUnicode->SetValue(true);
 
 
     //connect Record Size's widgets to horrizontal BoxSizer
@@ -39,7 +41,7 @@ EncodingTypeContainer::EncodingTypeContainer(wxWindow *tmp_parent, wxBoxSizer *t
     this->bsMain->Add(this->bsEncodeType, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
     this->bsMain->Add(sl3, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
 
-    this->parent->Bind(wxEVT_RADIOBUTTON
+    this->wParent->Bind(wxEVT_RADIOBUTTON
             ,&EncodingTypeContainer::onTargetEncode,this);
 
 

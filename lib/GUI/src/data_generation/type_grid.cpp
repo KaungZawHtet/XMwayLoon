@@ -7,8 +7,8 @@
 #include <gui/data_generation/type_grid.h>
 
 
-TypeGrid::TypeGrid(wxWindow *parent)
-:wxGrid (parent,wxID_ANY,wxDefaultPosition)
+TypeGrid::TypeGrid(wxWindow *wParent)
+:wxGrid (wParent,wxID_ANY,wxDefaultPosition)
 {
 
     this->CreateGrid(6,7);
@@ -23,20 +23,22 @@ TypeGrid::TypeGrid(wxWindow *parent)
     this->SetColLabelValue(0, _("No."));
     this->SetColLabelValue(1, _("Type"));
     this->SetColLabelValue(2, _("Encoding"));
-    this->SetColLabelValue(3, _("Type Specific Option 1"));
-    this->SetColLabelValue(4, _("Type Specific Option 2"));
-    this->SetColLabelValue(5, _("Type Specific Option 3"));
-    this->SetColLabelValue(6, _(""));
+    this->SetColLabelValue(3, _("Field Name"));
+    this->SetColLabelValue(4, _("Type Specific Option 1"));
+    this->SetColLabelValue(5, _("Type Specific Option 2"));
+    this->SetColLabelValue(6, _("Type Specific Option 3"));
+
 
     this->HideRowLabels();
 
     this->SetColSize(0,50);
-    this->SetColSize(1,100);
+    this->SetColSize(1,90);
     this->SetColSize(2,90);
-    this->SetColSize(3,135);
+    this->SetColSize(3,87); //field name
     this->SetColSize(4,135);
     this->SetColSize(5,135);
-    this->SetColSize(6,77);
+    this->SetColSize(6,135);
+
 
 
 }

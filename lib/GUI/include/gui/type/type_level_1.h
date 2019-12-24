@@ -13,6 +13,7 @@ class Type
 public:
     int colPointer=0;
     wxString typeName;
+    wxString fieldName;
     TypeGrid *gTypeGrid;
     virtual void setTypeOnGrid()=0;
     void setNameCell();

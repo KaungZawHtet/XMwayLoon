@@ -14,7 +14,7 @@ class TypeGenerationContainer : public wxPanel
 public:
 
 
-    wxWindow *parent;
+    wxWindow *wParent;
 
     wxStaticText *stAddTypeTitle;
     wxButton *btnAddType;
@@ -33,7 +33,7 @@ public:
     TypeLoader objTypeLoader;
 
 
-    TypeGenerationContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
+    TypeGenerationContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain);
     void onAddType(wxCommandEvent& event);
     void onRemoveType(wxCommandEvent& event);
 

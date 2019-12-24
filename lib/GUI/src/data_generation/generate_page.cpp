@@ -10,8 +10,8 @@
 
 
 
-GeneratePage::GeneratePage(wxWindow *parent)
-        : wxPanel(parent, -1, wxPoint(-1, -1), wxSize(-1, -1),
+GeneratePage::GeneratePage(wxWindow *wParent)
+        : wxPanel(wParent, -1, wxPoint(-1, -1), wxSize(-1, -1),
                   wxWS_EX_VALIDATE_RECURSIVELY) {
     //allocate main vertical BoxSizer
     this->bsMain = new wxBoxSizer(wxVERTICAL);

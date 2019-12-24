@@ -9,9 +9,9 @@
 class GenerateFileContainer : public wxControl
 {
 public:
-    GenerateFileContainer(wxWindow *tmp_parent, wxBoxSizer *tmp_bsMain);
+    GenerateFileContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain);
 
-    wxWindow *parent;
+    wxWindow *wParent;
     wxBoxSizer *bsMain;
 
     wxBoxSizer *bsGenerateFileTitle;
