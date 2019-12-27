@@ -51,22 +51,5 @@ void PhNumberType::setTypeOnGrid() {
 
 
 
-void IPAddressType::setTypeOnGrid() {
-    this->setNoEncodingCell();
-
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrIPType[0]));
-    this->gTypeGrid->SetCellEditor
-            (this->gTypeGrid->rowPointer,this->colPointer
-                    ,new wxGridCellChoiceEditor(this->IPCount,this->arrIPType));
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
-
-    ++(this->gTypeGrid->rowPointer);
-}
 
 

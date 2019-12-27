@@ -20,14 +20,13 @@ public:
 
 
 
-    wxString defaultType[8]= {
+    wxString defaultType[7]= {
             "Number",
             "Name",
             "Pangram",
             "Boolean",
             "NRC",
             "Date",
-            "IP Address",
             "Ph Number"
     };
     int totalCount= sizeof(defaultType)/sizeof(defaultType[0]);

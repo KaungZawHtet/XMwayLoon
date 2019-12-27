@@ -45,14 +45,8 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
             objDateType.setTypeOnGrid();
         }
             break;
-        case 6://IP Address
-        {
-            IPAddressType objIPAddressType(this->objTypeLoader.defaultType[6],this->gTypeGrid);
-            objIPAddressType.setTypeOnGrid();
 
-        }
-            break;
-        case 7://Ph Number
+        case 6://Ph Number
         {
             PhNumberType objPhNumberType(this->objTypeLoader.defaultType[7],this->gTypeGrid);
             objPhNumberType.setTypeOnGrid();

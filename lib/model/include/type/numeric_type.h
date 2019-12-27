@@ -23,13 +23,6 @@ struct  NumberType : public NumericType
 
 };
 
-struct  IPAddressType : public NumericType
-{
-
-    std::string type;
-
-
-};
 
 
 

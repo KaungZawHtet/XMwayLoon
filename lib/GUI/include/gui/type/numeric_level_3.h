@@ -20,18 +20,7 @@ public:
 
 };
 
-class IPAddressType : public NumericType
-{
-public:
-    wxString arrIPType[2]= {"၁၂၈","၂၅၅"};
-    int IPCount= sizeof(arrIPType)/ sizeof(arrIPType[0]);
 
-    void setTypeOnGrid();
-    IPAddressType(wxString tmp_typeName,TypeGrid *tmp_gTypeGrid)
-    : NumericType(tmp_typeName,tmp_gTypeGrid){}
-
-
-};
 
 class PhNumberType: public  NumericType
 {

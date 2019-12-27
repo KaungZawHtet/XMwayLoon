@@ -1,0 +1,27 @@
+Property("ကို", Gender::male, Position::middleable, WordAmount::one),
+                Property("ကျော်", Gender::male, Position::middleable, WordAmount::one),
+                Property("ကောင်း", Gender::male, Position::middleable, WordAmount::one),
+                Property("ကြည်", Gender::both, Position::middleable, WordAmount::one),
+
+                Property("ကြူ", Gender::female, Position::middleable, WordAmount::one),
+                Property("ကြိုင်", Gender::female, Position::middleable, WordAmount::one),
+                Property("ကျော့", Gender::female, Position::middleable, WordAmount::one),
+                Property("ကြွေ", Gender::female, Position::middleable, WordAmount::one),
+
+                Property("ကျူး", Gender::female, Position::middleable, WordAmount::one),
+                Property("ကြွယ်", Gender::female, Position::middleable, WordAmount::one),
+                Property("ကေ", Gender::female, Position::middleable, WordAmount::one),
+                Property("ကလျာ", Gender::female, Position::middleable, WordAmount::two),
+                ///
+
+                Property("ခန့်", Gender::male, Position::middleable, WordAmount::one),
+                Property("ချစ်", Gender::both, Position::middleable, WordAmount::one),
+                Property("ချူး", Gender::female, Position::middleable, WordAmount::one),
+                Property("ချော", Gender::female, Position::middleable, WordAmount::one),
+                Property("ချမ်းသာ", Gender::male, Position::middleable, WordAmount::two),
+
+                Property("ခိုင်", Gender::female, Position::middleable, WordAmount::one),
+                Property("ချမ်းမြေ့", Gender::female, Position::middleable, WordAmount::wo),
+                Property("ချယ်ရီ", Gender::female, Position::middleable, WordAmount::two),
+                Property("ချို", Gender::female, Position::middleable, WordAmount::one),
+                Property("ခင်", Gender::female, Position::middleable, WordAmount::one)

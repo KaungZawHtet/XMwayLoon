@@ -55,3 +55,24 @@ TEST(GeneralTest,limit){
 
 
 }
+
+TEST(GeneralTest,uniqueToArr){
+
+   auto a= std::make_unique<std::string[]>(100);
+    /*a[0]= "h";
+    a[1]= "rw";
+    a[2]= "rwh";
+    a[3]= "egeg";
+    a[4]= "rgwgwh";
+    a[5]= "g3g";*/
+
+    int count = sizeof(a)/ sizeof(a[0]);
+
+   for (int i=0; i < 6; i++)
+   {
+       cout<<a[i] <<endl;
+
+   }
+
+
+}

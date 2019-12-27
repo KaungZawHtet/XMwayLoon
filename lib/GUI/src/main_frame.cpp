@@ -36,7 +36,7 @@ MainFrame::MainFrame():
 
     nbMain->AddPage(this->pnGenerate, "Data Generation");
     nbMain->AddPage(this->pnExtend,"Type Extension");
-    Bind(wxEVT_NOTEBOOK_PAGE_CHANGED,&MainFrame::onTabChanged,this);
+  //  Bind(wxEVT_NOTEBOOK_PAGE_CHANGED,&MainFrame::onTabChanged,this);
     this->SetAutoLayout(false);
     Centre();
 }

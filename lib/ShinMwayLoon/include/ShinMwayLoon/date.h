@@ -63,7 +63,6 @@ namespace Xlotgative::ShinMwayLoon{
                         boost::multi_index::ordered_unique<
                                 boost::multi_index::tag<tag::completeEngMonth>,
                                 boost::multi_index::member<Month, std::string, &Month::completeEngMonth>>
-
                 >> myanMonthsContainer;
 
 
