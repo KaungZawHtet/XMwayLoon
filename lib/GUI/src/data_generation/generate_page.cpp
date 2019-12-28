@@ -30,10 +30,6 @@ GeneratePage::GeneratePage(wxWindow *wParent)
 }
 
 
-
-
-
-
 void GeneratePage::createGenerateButton() {
     this->bsGenerate = new wxBoxSizer(wxHORIZONTAL);
     this->btnGenerate = new wxButton(this, BTN_GENERATE_ID,

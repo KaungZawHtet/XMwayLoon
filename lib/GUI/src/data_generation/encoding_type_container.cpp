@@ -23,8 +23,8 @@ EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSi
                                         wxT("Unicode"),wxDefaultPosition,wxDefaultSize, wxRB_GROUP);
     this->rdZawgyi = new wxRadioButton(this->wParent, RD_ZAWGYI_ID,
                                        wxT("Zawgyi"));
-    this->rdRandom = new wxRadioButton(this->wParent, RD_RANDOM_ID,
-                                       wxT("Random"));
+    this->rdRandom = new wxRadioButton(this->wParent, RD_UNIFORM_RANDOM_ID,
+                                       wxT("Uniform Random"));
     this->rdCustom = new wxRadioButton(this->wParent, RD_CUSTOM_ID,
                                        wxT("Custom"));
     this->rdUnicode->SetValue(true);
@@ -48,4 +48,4 @@ EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSi
 
 }
 
-
+//onTargetEncode at encoding_type_event.cpp

@@ -8,7 +8,7 @@
 
 #include <wx/wx.h>
 #include <wx/statline.h>
-
+#include <model/model.h>
 class GeneratePage;
 
 
@@ -33,6 +33,8 @@ public:
     wxRadioButton *rdRandom;
     wxRadioButton *rdCustom;
     wxStaticLine *sl3;
+
+    EncodingType targetEncodingType;
 
 
     void onTargetEncode(wxCommandEvent& event);

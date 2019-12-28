@@ -1,0 +1,25 @@
+//
+// Created by Kaung Zaw Htet on 2019-12-28.
+//
+
+#ifndef XMWAYLOON_INPUT_VALIDATOR_H
+#define XMWAYLOON_INPUT_VALIDATOR_H
+
+#include <string>
+#include <model/model.h>
+class InputValidator {
+    const std::string errOutputFormat = "You need to select at least one output format";
+    const std::string errTargetFile = "You need to choose generated file's target location";
+    const std::string errDateFormat = "Invalid Date Format";
+    const std::string warningPrefix= "Prefix look like unfilled!. Are you sure to continue?";
+    const std::string warningPostfix= "Postfix look like unfilled!. Are you sure to continue?";
+
+    GenerateInfo objGenerateInfo;
+    InputValidator(GenerateInfo tmp_objGenerateInfo)
+    : objGenerateInfo(std::move(tmp_objGenerateInfo)){}
+
+
+
+};
+
+#endif //XMWAYLOON_INPUT_VALIDATOR_H

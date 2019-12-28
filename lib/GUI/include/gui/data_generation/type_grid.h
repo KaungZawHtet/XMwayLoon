@@ -7,12 +7,15 @@
 
 #include <wx/wx.h>
 #include <wx/grid.h>
+#include <any>
 class TypeGrid : public wxGrid
 {
 public:
     TypeGrid(wxWindow *wParent);
     int row=5,column=5,rowPointer=0,colPointer=0;
     bool doesDataExist= false;
+
+    std::vector<std::any> vecTypes;
 
 
 };

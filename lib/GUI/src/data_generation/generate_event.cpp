@@ -4,7 +4,7 @@
 
 #include <gui/data_generation/generate_page.h>
 #include <wx/statline.h>
-#include <model.h>
+#include <model/model.h>
 
 
 void GeneratePage::onGenerate(wxCommandEvent &event) {
@@ -22,7 +22,14 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
     =this->ctOutputFormatContainer->objOutputFormat;
     objGenerateInfo.outputRecordAmount=this->ctOutputAmountContainer->outputRecordAmount;
     objGenerateInfo.outputFileSize=this->ctOutputAmountContainer->outputFileSize;
-    //objGenerateInfo.encodingType=
+    objGenerateInfo.encodingType=this->ctEncodeingTypeContainer->targetEncodingType;
+
+    int rowPointer=this->ctTypeGeneration->gTypeGrid->rowPointer;
+
+    for(int i=0;i<rowPointer;i++)
+    {
+
+    }
 
 
 

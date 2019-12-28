@@ -4,7 +4,7 @@
 
 
 #include <benchmark/benchmark.h>
-#include <ShinMwayLoon/number.h>
+#include <ShinMwayLoon/number_randomizer.h>
 
 static void create_BM(benchmark::State& state) {
 

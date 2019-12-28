@@ -22,9 +22,9 @@ file(GLOB XMwayLoon_GUI_type_extension_CPPs
 
 
 file(GLOB XMwayLoon_GUI_type_CPPs
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/type/setter_numeric_level_3.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/type/setter_alphanumeric_level_3.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/type/setter_below_level_3.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/grid_row/setter_numeric_level_3.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/grid_row/setter_alphanumeric_level_3.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/grid_row/setter_below_level_3.cpp
         )
 
 add_library(GUI

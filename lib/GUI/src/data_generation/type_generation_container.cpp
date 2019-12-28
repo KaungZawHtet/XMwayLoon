@@ -2,15 +2,10 @@
 // Created by Kaung Zaw Htet on 2019-12-13.
 //
 
-#include <gui/main_frame.h>
-#include <gui/data_generation/generate_page.h>
+
 #include <wx/wx.h>
 #include <gui/data_generation/type_generation_container.h>
 #include <gui/id.h>
-#include <logic/type_loader.h>
-
-
-
 
 
 TypeGenerationContainer::TypeGenerationContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain)
