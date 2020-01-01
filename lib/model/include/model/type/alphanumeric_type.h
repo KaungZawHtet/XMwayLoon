@@ -28,7 +28,7 @@ struct NRCType : public AlphanumericType
 
 struct DateType : public AlphanumericType
 {
-    std::string type;
+    std::string format;
 
 
 };

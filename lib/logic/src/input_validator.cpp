@@ -3,3 +3,7 @@
 //
 #include <logic/input_validator.h>
 
+bool InputValidator::validate(const std::vector<std::string> &vecTypeNames, const std::vector<type> vecTypes) {
+
+    return false;
+}

@@ -15,21 +15,9 @@ std::string XMwayLoon_NumberRandomizer::convertEngNumToMyan(const std::string &e
     this->addFracNSignToNumberSequence();
 
     std::for_each(this->engNumSequence.begin(), this->engNumSequence.end(), [this, &result](auto &engChar) {
-      //  std::cout<<std::endl<< typeid(engChar).name()  <<std::endl;
+
         result+= this->convertSingleEngDigitToMyan(engChar);
-
-       /* std::regex numRegex("[0-9]{1,2}");
-        std::string str_Cache;
-        str_Cache.push_back(engChar);
-
-        if (std::regex_match(str_Cache, numRegex)) {
-        auto iterator = this->myanNum->find(str_Cache);
-        result += iterator->second;
-    } else result +=str_Cache;
-*/
     });
-
-
 
     return result;
 
@@ -38,35 +26,33 @@ std::string XMwayLoon_NumberRandomizer::convertEngNumToMyan(const std::string &e
 void XMwayLoon_NumberRandomizer::addFracNSignToNumberSequence()
 {
     std::uniform_int_distribution<int> boolDistribution(0, 1);
-    pcg objPCG(this->objRandomDevice);
-
 
 
     int length= this->engNumSequence.length();
     std::uniform_int_distribution<int> fractionDistribution(1, length-1);
     switch (this->isFraction)
     {
-        case XMwayLoon_NumberRandomizer::System::Fraction:
-            this->engNumSequence.insert(fractionDistribution(objPCG),".");
+        case XMwayLoon_NumberRandomizer::System::fraction:
+            this->engNumSequence.insert(fractionDistribution(this->objPCG),".");
             break;
 
-        case XMwayLoon_NumberRandomizer::System::Integer:
+        case XMwayLoon_NumberRandomizer::System::integer:
             break;
         default:
-            if(boolDistribution(objPCG))
-                this->engNumSequence.insert(fractionDistribution(objPCG),".");
+            if(boolDistribution(this->objPCG))
+                this->engNumSequence.insert(fractionDistribution(this->objPCG),".");
     }
 
     switch (this->isSigned)
     {
-        case XMwayLoon_NumberRandomizer::Sign::Positive:
+        case XMwayLoon_NumberRandomizer::Sign::positive:
             break;
 
-        case XMwayLoon_NumberRandomizer::Sign::Negative:
+        case XMwayLoon_NumberRandomizer::Sign::negative:
             this->engNumSequence= "-"+this->engNumSequence;
             break;
         default:
-            if(boolDistribution(objPCG))   this->engNumSequence= "-"+this->engNumSequence;
+            if(boolDistribution(this->objPCG))   this->engNumSequence= "-"+this->engNumSequence;
 
     }
 
@@ -77,36 +63,13 @@ std::string XMwayLoon_NumberRandomizer::getRandomMyanNum
 ( const unsigned long long min, const unsigned long long max){
 
     std::uniform_int_distribution<unsigned long long> myanNumDistribution(min, max);
-    pcg objPCG(this->objRandomDevice);
-    unsigned long long randomNum= myanNumDistribution(objPCG);
+    unsigned long long randomNum= myanNumDistribution(this->objPCG);
 
     this->myanNumSequence= this->convertEngNumToMyan(std::to_string(randomNum));
 
     return  this->prefix+this->myanNumSequence+this->postfix;
 
 
-
-
-    /*switch (this->isSigned)
-    {
-        case XMwayLoon_NumberRandomizer::Sign::Positive:
-            return this->convertEngNumToMyan(std::to_string(randomNum));
-
-        case XMwayLoon_NumberRandomizer::Sign::Negative:
-            return "-"+this->convertEngNumToMyan(std::to_string(randomNum));
-        default:
-            if(randomNum%2)  return this->convertEngNumToMyan(std::to_string(randomNum));
-            else  return "-"+this->convertEngNumToMyan(std::to_string(randomNum));
-
-    }*/
-
-
-   /* for(unsigned long i =0;i < max;i++)
-    {
-         cacheNum
-        index = std::to_string(cacheNum);
-        result += this->myanNum->find(index)->second;
-    }*/
 }
 
  std::string XMwayLoon_NumberRandomizer::convertSingleEngDigitToMyan(char engNum)
@@ -129,8 +92,17 @@ std::string XMwayLoon_NumberRandomizer::getRandomMyanNum
 
 }
 
-XMwayLoon_NumberRandomizer::NumberRandomizer(){
+XMwayLoon_NumberRandomizer::NumberRandomizer(
+        XMwayLoon_NumberRandomizer::Sign tempIsSigned,
+XMwayLoon_NumberRandomizer ::System tempIsFraction, std::string tempPrefix,
+        std::string tempPostfix) : isSigned(tempIsSigned) , isFraction(tempIsFraction),
+                                   prefix(std::move(tempPrefix)) , postfix(std::move(tempPostfix))
+{
+    std::random_device objRD;
+    this->objPCG.seed( objRD);
 }
+
+
 
 
 

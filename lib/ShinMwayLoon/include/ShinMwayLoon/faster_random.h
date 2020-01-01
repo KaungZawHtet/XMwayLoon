@@ -91,6 +91,9 @@ class pcg
 {
 public:
     using result_type = uint32_t;
+
+
+
     static constexpr result_type (min)() { return 0; }
     static constexpr result_type (max)() { return UINT32_MAX; }
     friend bool operator==(pcg const &, pcg const &);
@@ -116,6 +119,7 @@ public:
         m_state += s0;
         (void)operator()();
     }
+
 
     result_type operator()()
     {

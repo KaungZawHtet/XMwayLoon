@@ -32,7 +32,7 @@ endif()]]
 #TODO:: gtest's subdirectory condition for other contributors
 add_subdirectory(vendor/benchmark/googletest)
 enable_testing()
-add_subdirectory(test/randomizer)
+add_subdirectory(test)
 
 add_subdirectory(vendor/benchmark)
 add_subdirectory(benchmark)
@@ -69,5 +69,5 @@ add_subdirectory(lib/model)
 
 
 add_executable(Executable main.cpp)
-target_link_libraries(Executable taskflow
-         ${wxWidgets_LIBRARIES} GUI logic )
+target_link_libraries(Executable
+         ${wxWidgets_LIBRARIES} GUI )

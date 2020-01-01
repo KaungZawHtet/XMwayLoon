@@ -83,13 +83,13 @@ namespace Xlotgative::ShinMwayLoon{
                 Month("Dec", "December", "ဒီဇင်ဘာ", "ဒီဇင္ဘာ")
 
         };
-        std::random_device objRandomDevice;
+       pcg objPCG;
 
     public:
 
         DateRandomizer();
-        std::string convertCompleteEngMonthToMyan(const std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        std::string convertShortEngMonthToMyan(const std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        std::string convertCompleteEngMonthToMyan(std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        std::string convertShortEngMonthToMyan(std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
         std::string generateRandomEngDate(const std::string &format);
         std::string convertEngDateToMyan(std::string engDate, const Xlotgative::ShinMwayLoon::Encoding &encoding);
         std::string getRandomMyanDate(const std::string &format,const Xlotgative::ShinMwayLoon::Encoding &encoding);

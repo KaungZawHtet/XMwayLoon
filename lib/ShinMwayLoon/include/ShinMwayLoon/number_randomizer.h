@@ -6,7 +6,7 @@
 #define SHINMWAYLOON_NUMBER_H
 #include <map>
 #include <random>
-
+#include "global_objects.h"
 
 namespace Xlotgative::ShinMwayLoon
 {
@@ -21,28 +21,27 @@ namespace Xlotgative::ShinMwayLoon
         std::string myanNumSequence{};
         std::string engNumSequence{};
         std::string prefix{},postfix{};
+        pcg objPCG;
 
     public:
         enum class Sign{
-            Positive=1,Negative=2,Random=3
+            positive=1,negative=2,random=3
         };
 
         enum class System{
-            Integer=1,Fraction=2,Random=3
+            integer=1,fraction=2,rational=3
         };
 
-        NumberRandomizer();
+
 
         Sign isSigned;
         System isFraction;
-        NumberRandomizer(Sign tempIsSigned,System tempIsFraction,std::string tempPrefix="",std::string tempPostfix="")
-        : isSigned(std::move(tempIsSigned)) , isFraction(std::move(tempIsFraction)),
-          prefix(std::move(tempPrefix)) , postfix(std::move(tempPostfix))
-        {}
+        NumberRandomizer(Sign tempIsSigned=Sign::positive,System tempIsFraction=System::integer,std::string tempPrefix="",std::string tempPostfix="");
+
 
         std::string convertEngNumToMyan(const std::string &engNum);
         std::string getRandomMyanNum
-        (  const unsigned long long min,const unsigned long long max);
+        (  unsigned long long min,unsigned long long max);
         static std::string convertSingleEngDigitToMyan(char);
 
 

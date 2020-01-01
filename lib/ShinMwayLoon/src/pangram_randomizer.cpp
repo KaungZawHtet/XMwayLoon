@@ -14,7 +14,7 @@ std::string XMwayLoon_PangramRandomizer::getPangram(XMwayLoon::Encoding encoding
 
 
     return [&]() {
-        pcg objPCG(this->objRandomDevice);
+      
         switch (encoding) {
             case XMwayLoon::Encoding::Unicode:
                 return this->myanPangram.first;
@@ -22,7 +22,7 @@ std::string XMwayLoon_PangramRandomizer::getPangram(XMwayLoon::Encoding encoding
                 return this->myanPangram.second;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
-                if (encodingDistribution(objPCG)) {
+                if (encodingDistribution(this->objPCG)) {
                     // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                     return this->myanPangram.first;
                 } else {
@@ -32,5 +32,11 @@ std::string XMwayLoon_PangramRandomizer::getPangram(XMwayLoon::Encoding encoding
         }
     }();
 
+
+}
+
+Xlotgative::ShinMwayLoon::PangramRandomizer::PangramRandomizer() {
+    std::random_device objRandomDevice;
+    this->objPCG.seed(objRandomDevice);
 
 }

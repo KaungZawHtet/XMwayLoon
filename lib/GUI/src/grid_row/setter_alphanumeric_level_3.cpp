@@ -30,8 +30,9 @@ void NameRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-    NameType objNameType;
-    this->gTypeGrid->vecTypes.emplace_back(objNameType);
+   // NameType objNameType;
+  //  this->gTypeGrid->vecTypes.emplace_back(objNameType);
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(NameType).name());
 }
 
 void PangramRow::setTypeOnGrid() {
@@ -49,8 +50,9 @@ void PangramRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-    PangramType objPangramType;
-    this->gTypeGrid->vecTypes.emplace_back(objPangramType);
+   // PangramType objPangramType;
+   // this->gTypeGrid->vecTypes.emplace_back(objPangramType);
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(PangramType).name());
 }
 
 
@@ -58,10 +60,10 @@ void NRCRow::setTypeOnGrid() {
     this->setEncodingCell();
 
     this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNRCRow[0]));
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNRCType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
-                    ,new wxGridCellChoiceEditor(this->nrcCount,this->arrNRCRow));
+                    ,new wxGridCellChoiceEditor(this->nrcCount,this->arrNRCType));
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
@@ -71,8 +73,9 @@ void NRCRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-    NRCType objNRCType;
-    this->gTypeGrid->vecTypes.emplace_back(objNRCType);
+   // NRCType objNRCType;
+  //  this->gTypeGrid->vecTypes.emplace_back(objNRCType);
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(NRCType).name());
 }
 
 void DateRow::setTypeOnGrid() {
@@ -87,8 +90,9 @@ void DateRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-    DateType objDateType;
-    this->gTypeGrid->vecTypes.emplace_back(objDateType);
+   // DateType objDateType;
+ //   this->gTypeGrid->vecTypes.emplace_back(objDateType);
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(DateType).name());
 }
 
 void BooleanRow::setTypeOnGrid() {
@@ -108,7 +112,8 @@ void BooleanRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-    BooleanType objBooleanType;
-    this->gTypeGrid->vecTypes.emplace_back(objBooleanType);
+   // BooleanType objBooleanType;
+   // this->gTypeGrid->vecTypes.emplace_back(objBooleanType);
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(BooleanType).name());
 }
 

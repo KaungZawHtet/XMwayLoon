@@ -12,7 +12,7 @@ typedef Xlotgative::ShinMwayLoon::DateRandomizer XMwayLoon_DateRandomizer;
 std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan
         (const std::string engMonth, const XMwayLoon::Encoding &encoding) {
     return [&]() {
-        pcg objPCG(this->objRandomDevice);
+    
         switch (encoding) {
             case XMwayLoon::Encoding::Unicode:
                 return this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
@@ -20,7 +20,7 @@ std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan
                 return this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
-                if (encodingDistribution(objPCG)) {
+                if (encodingDistribution(this->objPCG)) {
                     // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                     return this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                 } else {
@@ -34,7 +34,7 @@ std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan
 std::string XMwayLoon_DateRandomizer::convertShortEngMonthToMyan
         (const std::string engMonth, const XMwayLoon::Encoding &encoding) {
     return [&]() {
-        pcg objPCG(this->objRandomDevice);
+        
         switch (encoding) {
             case XMwayLoon::Encoding::Unicode:
                 return this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
@@ -42,7 +42,7 @@ std::string XMwayLoon_DateRandomizer::convertShortEngMonthToMyan
                 return this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
-                if (encodingDistribution(objPCG)) {
+                if (encodingDistribution(this->objPCG)) {
                     // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                     return this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
                 } else {
@@ -71,13 +71,13 @@ std::string XMwayLoon_DateRandomizer::generateRandomEngDate
     std::uniform_int_distribution<> yearDistribution(currentYear - 20, currentYear);
     // c = (a>b) ? a : b;
 
-    pcg objPCG(this->objRandomDevice);
-    int month = monthDistribution(objPCG);
-    int year = yearDistribution(objPCG);
+    
+    int month = monthDistribution(this->objPCG);
+    int year = yearDistribution(this->objPCG);
     int days;
     switch (month) {
         case 2:
-            days = febDistribution(objPCG);
+            days = febDistribution(this->objPCG);
             break;
 
         case 1:
@@ -87,14 +87,14 @@ std::string XMwayLoon_DateRandomizer::generateRandomEngDate
         case 8:
         case 10:
         case 12: //31-day months
-            days = thirdyOneDistribution(objPCG);
+            days = thirdyOneDistribution(this->objPCG);
             break;
 
         case 5:
         case 6:
         case 9:
         case 11: //30-day months
-            days = thirdyDistribution(objPCG);
+            days = thirdyDistribution(this->objPCG);
             break;
     }
     boost::gregorian::date dateObj{year, month, days};
@@ -154,5 +154,9 @@ std::string XMwayLoon_DateRandomizer::getRandomMyanDate
 
     return XMwayLoon_DateRandomizer::convertEngDateToMyan(
             XMwayLoon_DateRandomizer::generateRandomEngDate(format),encoding);
+}
+XMwayLoon_DateRandomizer::DateRandomizer() {
+    std::random_device objRandomDevice;
+    this->objPCG.seed(objRandomDevice);
 }
 

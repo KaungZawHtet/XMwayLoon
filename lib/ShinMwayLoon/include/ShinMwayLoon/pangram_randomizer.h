@@ -19,10 +19,11 @@ namespace Xlotgative::ShinMwayLoon
         };
 
     private:
-        std::random_device objRandomDevice;
+        pcg objPCG;
 
     public:
         std::string getPangram(Xlotgative::ShinMwayLoon::Encoding encoding);
+        PangramRandomizer();
 
 
     };

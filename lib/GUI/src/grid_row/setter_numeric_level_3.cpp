@@ -10,9 +10,9 @@ void NumberRow::setTypeOnGrid() {
     this->setNoEncodingCell();
     this->colPointer++;
     this->gTypeGrid->SetCellValue
-    (this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNumberRow[0]));
+    (this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNumberType[0]));
     this->gTypeGrid->SetCellEditor(this->gTypeGrid->rowPointer, this->colPointer
-            ,new wxGridCellChoiceEditor(this->NumberRowCount,this->arrNumberRow));
+            ,new wxGridCellChoiceEditor(this->NumberRowCount,this->arrNumberType));
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Prefix"));
 
@@ -21,8 +21,10 @@ void NumberRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-    NumberType objNumberType;
-    this->gTypeGrid->vecTypes.emplace_back(objNumberType);
+   // NumberType objNumberType;
+   // this->gTypeGrid->vecTypes.emplace_back(objNumberType);
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(NumberType).name());
+
 
 }
 
@@ -30,10 +32,10 @@ void PhNumberRow::setTypeOnGrid() {
     this->setNoEncodingCell();
 
     this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrCountryCode[0]));
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrCountryCodeMode[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
-                    ,new wxGridCellChoiceEditor(this->countryCodeCount,this->arrCountryCode));
+                    ,new wxGridCellChoiceEditor(this->countryCodeCount,this->arrCountryCodeMode));
     this->colPointer++;
 
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrTelecom[0]));
@@ -46,8 +48,10 @@ void PhNumberRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-    PhNumberType objPhNumberType;
-    this->gTypeGrid->vecTypes.emplace_back(objPhNumberType);
+   // PhNumberType objPhNumberType;
+   // this->gTypeGrid->vecTypes.emplace_back(objPhNumberType);
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(PhNumberType).name());
+
 }
 
 

@@ -9,6 +9,7 @@
 #include <gui/data_generation/type_grid.h>
 #include <logic/type_loader.h>
 #include <wx/statline.h>
+
 class TypeGenerationContainer : public wxPanel
 {
 public:
@@ -31,6 +32,7 @@ public:
     wxStaticLine *sl0;
 
     TypeLoader objTypeLoader;
+
 
 
     TypeGenerationContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain);

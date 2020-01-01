@@ -14,28 +14,28 @@ typedef XMwayLoon::PhoneNumberRandomizer XMwayLoon_PhoneNumberRandomizerRandomiz
 std::string XMwayLoon_PhoneNumberRandomizerRandomizer::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
     std::uniform_int_distribution<> operatorDistribution(1, 4);
     std::uniform_int_distribution<> numDistribution(1000000, 9999999);
-    pcg objPCG(this->objRandomDevice);
-    std::string result = std::to_string(numDistribution(objPCG));
-        switch (operatorDistribution(objPCG)) {
+
+    std::string result = std::to_string(numDistribution(this->objPCG));
+        switch (operatorDistribution(this->objPCG)) {
 
             case 1: //MPT
             {
                 std::uniform_int_distribution<> MPTPrefixDistribution(0, 9);
-                result = "09" + this->mpt.operator[](MPTPrefixDistribution(objPCG)).first + result;
+                result = "09" + this->mpt.operator[](MPTPrefixDistribution(this->objPCG)).first + result;
             }
                 break;
 
             case 2: //Telenor
             {
                 std::uniform_int_distribution<> telenorPrefixDistribution(0, 4);
-                result = "09" + this->telenor.operator[](telenorPrefixDistribution(objPCG)).first + result;
+                result = "09" + this->telenor.operator[](telenorPrefixDistribution(this->objPCG)).first + result;
             }
                 break;
             case 3: //Ooredoo
 
             {
                 std::uniform_int_distribution<> ooredooPrefixDistribution(0, 2);
-                result = "09" + this->ooredoo.operator[](ooredooPrefixDistribution(objPCG)).first + result;
+                result = "09" + this->ooredoo.operator[](ooredooPrefixDistribution(this->objPCG)).first + result;
             }
                  break;
 
@@ -54,7 +54,7 @@ std::string XMwayLoon_PhoneNumberRandomizerRandomizer::generateEngPhNum(CountryC
                 break;
             case PhoneNumberRandomizer::CountryCodeFlag::random :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
-                if (encodingDistribution(objPCG)) result = "+95" + result;
+                if (encodingDistribution(this->objPCG)) result = "+95" + result;
                 break;
         }
     return result;
@@ -66,3 +66,11 @@ std::string XMwayLoon_PhoneNumberRandomizerRandomizer::getRandomMyanPhNum
     return this->objNumberRandomizer.convertEngNumToMyan(this->generateEngPhNum(countryCodeSwitch));
 
 }
+
+Xlotgative::ShinMwayLoon::PhoneNumberRandomizer::PhoneNumberRandomizer() {
+
+    std::random_device objRD;
+    this->objPCG.seed( objRD);
+
+}
+

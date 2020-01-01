@@ -9,42 +9,48 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
   //  wxString tmp_typeName=this->objTypeLoader.defaultType[0];;
     switch (this->cbAddType->GetSelection())
     {
-        case 0: //Number
+        case 0://Boolean
         {
-            NumberRow objNumberRow(this->objTypeLoader.defaultType[0],this->gTypeGrid);
-            objNumberRow.setTypeOnGrid();
-        }
-            break;
-        case 1: //Name
-        {
-            NameRow objNameRow(this->objTypeLoader.defaultType[1],this->gTypeGrid);
-            objNameRow.setTypeOnGrid();
-        }
-        break;
-        case 2: //Pangram
-        {
-            PangramRow objPangramRow(this->objTypeLoader.defaultType[2],this->gTypeGrid);
-            objPangramRow.setTypeOnGrid();
-        }
-            break;
-        case 3://Boolean
-        {
-            BooleanRow objBooleanRow(this->objTypeLoader.defaultType[3],this->gTypeGrid);
+            BooleanRow objBooleanRow(this->objTypeLoader.defaultType[0],this->gTypeGrid);
             objBooleanRow.setTypeOnGrid();
         }
             break;
-        case 4://NRC
+
+        case 1://Date
         {
-            NRCRow objNRCRow(this->objTypeLoader.defaultType[4],this->gTypeGrid);
-            objNRCRow.setTypeOnGrid();
-        }
-            break;
-        case 5://Date
-        {
-            DateRow objDateRow(this->objTypeLoader.defaultType[5],this->gTypeGrid);
+            DateRow objDateRow(this->objTypeLoader.defaultType[1],this->gTypeGrid);
             objDateRow.setTypeOnGrid();
         }
             break;
+
+        case 2: //Name
+        {
+            NameRow objNameRow(this->objTypeLoader.defaultType[2],this->gTypeGrid);
+            objNameRow.setTypeOnGrid();
+        }
+            break;
+
+        case 3://NRC
+        {
+            NRCRow objNRCRow(this->objTypeLoader.defaultType[3],this->gTypeGrid);
+            objNRCRow.setTypeOnGrid();
+        }
+            break;
+
+        case 4: //Number
+        {
+            NumberRow objNumberRow(this->objTypeLoader.defaultType[4],this->gTypeGrid);
+            objNumberRow.setTypeOnGrid();
+        }
+            break;
+
+        case 5: //Pangram
+        {
+            PangramRow objPangramRow(this->objTypeLoader.defaultType[5],this->gTypeGrid);
+            objPangramRow.setTypeOnGrid();
+        }
+            break;
+
 
         case 6://Ph Number
         {

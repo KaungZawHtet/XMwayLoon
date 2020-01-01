@@ -8,7 +8,7 @@
 #include <string>
 #include <any>
 #include <vector>
-
+#include <model/type/typedef.h>
 namespace hana = boost::hana;
 struct OutputFormat {
     bool CSV;
@@ -27,9 +27,10 @@ struct GenerateInfo
     OutputFormat objOutputFormat;
     EncodingType encodingType;
     std::string targetFile;
-    double outputRecordAmount=NULL;
-    double outputFileSize=NULL;
-    std::vector<std::vector<std::string>> types;
+    double outputRecordAmount=-1;
+    double outputFileSize=-1;
+    std::vector<type> vecTypes;
+    std::vector<std::string> vecTypeNames;
 
 };
 

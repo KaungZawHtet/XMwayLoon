@@ -21,12 +21,12 @@ public:
 
 
     wxString defaultType[7]= {
-            "Number",
-            "Name",
-            "Pangram",
             "Boolean",
-            "NRC",
             "Date",
+            "Name",
+            "NRC",
+            "Number",
+            "Pangram",
             "Ph Number"
     };
     int totalCount= sizeof(defaultType)/sizeof(defaultType[0]);

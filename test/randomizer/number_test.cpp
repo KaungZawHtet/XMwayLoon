@@ -8,11 +8,11 @@
 
 
 
-typedef Xlotgative::ShinMwayLoon::NumberRandomizer XMwayLoon_NumberRandomizer;
+typedef Xlotgative::ShinMwayLoon::NumberRandomizer XMwayLoon_NumRan;
 
 TEST(NumberTest,convertEngNumToMyan){
 
-    XMwayLoon_NumberRandomizer objNumber(XMwayLoon_NumberRandomizer::Sign::Negative ,XMwayLoon_NumberRandomizer::System::Fraction
+    XMwayLoon_NumRan objNumber(XMwayLoon_NumRan::Sign::negative , XMwayLoon_NumRan::System::fraction
             //,"Pre","MMK"
                                );
     std::string myanNum =objNumber.convertEngNumToMyan("645875423486");
@@ -21,9 +21,7 @@ TEST(NumberTest,convertEngNumToMyan){
 
 TEST(NumberTest,getRandomMyanNum){
     Xlotgative::ShinMwayLoon::NumberRandomizer objNumber
-    (XMwayLoon_NumberRandomizer::Sign::Random ,XMwayLoon_NumberRandomizer::System ::Fraction
-            ,"F"
-            );
+            (XMwayLoon_NumRan::Sign::random , XMwayLoon_NumRan::System::rational, "MMK");
 
     for (int i = 0; i < 100 ; ++i) {
         std::string myanNum =objNumber.getRandomMyanNum(4345364,78322424);

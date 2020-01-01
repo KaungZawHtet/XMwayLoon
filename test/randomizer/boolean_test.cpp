@@ -10,6 +10,7 @@ typedef Xlotgative::ShinMwayLoon::BooleanRandomizer XMwayLoon_BooleanRandomizer;
 
 TEST(BooleanTest,getNumBool){
     XMwayLoon_BooleanRandomizer obj_boolean;
+   // XMwayLoon_BooleanRandomizer obj2= obj_boolean;
     for (int i=0 ; i <10; i++)
     {
         std::string strBoolean= obj_boolean.getAlphaBool(XMwayLoon::Encoding::Random);
@@ -22,7 +23,7 @@ TEST(BooleanTest,getBoolean){
     XMwayLoon_BooleanRandomizer obj_boolean;
     for (int i=0 ; i <10; i++)
     {
-        std::string strBoolean= obj_boolean.getBoolean(XMwayLoon_BooleanRandomizer::type::num,XMwayLoon::Encoding::Random);
+        std::string strBoolean= obj_boolean.getBooleanRandomizer(XMwayLoon_BooleanRandomizer::type::num,XMwayLoon::Encoding::Random);
         std::cerr<<"Ans : " <<strBoolean <<std::endl;
     }
 

@@ -1,5 +1,7 @@
 file(GLOB XMwayLoon_logic_CPPs
-        "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/generation_task_manager/*.cpp"
+        )
 add_library(logic
         ${XMwayLoon_logic_CPPs})
 

@@ -31,8 +31,9 @@ namespace Xlotgative::ShinMwayLoon {
                                                              std::pair("40", 9), std::pair("42", 9),
                                                              std::pair("44", 9), std::pair("45", 9),
                                                              std::pair("46", 9), std::pair("48", 9)};
-        Xlotgative::ShinMwayLoon::NumberRandomizer objNumberRandomizer;
-        std::random_device objRandomDevice;
+        typedef Xlotgative::ShinMwayLoon::NumberRandomizer XMwayLoon_NumRan;
+        NumberRandomizer objNumberRandomizer;
+         pcg objPCG;
 
 
     public:
@@ -43,8 +44,10 @@ namespace Xlotgative::ShinMwayLoon {
         enum class PhoneOperator {
             MPT, Telenor, Ooredoo, Mytel
         };
-        std::string generateEngPhNum(const CountryCodeFlag countryCodeSwitch);
-        std::string getRandomMyanPhNum(const CountryCodeFlag countryCodeSwitch);
+        std::string generateEngPhNum(CountryCodeFlag countryCodeSwitch);
+        std::string getRandomMyanPhNum(CountryCodeFlag countryCodeSwitch);
+        PhoneNumberRandomizer();
+
     };
 };
 

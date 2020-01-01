@@ -22,7 +22,9 @@ namespace Xlotgative::ShinMwayLoon {
     class BooleanRandomizer
     {
     private:
-        std::random_device objRandomDevice;
+
+        pcg objPCG;
+
 
         std::string num[2]= {"၀","၁"};
 
@@ -34,6 +36,7 @@ namespace Xlotgative::ShinMwayLoon {
 
 
     public:
+        BooleanRandomizer();
         enum class type{num,alpha};
        std::string getAlphaBool
        (const Xlotgative::ShinMwayLoon::Encoding &encoding);

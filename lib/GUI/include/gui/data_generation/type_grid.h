@@ -5,17 +5,24 @@
 #ifndef XMWAYLOON_TYPE_GRID_H
 #define XMWAYLOON_TYPE_GRID_H
 
+#include <variant>
+#include <model/type/alphanumeric_type.h>
+#include <model/type/numeric_type.h>
 #include <wx/wx.h>
 #include <wx/grid.h>
 #include <any>
-class TypeGrid : public wxGrid
-{
+
+class TypeGrid : public wxGrid {
 public:
     TypeGrid(wxWindow *wParent);
-    int row=5,column=5,rowPointer=0,colPointer=0;
-    bool doesDataExist= false;
 
-    std::vector<std::any> vecTypes;
+    int row = 5, column = 5, rowPointer = 0, colPointer = 0;
+    bool doesDataExist = false;
+
+
+
+
+    std::vector<std::string> vecTypeNames;
 
 
 };

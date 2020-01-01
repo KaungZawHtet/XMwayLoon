@@ -11,9 +11,9 @@ typedef Xlotgative::ShinMwayLoon::BooleanRandomizer XMwayLoon_BooleanRandomizer;
 
 
 std::string XMwayLoon_BooleanRandomizer::getNumBool (){
-    pcg objPCG(this->objRandomDevice);
+   // pcg objPCG((std::random_device()));
     std::uniform_int_distribution<> booleanDistribution(0, 1);
-    int boolean = booleanDistribution(objPCG);
+    int boolean = booleanDistribution(this->objPCG);
 
     if(boolean==0) return this->num[0];
     else  return this->num[1];
@@ -31,13 +31,13 @@ std::string XMwayLoon_BooleanRandomizer::getBooleanRandomizer
 }
 
 std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XMwayLoon::Encoding &encoding) {
-    pcg objPCG(this->objRandomDevice);
+  //  pcg objPCG((std::random_device()));
     std::uniform_int_distribution<> booleanDistribution(0, 1);
-    int boolean =booleanDistribution(objPCG) ;
+    int boolean =booleanDistribution(this->objPCG) ;
 
 
     return [&]() {
-        pcg objPCG(this->objRandomDevice);
+    //    pcg objPCG((std::random_device()));
         switch (encoding) {
             case XMwayLoon::Encoding::Unicode:
 
@@ -46,7 +46,7 @@ std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XMwayLoon::Encoding 
               return  this->alpha[boolean].second;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
-                if (encodingDistribution(objPCG)) {
+                if (encodingDistribution(this->objPCG)) {
                     // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
                    return this->alpha[boolean].first;
                 } else {
@@ -56,5 +56,12 @@ std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XMwayLoon::Encoding 
         }
     }();
 }
+
+Xlotgative::ShinMwayLoon::BooleanRandomizer::BooleanRandomizer() {
+    std::random_device objRD;
+    this->objPCG.seed( objRD);
+
+}
+
 
 

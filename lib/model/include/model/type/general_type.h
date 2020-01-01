@@ -5,8 +5,12 @@
 #ifndef XMWAYLOON_GENERAL_TYPE_H
 #define XMWAYLOON_GENERAL_TYPE_H
 
+#include <string>
+
+
 struct Type {
-    std::string typeName;
+
+    int index;
     std::string fieldName;
 };
 struct AlphanumericType : public Type
@@ -15,7 +19,7 @@ struct AlphanumericType : public Type
 
 };
 
-struct NumericType
+struct NumericType : public Type
 {
 
 };

@@ -53,8 +53,8 @@ public:
     explicit NRCRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
             : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
 
-    wxString arrNRCRow[2] = {"နိုင်", "န"};
-    int nrcCount = sizeof(arrNRCRow) / sizeof(arrNRCRow[0]);
+    wxString arrNRCType[2] = {"နိုင်", "န"};
+    int nrcCount = sizeof(arrNRCType) / sizeof(arrNRCType[0]);
 
     void setTypeOnGrid() override;
 
