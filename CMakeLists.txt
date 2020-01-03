@@ -6,8 +6,9 @@ project(XMwayLoon)
 
 set(CMAKE_CXX_STANDARD 17)
 
-
+add_subdirectory(vendor/parallel_hashmap)
 add_subdirectory(vendor/taskflow)
+
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 add_subdirectory(vendor/nlohmann_json)
 

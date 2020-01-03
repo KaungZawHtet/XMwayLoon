@@ -5,6 +5,7 @@
 #ifndef XMWAYLOON_GENERATOR_H
 #define XMWAYLOON_GENERATOR_H
 
+
 #include <taskflow/taskflow.hpp>
 #include <model/type/typedef.h>
 #include <model/model.h>
@@ -13,6 +14,7 @@
 #include <taskflow/taskflow.hpp>
 #include <model/type/typedef.h>
 #include <variant>
+
 class Generator
 {
 public:

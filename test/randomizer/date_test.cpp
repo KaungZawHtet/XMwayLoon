@@ -9,14 +9,14 @@
 
 TEST(DateTest,convertCompleteEngMonthToMyan){
     Xlotgative::ShinMwayLoon::DateRandomizer objDateRandomizer;
-    std::string MyanMonth= objDateRandomizer.convertCompleteEngMonthToMyan("April",Xlotgative::ShinMwayLoon::Encoding::Random);
+    std::string MyanMonth= objDateRandomizer.convertCompleteEngMonthToMyan("April",Xlotgative::ShinMwayLoon::Encoding::random);
     std::cerr<<MyanMonth <<std::endl;
 }
 
 
 TEST(DateTest,convertShortEngMonthToMyan){
     Xlotgative::ShinMwayLoon::DateRandomizer objDateRandomizer;
-    std::string MyanMonth= objDateRandomizer.convertShortEngMonthToMyan("May",Xlotgative::ShinMwayLoon::Encoding::Random);
+    std::string MyanMonth= objDateRandomizer.convertShortEngMonthToMyan("May",Xlotgative::ShinMwayLoon::Encoding::random);
     std::cerr<<MyanMonth <<std::endl;
 }
 
@@ -45,7 +45,7 @@ TEST(DateTest,create){
 TEST(DateTest,myanmarDateGeneration){
 
     Xlotgative::ShinMwayLoon::DateRandomizer objDateRandomizer;
-    std::string myanDate= objDateRandomizer.getRandomMyanDate("%d-%B-%Y",Xlotgative::ShinMwayLoon::Encoding::Random);
+    std::string myanDate= objDateRandomizer.getRandomMyanDate("%d-%B-%Y",Xlotgative::ShinMwayLoon::Encoding::random);
     std::cerr<< myanDate <<std::endl;
     //  EXPECT_TRUE(true);
 

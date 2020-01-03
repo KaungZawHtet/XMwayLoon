@@ -3,6 +3,9 @@ file(GLOB XMwayLoon_model_CPPs
 add_library(model
         ${XMwayLoon_model_CPPs})
 
+target_link_libraries(model PUBLIC
+        ShinMwayLoon
+        )
 
 target_include_directories(model
         PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")

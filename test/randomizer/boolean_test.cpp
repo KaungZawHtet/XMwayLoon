@@ -13,7 +13,7 @@ TEST(BooleanTest,getNumBool){
    // XMwayLoon_BooleanRandomizer obj2= obj_boolean;
     for (int i=0 ; i <10; i++)
     {
-        std::string strBoolean= obj_boolean.getAlphaBool(XMwayLoon::Encoding::Random);
+        std::string strBoolean= obj_boolean.getAlphaBool(XMwayLoon::Encoding::random);
         std::cerr<<"Ans : " <<strBoolean <<std::endl;
     }
 
@@ -23,7 +23,7 @@ TEST(BooleanTest,getBoolean){
     XMwayLoon_BooleanRandomizer obj_boolean;
     for (int i=0 ; i <10; i++)
     {
-        std::string strBoolean= obj_boolean.getBooleanRandomizer(XMwayLoon_BooleanRandomizer::type::num,XMwayLoon::Encoding::Random);
+        std::string strBoolean= obj_boolean.getBooleanRandomizer(XMwayLoon_BooleanRandomizer::type::num,XMwayLoon::Encoding::random);
         std::cerr<<"Ans : " <<strBoolean <<std::endl;
     }
 
@@ -34,7 +34,7 @@ TEST(BooleanTest,getAlphaBool){
     XMwayLoon_BooleanRandomizer obj_boolean;
     for (int i=0 ; i <10; i++)
     {
-        std::string strBoolean= obj_boolean.getAlphaBool(XMwayLoon::Encoding::Random);
+        std::string strBoolean= obj_boolean.getAlphaBool(XMwayLoon::Encoding::random);
         std::cerr<<"Ans : " <<strBoolean <<std::endl;
     }
 

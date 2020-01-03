@@ -16,9 +16,9 @@ std::string XMwayLoon_PangramRandomizer::getPangram(XMwayLoon::Encoding encoding
     return [&]() {
       
         switch (encoding) {
-            case XMwayLoon::Encoding::Unicode:
+            case XMwayLoon::Encoding::unicode:
                 return this->myanPangram.first;
-            case XMwayLoon::Encoding::Zawgyi:
+            case XMwayLoon::Encoding::zawgyi:
                 return this->myanPangram.second;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);

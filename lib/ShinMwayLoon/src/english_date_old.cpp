@@ -71,10 +71,10 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan(const
     std::string result;
 
     pcg objPCG(this->objRandomDevice);
-    if (encoding == XMwayLoon::Encoding::Unicode) {
+    if (encoding == XMwayLoon::Encoding::unicode) {
       //  cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
         result = this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
-    } else if (encoding == XMwayLoon::Encoding::Zawgyi) {
+    } else if (encoding == XMwayLoon::Encoding::zawgyi) {
        // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
         result =  this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
 
@@ -102,10 +102,10 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan(const
 XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertShortEngMonthToMyan(const std::string &engMonth,const XMwayLoon::Encoding &encoding) {
     std::string result;
 
-    if (encoding == XMwayLoon::Encoding::Unicode) {
+    if (encoding == XMwayLoon::Encoding::unicode) {
         //  cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
         result = this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
-    } else if (encoding == XMwayLoon::Encoding::Zawgyi) {
+    } else if (encoding == XMwayLoon::Encoding::zawgyi) {
         // cout << this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
         result =  this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
 

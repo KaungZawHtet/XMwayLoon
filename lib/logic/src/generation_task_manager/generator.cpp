@@ -12,7 +12,7 @@ void Generator::generate() {}
 Generator::Generator(GenerateInfo tmp_objGenerateInfo)
     : objGenerateInfo(std::move(tmp_objGenerateInfo))
     {
-        vecRanResults.reserve(objGenerateInfo.vecTypeNames.size());
+      /*  vecRanResults.reserve(objGenerateInfo.vecTypeNames.size());
         vecRandomizers.reserve(objGenerateInfo.vecTypeNames.size());
 
         this->taskRandomization = this->taskflow.emplace([&] (tf::Subflow& subflow) {
@@ -21,9 +21,13 @@ Generator::Generator(GenerateInfo tmp_objGenerateInfo)
             for ( auto element : this->objGenerateInfo.vecTypeNames)
             {
                 if (strcmp(element.c_str(), typeid(BooleanType).name()) == 0) {
-                    this->vecRandomizers[count]=Xlotgative::ShinMwayLoon::BooleanRandomizer;
+                    Xlotgative::ShinMwayLoon::BooleanRandomizer objBoolRan;
+                    this->vecRandomizers.emplace_back(objBoolRan);
 
-                    tf::Task taskBoolRD=subflow.emplace([](){}).name("taskBoolRD");
+                *//*    std::get<Xlotgative::ShinMwayLoon::BooleanRandomizer>(this->vecRandomizers[count])
+                            .getBooleanRandomizer
+                            (std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type);*//*
+
 
 
                 } else if (strcmp(element.c_str(), typeid(DateType).name()) == 0) {
@@ -52,7 +56,7 @@ Generator::Generator(GenerateInfo tmp_objGenerateInfo)
         }).name("taskRandomization");
 
 
-
+*/
 
 
     }

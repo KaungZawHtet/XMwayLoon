@@ -10,6 +10,7 @@ target_link_libraries(logic PUBLIC nlohmann_json::nlohmann_json
         ShinMwayLoon
         model
         ${Boost_LIBRARIES}
+        parallel_hashmap
         )
 target_include_directories(logic
         PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")

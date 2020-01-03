@@ -39,10 +39,10 @@ std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XMwayLoon::Encoding 
     return [&]() {
     //    pcg objPCG((std::random_device()));
         switch (encoding) {
-            case XMwayLoon::Encoding::Unicode:
+            case XMwayLoon::Encoding::unicode:
 
                 return this->alpha[boolean].first  ;
-            case XMwayLoon::Encoding::Zawgyi:
+            case XMwayLoon::Encoding::zawgyi:
               return  this->alpha[boolean].second;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);

@@ -10,7 +10,7 @@
 #include <random>
 #include "faster_random.h"
 #include  <boost/random/random_device.hpp>
-
+#include <parallel_hashmap/phmap.h>
 
 
 namespace Xlotgative::ShinMwayLoon{
@@ -21,7 +21,14 @@ namespace Xlotgative::ShinMwayLoon{
 //static std::mt19937 generatorObject(static_cast<unsigned int>(time(0)));
 
     typedef  std::unique_ptr<std::string> ptr_string;
-    enum class Encoding {Unicode=1,Zawgyi=2,Random=3};
+    enum class Encoding {unicode=1,zawgyi=2,random=3};
+
+    inline phmap::flat_hash_map<std::string, Encoding> encodeConvertMap =
+            {
+                    { "Unicode",  Encoding::unicode},
+                    { "Zawgyi", Encoding::zawgyi},
+                    { "Random",  Encoding::random}
+            };
 
 };
 

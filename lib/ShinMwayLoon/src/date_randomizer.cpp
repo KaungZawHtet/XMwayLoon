@@ -14,9 +14,9 @@ std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan
     return [&]() {
     
         switch (encoding) {
-            case XMwayLoon::Encoding::Unicode:
+            case XMwayLoon::Encoding::unicode:
                 return this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
-            case XMwayLoon::Encoding::Zawgyi:
+            case XMwayLoon::Encoding::zawgyi:
                 return this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
@@ -36,9 +36,9 @@ std::string XMwayLoon_DateRandomizer::convertShortEngMonthToMyan
     return [&]() {
         
         switch (encoding) {
-            case XMwayLoon::Encoding::Unicode:
+            case XMwayLoon::Encoding::unicode:
                 return this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
-            case XMwayLoon::Encoding::Zawgyi:
+            case XMwayLoon::Encoding::zawgyi:
                 return this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
