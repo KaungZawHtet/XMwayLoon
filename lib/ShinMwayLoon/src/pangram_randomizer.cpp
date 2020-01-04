@@ -5,8 +5,9 @@
 #include <ShinMwayLoon/pangram_randomizer.h>
 #include <iostream>
 #include <ShinMwayLoon/global_objects.h>
+#include <ShinMwayLoon/typedef.h>
 
-typedef Xlotgative::ShinMwayLoon::PangramRandomizer XMwayLoon_PangramRandomizer;
+
 
 
 
@@ -35,7 +36,7 @@ std::string XMwayLoon_PangramRandomizer::getPangram(XMwayLoon::Encoding encoding
 
 }
 
-Xlotgative::ShinMwayLoon::PangramRandomizer::PangramRandomizer() {
+XMwayLoon_PangramRandomizer::PangramRandomizer() {
     std::random_device objRandomDevice;
     this->objPCG.seed(objRandomDevice);
 

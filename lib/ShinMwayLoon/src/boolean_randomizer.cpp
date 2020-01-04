@@ -2,12 +2,11 @@
 // Created by Kaung Zaw Htet on 2019-12-22.
 //
 
-#include <ShinMwayLoon/global_objects.h>
 #include <ShinMwayLoon/boolean_randomizer.h>
-#include <utility>
 #include <functional>
 
-typedef Xlotgative::ShinMwayLoon::BooleanRandomizer XMwayLoon_BooleanRandomizer;
+#include <ShinMwayLoon/typedef.h>
+
 
 
 std::string XMwayLoon_BooleanRandomizer::getNumBool (){
@@ -57,7 +56,7 @@ std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XMwayLoon::Encoding 
     }();
 }
 
-Xlotgative::ShinMwayLoon::BooleanRandomizer::BooleanRandomizer() {
+XMwayLoon_BooleanRandomizer::BooleanRandomizer() {
     std::random_device objRD;
     this->objPCG.seed( objRD);
 

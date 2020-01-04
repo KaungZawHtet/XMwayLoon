@@ -4,14 +4,14 @@
 
 #include <ShinMwayLoon/ph_number_randomizer.h>
 #include <regex>
+#include <ShinMwayLoon/typedef.h>
 
 
 
-typedef XMwayLoon::PhoneNumberRandomizer XMwayLoon_PhoneNumberRandomizerRandomizer;
 
 
 
-std::string XMwayLoon_PhoneNumberRandomizerRandomizer::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
+std::string XMwayLoon_PhoneNumberRandomizer::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
     std::uniform_int_distribution<> operatorDistribution(1, 4);
     std::uniform_int_distribution<> numDistribution(1000000, 9999999);
 
@@ -61,13 +61,13 @@ std::string XMwayLoon_PhoneNumberRandomizerRandomizer::generateEngPhNum(CountryC
 }
 
 
-std::string XMwayLoon_PhoneNumberRandomizerRandomizer::getRandomMyanPhNum
-(const XMwayLoon_PhoneNumberRandomizerRandomizer::CountryCodeFlag countryCodeSwitch) {
+std::string XMwayLoon_PhoneNumberRandomizer::getRandomMyanPhNum
+(const XMwayLoon_PhoneNumberRandomizer::CountryCodeFlag countryCodeSwitch) {
     return this->objNumberRandomizer.convertEngNumToMyan(this->generateEngPhNum(countryCodeSwitch));
 
 }
 
-Xlotgative::ShinMwayLoon::PhoneNumberRandomizer::PhoneNumberRandomizer() {
+XMwayLoon_PhoneNumberRandomizer::PhoneNumberRandomizer() {
 
     std::random_device objRD;
     this->objPCG.seed( objRD);

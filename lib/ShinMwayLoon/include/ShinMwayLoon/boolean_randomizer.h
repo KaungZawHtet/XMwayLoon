@@ -39,7 +39,7 @@ namespace Xlotgative::ShinMwayLoon {
         BooleanRandomizer();
         enum class type{num,alpha};
        std::string getAlphaBool
-       (const Xlotgative::ShinMwayLoon::Encoding &encoding);
+       (const XMwayLoon::Encoding &encoding);
        std::string getNumBool ();
        std::string getBooleanRandomizer (const BooleanRandomizer::type &type,
                                const Encoding &encoding);

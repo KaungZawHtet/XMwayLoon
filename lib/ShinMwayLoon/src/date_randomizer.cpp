@@ -3,10 +3,8 @@
 //
 
 #include <ShinMwayLoon/date_randomizer.h>
-#include <ShinMwayLoon/global_objects.h>
 #include <regex>
-
-typedef Xlotgative::ShinMwayLoon::DateRandomizer XMwayLoon_DateRandomizer;
+#include <ShinMwayLoon/typedef.h>
 
 
 std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan

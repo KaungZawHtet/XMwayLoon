@@ -5,8 +5,7 @@
 #include <ShinMwayLoon/number_randomizer.h>
 #include <string>
 #include <ShinMwayLoon/faster_random.h>
-typedef Xlotgative::ShinMwayLoon::NumberRandomizer XMwayLoon_NumberRandomizer;
-
+#include <ShinMwayLoon/typedef.h>
 
 
 std::string XMwayLoon_NumberRandomizer::convertEngNumToMyan(const std::string &engNum) {

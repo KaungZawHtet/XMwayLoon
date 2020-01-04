@@ -67,7 +67,7 @@ namespace Xlotgative::ShinMwayLoon{
 
 
     private:
-        Xlotgative::ShinMwayLoon::NumberRandomizer objNumberRandomizer;
+        XMwayLoon::NumberRandomizer objNumberRandomizer;
         const myanMonthsContainer myanMonths{
                 Month("Jan", "January", "ဇန်နဝါရီ", "ဇန္နဝါရီ"),
                 Month("Feb", "February", "ဖေဖော်ဝါရီ", "ေဖေဖာ္ဝါရီ"),
@@ -88,11 +88,11 @@ namespace Xlotgative::ShinMwayLoon{
     public:
 
         DateRandomizer();
-        std::string convertCompleteEngMonthToMyan(std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        std::string convertShortEngMonthToMyan(std::string engMonth,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        std::string convertCompleteEngMonthToMyan(std::string engMonth,const XMwayLoon::Encoding &encoding);
+        std::string convertShortEngMonthToMyan(std::string engMonth,const XMwayLoon::Encoding &encoding);
         std::string generateRandomEngDate(const std::string &format);
-        std::string convertEngDateToMyan(std::string engDate, const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        std::string getRandomMyanDate(const std::string &format,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        std::string convertEngDateToMyan(std::string engDate, const XMwayLoon::Encoding &encoding);
+        std::string getRandomMyanDate(const std::string &format,const XMwayLoon::Encoding &encoding);
         
     };
 
