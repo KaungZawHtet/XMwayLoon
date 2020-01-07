@@ -63,7 +63,7 @@ elseif(APPLE)
     # Add an icon for the apple .app file
     list(APPEND SRC_FILES ../../src/osx/carbon/wxmac.icns)
 endif()
-add_subdirectory(lib/GUI)
+add_subdirectory(lib/gui)
 #target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
 add_subdirectory(lib/logic)
 add_subdirectory(lib/model)

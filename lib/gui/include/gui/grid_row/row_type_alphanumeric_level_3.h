@@ -16,8 +16,8 @@ public:
     explicit NameRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
             : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
 
-    wxString arrGenderType[3] = {"ကျား", "မ", "ကျပန်း"};
-    int genderCount = sizeof(arrGenderType) / sizeof(arrGenderType[0]);
+    static const wxString arrGenderType[] ;//= {"ကျား", "မ", "ကျပန်း"};
+    static const int genderCount ;//= sizeof(arrGenderType) / sizeof(arrGenderType[0]);
 
     void setTypeOnGrid() override;
 
@@ -30,13 +30,14 @@ public:
     explicit BooleanRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
             : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
 
-    wxString arrBoolType[2] = {"မှား/မှန်", "၀/၁"};
-    int boolCount = sizeof(arrBoolType) / sizeof(arrBoolType[0]);
+    static const wxString arrBoolType[];//= {"မှား/မှန်", "၀/၁"};
+    static const int boolCount; //  = sizeof(arrBoolType) / sizeof(arrBoolType[0]);
 
     void setTypeOnGrid() override;
 
 
 };
+
 
 class DateRow : public AlphaNumericRow {
 public:
@@ -53,8 +54,8 @@ public:
     explicit NRCRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
             : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
 
-    wxString arrNRCType[2] = {"နိုင်", "န"};
-    int nrcCount = sizeof(arrNRCType) / sizeof(arrNRCType[0]);
+    static const wxString arrNRCType[];// = {"နိုင်", "န"};
+    static const int nrcCount ;//= sizeof(arrNRCType) / sizeof(arrNRCType[0]);
 
     void setTypeOnGrid() override;
 

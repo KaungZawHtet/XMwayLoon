@@ -15,12 +15,15 @@
 #include <ShinMwayLoon/number_randomizer.h>
 #include <ShinMwayLoon/pangram_randomizer.h>
 #include <ShinMwayLoon/ph_number_randomizer.h>
+#include <ShinMwayLoon/typedef.h>
 typedef std::variant<BooleanType,DateType,NameType,NRCType,NumberType,PangramType,PhNumberType> type;
-typedef std::variant<Xlotgative::ShinMwayLoon::BooleanRandomizer
-,Xlotgative::ShinMwayLoon::DateRandomizer
-,Xlotgative::ShinMwayLoon::NameRandomizer
-,Xlotgative::ShinMwayLoon::NRCRandomizer
-,Xlotgative::ShinMwayLoon::NumberRandomizer
-,Xlotgative::ShinMwayLoon::PangramRandomizer
-,Xlotgative::ShinMwayLoon::PhoneNumberRandomizer> randomizer;
+typedef std::variant<
+        XMwayLoon::BooleanRandomizer
+,XMwayLoon::DateRandomizer
+,XMwayLoon::NameRandomizer
+,XMwayLoon::NRCRandomizer
+,XMwayLoon::NumberRandomizer
+,XMwayLoon::PangramRandomizer
+,XMwayLoon::PhoneNumberRandomizer
+> randomizer;
 #endif //XMWAYLOON_TYPEDEF_H

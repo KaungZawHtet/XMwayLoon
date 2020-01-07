@@ -9,6 +9,10 @@
 #include <any>
 #include <vector>
 #include <model/type/typedef.h>
+#include <ShinMwayLoon/typedef.h>
+
+
+
 namespace hana = boost::hana;
 struct OutputFormat {
     bool CSV;

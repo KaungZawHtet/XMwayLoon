@@ -8,60 +8,75 @@
 #include <taskflow/taskflow.hpp>
 #include <ShinMwayLoon/typedef.h>
 #include <ShinMwayLoon/boolean_randomizer.h>
+#include <model/model.h>
+#include <gui/grid_row/row_type_alphanumeric_level_3.h>
+#include <model/type/typedef.h>
 
-void Generator::generate() {}
+using namespace Xlotgative::ShinMwayLoon;
+
+void Generator::generate() {
+
+
+
+}
+
 
 Generator::Generator(GenerateInfo tmp_objGenerateInfo)
-    : objGenerateInfo(std::move(tmp_objGenerateInfo))
-    {
-        /*vecRanResults.reserve(objGenerateInfo.vecTypeNames.size());
-        vecRandomizers.reserve(objGenerateInfo.vecTypeNames.size());
+        : objGenerateInfo(std::move(tmp_objGenerateInfo)) {
+    auto size = objGenerateInfo.vecTypeNames.size();
+    vecRanResults.reserve(size);
+    vecRandomizers.reserve(size);
 
 
-        this->taskRandomization = this->taskflow.emplace([&] (tf::Subflow& subflow) {
+    this->taskRandomization = this->taskflow.emplace([&](tf::Subflow &subflow) {
 
 
-            int count = 0;
-            for ( auto element : this->objGenerateInfo.vecTypeNames)
-            {
-                if (strcmp(element.c_str(), typeid(BooleanType).name()) == 0) {
-                    XMwayLoon_BooleanRandomizer objBoolRan;
-                    this->vecRandomizers.emplace_back(objBoolRan);
+        int count = 0;
+        for (auto element : this->objGenerateInfo.vecTypeNames) {
+            if (strcmp(element.c_str(), typeid(BooleanType).name()) == 0) {
+                BooleanRandomizer objBoolRan;
+                this->vecRandomizers.emplace_back(objBoolRan);
 
-                    std::get<Xlotgative::ShinMwayLoon::BooleanRandomizer>(this->vecRandomizers[count])
-                            .getBooleanRandomizer
-                            (std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type);
+                auto encoding =encodeConvertMap[std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).encoding];
+                auto type= [&](){
+                   auto tmp_type= std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type;
+                    if((tmp_type.compare(BooleanRow::arrBoolType[0].ToStdString())) == 0){
 
-
-
-                } else if (strcmp(element.c_str(), typeid(DateType).name()) == 0) {
-
-                } else if (strcmp(element.c_str(), typeid(NameType).name()) == 0) {
+                    }
 
 
-                } else if (strcmp(element.c_str(), typeid(NRCType).name()) == 0) {
+                };
+               /* std::get<BooleanRandomizer>(this->vecRandomizers[count])
+                        .getBooleanRandomizer
+                                (std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type,encoding);
+*/
 
-                } else if (strcmp(element.c_str(), typeid(NumberType).name()) == 0) {
+            } else if (strcmp(element.c_str(), typeid(DateType).name()) == 0) {
 
-                } else if (strcmp(element.c_str(), typeid(PangramType).name()) == 0) {
-
-
-                } else if (strcmp(element.c_str(), typeid(PhNumberType).name()) == 0) {
-
-                } else {
-
-                }
+            } else if (strcmp(element.c_str(), typeid(NameType).name()) == 0) {
 
 
-                ++count;
+            } else if (strcmp(element.c_str(), typeid(NRCType).name()) == 0) {
+
+            } else if (strcmp(element.c_str(), typeid(NumberType).name()) == 0) {
+
+            } else if (strcmp(element.c_str(), typeid(PangramType).name()) == 0) {
+
+
+            } else if (strcmp(element.c_str(), typeid(PhNumberType).name()) == 0) {
+
+            } else {
+
             }
 
 
-        }).name("taskRandomization");
+            ++count;
+        }
 
-*/
+
+    }).name("taskRandomization");
 
 
-    }
+}
 
 

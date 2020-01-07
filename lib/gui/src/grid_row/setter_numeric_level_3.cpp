@@ -12,7 +12,7 @@ void NumberRow::setTypeOnGrid() {
     this->gTypeGrid->SetCellValue
     (this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNumberType[0]));
     this->gTypeGrid->SetCellEditor(this->gTypeGrid->rowPointer, this->colPointer
-            ,new wxGridCellChoiceEditor(this->NumberRowCount,this->arrNumberType));
+            ,new wxGridCellChoiceEditor(this->numberRowCount, this->arrNumberType));
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Prefix"));
 
@@ -24,9 +24,12 @@ void NumberRow::setTypeOnGrid() {
    // NumberType objNumberType;
    // this->gTypeGrid->vecTypes.emplace_back(objNumberType);
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(NumberType).name());
-
-
 }
+
+const wxString NumberRow::arrNumberType [3]= {"Integer", "Float", "Rational"};
+const int NumberRow::numberRowCount= sizeof(NumberRow::arrNumberType) / sizeof(NumberRow::arrNumberType[0]);
+
+
 
 void PhNumberRow::setTypeOnGrid() {
     this->setNoEncodingCell();
@@ -53,6 +56,13 @@ void PhNumberRow::setTypeOnGrid() {
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(PhNumberType).name());
 
 }
+
+const wxString PhNumberRow::arrTelecom[5]={"MPT","Telenor","Ooredoo","MyTel","Random"};
+const int PhNumberRow::telecomCount=sizeof(PhNumberRow::arrTelecom)/ sizeof(PhNumberRow::arrTelecom[0]);
+const wxString PhNumberRow::arrCountryCodeMode[2]= {"+95 included", "no +95"};
+const int PhNumberRow::countryCodeCount = sizeof(PhNumberRow::arrCountryCodeMode) / sizeof(PhNumberRow::arrCountryCodeMode[0]);
+
+
 
 
 

@@ -12,6 +12,8 @@
 #include <string>
 #include <tuple>
 #include <ShinMwayLoon/global_objects.h>
+
+
 namespace Xlotgative::ShinMwayLoon {
 
 
@@ -38,6 +40,7 @@ namespace Xlotgative::ShinMwayLoon {
     public:
         BooleanRandomizer();
         enum class type{num,alpha};
+
        std::string getAlphaBool
        (const XMwayLoon::Encoding &encoding);
        std::string getNumBool ();

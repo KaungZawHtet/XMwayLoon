@@ -16,7 +16,7 @@ namespace Xlotgative::ShinMwayLoon
       //  std::string myanNum[10]{"၀","၁","၂","၃","၄","၅","၆","၇","၈","၉" } ;
 
     private:
-        std::random_device objRandomDevice;
+
         void addFracNSignToNumberSequence();
         std::string myanNumSequence{};
         std::string engNumSequence{};
@@ -36,7 +36,7 @@ namespace Xlotgative::ShinMwayLoon
 
         Sign isSigned;
         System isFraction;
-         explicit NumberRandomizer(Sign tempIsSigned=Sign::positive,System tempIsFraction=System::integer,std::string tempPrefix="",std::string tempPostfix="");
+        NumberRandomizer(Sign tempIsSigned=Sign::positive,System tempIsFraction=System::integer,std::string tempPrefix="",std::string tempPostfix="");
 
 
         std::string convertEngNumToMyan(const std::string &engNum);

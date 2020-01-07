@@ -14,6 +14,7 @@
 #include "nrc_randomizer.h"
 #include "name_randomizer.h"
 
+
 typedef Xlotgative::ShinMwayLoon::BooleanRandomizer XMwayLoon_BooleanRandomizer;
 typedef Xlotgative::ShinMwayLoon::DateRandomizer XMwayLoon_DateRandomizer;
 typedef Xlotgative::ShinMwayLoon::NumberRandomizer XMwayLoon_NumberRandomizer;

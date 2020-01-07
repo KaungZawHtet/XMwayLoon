@@ -3,3 +3,5 @@
 //
 
 #include <ShinMwayLoon/nrc_randomizer.h>
+
+#include <ShinMwayLoon/typedef.h>

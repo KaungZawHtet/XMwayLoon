@@ -38,6 +38,7 @@ MainFrame::MainFrame():
     nbMain->AddPage(this->pnExtend,"Type Extension");
   //  Bind(wxEVT_NOTEBOOK_PAGE_CHANGED,&MainFrame::onTabChanged,this);
     this->SetAutoLayout(false);
+    //this->SetIcon(wxIcon(wxICON_ASTERISK));
     Centre();
 }
 
