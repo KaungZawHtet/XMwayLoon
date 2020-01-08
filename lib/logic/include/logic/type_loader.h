@@ -9,6 +9,7 @@
 #include <array>
 #include <string>
 #include <wx/wx.h>
+
 #include <nlohmann/json.hpp>
 // for convenience
 using json = nlohmann::json;

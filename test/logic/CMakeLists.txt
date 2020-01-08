@@ -14,8 +14,7 @@ add_test(Name html_generation_in_task
 
 
 
-target_link_libraries(csv_generation_in_task gtest_main taskflow)
-target_link_libraries(json_generation_in_task PUBLIC gtest_main
-        PUBLIC nlohmann_json::nlohmann_json taskflow taskflow)
-target_link_libraries(xml_generation_in_task gtest_main taskflow)
-target_link_libraries(html_generation_in_task gtest_main taskflow)
+target_link_libraries(csv_generation_in_task gtest_main logic model)
+target_link_libraries(json_generation_in_task PUBLIC gtest_main logic model)
+target_link_libraries(xml_generation_in_task gtest_main logic model)
+target_link_libraries(html_generation_in_task gtest_main logic model)

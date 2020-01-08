@@ -8,8 +8,9 @@ add_library(logic
 target_link_libraries(logic PUBLIC nlohmann_json::nlohmann_json
         taskflow
         ShinMwayLoon
-        GUI
+
         model
+        ${wxWidgets_LIBRARIES}
         ${Boost_LIBRARIES}
         parallel_hashmap
         )

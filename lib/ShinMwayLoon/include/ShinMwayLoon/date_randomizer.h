@@ -54,7 +54,7 @@ namespace Xlotgative::ShinMwayLoon{
 
         };
 
-        typedef boost::multi_index::multi_index_container<
+         typedef boost::multi_index::multi_index_container<
                 Month,
                 boost::multi_index::indexed_by<
                         boost::multi_index::ordered_unique<
@@ -68,7 +68,7 @@ namespace Xlotgative::ShinMwayLoon{
 
     private:
         XMwayLoon::NumberRandomizer objNumberRandomizer;
-        const myanMonthsContainer myanMonths{
+         myanMonthsContainer myanMonths{
                 Month("Jan", "January", "ဇန်နဝါရီ", "ဇန္နဝါရီ"),
                 Month("Feb", "February", "ဖေဖော်ဝါရီ", "ေဖေဖာ္ဝါရီ"),
                 Month("Mar", "March", "မတ်", "မတ္"),

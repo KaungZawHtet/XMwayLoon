@@ -6,6 +6,65 @@
 #include <model/type/numeric_type.h>
 #include <gtest/gtest.h>
 #include <any>
+#include <wx/wx.h>
+#include <array>
+
+//constexpr member
+class car
+{
+private:
+    static constexpr int wheel=14567;
+  std::array<std::string, 2> params2 = {{"foo" ,"bar"}};
+
+public:
+    static constexpr int getWheel()
+    {
+        return wheel;
+    }
+};
+//constexpr user defined obj
+class animal
+{
+public:
+    int a=2,b=4;
+    constexpr animal()= default;
+    constexpr animal(int tmp_a,int tmp_b): a(tmp_a), b(tmp_b){}
+};
+
+
+TEST(GUITest, constexprObjTest)
+
+{
+    animal a;
+
+    std::cout<<"wheel is"<<a.a;
+
+}
+
+
+TEST(GUITest,stringCompare)
+{
+    wxString wxStr1("Hello");
+    wxString wxStr2("123");
+    wxString wxStr3("ကောင်းဇော်ထက်");
+
+
+    std::string stdStr1("Hello");
+    std::string stdStr2("၁၂၃");
+    std::string stdStr3("ကောင်းဇော်ထက်");
+
+    if(stdStr1==wxStr1) { std::cerr<< "First One Right"<<'\n'; }
+    else{std::cerr<< "First One Wrong"<<'\n';}
+
+    if(stdStr2==wxStr2) { std::cerr<< "Second One Right"<<'\n'; }
+    else{std::cerr<< "Second One Wrong"<<'\n';}
+
+    if(stdStr3==wxStr3) { std::cerr<< "Third One Right"<<'\n'; }
+    else{std::cerr<< "Third One Wrong"<<'\n';}
+
+
+
+}
 TEST(GUITest,typeCheck){
 
     std::vector<std::any> vecTypes;
@@ -50,3 +109,6 @@ TEST(GUITest,typeCheck){
 
 
 }
+
+
+
