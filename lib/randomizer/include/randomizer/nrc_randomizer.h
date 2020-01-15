@@ -5,14 +5,15 @@
 #ifndef XMWAYLOON_NRC_RANDOMIZER_H
 #define XMWAYLOON_NRC_RANDOMIZER_H
 
-#include <ShinMwayLoon/global_objects.h>
-#include <ShinMwayLoon/number_randomizer.h>
+#include <randomizer/global_objects.h>
+#include <randomizer/number_randomizer.h>
 #include <string>
-namespace Xlotgative::ShinMwayLoon {
+namespace XMwayLoon::Randomizer {
 
 class NRCRandomizer{
 
 
+private:
 std::string type[2]= {"န","နိုင်"};
 std::string alphabet[25]
 = {"က","ခ","ဂ","ဃ","င"
@@ -22,15 +23,17 @@ std::string alphabet[25]
    ,"ယ","ရ","လ","ဝ","သ"
    ,"ဟ","အ"
 };
-enum class Type { N=1,Naing=2};
+
     pcg objPCG;
     NumberRandomizer objNumberRandomizer;
-
-public:
-    NRCRandomizer();
-    std::string getNRC(NRCRandomizer::Type type);
     std::string get3Alpha ();
     std::string get2Alpha ();
+public:
+    enum class Type { n=1,naing=2,random=3};
+    NRCRandomizer();
+    std::string getNRC(NRCRandomizer::Type type);
+  
+
 
 
 

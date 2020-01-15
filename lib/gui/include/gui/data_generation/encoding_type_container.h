@@ -8,7 +8,7 @@
 
 #include <wx/wx.h>
 #include <wx/statline.h>
-#include <model/model.h>
+#include <model/generate_info.h>
 class GeneratePage;
 
 

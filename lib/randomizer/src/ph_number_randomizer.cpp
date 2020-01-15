@@ -2,9 +2,9 @@
 // Created by Kaung Zaw Htet on 2019-09-23.
 //
 
-#include <ShinMwayLoon/ph_number_randomizer.h>
+#include <randomizer/ph_number_randomizer.h>
 #include <regex>
-#include <ShinMwayLoon/typedef.h>
+#include <randomizer/typedef.h>
 
 
 

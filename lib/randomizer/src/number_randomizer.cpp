@@ -2,10 +2,10 @@
 // Created by Kaung Zaw Htet on 2019-10-03.
 //
 
-#include <ShinMwayLoon/number_randomizer.h>
+#include <randomizer/number_randomizer.h>
 #include <string>
-#include <ShinMwayLoon/faster_random.h>
-#include <ShinMwayLoon/typedef.h>
+#include <randomizer/faster_random.h>
+#include <randomizer/typedef.h>
 
 
 std::string XMwayLoon_NumberRandomizer::convertEngNumToMyan(const std::string &engNum) {
@@ -90,6 +90,8 @@ std::string XMwayLoon_NumberRandomizer::getRandomMyanNum
     }
 
 }
+
+
 
 XMwayLoon_NumberRandomizer::NumberRandomizer(
         XMwayLoon_NumberRandomizer::Sign tempIsSigned,

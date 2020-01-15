@@ -13,7 +13,8 @@
 #include <parallel_hashmap/phmap.h>
 
 
-namespace Xlotgative::ShinMwayLoon{
+
+namespace XMwayLoon::Randomizer{
 
 
    /// boost::random::random_device gen=boost::random::random_device();
@@ -32,7 +33,7 @@ namespace Xlotgative::ShinMwayLoon{
 
 };
 
-namespace XMwayLoon =  Xlotgative::ShinMwayLoon;
+
 
 
 

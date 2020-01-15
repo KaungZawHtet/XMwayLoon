@@ -2,10 +2,10 @@
 // Created by Kaung Zaw Htet on 2019-12-22.
 //
 
-#include <ShinMwayLoon/boolean_randomizer.h>
+#include <randomizer/boolean_randomizer.h>
 #include <functional>
 
-#include <ShinMwayLoon/typedef.h>
+#include <randomizer/typedef.h>
 
 
 
@@ -22,14 +22,14 @@ std::string XMwayLoon_BooleanRandomizer::getNumBool (){
 
 std::string XMwayLoon_BooleanRandomizer::getBooleanRandomizer
 (const XMwayLoon_BooleanRandomizer::type &type
-        ,const XMwayLoon::Encoding &encoding) {
+        ,const XMwayLoon::Randomizer::Encoding &encoding) {
 
     if(XMwayLoon_BooleanRandomizer::type::num==type ) return this->getNumBool();
     if (XMwayLoon_BooleanRandomizer::type::alpha==type) return this->getAlphaBool(encoding);
 
 }
 
-std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XMwayLoon::Encoding &encoding) {
+std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XMwayLoon::Randomizer::Encoding &encoding) {
   //  pcg objPCG((std::random_device()));
     std::uniform_int_distribution<> booleanDistribution(0, 1);
     int boolean =booleanDistribution(this->objPCG) ;
@@ -38,10 +38,10 @@ std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XMwayLoon::Encoding 
     return [&]() {
     //    pcg objPCG((std::random_device()));
         switch (encoding) {
-            case XMwayLoon::Encoding::unicode:
+            case XMwayLoon::Randomizer::Encoding::unicode:
 
                 return this->alpha[boolean].first  ;
-            case XMwayLoon::Encoding::zawgyi:
+            case XMwayLoon::Randomizer::Encoding::zawgyi:
               return  this->alpha[boolean].second;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);

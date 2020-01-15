@@ -4,11 +4,11 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include <ShinMwayLoon/number_randomizer.h>
+#include <randomizer/number_randomizer.h>
 
 
 
-typedef Xlotgative::ShinMwayLoon::NumberRandomizer XMwayLoon_NumRan;
+typedef XMwayLoon::Randomizer::NumberRandomizer XMwayLoon_NumRan;
 
 TEST(NumberTest,convertEngNumToMyan){
 
@@ -20,7 +20,7 @@ TEST(NumberTest,convertEngNumToMyan){
 }
 
 TEST(NumberTest,getRandomMyanNum){
-    Xlotgative::ShinMwayLoon::NumberRandomizer objNumber
+    XMwayLoon::Randomizer::NumberRandomizer objNumber
             (XMwayLoon_NumRan::Sign::random , XMwayLoon_NumRan::System::rational, "MMK");
 
     for (int i = 0; i < 100 ; ++i) {

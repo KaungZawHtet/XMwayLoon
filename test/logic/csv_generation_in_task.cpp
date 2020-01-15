@@ -3,8 +3,8 @@
 //
 #include <fstream>
 #include <gtest/gtest.h>
-#include <logic/CSV_writer.h>
-using namespace std;
+#include "../../vendor/customized_third_parties/include/csv_writer/CSV_writer.h"
+
 const std::string filePath = "~/Desktop/csv_test.csv";
 const std::string filePath2 = "~/Desktop/input.txt";
 
@@ -50,7 +50,8 @@ void writeCSVinTask() {
 
 
 
-TEST(NumberTest, writeCSVinTask) {
+TEST(CSVGenerationInTask, writeCSVinTask) {
+    std::cerr<< "helo";
 
 
 }

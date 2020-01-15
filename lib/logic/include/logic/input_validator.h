@@ -6,7 +6,7 @@
 #define XMWAYLOON_INPUT_VALIDATOR_H
 
 #include <string>
-#include <model/model.h>
+#include <model/generate_info.h>
 #include <logic/input_validator.h>
 class InputValidator {
     const std::string errOutputFormat = "You need to select at least one output format";

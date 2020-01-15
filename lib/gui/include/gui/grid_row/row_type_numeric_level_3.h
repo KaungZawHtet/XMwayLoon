@@ -11,12 +11,12 @@
 class NumberRow : public NumericRow
 {
 public:
-    static const wxString arrNumberType[];//= {"Integer", "Float", "Rational"};
-    static const int numberRowCount ; //= sizeof(arrNumberType) / sizeof(arrNumberType[0]);
+    wxString arrNumberType[3]= {"Integer", "Float", "Rational"};
+    int NumberRowCount= sizeof(arrNumberType) / sizeof(arrNumberType[0]);
 
     void setTypeOnGrid();
     NumberRow(wxString tmp_typeName,TypeGrid *tmp_gTypeGrid)
-    : NumericRow(tmp_typeName,tmp_gTypeGrid) {}
+            : NumericRow(tmp_typeName,tmp_gTypeGrid) {}
 
 };
 
@@ -25,15 +25,16 @@ public:
 class PhNumberRow: public  NumericRow
 {
 public:
-    PhNumberRow(wxString tmp_typeName,TypeGrid *tmp_gTypeGrid) 
-    : NumericRow(tmp_typeName,tmp_gTypeGrid) {}
-    static const wxString arrTelecom[];//={"MPT","Telenor","Ooredoo","MyTel","Random"};
-    static const int telecomCount;//= sizeof(arrTelecom)/ sizeof(arrTelecom[0]);
-    static const wxString arrCountryCodeMode[];//[2]= {"+95 included", "no +95"};
-    static const int countryCodeCount;//= sizeof(arrCountryCodeMode) / sizeof(arrCountryCodeMode[0]);
+    PhNumberRow(wxString tmp_typeName,TypeGrid *tmp_gTypeGrid)
+            : NumericRow(tmp_typeName,tmp_gTypeGrid) {}
+    wxString arrTelecom[5]={"MPT","Telenor","Ooredoo","MyTel","Random"};
+    int telecomCount= sizeof(arrTelecom)/ sizeof(arrTelecom[0]);
+    wxString arrCountryCodeMode[2]= {"+95 included", "no +95"};
+    int countryCodeCount= sizeof(arrCountryCodeMode) / sizeof(arrCountryCodeMode[0]);
 
     void setTypeOnGrid();
 };
+
 
 
 #endif //XMWAYLOON_ROW_TYPE_NUMERIC_LEVEL_3_H

@@ -12,7 +12,7 @@
 #include <boost/date_time.hpp>
 #include "global_objects.h"
 
-#include <ShinMwayLoon/number_randomizer.h>
+#include <randomizer/number_randomizer.h>
 #include <boost/multi_index_container.hpp>
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/multi_index/hashed_index.hpp>
@@ -23,7 +23,7 @@
 
 
 
-namespace Xlotgative::ShinMwayLoon{
+namespace XMwayLoon::Randomizer{
 
     namespace tag {
         struct shortEngMonth;
@@ -68,7 +68,7 @@ namespace Xlotgative::ShinMwayLoon{
 
                 >> myanMonthsContainer;
 
-        Xlotgative::ShinMwayLoon::NumberRandomizer objRandomizer;
+        XMwayLoon::Randomizer::NumberRandomizer objRandomizer;
 
 
 
@@ -95,11 +95,11 @@ namespace Xlotgative::ShinMwayLoon{
     public:
 
         EnglishDate()= default;
-        ptr_string convertCompleteEngMonthToMyan(const std::string &,const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        ptr_string convertShortEngMonthToMyan(const std::string &,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        ptr_string convertCompleteEngMonthToMyan(const std::string &,const XMwayLoon::Randomizer::Encoding &encoding);
+        ptr_string convertShortEngMonthToMyan(const std::string &,const XMwayLoon::Randomizer::Encoding &encoding);
         ptr_string generateRandomEngDate(const std::string &format);
-        ptr_string convertEngDateToMyan(const std::string &engDate, const Xlotgative::ShinMwayLoon::Encoding &encoding);
-        ptr_string getRandomMyanDate(const std::string &format,const Xlotgative::ShinMwayLoon::Encoding &encoding);
+        ptr_string convertEngDateToMyan(const std::string &engDate, const XMwayLoon::Randomizer::Encoding &encoding);
+        ptr_string getRandomMyanDate(const std::string &format,const XMwayLoon::Randomizer::Encoding &encoding);
 
     };
 

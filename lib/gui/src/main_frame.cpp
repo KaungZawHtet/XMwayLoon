@@ -6,7 +6,7 @@
 #include <gui/id.h>
 #include <wx/aboutdlg.h>
 
-
+#include <model/db/initializer.h>
 MainFrame::MainFrame():
     wxFrame(nullptr, wxID_ANY
             , wxString("XMwayLoon")
@@ -14,6 +14,7 @@ MainFrame::MainFrame():
             wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX)
             )
 {
+    Initializer::initialize();
     this->mbMain = new wxMenuBar();
     this->mMain = new  wxMenu();
 

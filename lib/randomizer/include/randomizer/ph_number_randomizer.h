@@ -5,14 +5,14 @@
 #ifndef SHINMWAYLOON_PH_NUMBER_H
 #define SHINMWAYLOON_PH_NUMBER_H
 
-#include <ShinMwayLoon/global_objects.h>
+#include <randomizer/global_objects.h>
 #include <map>
 #include <array>
 #include <boost/logic/tribool.hpp>
-#include <ShinMwayLoon/number_randomizer.h>
+#include <randomizer/number_randomizer.h>
 
 
-namespace Xlotgative::ShinMwayLoon {
+namespace XMwayLoon::Randomizer {
 
     class PhoneNumberRandomizer {
 
@@ -31,7 +31,7 @@ namespace Xlotgative::ShinMwayLoon {
                                                              std::pair("40", 9), std::pair("42", 9),
                                                              std::pair("44", 9), std::pair("45", 9),
                                                              std::pair("46", 9), std::pair("48", 9)};
-        typedef Xlotgative::ShinMwayLoon::NumberRandomizer XMwayLoon_NumRan;
+        typedef XMwayLoon::Randomizer::NumberRandomizer XMwayLoon_NumRan;
         NumberRandomizer objNumberRandomizer;
          pcg objPCG;
 

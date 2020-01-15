@@ -4,14 +4,14 @@
 
 
 #include <benchmark/benchmark.h>
-#include <ShinMwayLoon/number_randomizer.h>
+#include <randomizer/number_randomizer.h>
 
 static void create_BM(benchmark::State& state) {
 
 
     for (auto _ : state)
     {
-        Xlotgative::ShinMwayLoon::Number obj_Number;
+        XMwayLoon::Randomizer::Number obj_Number;
 
 
     }

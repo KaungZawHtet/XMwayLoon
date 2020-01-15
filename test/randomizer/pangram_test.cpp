@@ -5,11 +5,11 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include <ShinMwayLoon/pangram_randomizer.h>
+#include <randomizer/pangram_randomizer.h>
 
 TEST(PangramTest,getPangram){
 
-    Xlotgative::ShinMwayLoon::PangramRandomizer objPangramRandomizer;
-    std::string myanNum =objPangramRandomizer.getPangram(Xlotgative::ShinMwayLoon::Encoding::Random);
+    XMwayLoon::Randomizer::PangramRandomizer objPangramRandomizer;
+    std::string myanNum =objPangramRandomizer.getPangram(XMwayLoon::Randomizer::Encoding::random);
     std::cerr<<myanNum<<std::endl;
 }

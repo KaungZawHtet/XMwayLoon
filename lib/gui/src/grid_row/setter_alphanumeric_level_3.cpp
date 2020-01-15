@@ -30,13 +30,10 @@ void NameRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-   // NameType objNameType;
-  //  this->gTypeGrid->vecTypes.emplace_back(objNameType);
+    // NameType objNameType;
+    //  this->gTypeGrid->vecTypes.emplace_back(objNameType);
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(NameType).name());
 }
-
-const wxString NameRow::arrGenderType[3]= {"ကျား", "မ", "ကျပန်း"};
-const int NameRow::genderCount= sizeof( NameRow::arrGenderType) / sizeof( NameRow::arrGenderType[0]);
 
 void PangramRow::setTypeOnGrid() {
     this->setEncodingCell();
@@ -53,12 +50,10 @@ void PangramRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-   // PangramType objPangramType;
-   // this->gTypeGrid->vecTypes.emplace_back(objPangramType);
+    // PangramType objPangramType;
+    // this->gTypeGrid->vecTypes.emplace_back(objPangramType);
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(PangramType).name());
 }
-
-
 
 
 void NRCRow::setTypeOnGrid() {
@@ -78,14 +73,10 @@ void NRCRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-   // NRCType objNRCType;
-  //  this->gTypeGrid->vecTypes.emplace_back(objNRCType);
+    // NRCType objNRCType;
+    //  this->gTypeGrid->vecTypes.emplace_back(objNRCType);
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(NRCType).name());
 }
- const wxString NRCRow::arrNRCType[2] = {"နိုင်", "န"};
- const int NRCRow::nrcCount = sizeof(NRCRow::arrNRCType) / sizeof(NRCRow::arrNRCType[0]);
-
-
 
 void DateRow::setTypeOnGrid() {
     this->setEncodingCell();
@@ -99,8 +90,8 @@ void DateRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-   // DateType objDateType;
- //   this->gTypeGrid->vecTypes.emplace_back(objDateType);
+    // DateType objDateType;
+    //   this->gTypeGrid->vecTypes.emplace_back(objDateType);
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(DateType).name());
 }
 
@@ -121,11 +112,8 @@ void BooleanRow::setTypeOnGrid() {
 
     ++(this->gTypeGrid->rowPointer);
 
-   // BooleanType objBooleanType;
-   // this->gTypeGrid->vecTypes.emplace_back(objBooleanType);
+    // BooleanType objBooleanType;
+    // this->gTypeGrid->vecTypes.emplace_back(objBooleanType);
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(BooleanType).name());
 }
-
-const wxString BooleanRow::arrBoolType[2] = {"မှား/မှန်", "၀/၁"};
-const int BooleanRow::boolCount = sizeof(BooleanRow::arrBoolType) / sizeof(BooleanRow::arrBoolType[0]);
 

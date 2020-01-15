@@ -1,62 +1,13 @@
-//
-// Created by Kaung Zaw Htet on 2019-09-23.
-//
-
-#ifndef SHINMWAYLOON_NAME_H
-#define SHINMWAYLOON_NAME_H
-
-
-#include <string>
-#include "global_objects.h"
-#include <boost/multi_index_container.hpp>
-#include <boost/multi_index/ordered_index.hpp>
-#include <boost/multi_index/hashed_index.hpp>
-#include <boost/multi_index/identity.hpp>
-#include <boost/multi_index/member.hpp>
+Install the project...
+/usr/local/Cellar/cmake/3.15.4/bin/cmake -P cmake_install.cmake
+-- Install configuration: ""
+-- Installing: /usr/local/lib/cmake/sqlite_orm/SqliteOrmConfig.cmake
+-- Installing: /usr/local/lib/cmake/sqlite_orm/SqliteOrmConfigVersion.cmake
+-- Installing: /usr/local/include/sqlite_orm.h
+-- Installing: /usr/local/lib/cmake/sqlite_orm/SqliteOrmTargets.cmake
 
 
-namespace Xlotgative::ShinMwayLoon {
-
-    namespace tag {
-        struct syllable;
-        struct gender;
-        struct position;
-        struct wordAmount;
-    }
-
-
-
-
-
-    class NameRandomizer {
-
-
-        enum class Gender {
-            male = 1, female = 2, both
-        };
-        enum class Position {
-            onlyFront = 1, bothFrontMiddle = 2, onlyMiddle = 3, bothMiddleLast = 4, onlyLast = 5
-        };
-        enum class WordAmount {
-            one = 1, two = 2,three=3
-        };
-
-        struct Property {
-            std::pair<std::string,std::string> syllable;
-            Gender gender;
-            Position position;
-            WordAmount wordAmount;
-            Property(std::pair<std::string,std::string> tmp_syllable,Gender tmp_gender,
-                     Position tmp_position, WordAmount tmp_wordAmount)
-            : syllable(tmp_syllable),
-              gender(tmp_gender),
-              position(tmp_position),
-              wordAmount(tmp_wordAmount)
-            {}
-
-        };
-
-        typedef boost::multi_index::multi_index_container<
+  typedef boost::multi_index::multi_index_container<
                 Property,
                 boost::multi_index::indexed_by<
                         boost::multi_index::ordered_unique<
@@ -70,9 +21,11 @@ namespace Xlotgative::ShinMwayLoon {
                                 boost::multi_index::member<Property, WordAmount, &Property::wordAmount>>
                 >> propertyContainer;
 
-        const propertyContainer syllable{
 
-            //က start
+const propertyContainer syllable{
+
+
+/* //က start
                 Property(std::make_pair("ကို",""), Gender::male, Position::onlyMiddle, WordAmount::one),
                 Property(std::make_pair("ကျော်",""), Gender::male, Position::onlyMiddle, WordAmount::one),
                 Property(std::make_pair("ကောင်း",""), Gender::male, Position::onlyMiddle, WordAmount::one),
@@ -208,7 +161,7 @@ namespace Xlotgative::ShinMwayLoon {
 
 
                 //မ
-                Property(std::make_pair("မေ",""), Gender::male, Position::onlyMiddle, WordAmount::one),
+                Property(std::make_pair("မေ",""), Gender::female, Position::onlyMiddle, WordAmount::one),
 
                 Property(std::make_pair("မောင်",""), Gender::both, Position::onlyMiddle, WordAmount::one),
 
@@ -345,28 +298,15 @@ namespace Xlotgative::ShinMwayLoon {
 
 
                 //ဧဪဥ...
-                Property(std::make_pair("ဦး",""), Gender::male, Position::onlyMiddle, WordAmount::one),
+                Property(std::make_pair("ဦး",""), Gender::both, Position::onlyMiddle, WordAmount::one),
                 Property(std::make_pair("ဩဇာ",""), Gender::male, Position::onlyMiddle, WordAmount::two),
                 Property(std::make_pair("ဧရာ",""), Gender::male, Position::onlyMiddle, WordAmount::two),
                 Property(std::make_pair("ဥက္ကာ",""), Gender::male, Position::onlyMiddle, WordAmount::two),
                 Property(std::make_pair("ဥမ္မာ",""), Gender::female, Position::onlyMiddle, WordAmount::two),
 
-
-
+*/
 
 
         };
 
 
-
-
-
-
-
-
-    };
-
-}
-
-
-#endif //SHINMWAYLOON_NAME_H

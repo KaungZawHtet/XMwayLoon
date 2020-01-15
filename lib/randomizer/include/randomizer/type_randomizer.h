@@ -4,7 +4,7 @@
 
 #ifndef XMWAYLOON_TYPE_H
 #define XMWAYLOON_TYPE_H
-namespace Xlotgative::ShinMwayLoon {
+namespace XMwayLoon::Randomizer {
 
 
 

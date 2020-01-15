@@ -2,7 +2,7 @@
 // Created by Kaung Zaw Htet on 2019-09-21.
 //
 
-#include <ShinMwayLoon/english_date_old.h>
+#include <randomizer/english_date_old.h>
 #include <map>
 #include <iterator>
 #include <iostream>
@@ -11,22 +11,22 @@
 #include <boost/date_time.hpp>
 #include <regex>
 
-typedef Xlotgative::ShinMwayLoon::EnglishDate XMwayLoon_EnglishDate;
-namespace XMwayLoon =  Xlotgative::ShinMwayLoon;
+typedef XMwayLoon::Randomizer::EnglishDate XMwayLoon_EnglishDate;
 
 
 
 
-XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertEngDateToMyan(const std::string &engDate,const XMwayLoon::Encoding &encoding) {
 
-    XMwayLoon::ptr_string result=std::make_unique<std::string> (engDate);
-    XMwayLoon::ptr_string tempEngMonth=std::make_unique<std::string> ("");
-    XMwayLoon::ptr_string tempEngDay=std::make_unique<std::string> ("");
-    XMwayLoon::ptr_string tempEngYear=std::make_unique<std::string> ("");
+XMwayLoon::Randomizer::ptr_string XMwayLoon_EnglishDate::convertEngDateToMyan(const std::string &engDate,const XMwayLoon::Randomizer::Randomizer::Encoding &encoding) {
 
-    XMwayLoon::ptr_string tempMyanMonth=std::make_unique<std::string> ("");
-    XMwayLoon::ptr_string tempMyanDay=std::make_unique<std::string> ("");
-    XMwayLoon::ptr_string tempMyanYear=std::make_unique<std::string> ("");
+    XMwayLoon::Randomizer::ptr_string result=std::make_unique<std::string> (engDate);
+    XMwayLoon::Randomizer::ptr_string tempEngMonth=std::make_unique<std::string> ("");
+    XMwayLoon::Randomizer::ptr_string tempEngDay=std::make_unique<std::string> ("");
+    XMwayLoon::Randomizer::ptr_string tempEngYear=std::make_unique<std::string> ("");
+
+    XMwayLoon::Randomizer::ptr_string tempMyanMonth=std::make_unique<std::string> ("");
+    XMwayLoon::Randomizer::ptr_string tempMyanDay=std::make_unique<std::string> ("");
+    XMwayLoon::Randomizer::ptr_string tempMyanYear=std::make_unique<std::string> ("");
 
     std::regex monthRegex("[A-Za-z]+");
     std::regex dayRegex("[0-9]{1,2}");
@@ -67,29 +67,29 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertEngDateToMyan(const std::str
     return result;
 }
 
-XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan(const std::string &engMonth,const XMwayLoon::Encoding &encoding) {
+XMwayLoon::Randomizer::ptr_string XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan(const std::string &engMonth,const XMwayLoon::Randomizer::Randomizer::Encoding &encoding) {
     std::string result;
 
     pcg objPCG(this->objRandomDevice);
-    if (encoding == XMwayLoon::Encoding::unicode) {
-      //  cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
-        result = this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
-    } else if (encoding == XMwayLoon::Encoding::zawgyi) {
-       // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
-        result =  this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
+    if (encoding == XMwayLoon::Randomizer::Randomizer::Encoding::unicode) {
+      //  cout << this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
+        result = this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
+    } else if (encoding == XMwayLoon::Randomizer::Randomizer::Encoding::zawgyi) {
+       // cout << this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
+        result =  this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
 
     } else {
         std::uniform_int_distribution<> encodingDistribution(1, 2);
         pcg objPCG(this->objRandomDevice);
         int encoding = encodingDistribution(objPCG);
         if (encoding == 1) {
-           // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
-            result =   this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
+           // cout << this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
+            result =   this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
 
 
         } else {
-           // cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
-            result =  this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
+           // cout << this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
+            result =  this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
 
         }
 
@@ -99,28 +99,28 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertCompleteEngMonthToMyan(const
 }
 
 
-XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertShortEngMonthToMyan(const std::string &engMonth,const XMwayLoon::Encoding &encoding) {
+XMwayLoon::Randomizer::ptr_string XMwayLoon_EnglishDate::convertShortEngMonthToMyan(const std::string &engMonth,const XMwayLoon::Randomizer::Randomizer::Encoding &encoding) {
     std::string result;
 
-    if (encoding == XMwayLoon::Encoding::unicode) {
-        //  cout << this->myanMonths.get<XMwayLoon::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
-        result = this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
-    } else if (encoding == XMwayLoon::Encoding::zawgyi) {
-        // cout << this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
-        result =  this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
+    if (encoding == XMwayLoon::Randomizer::Randomizer::Encoding::unicode) {
+        //  cout << this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
+        result = this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
+    } else if (encoding == XMwayLoon::Randomizer::Randomizer::Encoding::zawgyi) {
+        // cout << this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
+        result =  this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
 
     } else {
         std::uniform_int_distribution<> encodingDistribution(1, 2);
         pcg objPCG(this->objRandomDevice);
         int encoding = encodingDistribution(objPCG);
         if (encoding == 1) {
-            // cout << this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
-            result =   this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
+            // cout << this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
+            result =   this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
 
 
         } else {
-            // cout << this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
-            result =  this->myanMonths.get<XMwayLoon::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
+            // cout << this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
+            result =  this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
 
         }
 
@@ -129,7 +129,7 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::convertShortEngMonthToMyan(const st
     return std::make_unique<std::string>(result);
 }
 
-XMwayLoon::ptr_string XMwayLoon_EnglishDate::generateRandomEngDate(const std::string &format) {
+XMwayLoon::Randomizer::ptr_string XMwayLoon_EnglishDate::generateRandomEngDate(const std::string &format) {
 
     //TODO: windows implementation is needed
 #ifdef _WIN32
@@ -203,9 +203,9 @@ XMwayLoon::ptr_string XMwayLoon_EnglishDate::generateRandomEngDate(const std::st
 
 }
 
-XMwayLoon::ptr_string XMwayLoon_EnglishDate::getRandomMyanDate(const std::string &format,const XMwayLoon::Encoding &encoding){
+XMwayLoon::Randomizer::ptr_string XMwayLoon_EnglishDate::getRandomMyanDate(const std::string &format,const XMwayLoon::Randomizer::Randomizer::Encoding &encoding){
 
-    XMwayLoon::ptr_string result=XMwayLoon_EnglishDate::generateRandomEngDate(format);
+    XMwayLoon::Randomizer::ptr_string result=XMwayLoon_EnglishDate::generateRandomEngDate(format);
      result=XMwayLoon_EnglishDate::convertEngDateToMyan(*result,encoding);
 
 

@@ -4,14 +4,14 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include <ShinMwayLoon/include/english_date_old.h>
+#include <randomizer/include/english_date_old.h>
 
 
 
 TEST(EnglishDateTest,myanmarDateGeneration){
 
-    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
-    Xlotgative::ShinMwayLoon::ptr_string ptr= obj_EnglishDate.getRandomMyanDate("%d-%B-%Y",Xlotgative::ShinMwayLoon::Encoding::Random);
+    XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
+    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.getRandomMyanDate("%d-%B-%Y",XMwayLoon::Randomizer::Encoding::Random);
 
 
     std::cerr<< *ptr <<std::endl;
@@ -21,8 +21,8 @@ TEST(EnglishDateTest,myanmarDateGeneration){
 
 TEST(EnglishDateTest,generateRandomEngDate){
 
-    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
-    Xlotgative::ShinMwayLoon::ptr_string ptr= obj_EnglishDate.generateRandomEngDate("%d-%B-%Y");
+    XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
+    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.generateRandomEngDate("%d-%B-%Y");
 
 
     std::cerr<< *ptr <<std::endl;
@@ -32,22 +32,22 @@ TEST(EnglishDateTest,generateRandomEngDate){
 
 TEST(EnglishDateTest,convertShortEngMonthToMyan){
 
-    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
-    Xlotgative::ShinMwayLoon::ptr_string ptr= obj_EnglishDate.convertShortEngMonthToMyan("Jan",Xlotgative::ShinMwayLoon::Encoding::Random);
+    XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
+    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertShortEngMonthToMyan("Jan",XMwayLoon::Randomizer::Encoding::Random);
     std::cerr<< *ptr <<std::endl;
 
 }
 TEST(EnglishDateTest,convertCompleteEngMonthToMyan){
 
-    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
-    Xlotgative::ShinMwayLoon::ptr_string ptr= obj_EnglishDate.convertCompleteEngMonthToMyan("January",Xlotgative::ShinMwayLoon::Encoding::Random);
+    XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
+    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertCompleteEngMonthToMyan("January",XMwayLoon::Randomizer::Encoding::Random);
     std::cerr<< *ptr <<std::endl;
 
 }
 
 TEST(EnglishDateTest,create){
 
-    Xlotgative::ShinMwayLoon::EnglishDate obj_EnglishDate;
+    XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
     //  EXPECT_TRUE(true);
 
 }

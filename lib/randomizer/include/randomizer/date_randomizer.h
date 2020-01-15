@@ -12,20 +12,20 @@
 #include <boost/random/uniform_int_distribution.hpp>
 #include <boost/date_time.hpp>
 #include "global_objects.h"
-#include <ShinMwayLoon/number_randomizer.h>
+#include <randomizer/number_randomizer.h>
 #include <boost/multi_index_container.hpp>
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/multi_index/hashed_index.hpp>
 #include <boost/multi_index/identity.hpp>
 #include <boost/multi_index/member.hpp>
-#include <ShinMwayLoon/faster_random.h>
+#include <randomizer/faster_random.h>
 
 
 
 
 
 
-namespace Xlotgative::ShinMwayLoon{
+namespace XMwayLoon::Randomizer{
 
     namespace tag {
         struct shortEngMonth;
@@ -67,7 +67,7 @@ namespace Xlotgative::ShinMwayLoon{
 
 
     private:
-        XMwayLoon::NumberRandomizer objNumberRandomizer;
+        XMwayLoon::Randomizer::NumberRandomizer objNumberRandomizer;
          myanMonthsContainer myanMonths{
                 Month("Jan", "January", "ဇန်နဝါရီ", "ဇန္နဝါရီ"),
                 Month("Feb", "February", "ဖေဖော်ဝါရီ", "ေဖေဖာ္ဝါရီ"),
@@ -88,11 +88,11 @@ namespace Xlotgative::ShinMwayLoon{
     public:
 
         DateRandomizer();
-        std::string convertCompleteEngMonthToMyan(std::string engMonth,const XMwayLoon::Encoding &encoding);
-        std::string convertShortEngMonthToMyan(std::string engMonth,const XMwayLoon::Encoding &encoding);
+        std::string convertCompleteEngMonthToMyan(std::string engMonth,const XMwayLoon::Randomizer::Encoding &encoding);
+        std::string convertShortEngMonthToMyan(std::string engMonth,const XMwayLoon::Randomizer::Encoding &encoding);
         std::string generateRandomEngDate(const std::string &format);
-        std::string convertEngDateToMyan(std::string engDate, const XMwayLoon::Encoding &encoding);
-        std::string getRandomMyanDate(const std::string &format,const XMwayLoon::Encoding &encoding);
+        std::string convertEngDateToMyan(std::string engDate, const XMwayLoon::Randomizer::Encoding &encoding);
+        std::string getRandomMyanDate(const std::string &format,const XMwayLoon::Randomizer::Encoding &encoding);
         
     };
 

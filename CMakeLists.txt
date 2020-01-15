@@ -6,8 +6,7 @@ project(XMwayLoon)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_subdirectory(vendor/parallel_hashmap)
-add_subdirectory(vendor/taskflow)
+
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 add_subdirectory(vendor/nlohmann_json)
@@ -26,7 +25,24 @@ else()
     message(WARNING "The file conanbuildinfo.cmake doesn't exist, you have to run conan install first")
 endif()]]
 
-#include_directories(lib/ShinMwayLoon/src/english_date.h lib/ShinMwayLoon/src/global_objects.h)
+#include_directories(lib/randomizer/src/english_date.h lib/randomizer/src/global_objects.h)
+
+# Request the required wxWidgets libs
+find_package(wxWidgets 3.1.3 COMPONENTS all REQUIRED)
+# Include the wxWidgets use file to initialize various settings
+include(${wxWidgets_USE_FILE})
+# Define a variable containing a list of source files for the project
+if(WIN32)
+    # Include a RC file for windows
+    list(APPEND SRC_FILES ../sample.rc)
+elseif(APPLE)
+    # Add an icon for the apple .app file
+    list(APPEND SRC_FILES ../../src/osx/carbon/wxmac.icns)
+endif()
+
+
+
+
 
 
 
@@ -37,7 +53,7 @@ add_subdirectory(test)
 
 add_subdirectory(vendor/benchmark)
 add_subdirectory(benchmark)
-
+add_subdirectory(vendor/customized_third_parties)
 #add_subdirectory(vendor/wxWidgets)
 
 
@@ -48,12 +64,12 @@ target_include_directories(parallel_hashmap INTERFACE ${parallel_hashmap_files})
 
 
 
-add_subdirectory(lib/ShinMwayLoon)
+add_subdirectory(lib/randomizer)
 
 
 
 add_subdirectory(lib/gui)
-#target_compile_options(ShinMwayLoon PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
+#target_compile_options(randomizer PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
 add_subdirectory(lib/logic)
 add_subdirectory(lib/model)
 

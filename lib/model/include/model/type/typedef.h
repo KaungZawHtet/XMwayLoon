@@ -8,22 +8,22 @@
 #include <variant>
 #include <model/type/alphanumeric_type.h>
 #include <model/type/numeric_type.h>
-#include <ShinMwayLoon/date_randomizer.h>
-#include <ShinMwayLoon/boolean_randomizer.h>
-#include <ShinMwayLoon/name_randomizer.h>
-#include <ShinMwayLoon/nrc_randomizer.h>
-#include <ShinMwayLoon/number_randomizer.h>
-#include <ShinMwayLoon/pangram_randomizer.h>
-#include <ShinMwayLoon/ph_number_randomizer.h>
-#include <ShinMwayLoon/typedef.h>
+#include <randomizer/date_randomizer.h>
+#include <randomizer/boolean_randomizer.h>
+#include <randomizer/name_randomizer.h>
+#include <randomizer/nrc_randomizer.h>
+#include <randomizer/number_randomizer.h>
+#include <randomizer/pangram_randomizer.h>
+#include <randomizer/ph_number_randomizer.h>
+#include <randomizer/typedef.h>
 typedef std::variant<BooleanType,DateType,NameType,NRCType,NumberType,PangramType,PhNumberType> type;
 typedef std::variant<
-        XMwayLoon::BooleanRandomizer
-,XMwayLoon::DateRandomizer
-,XMwayLoon::NameRandomizer
-,XMwayLoon::NRCRandomizer
-,XMwayLoon::NumberRandomizer
-,XMwayLoon::PangramRandomizer
-,XMwayLoon::PhoneNumberRandomizer
+        XMwayLoon::Randomizer::BooleanRandomizer
+,XMwayLoon::Randomizer::DateRandomizer
+,XMwayLoon::Randomizer::NameRandomizer
+,XMwayLoon::Randomizer::NRCRandomizer
+,XMwayLoon::Randomizer::NumberRandomizer
+,XMwayLoon::Randomizer::PangramRandomizer
+,XMwayLoon::Randomizer::PhoneNumberRandomizer
 > randomizer;
 #endif //XMWAYLOON_TYPEDEF_H

@@ -2,16 +2,43 @@
 // Created by Kaung Zaw Htet on 2019-12-22.
 //
 
-#include <ShinMwayLoon/nrc_randomizer.h>
+#include <randomizer/nrc_randomizer.h>
 
-#include <ShinMwayLoon/typedef.h>
+#include <randomizer/typedef.h>
 
 std::string XMwayLoon_NRCRandomizer::getNRC
 (XMwayLoon_NRCRandomizer::Type type) {
 
-    std::uniform_int_distribution<> typeDistribution(1, 2);
+    std::uniform_int_distribution<> typeDistribution(0, 1);
     int boolean =typeDistribution(this->objPCG) ;
 
+    std::string idNum= this->objNumberRandomizer.getRandomMyanNum(100000,999999);
+
+    std::string city;
+    if(boolean) city =this->get2Alpha();
+    else  city=this->get3Alpha();
+
+    return [&](){
+
+        switch (type)
+        {
+            case Type::n:
+                return "၁၂/"+city+"("+ this->type[0]+ ")" +idNum;
+                break;
+            case Type::naing:
+                return "၁၂/"+city+"("+ this->type[1]+ ")" +idNum;
+                break;
+            default:
+            {
+                int boolean =typeDistribution(this->objPCG) ;
+                return "၁၂/"+city+"("+ this->type[boolean]+ ")" +idNum;
+            }
+                break;
+
+        }
+
+
+    }();
 
 
 

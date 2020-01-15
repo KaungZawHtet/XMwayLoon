@@ -6,13 +6,13 @@
 #include <model/type/alphanumeric_type.h>
 #include <model/type/numeric_type.h>
 #include <taskflow/taskflow.hpp>
-#include <ShinMwayLoon/typedef.h>
-#include <ShinMwayLoon/boolean_randomizer.h>
-#include <model/model.h>
+#include <randomizer/typedef.h>
+#include <randomizer/boolean_randomizer.h>
+#include <model/generate_info.h>
 #include <gui/grid_row/row_type_alphanumeric_level_3.h>
 #include <model/type/typedef.h>
 
-using namespace Xlotgative::ShinMwayLoon;
+using namespace XMwayLoon::Randomizer;
 
 void Generator::generate() {
 
@@ -40,10 +40,10 @@ Generator::Generator(GenerateInfo tmp_objGenerateInfo)
                 auto encoding =encodeConvertMap[std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).encoding];
                 auto type= [&](){
                    auto tmp_type= std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type;
-                    if((tmp_type.compare(BooleanRow::arrBoolType[0].ToStdString())) == 0){
+                    /*if((tmp_type.compare(BooleanRow::arrBoolType[0].ToStdString())) == 0){
 
                     }
-
+*/
 
                 };
                /* std::get<BooleanRandomizer>(this->vecRandomizers[count])

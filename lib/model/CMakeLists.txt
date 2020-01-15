@@ -4,7 +4,7 @@ add_library(model
         ${XMwayLoon_model_CPPs})
 
 target_link_libraries(model PUBLIC
-        ShinMwayLoon
+        ShinMwayLoon sqlite3
         )
 
 target_include_directories(model

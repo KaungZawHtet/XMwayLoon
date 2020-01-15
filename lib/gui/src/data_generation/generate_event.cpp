@@ -4,7 +4,7 @@
 
 #include <gui/data_generation/generate_page.h>
 #include <wx/statline.h>
-#include <model/model.h>
+#include <model/generate_info.h>
 #include <model/type/alphanumeric_type.h>
 #include <model/type/numeric_type.h>
 #include <model/type/typedef.h>

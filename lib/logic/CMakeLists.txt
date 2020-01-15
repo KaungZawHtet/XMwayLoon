@@ -6,13 +6,12 @@ add_library(logic
         ${XMwayLoon_logic_CPPs})
 
 target_link_libraries(logic PUBLIC nlohmann_json::nlohmann_json
-        taskflow
+        customized_third_parties
         ShinMwayLoon
-
+        GUI
         model
         ${wxWidgets_LIBRARIES}
         ${Boost_LIBRARIES}
-        parallel_hashmap
         )
 target_include_directories(logic
         PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")

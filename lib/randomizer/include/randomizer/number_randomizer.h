@@ -8,7 +8,7 @@
 #include <random>
 #include "global_objects.h"
 
-namespace Xlotgative::ShinMwayLoon
+namespace XMwayLoon::Randomizer
 {
     class NumberRandomizer
     {
@@ -36,7 +36,7 @@ namespace Xlotgative::ShinMwayLoon
 
         Sign isSigned;
         System isFraction;
-        NumberRandomizer(Sign tempIsSigned=Sign::positive,System tempIsFraction=System::integer,std::string tempPrefix="",std::string tempPostfix="");
+        explicit NumberRandomizer(Sign tempIsSigned=Sign::positive,System tempIsFraction=System::integer,std::string tempPrefix="",std::string tempPostfix="");
 
 
         std::string convertEngNumToMyan(const std::string &engNum);

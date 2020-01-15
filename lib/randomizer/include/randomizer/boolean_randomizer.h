@@ -11,10 +11,10 @@
 #include <boost/multi_index/member.hpp>
 #include <string>
 #include <tuple>
-#include <ShinMwayLoon/global_objects.h>
+#include <randomizer/global_objects.h>
 
 
-namespace Xlotgative::ShinMwayLoon {
+namespace XMwayLoon::Randomizer {
 
 
     //၀ မှား မွား
@@ -42,7 +42,7 @@ namespace Xlotgative::ShinMwayLoon {
         enum class type{num=1,alpha=2};
 
        std::string getAlphaBool
-       (const XMwayLoon::Encoding &encoding);
+       (const XMwayLoon::Randomizer::Encoding &encoding);
        std::string getNumBool ();
        std::string getBooleanRandomizer (const BooleanRandomizer::type &type,
                                const Encoding &encoding);

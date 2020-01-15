@@ -2,14 +2,14 @@
 // Created by Kaung Zaw Htet on 2019-12-22.
 //
 
-#ifndef XMWAYLOON_MODEL_H
-#define XMWAYLOON_MODEL_H
+#ifndef XMWAYLOON_GENERATE_INFO_H
+#define XMWAYLOON_GENERATE_INFO_H
 #include <boost/hana.hpp>
 #include <string>
 #include <any>
 #include <vector>
 #include <model/type/typedef.h>
-#include <ShinMwayLoon/typedef.h>
+#include <randomizer/typedef.h>
 
 
 
@@ -39,4 +39,4 @@ struct GenerateInfo
 };
 
 
-#endif //XMWAYLOON_MODEL_H
+#endif //XMWAYLOON_GENERATE_INFO_H

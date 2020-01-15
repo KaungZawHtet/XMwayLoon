@@ -4,8 +4,8 @@
 
 #include <gtest/gtest.h>
 #include <iostream>
-#include <ShinMwayLoon/ph_number_randomizer.h>
-#include <ShinMwayLoon/faster_random.h>
+#include <randomizer/ph_number_randomizer.h>
+#include <randomizer/faster_random.h>
 #include <random>
 using namespace std;
 TEST(GeneralTest,fasterRandom){

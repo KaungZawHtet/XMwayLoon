@@ -8,7 +8,7 @@
 
 #include <taskflow/taskflow.hpp>
 #include <model/type/typedef.h>
-#include <model/model.h>
+#include <model/generate_info.h>
 #include <vector>
 #include <string>
 #include <taskflow/taskflow.hpp>
