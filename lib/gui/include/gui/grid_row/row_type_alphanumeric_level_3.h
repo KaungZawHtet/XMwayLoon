@@ -47,17 +47,6 @@ public:
 };
 
 
-class NRCRow : public AlphaNumericRow {
-public:
-    explicit NRCRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
-            : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
-
-    wxString arrNRCType[2] = {"နိုင်", "န"};
-    int nrcCount = sizeof(arrNRCType) / sizeof(arrNRCType[0]);
-
-    void setTypeOnGrid() override;
-
-};
 
 class PangramRow : public AlphaNumericRow {
 public:
@@ -70,6 +59,7 @@ public:
 
 class Custom : public AlphaNumericRow {
 public:
+   
     explicit Custom(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
             : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
 

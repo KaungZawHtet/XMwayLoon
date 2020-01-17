@@ -6,12 +6,12 @@
 #include <randomizer/nrc_randomizer.h>
 
 
-TEST(NumberTest,getNRC){
+TEST(NRCTest,getNRC){
 
    
-    XMwayLoon::NRCRandomizer objNRCRan;
+    XMwayLoon::Randomizer::NRCRandomizer objNRCRan;
     for (int i = 0; i < 60; ++i) {
-        std::string nrc= objNRCRan.getNRC(XMwayLoon::NRCRandomizer::Type::random);
+        std::string nrc= objNRCRan.getNRC( XMwayLoon::Randomizer::NRCRandomizer::Type::random);
         std::cerr<<nrc<<std::endl;
         
     }

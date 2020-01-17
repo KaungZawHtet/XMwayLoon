@@ -9,19 +9,66 @@
 #include <randomizer/typedef.h>
 
 
-void XMwayLoon_NameRandomizer::getFemaleName() {
+
+using namespace sqlite_orm;
+
+std::string XMwayLoon_NameRandomizer::getFemaleName() {
+
+
+
+
+    //   storage.sync_schema();
+
+    auto femaleSyllables = storage.select(&XMwayLoon_NameRandomizer::Properties::unicode_syllable,
+                                          where(
+                                                  (c(&XMwayLoon_NameRandomizer::Properties::gender) == (int) this->gender)
+                                                  and
+                                                  (c(&XMwayLoon_NameRandomizer::Properties::syllableAmount) == 2)
+                                          ),
+                                          order_by(sqlite_orm::random()),
+                                          limit(100));
+
+   std::cerr<< typeid(femaleSyllables).name()<<std::endl;
+
+    for (auto &element : femaleSyllables) {
+        std::cerr << element << std::endl;
+    }
+
+    return "";
+}
+
+std::string XMwayLoon_NameRandomizer::getMaleName() {
+
+    return "";
 
 }
 
-void XMwayLoon_NameRandomizer::getMaleName() {
+std::string XMwayLoon_NameRandomizer::getRandomName() {
+
+    return "";
 
 }
 
-void XMwayLoon_NameRandomizer::getRandomName() {
+std::string XMwayLoon_NameRandomizer::getName() {
+
+    return std::string("နာမည်တု");
+
+
 
 }
 
-void XMwayLoon_NameRandomizer::getName(XMwayLoon_NameRandomizer::Gender gender,
-                                                       XMwayLoon::Randomizer::Encoding encoding) {
+XMwayLoon_NameRandomizer::NameRandomizer
+(XMwayLoon_NameRandomizer::Gender
+tmpGender,
+XMwayLoon::Randomizer::Encoding tmpEncoding
+)
+:
+
+gender (tmpGender), encoding(tmpEncoding) {
+
+    std::random_device objRD;
+    this->objPCG.seed(objRD);
+
 
 }
+

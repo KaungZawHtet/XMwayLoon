@@ -37,7 +37,7 @@ MainFrame::MainFrame():
 
     nbMain->AddPage(this->pnGenerate, "Data Generation");
     nbMain->AddPage(this->pnExtend,"Type Extension");
-  //  Bind(wxEVT_NOTEBOOK_PAGE_CHANGED,&MainFrame::onTabChanged,this);
+    Bind(wxEVT_NOTEBOOK_PAGE_CHANGED,&MainFrame::onTabChanged,this);
     this->SetAutoLayout(false);
     //this->SetIcon(wxIcon(wxICON_ASTERISK));
     Centre();
@@ -50,6 +50,8 @@ void MainFrame::onTabChanged(wxCommandEvent &event)
 
     if(tabId==0) this->SetSize( wxSize(770,630) );
     if(tabId==1) this->SetSize( wxSize(600,540) );
+
+
 
     event.Skip();
 

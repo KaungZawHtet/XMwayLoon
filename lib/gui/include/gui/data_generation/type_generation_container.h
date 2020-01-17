@@ -9,13 +9,13 @@
 #include <gui/data_generation/type_grid.h>
 #include <logic/type_loader.h>
 #include <wx/statline.h>
-
-class TypeGenerationContainer : public wxPanel
+class GeneratePage;
+class TypeGenerationContainer : public wxControl
 {
 public:
 
 
-    wxWindow *wParent;
+    GeneratePage *gpParent;
 
     wxStaticText *stAddTypeTitle;
     wxButton *btnAddType;
@@ -35,7 +35,7 @@ public:
 
 
 
-    TypeGenerationContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain);
+    TypeGenerationContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain);
     void onAddType(wxCommandEvent& event);
     void onRemoveType(wxCommandEvent& event);
 

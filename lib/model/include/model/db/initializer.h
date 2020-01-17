@@ -18,6 +18,7 @@ private:
 public:
     static inline std::string home = std::filesystem::path(getenv("HOME"));
     static inline std::string directory=home+"/"+".XMwayLoon";
+    static inline std::string dbPath = directory + "/cache.sqlite3";
     static inline sqlite3 *db;
 
     static constexpr std::string_view sqlCreateNamePropertiesTable = R"(CREATE TABLE IF NOT EXISTS name_properties (

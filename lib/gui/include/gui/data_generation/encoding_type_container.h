@@ -23,7 +23,6 @@ public:
 
 
 
-    wxWindow *wParent;
     wxBoxSizer *bsMain;
     wxStaticText *stEncodeTypeTitle;
     wxBoxSizer *bsEncodeTypeTitle;

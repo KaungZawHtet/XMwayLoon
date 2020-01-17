@@ -21,7 +21,7 @@ GeneratePage::GeneratePage(wxWindow *wParent)
    this->ctOutputFormatContainer= new OutputFormatContainer(this,this->bsMain);
 
     this->ctEncodeingTypeContainer =new EncodingTypeContainer(this, this->bsMain);
-    this->ctGenerateFileContainer= new GenerateFileContainer(this,this->bsMain);
+    this->ctGeneratedFileContainer= new GeneratedFileContainer(this, this->bsMain);
 
     this->createGenerateButton();
 

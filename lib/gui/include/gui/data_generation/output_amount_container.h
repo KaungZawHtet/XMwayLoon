@@ -8,13 +8,15 @@
 #include <wx/spinctrl.h>
 #include <wx/wx.h>
 #include <gui/data_generation/type_grid.h>
+class GeneratePage;
 class OutputAmountContainer : public wxControl
 {
 public:
 
 
     wxBoxSizer *bsMain;
-    wxWindow *wParent;
+
+    GeneratePage *gpParent;
 
 
     wxStaticText *stFormatTypeTitle;
@@ -25,7 +27,7 @@ public:
     wxCheckBox *cbXML;
     wxCheckBox *cbHTML;
     wxStaticLine *sl2;
-    OutputAmountContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain);
+    OutputAmountContainer(GeneratePage *gpParent, wxBoxSizer *tmp_bsMain);
 
 
     wxStaticText *stRecordSizeTitle;
@@ -38,6 +40,7 @@ public:
     wxStaticText *stRecordNumberUnit;
     wxStaticText *stFileSizeUnit;
     wxStaticLine *sl1;
+
 
     double outputRecordAmount=NULL;
     double outputFileSize=NULL;

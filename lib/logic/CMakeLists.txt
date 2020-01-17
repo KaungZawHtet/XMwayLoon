@@ -7,7 +7,7 @@ add_library(logic
 
 target_link_libraries(logic PUBLIC nlohmann_json::nlohmann_json
         customized_third_parties
-        ShinMwayLoon
+        randomizer
         GUI
         model
         ${wxWidgets_LIBRARIES}

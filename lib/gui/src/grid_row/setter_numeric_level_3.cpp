@@ -5,6 +5,29 @@
 #include <wx/grid.h>
 #include <model/type/numeric_type.h>
 
+void NRCRow::setTypeOnGrid() {
+    this->setNoEncodingCell();
+
+    this->colPointer++;
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNRCType[0]));
+    this->gTypeGrid->SetCellEditor
+            (this->gTypeGrid->rowPointer,this->colPointer
+                    ,new wxGridCellChoiceEditor(this->nrcCount,this->arrNRCType));
+    this->colPointer++;
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
+
+    ++(this->gTypeGrid->rowPointer);
+
+    // NRCType objNRCType;
+    //  this->gTypeGrid->vecTypes.emplace_back(objNRCType);
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(NRCType).name());
+}
+
+
 void NumberRow::setTypeOnGrid() {
 
     this->setNoEncodingCell();

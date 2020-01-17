@@ -19,7 +19,7 @@ public:
     EncodingTypeContainer *ctEncodeingTypeContainer;
     OutputAmountContainer *ctOutputAmountContainer;
     OutputFormatContainer *ctOutputFormatContainer;
-    GenerateFileContainer *ctGenerateFileContainer;
+    GeneratedFileContainer *ctGeneratedFileContainer;
 
     wxBoxSizer *bsGenerate;
     wxButton *btnGenerate;
@@ -29,7 +29,7 @@ public:
 
 
     void onGenerate(wxCommandEvent& event);
-
+    bool validate();
 
 
 private:

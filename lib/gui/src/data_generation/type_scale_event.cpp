@@ -5,6 +5,7 @@
 #include <gui/data_generation/type_generation_container.h>
 #include <gui/grid_row/row_type_alphanumeric_level_3.h>
 #include <gui/grid_row/row_type_numeric_level_3.h>
+#include <gui/data_generation/generate_page.h>
 void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
   //  wxString tmp_typeName=this->objTypeLoader.defaultType[0];;
     switch (this->cbAddType->GetSelection())

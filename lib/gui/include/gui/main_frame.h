@@ -7,7 +7,7 @@
 #include <gui/type_extension/extend_page.h>
 #include <gui/preference_dialog.h>
 
-
+#include <memory>
 
 class MainFrame : public wxFrame
 {
@@ -21,6 +21,9 @@ public:
     ExtendPage *pnExtend;
     wxMenuBar *mbMain;
     wxMenu *mMain;
+
+
+
     PreferenceDialog *dPreferenceDialog;
 
 

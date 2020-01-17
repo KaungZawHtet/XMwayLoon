@@ -15,10 +15,15 @@ file(GLOB XMwayLoon_GUI_data_generation_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/generated_file_container.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/type_scale_event.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/generate_event.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/encoding_type_event.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/encoding_type_event.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/validate_gen_info.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/input_validator.cpp)
 
 file(GLOB XMwayLoon_GUI_type_extension_CPPs
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extend_page.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extend_page.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extension_manually_container.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extension_by_file_container.cpp
+        )
 
 
 file(GLOB XMwayLoon_GUI_type_CPPs

@@ -8,11 +8,13 @@
 #include <model/generate_info.h>
 #include <wx/wx.h>
 #include <wx/statline.h>
+class GeneratePage;
 class OutputFormatContainer : public wxControl
 {
 public:
-    OutputFormatContainer(wxWindow *tmp_wParent,wxBoxSizer *tmp_bsMain);
+    OutputFormatContainer(GeneratePage *tmp_pgParent,wxBoxSizer *tmp_bsMain);
 
+    wxStaticText *stError;
     wxStaticText *stFormatTypeTitle;
     wxBoxSizer *bsFormatTypeTitle;
     wxBoxSizer *bsFormatType;
@@ -21,7 +23,7 @@ public:
     wxCheckBox *cbXML;
     wxCheckBox *cbHTML;
 
-    wxWindow *wParent;
+    GeneratePage *gpParent;
     wxBoxSizer *bsMain;
     wxStaticLine *sl2;
 

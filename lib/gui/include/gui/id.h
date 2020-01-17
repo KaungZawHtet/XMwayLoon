@@ -27,6 +27,9 @@
  *
  *
  *  ExtendPage 2000
+ *      txtCtrl Path : 100
+ *      btnBrowse    : 200
+ *      btnExtend    : 300
  *
  *
  *
@@ -62,6 +65,12 @@
 
 
 #define BTN_GENERATE_ID 1600
+
+///////////////
+
+#define BTN_BROWSE_BY_FILE_ID 2100
+#define BTN_EXTEND_BY_FILE_ID 2200
+#define TC_PATH_BY_FILE_ID 2300
 
 
 

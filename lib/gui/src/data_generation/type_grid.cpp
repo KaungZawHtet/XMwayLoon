@@ -8,10 +8,12 @@
 
 
 TypeGrid::TypeGrid(wxWindow *wParent)
-:wxGrid (wParent,wxID_ANY,wxDefaultPosition)
+:wxGrid (wParent,wxID_ANY,wxDefaultPosition,wxSize(-1,147))
 {
 
     this->CreateGrid(6,7);
+    this->Fit();
+
     this->EnableEditing(true);
     this->EnableScrolling(true,true);
     this->EnableGridLines(false);

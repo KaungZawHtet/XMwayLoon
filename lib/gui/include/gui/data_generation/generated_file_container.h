@@ -6,21 +6,23 @@
 #define XMWAYLOON_GENERATED_FILE_CONTAINER_H
 #include <wx/statline.h>
 #include <wx/wx.h>
-class GenerateFileContainer : public wxControl
+class GeneratePage;
+class GeneratedFileContainer : public wxControl
 {
 public:
-    GenerateFileContainer(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain);
+    GeneratedFileContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain);
 
-    wxWindow *wParent;
+    GeneratePage *gpParent;
     wxBoxSizer *bsMain;
 
-    wxBoxSizer *bsGenerateFileTitle;
-    wxBoxSizer *bsGenerateFile;
+    wxBoxSizer *bsGeneratedFileTitle;
+    wxBoxSizer *bsGeneratedFile;
 
-    wxTextCtrl *tcGenerateFile;
-    wxButton *btnGenerateFile;
+    wxTextCtrl *tcGeneratedFile;
+    wxButton *btnGeneratedFile;
 
-    wxStaticText *stGenerateFileTitle;
+    wxStaticText *stGeneratedFileTitle;
+    wxStaticText *stError;
 
     wxStaticLine *st5;
 

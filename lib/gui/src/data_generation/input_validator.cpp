@@ -1,7 +1,7 @@
 //
 // Created by Kaung Zaw Htet on 2019-12-28.
 //
-#include <logic/input_validator.h>
+#include <gui/data_generation/input_validator.h>
 #include <randomizer/typedef.h>
 
 
