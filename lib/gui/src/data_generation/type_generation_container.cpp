@@ -21,6 +21,7 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     this->bsAddTypeTitle = new wxBoxSizer(wxHORIZONTAL);
     this->stAddTypeTitle = new wxStaticText(this->gpParent, -1,
                                             wxT("Choose the type to generate : "));
+    this->stAddTypeTitle->SetFont(this->gpParent->font->Bold());
     this->btnAddType = new wxButton(this->gpParent, BTN_ADD_TYPE_ID, wxT("+"));
     this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("-"));
     this->cbAddType = new wxComboBox(this->gpParent, CB_ADD_TYPE_ID,wxT("Choose Type:"),

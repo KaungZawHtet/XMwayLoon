@@ -25,6 +25,7 @@ public:
     wxButton *btnGenerate;
 
 
+    std::shared_ptr<wxFont> font= std::make_shared<wxFont>();
     void createGenerateButton();
 
 

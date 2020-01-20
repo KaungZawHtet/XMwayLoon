@@ -19,6 +19,7 @@ GeneratedFileContainer::GeneratedFileContainer
     this->bsGeneratedFileTitle= new wxBoxSizer(wxHORIZONTAL);
     this->bsGeneratedFile= new wxBoxSizer(wxHORIZONTAL);
     this->stGeneratedFileTitle= new wxStaticText(this->gpParent, -1, wxT("Target File : "));
+    this->stGeneratedFileTitle->SetFont(this->gpParent->font->Bold());
     this->btnGeneratedFile = new wxButton(this->gpParent, BTN_TARGET_ID, wxT("Target"));
     this->tcGeneratedFile=new wxTextCtrl(this->gpParent, TC_TARGET_ID);
     this->tcGeneratedFile->SetEditable(false);

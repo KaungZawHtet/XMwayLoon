@@ -9,6 +9,7 @@ ExtendPage::ExtendPage(wxWindow *wParent)
 
     this->bsMain = new wxBoxSizer(wxVERTICAL);
     this->ctExtensionByFile_Container= new ExtensionByFile_Container(this, this->bsMain);
+    this->ctExtensionManually_Container= new ExtensionManually_Container(this, this->bsMain);
 
    // this->ctOutputAmountContainer= new OutputAmountContainer(this, this->bsMain);
 

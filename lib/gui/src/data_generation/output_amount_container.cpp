@@ -21,6 +21,7 @@ OutputAmountContainer::OutputAmountContainer(GeneratePage *tmp_gpParent, wxBoxSi
       this->stRecordSizeTitle = new wxStaticText(this->gpParent, -1,
                                                  wxT("Output Amount : "),
                                                  wxPoint(-1, -1), wxSize(-1, -1));
+    this->stRecordSizeTitle->SetFont(this->gpParent->font->Bold());
       this->rdRecordNumber = new wxRadioButton(this->gpParent, RD_RECORD_NUMBER_ID,
                                                wxT("Record Number"),wxDefaultPosition,wxDefaultSize, wxRB_GROUP);
       this->rdFileSize = new wxRadioButton(this->gpParent, RD_FILE_SIZE_ID,

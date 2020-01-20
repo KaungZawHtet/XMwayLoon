@@ -27,9 +27,20 @@
  *
  *
  *  ExtendPage 2000
- *      txtCtrl Path : 100
- *      btnBrowse    : 200
- *      btnExtend    : 300
+ *      By File          : 100
+ *          txtCtrl Path :  10
+ *          btnBrowse    :  20
+ *          btnExtend    :  30
+ *
+ *      By Manually      :200
+ *          btnExend     : 10
+ *          tcTypeName   : 20
+ *          tcRecord     : 30
+ *
+ *          lbZawgyi     : 40
+ *          lbUnicode    : 50
+ *
+ *
  *
  *
  *
@@ -68,9 +79,16 @@
 
 ///////////////
 
-#define BTN_BROWSE_BY_FILE_ID 2100
-#define BTN_EXTEND_BY_FILE_ID 2200
-#define TC_PATH_BY_FILE_ID 2300
+#define BTN_BROWSE_BY_FILE_ID 2110
+#define BTN_EXTEND_BY_FILE_ID 2120
+#define TC_PATH_BY_FILE_ID 2130
+
+#define BTN_EXTEND_MANUALLY_ID 2210
+#define TC_TYPE_NAME_MANUALLY_ID 2220
+#define TC_RECORD_MANUALLY_ID 2230
+#define BTN_ADD_MANUALLY_ID 2240
+#define LB_UNICODE_MANUALLY_ID 2250
+#define LB_ZAWGYI_MANUALLY_ID 2260
 
 
 

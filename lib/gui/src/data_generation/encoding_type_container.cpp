@@ -16,6 +16,7 @@ EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSi
     //allocate Record Size group
     this->stEncodeTypeTitle = new wxStaticText(this->gpParent, -1,
                                                wxT("Encoding Type : "));
+    this->stEncodeTypeTitle->SetFont(this->gpParent->font->Bold());
     this->sl3 = new wxStaticLine(this->gpParent, wxID_ANY, wxPoint(-1, -1),
                                  wxSize(300, 1));
     this->bsEncodeType = new wxBoxSizer(wxHORIZONTAL);

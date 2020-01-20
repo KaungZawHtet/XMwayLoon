@@ -23,6 +23,7 @@ wxControl(tmp_gpParent,-1)
     this->bsFormatTypeTitle = new wxBoxSizer(wxHORIZONTAL);
     this->stFormatTypeTitle = new wxStaticText(this->gpParent, -1,
                                                wxT("Output Format : "));
+    this->stFormatTypeTitle->SetFont(this->gpParent->font->Bold());
     this->stError= new wxStaticText(this->gpParent, -1,
                                     wxT(""));
     this->cbCSV = new wxCheckBox(this->gpParent, CB_CSV_ID, wxT("CSV"));

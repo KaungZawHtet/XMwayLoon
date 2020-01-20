@@ -7,27 +7,35 @@
 
 #include <wx/wx.h>
 
+class ExtendPage;
 class ExtensionManually_Container : public wxControl
 {
-    wxWindow *wParent;
+    ExtendPage *gpParent;
+
+    wxButton *btnExtend;
+    wxButton *btnAdd;
 
     wxStaticText *stTitle;
-    wxButton *btnExtend;
     wxStaticText *stTypeName;
     wxStaticText *stRecord;
+    wxStaticText *stUnicode;
+    wxStaticText *stZawgyi;
 
     wxTextCtrl *tcTypeName;
     wxTextCtrl *tcRecord;
 
-    wxTextCtrl *tcZawgyi;
-    wxTextCtrl *tcUnicode;
     wxListBox *lbZawgyi;
     wxListBox *lbUnicode;
 
 
-    wxBoxSizer *bsFileExtender;
+    wxBoxSizer *bsRecordAddition;
     wxBoxSizer *bsTitle;
+    wxBoxSizer *bsTypeName;
     wxBoxSizer *bsExtendBtn;
+    wxBoxSizer *bsUnicode;
+    wxBoxSizer *bsZawgyi;
+    wxBoxSizer *bsListBoxes;
+
 
     wxBoxSizer *bsMain;
 
@@ -35,7 +43,7 @@ class ExtensionManually_Container : public wxControl
     void onExtend(wxCommandEvent& event);
 
 public:
-    ExtensionManually_Container(wxWindow *tmp_wParent, wxBoxSizer *tmp_bsMain);
+    ExtensionManually_Container(ExtendPage *tmp_gpParent, wxBoxSizer *tmp_bsMain);
 
 
 
