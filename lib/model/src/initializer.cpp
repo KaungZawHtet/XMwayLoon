@@ -24,24 +24,24 @@ void Initializer::createDatabase() {
 
     int rc = sqlite3_open(dbPath.c_str(), &db);
     if (rc) exit(rc);
-    else Initializer::createTable();
+    else Initializer::createTables();
 
 
 }
 
-void Initializer::createTable() {
+void Initializer::createTables() {
 
     char *zErrMsg = 0;
-    int rc1 = sqlite3_exec(db, sqlCreateNamePropertiesTable.data(), callback, 0, &zErrMsg);
-    int rc2 = sqlite3_exec(db, sqlCreateCustomTypeTable.data(), callback, 0, &zErrMsg);
-    int rc3 = sqlite3_exec(db, sqlCreateLastRanTable.data(), callback, 0, &zErrMsg);
+    int rc1 = sqlite3_exec(db, sqlCreate_NameProperties.data(), callback, 0, &zErrMsg);
+    int rc2 = sqlite3_exec(db, sqlCreate_CustomTypeName.data(), callback, 0, &zErrMsg);
+    int rc3 = sqlite3_exec(db, sqlCreate_LastRan.data(), callback, 0, &zErrMsg);
+    int rc4 = sqlite3_exec(db, sqlCreate_CustomTypeRecord.data(), callback, 0, &zErrMsg);
 
-
-    if(all_of{rc1,rc2,rc3} !=SQLITE_OK)
+    if(all_of{rc1,rc2,rc3,rc4} !=SQLITE_OK)
     {
         exit(0);
     } else{
-        int rc4 = sqlite3_exec(db, sqlInsertIntoNameProperties.data(), callback, 0, &zErrMsg);
+        int rc4 = sqlite3_exec(db, sqlInsert_NameProperties.data(), callback, 0, &zErrMsg);
     }
 
 

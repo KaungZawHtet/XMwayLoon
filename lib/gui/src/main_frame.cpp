@@ -49,7 +49,7 @@ void MainFrame::onTabChanged(wxCommandEvent &event)
     int tabId= this->nbMain->FindPage(currentPage);
 
     if(tabId==0) this->SetSize( wxSize(770,630) );
-    if(tabId==1) this->SetSize( wxSize(500,540) );
+    if(tabId==1) this->SetSize( wxSize(500,470) );
 
 
 

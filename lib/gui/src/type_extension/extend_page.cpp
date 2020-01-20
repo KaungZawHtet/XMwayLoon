@@ -7,11 +7,20 @@ ExtendPage::ExtendPage(wxWindow *wParent)
     : wxPanel(wParent, -1)
 {
 
-    this->bsMain = new wxBoxSizer(wxVERTICAL);
-    this->ctExtensionByFile_Container= new ExtensionByFile_Container(this, this->bsMain);
-    this->ctExtensionManually_Container= new ExtensionManually_Container(this, this->bsMain);
 
-   // this->ctOutputAmountContainer= new OutputAmountContainer(this, this->bsMain);
+    this->bsMain = new wxBoxSizer(wxVERTICAL);
+    cbExtensionBook= new wxChoicebook(this,-1);
+    this->ctExtensionByFile_Container= new ExtensionByFile_Container(cbExtensionBook);
+    this->ctExtensionManually_Container= new ExtensionManually_Container(cbExtensionBook);
+
+
+    this->cbExtensionBook->AddPage(this->ctExtensionManually_Container,"Extension Manually");
+    this->cbExtensionBook->AddPage(this->ctExtensionByFile_Container,"Extension By JSON");
+
+
+
+    this->bsMain->Add(this->cbExtensionBook,0,wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
+
 
     this->SetSizer(this->bsMain);
 

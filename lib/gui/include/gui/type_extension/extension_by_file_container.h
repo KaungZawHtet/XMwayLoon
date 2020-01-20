@@ -9,8 +9,8 @@
 #include <wx/wx.h>
 
 class ExtendPage;
-class ExtensionByFile_Container  : public wxControl {
-    ExtendPage *wParent;
+class ExtensionByFile_Container  : public wxPanel {
+    wxWindow *wParent;
 
 
     wxStaticText *stTitle;
@@ -21,7 +21,7 @@ class ExtensionByFile_Container  : public wxControl {
     wxBoxSizer *bsTitle;
     wxBoxSizer *bsExtendBtn;
 
-
+    std::shared_ptr<wxFont> font= std::make_shared<wxFont>();
 
     wxBoxSizer *bsMain;
     wxStaticLine *sl0;
@@ -31,7 +31,7 @@ class ExtensionByFile_Container  : public wxControl {
     void onExtend(wxCommandEvent& event);
 
 public:
-    ExtensionByFile_Container(ExtendPage *tmp_wParent, wxBoxSizer *tmp_bsMain);
+    explicit ExtensionByFile_Container(wxWindow *tmp_wParent);
 };
 
 #endif //XMWAYLOON_EXTENSION_BY_FILE_CONTAINER_H

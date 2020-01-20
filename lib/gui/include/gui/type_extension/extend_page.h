@@ -4,7 +4,7 @@
 #include <wx/statline.h>
 #include <gui/type_extension/extension_by_file_container.h>
 #include <gui/type_extension/extension_manually_container.h>
-
+#include <wx/choicebk.h>
 class ExtendPage : public wxPanel
 {
 
@@ -13,6 +13,7 @@ public:
     wxBoxSizer *bsMain;
     ExtensionByFile_Container *ctExtensionByFile_Container;
     ExtensionManually_Container *ctExtensionManually_Container;
+    wxChoicebook *cbExtensionBook;
 
 
     std::shared_ptr<wxFont> font= std::make_shared<wxFont>();

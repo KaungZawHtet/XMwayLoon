@@ -25,7 +25,7 @@ std::string XMwayLoon_BooleanRandomizer::getBooleanRandomizer
         ,const XMwayLoon::Randomizer::Encoding &encoding) {
 
     if(XMwayLoon_BooleanRandomizer::type::num==type ) return this->getNumBool();
-    if (XMwayLoon_BooleanRandomizer::type::alpha==type) return this->getAlphaBool(encoding);
+    else  return this->getAlphaBool(encoding); //(XMwayLoon_BooleanRandomizer::type::alpha==type)
 
 }
 

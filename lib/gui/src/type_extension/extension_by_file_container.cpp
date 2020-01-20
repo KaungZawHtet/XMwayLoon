@@ -6,28 +6,28 @@
 #include <wx/dialog.h>
 #include <gui/type_extension/extend_page.h>
 ExtensionByFile_Container::ExtensionByFile_Container
-(ExtendPage *tmp_wParent, wxBoxSizer *tmp_bsMain)
-: wxControl(tmp_wParent,-1)
+(wxWindow *tmp_wParent)
+: wxPanel(tmp_wParent,-1)
 {
 
     this->wParent= tmp_wParent;
-    this->bsMain=tmp_bsMain;
+    this->bsMain=new wxBoxSizer(wxVERTICAL);
     //allocate Type Addition group
     this->bsTitle = new wxBoxSizer(wxHORIZONTAL);
     this->bsExtendBtn = new wxBoxSizer(wxHORIZONTAL);
     this->bsFileExtender = new wxBoxSizer(wxHORIZONTAL);
-    this->sl0 = new wxStaticLine(this->wParent, wxID_ANY, wxPoint(-1, -1),
+    this->sl0 = new wxStaticLine(this, wxID_ANY, wxPoint(-1, -1),
                                  wxSize(300, 1));
 
-    this->stTitle = new wxStaticText(this->wParent, -1,
+    this->stTitle = new wxStaticText(this, -1,
                                             wxT("Extend Type by json file : "));
 
 
-    this->stTitle->SetFont(this->wParent->font->Bold());
-    this->btnBrowse = new wxButton(this->wParent, BTN_BROWSE_BY_FILE_ID, wxT("Browse"));
-    this->btnExtend = new wxButton(this->wParent, BTN_EXTEND_BY_FILE_ID, wxT("Extend"));
+    this->stTitle->SetFont(this->font->Bold());
+    this->btnBrowse = new wxButton(this, BTN_BROWSE_BY_FILE_ID, wxT("Browse"));
+    this->btnExtend = new wxButton(this, BTN_EXTEND_BY_FILE_ID, wxT("Extend"));
 
-    this->tcPath = new wxTextCtrl(this->wParent, TC_PATH_BY_FILE_ID,wxT(""),
+    this->tcPath = new wxTextCtrl(this, TC_PATH_BY_FILE_ID,wxT(""),
                                      wxPoint(-1,-1),wxSize(-1,-1));
     this->tcPath->SetEditable(false);
 
@@ -46,8 +46,9 @@ ExtensionByFile_Container::ExtensionByFile_Container
     this->bsMain->Add(this->bsExtendBtn,0,  wxALIGN_RIGHT | wxRIGHT | wxTOP, 10);
 
 
-    this->bsMain->Add(sl0, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 20);
+    this->bsMain->Add(this->sl0, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 20);
 
+    this->SetSizer(this->bsMain);
 }
 
 void ExtensionByFile_Container::onBrowse(wxCommandEvent &event) {

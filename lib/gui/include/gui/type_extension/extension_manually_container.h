@@ -6,11 +6,11 @@
 #define XMWAYLOON_EXTENSION_MANUALLY_CONTAINER_H
 
 #include <wx/wx.h>
-
+#include <wx/statline.h>
 class ExtendPage;
-class ExtensionManually_Container : public wxControl
+class ExtensionManually_Container : public wxPanel
 {
-    ExtendPage *gpParent;
+    wxWindow *wParent;
 
     wxButton *btnExtend;
     wxButton *btnAdd;
@@ -27,6 +27,7 @@ class ExtensionManually_Container : public wxControl
     wxListBox *lbZawgyi;
     wxListBox *lbUnicode;
 
+    std::shared_ptr<wxFont> font= std::make_shared<wxFont>();
 
     wxBoxSizer *bsRecordAddition;
     wxBoxSizer *bsTitle;
@@ -36,6 +37,8 @@ class ExtensionManually_Container : public wxControl
     wxBoxSizer *bsZawgyi;
     wxBoxSizer *bsListBoxes;
 
+    wxStaticLine *sl1;
+
 
     wxBoxSizer *bsMain;
 
@@ -43,7 +46,7 @@ class ExtensionManually_Container : public wxControl
     void onExtend(wxCommandEvent& event);
 
 public:
-    ExtensionManually_Container(ExtendPage *tmp_gpParent, wxBoxSizer *tmp_bsMain);
+    ExtensionManually_Container(wxWindow *tmp_wParent);
 
 
 

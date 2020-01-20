@@ -7,7 +7,6 @@ project(XMwayLoon)
 set(CMAKE_CXX_STANDARD 17)
 
 
-
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 add_subdirectory(vendor/nlohmann_json)
 

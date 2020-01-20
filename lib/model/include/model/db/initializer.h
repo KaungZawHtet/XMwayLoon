@@ -4,24 +4,27 @@
 
 #ifndef XMWAYLOON_INITIALIZER_H
 #define XMWAYLOON_INITIALIZER_H
+
 #include <string>
 #include <filesystem>
 #include <sqlite3.h>
 
 #include <string>
+
 class Initializer {
 
 private:
     static void createTable();
+
     static void loadNamePropertiesData();
 
 public:
     static inline std::string home = std::filesystem::path(getenv("HOME"));
-    static inline std::string directory=home+"/"+".XMwayLoon";
+    static inline std::string directory = home + "/" + ".XMwayLoon";
     static inline std::string dbPath = directory + "/cache.sqlite3";
     static inline sqlite3 *db;
 
-    static constexpr std::string_view sqlCreateNamePropertiesTable = R"(CREATE TABLE IF NOT EXISTS name_properties (
+    static constexpr std::string_view sqlCreate_NameProperties = R"(CREATE TABLE IF NOT EXISTS name_properties (
   id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
   unicode_syllable varchar(20),
   zawgyi_syllable varchar(20),
@@ -32,21 +35,28 @@ public:
 
 CREATE UNIQUE INDEX IF NOT EXISTS IndexNPid ON name_properties (id ASC);)";
 
-    static constexpr std::string_view sqlCreateCustomTypeTable = R"(CREATE TABLE IF NOT EXISTS custom_type (
-  main_id integer PRIMARY KEY NOT NULL,
-  sub_id integer,
-  type_name varchar(128),
+    static constexpr std::string_view sqlCreate_CustomTypeRecord = R"(CREATE TABLE IF NOT EXISTS custom_type_record (
+  id integer PRIMARY KEY NOT NULL,
+  custom_type_name_id integer,
   unicode_unit varchar(255),
-  zawgyi_unit varchar(255)
-);
-CREATE UNIQUE INDEX IF NOT EXISTS IndexCTid ON custom_type (main_id ASC);)";
+  zawgyi_unit varchar(255),
+  FOREIGN KEY (custom_type_name_id) REFERENCES custom_type_name (id)
+);)";
 
-    static constexpr std::string_view sqlCreateLastRanTable = R"(CREATE TABLE IF NOT EXISTS last_randomization (
+    static constexpr std::string_view sqlCreate_CustomTypeName = R"(CREATE TABLE IF NOT EXISTS custom_type_name (
+  id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+  type_name char(255)
+);)";
+
+
+    static constexpr std::string_view sqlCreate_LastRan = R"(CREATE TABLE IF NOT EXISTS last_randomization (
     id integer PRIMARY KEY NOT NULL,
     type_name varchar(128)
     );
-    CREATE UNIQUE INDEX IF NOT EXISTS IndexLRid ON last_randomization (id ASC);)";
-    static constexpr std::string_view sqlInsertIntoNameProperties= R"(INSERT INTO "name_properties" VALUES (1,'ကို','ကို',1,1,1);
+    )";
+
+
+    static constexpr std::string_view sqlInsert_NameProperties = R"(INSERT INTO "name_properties" VALUES (1,'ကို','ကို',1,1,1);
 INSERT INTO "name_properties" VALUES (2,'ကျော်','ေက်ာ္',1,1,1);
 INSERT INTO "name_properties" VALUES (3,'ကောင်း','ေကာင္း',1,1,1);
 INSERT INTO "name_properties" VALUES (4,'ကြည်','ၾကည္',3,3,1);
@@ -229,8 +239,9 @@ INSERT INTO "name_properties" VALUES (179,'မြိုင်','ၿမိဳင�
     static void initialize();
 
     static void createDirectory();
-    static void createDatabase();
 
+    static void createDatabase();
+    static void createTables();
 
 };
 
