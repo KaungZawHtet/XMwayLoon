@@ -53,6 +53,8 @@ add_subdirectory(test)
 add_subdirectory(vendor/benchmark)
 add_subdirectory(benchmark)
 add_subdirectory(vendor/customized_third_parties)
+add_subdirectory(vendor/glog)
+
 #add_subdirectory(vendor/wxWidgets)
 
 

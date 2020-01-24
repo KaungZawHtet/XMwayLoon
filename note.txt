@@ -1,3 +1,11 @@
+Specific build
+ google benchmark
+ wxwidgets
+ icu
+
+
+
+
 Install the project...
 /usr/local/Cellar/cmake/3.15.4/bin/cmake -P cmake_install.cmake
 -- Install configuration: ""

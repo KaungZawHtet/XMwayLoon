@@ -5,6 +5,7 @@
 #ifndef XMWAYLOON_INITIALIZER_H
 #define XMWAYLOON_INITIALIZER_H
 
+
 #include <string>
 #include <filesystem>
 #include <sqlite3.h>
