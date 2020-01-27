@@ -20,7 +20,7 @@ GeneratedFileContainer::GeneratedFileContainer
     this->bsGeneratedFile= new wxBoxSizer(wxHORIZONTAL);
     this->stGeneratedFileTitle= new wxStaticText(this->gpParent, -1, wxT("Target File : "));
     this->stGeneratedFileTitle->SetFont(this->gpParent->font->Bold());
-    this->btnGeneratedFile = new wxButton(this->gpParent, BTN_TARGET_ID, wxT("Target"));
+    this->btnGeneratedFile = new wxButton(this->gpParent, BTN_TARGET_ID, wxT("Browse"));
     this->tcGeneratedFile=new wxTextCtrl(this->gpParent, TC_TARGET_ID);
     this->tcGeneratedFile->SetEditable(false);
     this->stError= new wxStaticText(this->gpParent,-1,wxT(""));
@@ -29,7 +29,7 @@ GeneratedFileContainer::GeneratedFileContainer
     this->gpParent->Bind(wxEVT_BUTTON, &GeneratedFileContainer::onTarget, this, BTN_TARGET_ID);
 
     //connect Type Addition's widgets to horrizontal BoxSizer
-    this->bsGeneratedFileTitle->Add(this->stGeneratedFileTitle, 0, wxRIGHT, 8);
+    this->bsGeneratedFileTitle->Add(this->stGeneratedFileTitle);
     this->bsGeneratedFileTitle->Add(this->stError);
     this->bsGeneratedFile->Add(this->tcGeneratedFile, 2, wxRIGHT, 8);
     this->bsGeneratedFile->Add(this->btnGeneratedFile, 0);

@@ -23,6 +23,8 @@ file(GLOB XMwayLoon_GUI_type_extension_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extend_page.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extension_manually_container.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extension_by_file_container.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extension_manually_event.cpp
+
         )
 
 

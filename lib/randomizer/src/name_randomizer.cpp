@@ -23,7 +23,7 @@ std::string XMwayLoon_NameRandomizer::getFemaleName() {
                                           where(
                                                   (c(&XMwayLoon_NameRandomizer::Properties::gender) == (int) this->gender)
                                                   and
-                                                  (c(&XMwayLoon_NameRandomizer::Properties::syllableAmount) == 2)
+                                                  (c(&XMwayLoon_NameRandomizer::Properties::syllable_amount) == 2)
                                           ),
                                           order_by(sqlite_orm::random()),
                                           limit(100));

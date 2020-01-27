@@ -47,7 +47,7 @@ namespace XMwayLoon::Randomizer {
             std::string zawgyi_syllable;
             Gender gender;
             int position;
-            int syllableAmount;
+            int syllable_amount;
             /* Property(std::pair<std::string,std::string> tmp_syllable,Gender tmp_gender,
                       Position tmp_position, WordAmount tmp_wordAmount)
              : syllable(tmp_syllable),
@@ -74,7 +74,7 @@ namespace XMwayLoon::Randomizer {
                                         sqlite_orm::make_column("zawgyi_syllable",&Properties::zawgyi_syllable),
                                         sqlite_orm::make_column("gender",&Properties::gender),
                                         sqlite_orm::make_column("position",&Properties::position),
-                                        sqlite_orm::make_column("syllableAmount",&Properties::syllableAmount))
+                                        sqlite_orm::make_column("syllableAmount",&Properties::syllable_amount))
         );
 
 

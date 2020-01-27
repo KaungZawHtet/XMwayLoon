@@ -33,7 +33,7 @@ wxControl(tmp_gpParent,-1)
 
     //connect Output format's widgets to horrizontal BoxSizer
     this->bsFormatTypeTitle->Add(this->stFormatTypeTitle);
-    this->bsFormatTypeTitle->Add(this->stError,0, wxRIGHT, 8);
+    this->bsFormatTypeTitle->Add(this->stError);
     this->bsFormatType->Add(this->cbCSV, 0, wxRIGHT, 100);
     this->bsFormatType->Add(this->cbJSON, 0, wxRIGHT, 100);
     this->bsFormatType->Add(this->cbXML, 0, wxRIGHT, 100);

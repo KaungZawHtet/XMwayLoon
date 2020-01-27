@@ -5,12 +5,26 @@
 #include "mmtext.h"
 
 #include <gtest/gtest.h>
-#include <parabaik/parabaik.h>
+#include <myanmar_encoding_handler/parabaik.h>
 #include <unicode/errorcode.h>
 #include <unicode/translit.h>
 #include <unicode/unistr.h>
 #include <unicode/ustream.h>
 
+TEST(GeneralTest, storageTest) {
+
+   //char a= 'က';
+    wchar_t b=L'က';
+    char16_t d=u'က';
+    char32_t c=U'က';
+
+    std::cerr<<"wchar_t :" << sizeof(wchar_t)<<std::endl;
+    std::cerr<<"char16_t :" << sizeof(char16_t)<<std::endl;
+    std::cerr<<"char32_t :" << sizeof(char32_t)<<std::endl;
+
+
+
+}
 
 
 TEST(GeneralTest, Uni2ZgconversionTest) {
@@ -64,6 +78,23 @@ TEST(GeneralTest, stringCheck) {
    // std::cerr<< name << std::endl;
     std::wcout<< wname << std::endl;
 
+}
+
+int getInt()
+{
+    static int a =100;
+
+    return a;
+}
+
+
+
+TEST(GeneralTest, globalCheck) {
+
+    int a = getInt();
+    a++;
+
+    exit(getInt());
 
 
 }

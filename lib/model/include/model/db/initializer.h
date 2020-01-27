@@ -11,6 +11,8 @@
 #include <sqlite3.h>
 
 #include <string>
+#include <sqlite_orm/sqlite_orm.h>
+#include <model/db/orm.h>
 
 class Initializer {
 
@@ -31,7 +33,7 @@ public:
   zawgyi_syllable varchar(20),
   gender integer(2),
   position integer(2),
-  syllableAmount integer(2)
+  syllable_amount integer(2)
 );
 
 CREATE UNIQUE INDEX IF NOT EXISTS IndexNPid ON name_properties (id ASC);)";
@@ -236,6 +238,24 @@ INSERT INTO "name_properties" VALUES (176,'ဥက္ကာ','ဥကၠာ',1,1,2
 INSERT INTO "name_properties" VALUES (177,'ဥမ္မာ','ဥမၼာ',2,2,2);
 INSERT INTO "name_properties" VALUES (178,'ထိုက်','ထိုက္',3,3,1);
 INSERT INTO "name_properties" VALUES (179,'မြိုင်','ၿမိဳင္',2,2,1);)";
+
+    static inline auto storage = sqlite_orm::make_storage
+            (Initializer::dbPath,
+             sqlite_orm::make_table("custom_type_record",
+                                    sqlite_orm::make_column("id",
+                                            &CustomTypeRecord::id,
+                                            sqlite_orm::autoincrement(),
+                                            sqlite_orm::primary_key()),
+                                    sqlite_orm::make_column("custom_type_name_id",&CustomTypeRecord::custom_type_name_id),
+                                    sqlite_orm::make_column("unicode_unit",&CustomTypeRecord::unicode_unit),
+                                    sqlite_orm::make_column("zawgyi_unit",&CustomTypeRecord::zawgyi_unit)),
+             sqlite_orm::make_table("custom_type_name",
+                                    sqlite_orm::make_column("id",
+                                                            &CustomTypeName::id,
+                                                            sqlite_orm::autoincrement(),
+                                                            sqlite_orm::primary_key()),
+                                    sqlite_orm::make_column("type_name",&CustomTypeName::type_name))
+            );
 
     static void initialize();
 
