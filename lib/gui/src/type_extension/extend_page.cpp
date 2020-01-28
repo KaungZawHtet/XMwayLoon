@@ -14,8 +14,8 @@ ExtendPage::ExtendPage(wxWindow *wParent)
     this->ctExtensionManually_Container= new ExtensionManually_Container(cbExtensionBook);
 
 
-    this->cbExtensionBook->AddPage(this->ctExtensionManually_Container,"Extension Manually");
-    this->cbExtensionBook->AddPage(this->ctExtensionByFile_Container,"Extension By JSON");
+    this->cbExtensionBook->AddPage(this->ctExtensionManually_Container,"Extend Manually");
+    this->cbExtensionBook->AddPage(this->ctExtensionByFile_Container,"Extend By JSON");
 
 
 

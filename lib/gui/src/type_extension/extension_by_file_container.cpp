@@ -26,6 +26,8 @@ ExtensionByFile_Container::ExtensionByFile_Container
     this->stTitle->SetFont(this->font->Bold());
     this->btnBrowse = new wxButton(this, BTN_BROWSE_BY_FILE_ID, wxT("Browse"));
     this->btnExtend = new wxButton(this, BTN_EXTEND_BY_FILE_ID, wxT("Extend"));
+    this->btnReadMe = new wxButton(this, BTN_README_BY_FILE_ID, wxT("?"),wxDefaultPosition,wxSize(30,-1));
+
 
     this->tcPath = new wxTextCtrl(this, TC_PATH_BY_FILE_ID,wxT(""),
                                      wxPoint(-1,-1),wxSize(-1,-1));
@@ -34,11 +36,13 @@ ExtensionByFile_Container::ExtensionByFile_Container
     //this->Connect(BTN_ADD_TYPE_ID,wxEVT_BUTTON,wxCommandEventHandler(TypeGenerationContainer::onAddType));
     this->wParent->Bind(wxEVT_BUTTON, &ExtensionByFile_Container::onBrowse, this, BTN_BROWSE_BY_FILE_ID);
     this->wParent->Bind(wxEVT_BUTTON, &ExtensionByFile_Container::onExtend, this, BTN_EXTEND_BY_FILE_ID);
+    this->wParent->Bind(wxEVT_BUTTON, &ExtensionByFile_Container::onReadMe, this, BTN_README_BY_FILE_ID);
 
     //connect Type Addition's widgets to horrizontal BoxSizer
     this->bsTitle->Add(this->stTitle);
     this->bsFileExtender->Add(this->tcPath, 2, wxRIGHT, 8);
     this->bsFileExtender->Add(this->btnBrowse, 0);
+    this->bsFileExtender->Add(this->btnReadMe, 0);
     this->bsExtendBtn->Add(this->btnExtend, 0);
     //---
     this->bsMain->Add(this->bsTitle, 0, wxLEFT | wxTOP, 9); //title should be one less pixel
@@ -51,23 +55,3 @@ ExtensionByFile_Container::ExtensionByFile_Container
     this->SetSizer(this->bsMain);
 }
 
-void ExtensionByFile_Container::onBrowse(wxCommandEvent &event) {
-    
-    wxFileDialog loadFileDialog(this, _("Choose your json file to extend : ")
-            , "", "","", wxFD_FILE_MUST_EXIST);
-    if (loadFileDialog.ShowModal() == wxID_CANCEL)
-        return;     // the user changed idea...
-
-    // save the current contents in the file;
-    // this can be done with e.g. wxWidgets output streams:
-   
-    this->tcPath->SetValue(loadFileDialog.GetPath());
-
-
-    event.Skip();
-}
-
-void ExtensionByFile_Container::onExtend(wxCommandEvent &event) {
-
-
-}

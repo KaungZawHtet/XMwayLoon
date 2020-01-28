@@ -6,11 +6,9 @@
 #include <myanmar_encoding_handler/parabaik.h>
 #include <dry_comparisons/dry_comparisons.h>
 #include <unicode/errorcode.h>
-#include <unicode/translit.h>
-#include <unicode/unistr.h>
-#include <unicode/ustream.h>
-#include <dry_comparisons/dry_comparisons.h>
 #include <string>
+
+
 void ExtensionManually_Container::onInsert(wxCommandEvent &event) {
     this->appendRecordList();
     event.Skip();
@@ -64,13 +62,13 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
     {
         std::string value(this->tcTypeName->GetValue().c_str());
 
-        if (value.compare("")==0)
+        if (value.compare("")==0) // not to become empty type name
         {
             this->stError->SetLabelText("Type name required!");
             this->stError->SetForegroundColour(wxColor(*wxRED));
 
         } else{
-            if(this->strTypeName.compare(this->tcTypeName->GetValue())==0)
+            if(this->strTypeName.compare(this->tcTypeName->GetValue())==0) // not to become duplicate extension
             {
                 this->stError->SetLabelText("This type already extended!");
                 this->stError->SetForegroundColour(wxColor(*wxRED));
@@ -81,7 +79,7 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
                 CustomTypeName objTypeName;
                 objTypeName.id=-1;
                 objTypeName.type_name=this->tcTypeName->GetValue();
-                this->strTypeName=this->tcTypeName->GetValue();
+                this->strTypeName=this->tcTypeName->GetValue(); // not to become duplicate extension
 
                 int idTypeName=Initializer::storage.insert(objTypeName);
                 std::for_each(vecRecords.begin(),vecRecords.end(),[&](CustomTypeRecord element){

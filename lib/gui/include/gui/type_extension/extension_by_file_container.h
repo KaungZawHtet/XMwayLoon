@@ -16,6 +16,8 @@ class ExtensionByFile_Container  : public wxPanel {
     wxStaticText *stTitle;
     wxButton *btnBrowse;
     wxButton *btnExtend;
+    wxButton *btnReadMe;
+    wxButton *btnExample;
     wxTextCtrl *tcPath;
     wxBoxSizer *bsFileExtender;
     wxBoxSizer *bsTitle;
@@ -26,9 +28,12 @@ class ExtensionByFile_Container  : public wxPanel {
     wxBoxSizer *bsMain;
     wxStaticLine *sl0;
 
+    wxString path;
+
 
     void onBrowse(wxCommandEvent& event);
     void onExtend(wxCommandEvent& event);
+    void onReadMe(wxCommandEvent& event);
 
 public:
     explicit ExtensionByFile_Container(wxWindow *tmp_wParent);
