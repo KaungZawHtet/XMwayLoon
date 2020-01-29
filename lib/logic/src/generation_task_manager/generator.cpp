@@ -6,11 +6,9 @@
 #include <model/type/alphanumeric_type.h>
 #include <model/type/numeric_type.h>
 #include <taskflow/taskflow.hpp>
-#include <randomizer/typedef.h>
 #include <randomizer/boolean_randomizer.h>
 #include <model/generate_info.h>
-#include <gui/grid_row/row_type_alphanumeric_level_3.h>
-#include <model/type/typedef.h>
+
 
 using namespace XMwayLoon::Randomizer;
 

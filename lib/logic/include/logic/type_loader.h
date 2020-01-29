@@ -33,6 +33,9 @@ public:
     int totalCount= sizeof(defaultType)/sizeof(defaultType[0]);
 
 
+    void load();
+
+
 
 };
 

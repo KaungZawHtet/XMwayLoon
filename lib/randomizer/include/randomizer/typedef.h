@@ -13,6 +13,7 @@
 #include "ph_number_randomizer.h"
 #include "nrc_randomizer.h"
 #include "name_randomizer.h"
+#include "custom_randomizer.h"
 
 
 typedef XMwayLoon::Randomizer::BooleanRandomizer XMwayLoon_BooleanRandomizer;
@@ -22,5 +23,5 @@ typedef XMwayLoon::Randomizer::PangramRandomizer XMwayLoon_PangramRandomizer;
 typedef XMwayLoon::Randomizer::PhoneNumberRandomizer XMwayLoon_PhoneNumberRandomizer;
 typedef XMwayLoon::Randomizer::NameRandomizer XMwayLoon_NameRandomizer;
 typedef XMwayLoon::Randomizer::NRCRandomizer XMwayLoon_NRCRandomizer;
-
+typedef XMwayLoon::Randomizer::CustomRandomizer XMwayLoon_CustomRandomizer;
 #endif //XMWAYLOON_TYPEDEF_H
