@@ -10,6 +10,7 @@
 #include <logic/type_loader.h>
 #include <wx/statline.h>
 class GeneratePage;
+//this class depend on TypeLoader
 class TypeGenerationContainer : public wxControl
 {
 public:
@@ -30,6 +31,7 @@ public:
 
     wxBoxSizer *bsMain;
     wxStaticLine *sl0;
+
 
     TypeLoader objTypeLoader;
 

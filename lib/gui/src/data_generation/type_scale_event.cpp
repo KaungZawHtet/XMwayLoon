@@ -8,7 +8,11 @@
 #include <gui/data_generation/generate_page.h>
 void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
   //  wxString tmp_typeName=this->objTypeLoader.defaultType[0];;
-    switch (this->cbAddType->GetSelection())
+
+  int index = this->cbAddType->GetSelection();
+
+
+    switch (index)
     {
         case 0://Boolean
         {
@@ -61,6 +65,8 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
             break;
         default:
         {
+            CustomRow objCustomRow(this->objTypeLoader.defaultType[index],this->gTypeGrid);
+            objCustomRow.setTypeOnGrid();
 
         }
             break;

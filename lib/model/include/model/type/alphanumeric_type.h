@@ -39,7 +39,11 @@ struct BooleanType : public AlphanumericType
 
 };
 
+struct CustomType : public AlphanumericType
+{
 
+
+};
 
 
 #endif //XMWAYLOON_ALPHANUMERIC_TYPE_H

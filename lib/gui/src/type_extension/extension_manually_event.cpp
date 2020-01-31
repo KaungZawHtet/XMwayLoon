@@ -7,7 +7,7 @@
 #include <dry_comparisons/dry_comparisons.h>
 #include <unicode/errorcode.h>
 #include <string>
-
+#include <logic/type_loader.h>
 
 void ExtensionManually_Container::onInsert(wxCommandEvent &event) {
     this->appendRecordList();
@@ -90,6 +90,8 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
 
 
         }
+
+
 
     }
 

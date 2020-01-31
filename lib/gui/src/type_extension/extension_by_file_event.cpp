@@ -10,6 +10,7 @@
 #include <myanmar_encoding_handler/mmtext.h>
 #include <gui/type_extension/read_me_dialog.h>
 #include <myanmar_encoding_handler/parabaik.h>
+#include <logic/type_loader.h>
 using json = nlohmann::json;
 using namespace std;
 
@@ -79,6 +80,9 @@ void ExtensionByFile_Container::onExtend(wxCommandEvent &event) {
             }
 
         }
+
+
+
     }
         catch (exception e){
             wxMessageDialog dial =  wxMessageDialog(NULL,

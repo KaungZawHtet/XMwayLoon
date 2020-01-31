@@ -20,8 +20,8 @@ public:
 
 
 
-
-    wxString defaultType[7]= {
+//this order is fixed. change can lead to crash
+    static inline std::vector<wxString> defaultType= {
             "Boolean",
             "Date",
             "Name",
@@ -30,10 +30,10 @@ public:
             "Pangram",
             "Ph Number"
     };
-    int totalCount= sizeof(defaultType)/sizeof(defaultType[0]);
+    static inline int totalCount= defaultType.size();
 
-
-    void load();
+     TypeLoader();
+    static inline void load();
 
 
 

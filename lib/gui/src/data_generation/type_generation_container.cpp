@@ -26,7 +26,7 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("-"));
     this->cbAddType = new wxComboBox(this->gpParent, CB_ADD_TYPE_ID,wxT("Choose Type:"),
             wxPoint(-1,-1),wxSize(-1,-1)
-            ,objTypeLoader.totalCount,this->objTypeLoader.defaultType
+            ,this->objTypeLoader.totalCount,this->objTypeLoader.defaultType.data()
             );
     this->cbAddType->SetEditable(false);
 

@@ -32,6 +32,8 @@ public:
     void onAbout(wxCommandEvent &event);
     void onCredit(wxCommandEvent &event);
     void onPreference(wxCommandEvent &event);
+ //   void onRestart(wxCommandEvent &event);
+    void onResetCache(wxCommandEvent &event);
 
 
 

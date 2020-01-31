@@ -5,7 +5,7 @@
 #include <gui/type_extension/extend_page.h>
 #include <gui/id.h>
 #include <wx/aboutdlg.h>
-
+#include <gui/app.h>
 #include <model/db/initializer.h>
 MainFrame::MainFrame():
     wxFrame(nullptr, wxID_ANY
@@ -17,6 +17,9 @@ MainFrame::MainFrame():
     Initializer::initialize();
     this->mbMain = new wxMenuBar();
     this->mMain = new  wxMenu();
+
+    this->mMain->Append(MENU_ITEM_RESET_CACHE_ID, _("Reset Cache"));
+  //  this->mMain->Append(MENU_ITEM_RESTART_ID, _("Restart"));
 
     this->mMain->Append(MENU_ITEM_CREDIT_ID, _("Credit"));
 
@@ -31,7 +34,7 @@ MainFrame::MainFrame():
     SetMenuBar(this->mbMain);
 
 
-    nbMain = new wxNotebook(this,-1);
+    this->nbMain = new wxNotebook(this,-1);
     this->pnGenerate = new GeneratePage(nbMain);
     this->pnExtend = new ExtendPage(nbMain);
 
@@ -39,6 +42,7 @@ MainFrame::MainFrame():
     nbMain->AddPage(this->pnExtend,"Type Extension");
     Bind(wxEVT_NOTEBOOK_PAGE_CHANGED,&MainFrame::onTabChanged,this);
     this->SetAutoLayout(false);
+    //TypeLoader::load();
     //this->SetIcon(wxIcon(wxICON_ASTERISK));
     Centre();
 }
@@ -48,7 +52,7 @@ void MainFrame::onTabChanged(wxCommandEvent &event)
     wxWindow* currentPage= this->nbMain->GetCurrentPage();
     int tabId= this->nbMain->FindPage(currentPage);
 
-    if(tabId==0) this->SetSize( wxSize(770,630) );
+    if(tabId==0)  this->SetSize( wxSize(770,630) );
     if(tabId==1) this->SetSize( wxSize(500,470) );
 
 
@@ -125,8 +129,25 @@ this->dPreferenceDialog->Show();
     event.Skip();
 }
 
+/*void MainFrame::onRestart(wxCommandEvent &event){
+    this->Update();
+
+    event.Skip();
+
+}*/
+void MainFrame::onResetCache(wxCommandEvent &event){
+
+
+    remove(Initializer::dbPath.c_str());
+    this->Close(true);
+    event.Skip();
+
+}
 
 wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
+               // EVT_MENU(MENU_ITEM_RESTART_ID, MainFrame::onRestart)
+                EVT_MENU(MENU_ITEM_RESET_CACHE_ID, MainFrame::onResetCache)
+
                 EVT_MENU(MENU_ITEM_CREDIT_ID, MainFrame::onCredit)
                 EVT_MENU(wxID_ABOUT, MainFrame::onAbout)
                 EVT_MENU(wxID_PREFERENCES, MainFrame::onPreference)

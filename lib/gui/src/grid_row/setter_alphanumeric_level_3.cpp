@@ -19,39 +19,35 @@ void NameRow::setTypeOnGrid() {
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
 
-    /*  this->gTypeGrid->SetCellEditor
-              (this->gTypeGrid->row_pointer,this->gTypeGrid->col_pointer
-                      ,new wxGridCellEnumEditor("Unicode,Zawgyi,Random"));
-      this->gTypeGrid->SetCellRenderer
-              (this->gTypeGrid->row_pointer,this->gTypeGrid->col_pointer
-                      ,new wxGridCellEnumRenderer("Unicode,Zawgyi,Random"));*/
 
-    // this->gTypeGrid->SetCellValue(this->gTypeGrid->row_pointer, 0, _("9"));
 
     ++(this->gTypeGrid->rowPointer);
 
-    // NameType objNameType;
-    //  this->gTypeGrid->vecTypes.emplace_back(objNameType);
+
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(NameType).name());
 }
 
 void PangramRow::setTypeOnGrid() {
     this->setEncodingCell();
 
+    //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+
+    //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+
+    //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 
-    // PangramType objPangramType;
-    // this->gTypeGrid->vecTypes.emplace_back(objPangramType);
+
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(PangramType).name());
 }
 
@@ -59,43 +55,72 @@ void PangramRow::setTypeOnGrid() {
 
 void DateRow::setTypeOnGrid() {
     this->setEncodingCell();
+
+    //field for format
     this->colPointer++;
+
+    //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+
+    //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 
-    // DateType objDateType;
-    //   this->gTypeGrid->vecTypes.emplace_back(objDateType);
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(DateType).name());
 }
 
 void BooleanRow::setTypeOnGrid() {
     this->setEncodingCell();
 
+    //field for boolean type
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrBoolType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
                     ,new wxGridCellChoiceEditor(this->boolCount,this->arrBoolType));
+
+    //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+
+    //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 
-    // BooleanType objBooleanType;
-    // this->gTypeGrid->vecTypes.emplace_back(objBooleanType);
+
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(BooleanType).name());
 }
 
-void Custom::setTypeOnGrid() {
+void CustomRow::setTypeOnGrid() {
+
+    this->setEncodingCell();
+    //null field
+    this->colPointer++;
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+
+    //null field
+    this->colPointer++;
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+
+    //null field
+    this->colPointer++;
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+
+    ++(this->gTypeGrid->rowPointer);
+
+
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(CustomType).name());
 
 }
