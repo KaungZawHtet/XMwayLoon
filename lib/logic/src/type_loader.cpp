@@ -11,15 +11,14 @@ TypeLoader::TypeLoader() {
 
 void TypeLoader::load() {
 
-    std::vector<std::string> vecTypes= Initializer::storage
+    std::vector<std::string> tmpType= Initializer::storage
             .select(&CustomTypeName::type_name);
 
+    TypeLoader::totalCount+= tmpType.size();
 
 
-    TypeLoader::totalCount+= distance(vecTypes.begin(),vecTypes.end());
-
-    TypeLoader::defaultType.reserve(TypeLoader::totalCount);
-    TypeLoader::defaultType.insert(TypeLoader::defaultType.end(),vecTypes.begin(),vecTypes.end());
+    TypeLoader::vecAllTypes.reserve(TypeLoader::totalCount);
+    TypeLoader::vecAllTypes.insert(TypeLoader::vecAllTypes.end(), tmpType.begin(), tmpType.end());
 
 
 

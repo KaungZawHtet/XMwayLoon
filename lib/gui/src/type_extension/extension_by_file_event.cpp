@@ -6,6 +6,7 @@
 #include <wx/dialog.h>
 #include <nlohmann/json.hpp>
 #include <fstream>
+#include <gui/id.h>
 #include <model/db/initializer.h>
 #include <myanmar_encoding_handler/mmtext.h>
 #include <gui/type_extension/read_me_dialog.h>
@@ -78,6 +79,9 @@ void ExtensionByFile_Container::onExtend(wxCommandEvent &event) {
                 Initializer::storage.insert(objCTR);
 
             }
+            //Extend combobox at gen page
+            cache::cbAddType->Append(objTypeName.type_name.data());
+
 
         }
 

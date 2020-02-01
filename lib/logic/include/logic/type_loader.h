@@ -21,7 +21,7 @@ public:
 
 
 //this order is fixed. change can lead to crash
-    static inline std::vector<wxString> defaultType= {
+    static inline std::vector<wxString> vecAllTypes= {
             "Boolean",
             "Date",
             "Name",
@@ -30,7 +30,9 @@ public:
             "Pangram",
             "Ph Number"
     };
-    static inline int totalCount= defaultType.size();
+
+    static inline int totalCount= vecAllTypes.size();
+
 
      TypeLoader();
     static inline void load();

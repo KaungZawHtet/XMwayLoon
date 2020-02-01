@@ -1,5 +1,5 @@
 
-#include <limits>
+
 #include <gui/data_generation/generate_page.h>
 #include <wx/wx.h>
 #include <gui/data_generation/type_generation_container.h>
@@ -22,6 +22,7 @@ GeneratePage::GeneratePage(wxWindow *wParent)
 
     this->ctEncodeingTypeContainer =new EncodingTypeContainer(this, this->bsMain);
     this->ctGeneratedFileContainer= new GeneratedFileContainer(this, this->bsMain);
+
 
     this->createGenerateButton();
 

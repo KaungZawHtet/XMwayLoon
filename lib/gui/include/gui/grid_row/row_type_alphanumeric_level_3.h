@@ -57,10 +57,10 @@ public:
 
 };
 
-class Custom : public AlphaNumericRow {
+class CustomRow : public AlphaNumericRow {
 public:
    
-    explicit Custom(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
+    explicit CustomRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
             : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
 
     void setTypeOnGrid() override;

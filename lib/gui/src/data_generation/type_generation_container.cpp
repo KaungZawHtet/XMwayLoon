@@ -24,10 +24,13 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     this->stAddTypeTitle->SetFont(this->gpParent->font->Bold());
     this->btnAddType = new wxButton(this->gpParent, BTN_ADD_TYPE_ID, wxT("+"));
     this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("-"));
-    this->cbAddType = new wxComboBox(this->gpParent, CB_ADD_TYPE_ID,wxT("Choose Type:"),
+    this->cbAddType =  new wxComboBox(this->gpParent, CB_ADD_TYPE_ID,wxT("Choose Type:"),
             wxPoint(-1,-1),wxSize(-1,-1)
-            ,this->objTypeLoader.totalCount,this->objTypeLoader.defaultType.data()
+            ,this->objTypeLoader.totalCount,this->objTypeLoader.vecAllTypes.data()
             );
+//cache attempt
+    cache::cbAddType=this->cbAddType;
+
     this->cbAddType->SetEditable(false);
 
     //this->Connect(BTN_ADD_TYPE_ID,wxEVT_BUTTON,wxCommandEventHandler(TypeGenerationContainer::onAddType));

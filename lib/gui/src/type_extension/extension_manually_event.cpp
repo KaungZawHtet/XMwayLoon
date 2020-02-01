@@ -8,6 +8,7 @@
 #include <unicode/errorcode.h>
 #include <string>
 #include <logic/type_loader.h>
+#include <gui/id.h>
 
 void ExtensionManually_Container::onInsert(wxCommandEvent &event) {
     this->appendRecordList();
@@ -86,8 +87,12 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
                     element.custom_type_name_id= idTypeName;
                     Initializer::storage.insert(element);});
 
-            }
 
+
+                //Extend combobox at gen page
+                cache::cbAddType->Append(objTypeName.type_name.data());
+
+            }
 
         }
 

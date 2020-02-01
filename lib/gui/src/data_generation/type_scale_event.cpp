@@ -7,7 +7,9 @@
 #include <gui/grid_row/row_type_numeric_level_3.h>
 #include <gui/data_generation/generate_page.h>
 void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
-  //  wxString tmp_typeName=this->objTypeLoader.defaultType[0];;
+  //  wxString tmp_typeName=this->objTypeLoader.vecAllTypes[0];;
+
+
 
   int index = this->cbAddType->GetSelection();
 
@@ -16,42 +18,42 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
     {
         case 0://Boolean
         {
-            BooleanRow objBooleanRow(this->objTypeLoader.defaultType[0],this->gTypeGrid);
+            BooleanRow objBooleanRow(this->objTypeLoader.vecAllTypes[0], this->gTypeGrid);
             objBooleanRow.setTypeOnGrid();
         }
             break;
 
         case 1://Date
         {
-            DateRow objDateRow(this->objTypeLoader.defaultType[1],this->gTypeGrid);
+            DateRow objDateRow(this->objTypeLoader.vecAllTypes[1], this->gTypeGrid);
             objDateRow.setTypeOnGrid();
         }
             break;
 
         case 2: //Name
         {
-            NameRow objNameRow(this->objTypeLoader.defaultType[2],this->gTypeGrid);
+            NameRow objNameRow(this->objTypeLoader.vecAllTypes[2], this->gTypeGrid);
             objNameRow.setTypeOnGrid();
         }
             break;
 
         case 3://NRC
         {
-            NRCRow objNRCRow(this->objTypeLoader.defaultType[3],this->gTypeGrid);
+            NRCRow objNRCRow(this->objTypeLoader.vecAllTypes[3], this->gTypeGrid);
             objNRCRow.setTypeOnGrid();
         }
             break;
 
         case 4: //Number
         {
-            NumberRow objNumberRow(this->objTypeLoader.defaultType[4],this->gTypeGrid);
+            NumberRow objNumberRow(this->objTypeLoader.vecAllTypes[4], this->gTypeGrid);
             objNumberRow.setTypeOnGrid();
         }
             break;
 
         case 5: //Pangram
         {
-            PangramRow objPangramRow(this->objTypeLoader.defaultType[5],this->gTypeGrid);
+            PangramRow objPangramRow(this->objTypeLoader.vecAllTypes[5], this->gTypeGrid);
             objPangramRow.setTypeOnGrid();
         }
             break;
@@ -59,13 +61,13 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
 
         case 6://Ph Number
         {
-            PhNumberRow objPhNumberRow(this->objTypeLoader.defaultType[6],this->gTypeGrid);
+            PhNumberRow objPhNumberRow(this->objTypeLoader.vecAllTypes[6], this->gTypeGrid);
             objPhNumberRow.setTypeOnGrid();
         }
             break;
         default:
         {
-            CustomRow objCustomRow(this->objTypeLoader.defaultType[index],this->gTypeGrid);
+            CustomRow objCustomRow(this->objTypeLoader.vecAllTypes[index], this->gTypeGrid);
             objCustomRow.setTypeOnGrid();
 
         }

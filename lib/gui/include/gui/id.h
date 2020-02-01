@@ -1,6 +1,17 @@
 #ifndef ID_H
 #define ID_H
 
+#include <wx/wx.h>
+
+class cache {
+public:
+    static inline wxComboBox *cbAddType;
+
+
+};
+
+
+
 /*
  *wxFrame 100000 as MainFrame
  * wxMenubar 20000
@@ -93,6 +104,8 @@
 #define BTN_REMOVE_MANUALLY_ID 2250
 #define LB_UNICODE_MANUALLY_ID 2260
 #define LB_ZAWGYI_MANUALLY_ID 2270
+
+
 
 
 
