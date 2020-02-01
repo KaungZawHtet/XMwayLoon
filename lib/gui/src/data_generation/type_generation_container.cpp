@@ -22,8 +22,11 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     this->stAddTypeTitle = new wxStaticText(this->gpParent, -1,
                                             wxT("Choose the type to generate : "));
     this->stAddTypeTitle->SetFont(this->gpParent->font->Bold());
-    this->btnAddType = new wxButton(this->gpParent, BTN_ADD_TYPE_ID, wxT("+"));
-    this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("-"));
+    this->btnAddType = new wxButton(this->gpParent, BTN_ADD_TYPE_ID, wxT("+"),wxDefaultPosition,wxSize(60,-1));
+    this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("-"),wxDefaultPosition,wxSize(60,-1));
+    this->btnReadMe =  new wxButton(this->gpParent, BTN_README_ID, wxT("?"),wxDefaultPosition,wxSize(30,-1));
+
+
     this->cbAddType =  new wxComboBox(this->gpParent, CB_ADD_TYPE_ID,wxT("Choose Type:"),
             wxPoint(-1,-1),wxSize(-1,-1)
             ,this->objTypeLoader.totalCount,this->objTypeLoader.vecAllTypes.data()
@@ -36,12 +39,15 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     //this->Connect(BTN_ADD_TYPE_ID,wxEVT_BUTTON,wxCommandEventHandler(TypeGenerationContainer::onAddType));
     this->gpParent->Bind(wxEVT_BUTTON, &TypeGenerationContainer::onRemoveType, this, BTN_REMOVE_TYPE_ID);
     this->gpParent->Bind(wxEVT_BUTTON, &TypeGenerationContainer::onAddType, this, BTN_ADD_TYPE_ID);
+    this->gpParent->Bind(wxEVT_BUTTON, &TypeGenerationContainer::onReadMe, this, BTN_README_ID);
+
 
     //connect Type Addition's widgets to horrizontal BoxSizer
     this->bsAddTypeTitle->Add(this->stAddTypeTitle);
     this->bsAddType->Add(this->cbAddType, 2, wxRIGHT, 8);
     this->bsAddType->Add(this->btnAddType, 0);
     this->bsAddType->Add(this->btnRemoveType, 0);
+    this->bsAddType->Add(this->btnReadMe, 0);
     //---
     this->bsMain->Add(this->bsAddTypeTitle, 0, wxLEFT | wxTOP, 9); //title should be one less pixel
     this->bsMain->Add(this->bsAddType, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);

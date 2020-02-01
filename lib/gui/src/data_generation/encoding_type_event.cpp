@@ -41,7 +41,7 @@ void EncodingTypeContainer::onTargetEncode(wxCommandEvent &event) {
         for (int i=0;i<rowPointer;i++)
         {
             wxString value=  this->gpParent->ctTypeGeneration->gTypeGrid->GetCellValue(i,2);
-            if(value.Cmp("-"))  this->gpParent->ctTypeGeneration->gTypeGrid->SetCellValue(i,2,"Uni Random");
+            if(value.Cmp("-"))  this->gpParent->ctTypeGeneration->gTypeGrid->SetCellValue(i,2,"Uni: Random");
 
         }
         targetEncodingType = EncodingType::uniform_random;

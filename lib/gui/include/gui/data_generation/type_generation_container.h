@@ -21,6 +21,7 @@ public:
     wxStaticText *stAddTypeTitle;
     wxButton *btnAddType;
     wxButton *btnRemoveType;
+    wxButton *btnReadMe;
     wxComboBox *cbAddType;
     wxBoxSizer *bsAddType;
     wxBoxSizer *bsAddTypeTitle;
@@ -40,6 +41,7 @@ public:
     TypeGenerationContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain);
     void onAddType(wxCommandEvent& event);
     void onRemoveType(wxCommandEvent& event);
+    void onReadMe(wxCommandEvent& event);
 
 
 

@@ -6,6 +6,7 @@
 #include <gui/grid_row/row_type_alphanumeric_level_3.h>
 #include <gui/grid_row/row_type_numeric_level_3.h>
 #include <gui/data_generation/generate_page.h>
+#include <gui/data_generation/read_me_dialog.h>
 void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
   //  wxString tmp_typeName=this->objTypeLoader.vecAllTypes[0];;
 
@@ -89,4 +90,13 @@ void TypeGenerationContainer::onRemoveType(wxCommandEvent &event) {
     }
 
     event.Skip();
+}
+
+void TypeGenerationContainer::onReadMe(wxCommandEvent &event) {
+
+    ReadMeDialog panel("Read Me");
+
+
+    event.Skip();
+
 }

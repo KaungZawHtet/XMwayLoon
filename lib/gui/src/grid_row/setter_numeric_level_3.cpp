@@ -6,10 +6,11 @@
 #include <model/type/numeric_type.h>
 
 void NRCRow::setTypeOnGrid() {
-    this->setNoEncodingCell();
+this->setNoEncodingCell();
 
     //NRC type field
     this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNRCType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
@@ -34,8 +35,10 @@ void NRCRow::setTypeOnGrid() {
 
 void NumberRow::setTypeOnGrid() {
 
-    this->setNoEncodingCell();
+this->setNoEncodingCell();
+
     this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue
             (this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNumberType[0]));
     this->gTypeGrid->SetCellEditor(this->gTypeGrid->rowPointer, this->colPointer
@@ -43,10 +46,12 @@ void NumberRow::setTypeOnGrid() {
 
     //prefix field
     this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Prefix"));
 
     //post field
     this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Postfix"));
 
     ++(this->gTypeGrid->rowPointer);
@@ -58,11 +63,12 @@ void NumberRow::setTypeOnGrid() {
 }
 
 void PhNumberRow::setTypeOnGrid() {
-    this->setNoEncodingCell();
+this->setNoEncodingCell();
 
 
     //country code field
     this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrCountryCodeMode[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
@@ -70,6 +76,7 @@ void PhNumberRow::setTypeOnGrid() {
 
     //telecom field
     this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrTelecom[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer

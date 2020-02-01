@@ -66,6 +66,7 @@ public:
 
 #define BTN_ADD_TYPE_ID 1120
 #define BTN_REMOVE_TYPE_ID 1121
+#define BTN_README_ID 1121
 #define CB_ADD_TYPE_ID 1110
 #define LC_ADD_TYPE_ID 1130
 

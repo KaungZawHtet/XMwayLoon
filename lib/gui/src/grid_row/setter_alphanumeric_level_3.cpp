@@ -5,9 +5,10 @@
 #include <gui/grid_row/row_type_alphanumeric_level_3.h>
 #include <model/type/alphanumeric_type.h>
 void NameRow::setTypeOnGrid() {
-    this->setEncodingCell();
+   this->setEncodingCell();
 
     this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrGenderType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
@@ -29,7 +30,7 @@ void NameRow::setTypeOnGrid() {
 
 void PangramRow::setTypeOnGrid() {
     this->setEncodingCell();
-
+   
     //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
@@ -54,10 +55,12 @@ void PangramRow::setTypeOnGrid() {
 
 
 void DateRow::setTypeOnGrid() {
-    this->setEncodingCell();
+   this->setEncodingCell();
 
     //field for format
     this->colPointer++;
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Date Format"));
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
 
     //null field
     this->colPointer++;
@@ -75,10 +78,11 @@ void DateRow::setTypeOnGrid() {
 }
 
 void BooleanRow::setTypeOnGrid() {
-    this->setEncodingCell();
+   this->setEncodingCell();
 
     //field for boolean type
     this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrBoolType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
@@ -102,7 +106,8 @@ void BooleanRow::setTypeOnGrid() {
 
 void CustomRow::setTypeOnGrid() {
 
-    this->setEncodingCell();
+   this->setEncodingCell();
+
     //null field
     this->colPointer++;
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));

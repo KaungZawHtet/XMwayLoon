@@ -42,5 +42,15 @@ TypeGrid::TypeGrid(wxWindow *wParent)
     this->SetColSize(6,135);
 
 
+    for (int row = 0; row < this->rows; ++row) {
+
+        for (int col = 0; col <this->columns ; ++col) {
+            this->SetReadOnly(row,col, true);
+        }
+
+    }
+
+
+
 
 }

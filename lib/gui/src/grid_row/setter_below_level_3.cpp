@@ -22,19 +22,23 @@ void Row::setNameCell() {
     //Type Name
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer
             , _(this->typeName));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer,true);
     this->colPointer++;
 }
 
 void AlphaNumericRow::setEncodingCell() {
     this->setNameCell();
     //Encoding
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrEncodingType[0]));
     this->gTypeGrid->SetCellEditor
             (this->gTypeGrid->rowPointer,this->colPointer
                     ,new wxGridCellChoiceEditor(encodeCount,this->arrEncodingType));
     this->colPointer++;
-    
+
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false); //for field name
+
+
 }
 
 void NumericRow::setNoEncodingCell() {
@@ -42,6 +46,9 @@ void NumericRow::setNoEncodingCell() {
     this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
     this->colPointer++;
+
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false); //for field name
+
 
 
 
