@@ -19,7 +19,8 @@
 #include <boost/multi_index/identity.hpp>
 #include <boost/multi_index/member.hpp>
 #include <randomizer/faster_random.h>
-
+#include <model/type/numeric_type.h>
+#include <model/type/alphanumeric_type.h>
 
 
 
@@ -84,10 +85,12 @@ namespace XMwayLoon::Randomizer{
 
         };
        pcg objPCG;
+        DateType objDateType;
 
     public:
 
         DateRandomizer();
+        DateRandomizer(DateType tmp_objDateType);
         std::string convertCompleteEngMonthToMyan(std::string engMonth,const XMwayLoon::Randomizer::Encoding &encoding);
         std::string convertShortEngMonthToMyan(std::string engMonth,const XMwayLoon::Randomizer::Encoding &encoding);
         std::string generateRandomEngDate(const std::string &format);

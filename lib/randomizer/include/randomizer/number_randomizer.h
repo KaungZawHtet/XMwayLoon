@@ -7,7 +7,8 @@
 #include <map>
 #include <random>
 #include "global_objects.h"
-
+#include <model/type/numeric_type.h>
+#include <model/type/alphanumeric_type.h>
 namespace XMwayLoon::Randomizer
 {
     class NumberRandomizer

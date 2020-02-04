@@ -158,3 +158,11 @@ XMwayLoon_DateRandomizer::DateRandomizer() {
     this->objPCG.seed(objRandomDevice);
 }
 
+XMwayLoon_DateRandomizer::DateRandomizer(DateType tmp_dateType)
+: objDateType(std::move(tmp_dateType))
+{
+    std::random_device objRandomDevice;
+    this->objPCG.seed(objRandomDevice);
+
+}
+

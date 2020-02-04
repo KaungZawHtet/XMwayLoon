@@ -12,8 +12,12 @@
 #include <string>
 #include <tuple>
 #include <randomizer/global_objects.h>
+#include <model/type/numeric_type.h>
+#include <model/type/alphanumeric_type.h>
 
+#include <randomizer/root_randomizer.h>
 
+class T;
 namespace XMwayLoon::Randomizer {
 
 

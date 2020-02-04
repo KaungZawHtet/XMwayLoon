@@ -34,19 +34,20 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
         vecTypes.reserve(this->ctTypeGeneration->gTypeGrid->rowPointer + 1);
 
         int i = 0;
+        //hard code in getting cell value; look like hard code in seting cell value
         std::for_each(this->ctTypeGeneration->gTypeGrid->vecTypeNames.begin(),
                       this->ctTypeGeneration->gTypeGrid->vecTypeNames.end(), [&](auto &element) {
 
                     if (strcmp(element.c_str(), typeid(BooleanType).name()) == 0) {
 
-                        BooleanType objBoolean;
+                        BooleanType objBooleanType;
 
-                        objBoolean.index = i;
-                        objBoolean.encoding = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2);
-                        objBoolean.fieldName = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
-                        objBoolean.type = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
+                        objBooleanType.index = i;
+                        objBooleanType.encoding = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2);
+                        objBooleanType.fieldName = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
+                        objBooleanType.type = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
 
-                        vecTypes.emplace_back(objBoolean);
+                        vecTypes.emplace_back(objBooleanType);
 
                     } else if (strcmp(element.c_str(), typeid(DateType).name()) == 0) {
                         DateType objDateType;
@@ -63,7 +64,9 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         objNameType.index=i;
                         objNameType.encoding=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2);
                         objNameType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
-                        objNameType.gender=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
+
+                        std::string strGender{this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).c_str() };
+                        objNameType.gender=genderMap[strGender];
 
                         vecTypes.emplace_back(objNameType);
                     } else if (strcmp(element.c_str(), typeid(NRCType).name()) == 0) {
@@ -103,7 +106,7 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
 
                         objPhNumberType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
                         objPhNumberType.countryCode=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
-                        objPhNumberType.countryCode=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 5);
+                        objPhNumberType.telecom=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 5);
 
                         vecTypes.emplace_back(objPhNumberType);
                     } else {
@@ -112,7 +115,10 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                     i++;
                 });
 
-        objGenerateInfo.vecTypeNames=this->ctTypeGeneration->gTypeGrid->vecTypeNames;
+        //just type names
+        objGenerateInfo.vecTypeNames=this->ctTypeGeneration->gTypeGrid->vecTypeNames; // dont move for safety
+
+        //actual type obj
         objGenerateInfo.vecTypes=std::move(vecTypes) ;
 
         Generator objGenerator(objGenerateInfo);

@@ -4,7 +4,8 @@
 
 #ifndef XMWAYLOON_NRC_RANDOMIZER_H
 #define XMWAYLOON_NRC_RANDOMIZER_H
-
+#include <model/type/numeric_type.h>
+#include <model/type/alphanumeric_type.h>
 #include <randomizer/global_objects.h>
 #include <randomizer/number_randomizer.h>
 #include <string>

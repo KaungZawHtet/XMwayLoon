@@ -15,15 +15,9 @@
 #include <boost/multi_index/member.hpp>
 #include <model/db/initializer.h>
 #include <sqlite_orm/sqlite_orm.h>
-
+#include <model/type/numeric_type.h>
+#include <model/type/alphanumeric_type.h>
 namespace XMwayLoon::Randomizer {
-
-    namespace tag {
-        struct syllable;
-        struct gender;
-        struct position;
-        struct wordAmount;
-    }
 
 
     class NameRandomizer {
@@ -31,9 +25,7 @@ namespace XMwayLoon::Randomizer {
 
     public:
 
-        enum class Gender {
-            male = 1, female = 2, both = 3
-        };
+
         enum class Position {
             onlyFront = 1, bothFrontMiddle = 2, onlyMiddle = 3, bothMiddleLast = 4, onlyLast = 5
         };
@@ -48,20 +40,13 @@ namespace XMwayLoon::Randomizer {
             Gender gender;
             int position;
             int syllable_amount;
-            /* Property(std::pair<std::string,std::string> tmp_syllable,Gender tmp_gender,
-                      Position tmp_position, WordAmount tmp_wordAmount)
-             : syllable(tmp_syllable),
-               gender(tmp_gender),
-               position(tmp_position),
-               wordAmount(tmp_wordAmount)
-             {}*/
-
         };
 
     private:
-        Gender gender;
-        XMwayLoon::Randomizer::Encoding encoding;
         pcg objPCG;
+
+        NameType objNameType;
+
 
         static inline auto storage = sqlite_orm::make_storage
                 (Initializer::dbPath,
@@ -79,7 +64,9 @@ namespace XMwayLoon::Randomizer {
 
 
     public:
-        NameRandomizer(Gender gender, XMwayLoon::Randomizer::Encoding encoding);
+        NameRandomizer();
+        explicit NameRandomizer(NameType tmp_nameType);
+
 
         std::string getFemaleName();
 

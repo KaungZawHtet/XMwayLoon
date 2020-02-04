@@ -21,7 +21,7 @@ std::string XMwayLoon_NameRandomizer::getFemaleName() {
 
     auto femaleSyllables = storage.select(&XMwayLoon_NameRandomizer::Properties::unicode_syllable,
                                           where(
-                                                  (c(&XMwayLoon_NameRandomizer::Properties::gender) == (int) this->gender)
+                                                  (c(&XMwayLoon_NameRandomizer::Properties::gender) == (int) this->objNameType.gender)
                                                   and
                                                   (c(&XMwayLoon_NameRandomizer::Properties::syllable_amount) == 2)
                                           ),
@@ -57,18 +57,15 @@ std::string XMwayLoon_NameRandomizer::getName() {
 
 }
 
-XMwayLoon_NameRandomizer::NameRandomizer
-(XMwayLoon_NameRandomizer::Gender
-tmpGender,
-XMwayLoon::Randomizer::Encoding tmpEncoding
-)
-:
+XMwayLoon_NameRandomizer::NameRandomizer(NameType tmp_nameType)
+: objNameType (std::move(tmp_nameType)) {
 
-gender (tmpGender), encoding(tmpEncoding) {
 
     std::random_device objRD;
     this->objPCG.seed(objRD);
 
 
 }
+
+
 

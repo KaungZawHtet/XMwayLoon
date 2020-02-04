@@ -10,7 +10,8 @@
 #include <array>
 #include <boost/logic/tribool.hpp>
 #include <randomizer/number_randomizer.h>
-
+#include <model/type/numeric_type.h>
+#include <model/type/alphanumeric_type.h>
 
 namespace XMwayLoon::Randomizer {
 

@@ -24,7 +24,7 @@ namespace XMwayLoon::Randomizer{
     typedef  std::unique_ptr<std::string> ptr_string;
     enum class Encoding {unicode=1,zawgyi=2,random=3};
 
-    inline phmap::flat_hash_map<std::string, Encoding> encodeConvertMap =
+    inline phmap::flat_hash_map<std::string, Encoding> encodingMap =
             {
                     { "Unicode",  Encoding::unicode},
                     { "Zawgyi", Encoding::zawgyi},
