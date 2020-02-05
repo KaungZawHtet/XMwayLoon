@@ -6,7 +6,7 @@
 #define XMWAYLOON_GENERAL_TYPE_H
 
 #include <string>
-
+#include <model/type/enums.h>
 
 struct Type {
 
@@ -15,7 +15,7 @@ struct Type {
 };
 struct AlphanumericType : public Type
 {
-    std::string encoding;
+    XML_RE::Encoding encoding;
 
 };
 

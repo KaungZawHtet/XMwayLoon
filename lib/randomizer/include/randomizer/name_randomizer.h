@@ -37,7 +37,7 @@ namespace XMwayLoon::Randomizer {
             int id;
             std::string unicode_syllable;
             std::string zawgyi_syllable;
-            Gender gender;
+            XML_RE::Gender gender;
             int position;
             int syllable_amount;
         };

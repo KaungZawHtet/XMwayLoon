@@ -7,7 +7,7 @@
 #include <model/db/initializer.h>
 using namespace sqlite_orm;
 XMwayLoon_CustomRandomizer::CustomRandomizer
-( std::string typeName,XMwayLoon::Randomizer::Encoding tmp_encoding)
+( const std::string& typeName,XMwayLoon::Randomizer::Encoding tmp_encoding)
 : encoding(tmp_encoding)
 {
 

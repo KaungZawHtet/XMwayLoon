@@ -18,7 +18,7 @@ namespace XMwayLoon::Randomizer {
 
     public:
 
-         CustomRandomizer(std::string typeName,XMwayLoon::Randomizer::Encoding tmp_encoding=XMwayLoon::Randomizer::Encoding::unicode);
+         explicit CustomRandomizer(const std::string& typeName,XMwayLoon::Randomizer::Encoding tmp_encoding=XMwayLoon::Randomizer::Encoding::unicode);
 
         std::string getRandomData();
     };

@@ -14,9 +14,8 @@
 #include <randomizer/global_objects.h>
 #include <model/type/numeric_type.h>
 #include <model/type/alphanumeric_type.h>
-
 #include <randomizer/root_randomizer.h>
-
+#include <model/type/enums.h>
 class T;
 namespace XMwayLoon::Randomizer {
 
@@ -25,31 +24,35 @@ namespace XMwayLoon::Randomizer {
     //၁ မှန် မွန္
 
 
-    class BooleanRandomizer
+    class BooleanRandomizer : public RootRandomizer
     {
     private:
 
         pcg objPCG;
 
 
-        std::string num[2]= {"၀","၁"};
+        static inline constexpr std::string_view num[2]= {"၀","၁"};
 
-        typedef std::pair<std::string,std::string> SPair;
+        typedef std::pair<std::string_view,std::string_view> SPair;
 
 
-        SPair alpha[2]
+        static inline SPair alpha[2]
         = {std::make_pair( "မှား" , "မွား" ),std::make_pair( "မှန်" , "မွန္" ) };
+
+        BooleanType objBoolType;
 
 
     public:
         BooleanRandomizer();
-        enum class type{num=1,alpha=2};
+        std::string getRandom() override;
+        explicit BooleanRandomizer(BooleanType tmp_objBoolType);
+
 
        std::string getAlphaBool
-       (const XMwayLoon::Randomizer::Encoding &encoding);
+       (const XML_RE::Encoding &encoding);
        std::string getNumBool ();
-       std::string getBooleanRandomizer (const BooleanRandomizer::type &type,
-                               const Encoding &encoding);
+       std::string getBoolRandom (const XML_RE::BoolType &type,
+                               const XML_RE::Encoding encoding);
 
 
     };

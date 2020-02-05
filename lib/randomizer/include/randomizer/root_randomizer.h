@@ -9,14 +9,12 @@
 namespace XMwayLoon::Randomizer {
 
 
-    template <class T>
+
     class RootRandomizer {
 
     public:
 
-        T objType;
-
-        virtual void getRandom() = 0;
+        virtual std::string getRandom() = 0;
     };
 
 }
