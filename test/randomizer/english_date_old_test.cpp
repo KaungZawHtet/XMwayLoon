@@ -11,7 +11,7 @@
 TEST(EnglishDateTest,myanmarDateGeneration){
 
     XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
-    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.getRandomMyanDate("%d-%B-%Y",XMwayLoon::Randomizer::Encoding::Random);
+    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.getRandomMyanDate("%d-%B-%Y",XML_RE::Encoding::Random);
 
 
     std::cerr<< *ptr <<std::endl;
@@ -33,14 +33,14 @@ TEST(EnglishDateTest,generateRandomEngDate){
 TEST(EnglishDateTest,convertShortEngMonthToMyan){
 
     XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
-    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertShortEngMonthToMyan("Jan",XMwayLoon::Randomizer::Encoding::Random);
+    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertShortEngMonthToMyan("Jan",XML_RE::Encoding::Random);
     std::cerr<< *ptr <<std::endl;
 
 }
 TEST(EnglishDateTest,convertCompleteEngMonthToMyan){
 
     XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
-    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertCompleteEngMonthToMyan("January",XMwayLoon::Randomizer::Encoding::Random);
+    XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertCompleteEngMonthToMyan("January",XML_RE::Encoding::Random);
     std::cerr<< *ptr <<std::endl;
 
 }

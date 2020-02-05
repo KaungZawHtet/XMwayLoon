@@ -8,7 +8,7 @@
 #include <taskflow/taskflow.hpp>
 #include <randomizer/boolean_randomizer.h>
 #include <model/generate_info.h>
-
+#include <model/type/enums.h>
 
 using namespace XMwayLoon::Randomizer;
 
@@ -35,7 +35,7 @@ Generator::Generator(GenerateInfo tmp_objGenerateInfo)
                 BooleanRandomizer objBoolRan;
                 this->vecRandomizers.emplace_back(objBoolRan);
 
-                auto encoding =encodingMap[std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).encoding];
+                //auto encoding =XML_RE::encodingMap[std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).encoding];
                 auto type= [&](){
                    auto tmp_type= std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type;
                     /*if((tmp_type.compare(BooleanRow::arrBoolType[0].ToStdString())) == 0){

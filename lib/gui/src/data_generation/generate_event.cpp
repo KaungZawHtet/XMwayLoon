@@ -43,9 +43,12 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         BooleanType objBooleanType;
 
                         objBooleanType.index = i;
-                        objBooleanType.encoding = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2);
+                        std::string tmp_encode(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2).mb_str());
+                        objBooleanType.setEncoding(  tmp_encode );
                         objBooleanType.fieldName = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
-                        objBooleanType.type = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
+
+                        std::string tmp_type( this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
+                        objBooleanType.setType(tmp_type );
 
                         vecTypes.emplace_back(objBooleanType);
 
@@ -53,7 +56,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         DateType objDateType;
 
                         objDateType.index=i;
-                        objDateType.encoding=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2);
+                        std::string tmp_encode(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2).mb_str());
+                        objDateType.setEncoding(  tmp_encode );
                         objDateType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
                         objDateType.format=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
 
@@ -62,11 +66,12 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
 
                         NameType objNameType;
                         objNameType.index=i;
-                        objNameType.encoding=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2);
+                        std::string tmp_encode(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2).mb_str());
+                        objNameType.setEncoding(  tmp_encode );
                         objNameType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
 
                         std::string strGender{this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).c_str() };
-                        objNameType.gender=genderMap[strGender];
+                        objNameType.gender=XML_RE::genderMap[strGender];
 
                         vecTypes.emplace_back(objNameType);
                     } else if (strcmp(element.c_str(), typeid(NRCType).name()) == 0) {
@@ -74,7 +79,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         NRCType objNRCType;
 
                         objNRCType.index=i;
-                        objNRCType.encoding=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2);
+                        std::string tmp_encode(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2).mb_str());
+                        objNRCType.setEncoding(  tmp_encode );
                         objNRCType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
                         objNRCType.type=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
 
@@ -95,7 +101,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         PangramType objPangramType;
 
                         objPangramType.index=i;
-                        objPangramType.encoding=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2);
+                        std::string tmp_encode(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2).mb_str());
+                        objPangramType.setEncoding(  tmp_encode );
                         objPangramType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
 
                         vecTypes.emplace_back(objPangramType);

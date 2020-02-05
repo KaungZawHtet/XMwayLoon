@@ -10,7 +10,7 @@
 #include <boost/random/mersenne_twister.hpp>
 #include <boost/random/uniform_int_distribution.hpp>
 #include <boost/date_time.hpp>
-#include "global_objects.h"
+#include <model/type/enums.h>
 
 #include <randomizer/number_randomizer.h>
 #include <boost/multi_index_container.hpp>
@@ -95,11 +95,11 @@ namespace XMwayLoon::Randomizer{
     public:
 
         EnglishDate()= default;
-        ptr_string convertCompleteEngMonthToMyan(const std::string &,const XMwayLoon::Randomizer::Encoding &encoding);
-        ptr_string convertShortEngMonthToMyan(const std::string &,const XMwayLoon::Randomizer::Encoding &encoding);
+        ptr_string convertCompleteEngMonthToMyan(const std::string &,const XML_RE::Encoding &encoding);
+        ptr_string convertShortEngMonthToMyan(const std::string &,const XML_RE::Encoding &encoding);
         ptr_string generateRandomEngDate(const std::string &format);
-        ptr_string convertEngDateToMyan(const std::string &engDate, const XMwayLoon::Randomizer::Encoding &encoding);
-        ptr_string getRandomMyanDate(const std::string &format,const XMwayLoon::Randomizer::Encoding &encoding);
+        ptr_string convertEngDateToMyan(const std::string &engDate, const XML_RE::Encoding &encoding);
+        ptr_string getRandomMyanDate(const std::string &format,const XML_RE::Encoding &encoding);
 
     };
 

@@ -4,7 +4,6 @@
 
 
 #include <randomizer/name_randomizer.h>
-#include <randomizer/global_objects.h>
 #include <iostream>
 #include <randomizer/typedef.h>
 

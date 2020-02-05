@@ -23,7 +23,7 @@ static void processWhole_BM(benchmark::State& state) {
     XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
     for (auto _ : state)
     {
-        XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.getRandomMyanDate("%d-%B-%Y",XMwayLoon::Randomizer::Encoding::Random);
+        XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.getRandomMyanDate("%d-%B-%Y",XML_RE::Encoding::Random);
 
     }
 }
@@ -34,7 +34,7 @@ static void convertEngDateToMyan_BM(benchmark::State& state) {
     XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
     for (auto _ : state)
     {
-        XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertEngDateToMyan("12 January 2018",XMwayLoon::Randomizer::Encoding::Random);
+        XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertEngDateToMyan("12 January 2018",XML_RE::Encoding::Random);
 
     }
 }
@@ -47,7 +47,7 @@ static void convertCompleteEngMonthToMyan_BM(benchmark::State& state) {
     XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
     for (auto _ : state)
     {
-        XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertCompleteEngMonthToMyan("January",XMwayLoon::Randomizer::Encoding::Random);
+        XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertCompleteEngMonthToMyan("January",XML_RE::Encoding::Random);
 
     }
 }
@@ -60,7 +60,7 @@ static void convertShortEngMonthToMyan_BM(benchmark::State& state) {
     XMwayLoon::Randomizer::EnglishDate obj_EnglishDate;
     for (auto _ : state)
     {
-        XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertShortEngMonthToMyan("Jan",XMwayLoon::Randomizer::Encoding::Random);
+        XMwayLoon::Randomizer::ptr_string ptr= obj_EnglishDate.convertShortEngMonthToMyan("Jan",XML_RE::Encoding::Random);
 
     }
 }

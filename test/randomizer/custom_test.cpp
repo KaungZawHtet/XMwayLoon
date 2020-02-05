@@ -5,17 +5,16 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <randomizer/custom_randomizer.h>
-#include <randomizer/global_objects.h>
 #include <model/db/initializer.h>
 using namespace sqlite_orm;
 typedef XMwayLoon::Randomizer::CustomRandomizer XMwayLoon_CustomRandomizer;
 
 TEST(CustomTest,getData){
 
-    XMwayLoon_CustomRandomizer obj("myself",XMwayLoon::Randomizer::Encoding::unicode);
+    XMwayLoon_CustomRandomizer obj("myself",XML_RE::Encoding::unicode);
 
     for (int i = 0; i < 10; ++i) {
-       std::cerr<< obj.getRandomData() << '\n';
+       std::cerr<< obj.getRandom() << '\n';
     }
 }
 

@@ -6,7 +6,8 @@
 #define SHINMWAYLOON_NUMBER_H
 #include <map>
 #include <random>
-#include "global_objects.h"
+#include "faster_random.h"
+#include <model/type/enums.h>
 #include <model/type/numeric_type.h>
 #include <model/type/alphanumeric_type.h>
 namespace XMwayLoon::Randomizer

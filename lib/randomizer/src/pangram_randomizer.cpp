@@ -4,22 +4,21 @@
 
 #include <randomizer/pangram_randomizer.h>
 #include <iostream>
-#include <randomizer/global_objects.h>
 #include <randomizer/typedef.h>
 
 
 
 
 
-std::string XMwayLoon_PangramRandomizer::getPangram(XMwayLoon::Randomizer::Encoding encoding){
+std::string XMwayLoon_PangramRandomizer::getPangram(XML_RE::Encoding encoding){
 
 
     return [&]() {
       
         switch (encoding) {
-            case XMwayLoon::Randomizer::Encoding::unicode:
+            case XML_RE::Encoding::unicode:
                 return this->myanPangram.first.data();
-            case XMwayLoon::Randomizer::Encoding::zawgyi:
+            case XML_RE::Encoding::zawgyi:
                 return this->myanPangram.second.data();
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);

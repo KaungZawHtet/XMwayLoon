@@ -4,14 +4,14 @@
 
 #ifndef FAKEDATAGENERATOR_DATE_H
 #define FAKEDATAGENERATOR_DATE_H
-
+#include "faster_random.h"
 #include <map>
 #include <string>
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/random/mersenne_twister.hpp>
 #include <boost/random/uniform_int_distribution.hpp>
 #include <boost/date_time.hpp>
-#include "global_objects.h"
+#include <model/type/enums.h>
 #include <randomizer/number_randomizer.h>
 #include <boost/multi_index_container.hpp>
 #include <boost/multi_index/ordered_index.hpp>
@@ -91,11 +91,11 @@ namespace XMwayLoon::Randomizer{
 
         DateRandomizer();
         DateRandomizer(DateType tmp_objDateType);
-        std::string convertCompleteEngMonthToMyan(std::string engMonth,const XMwayLoon::Randomizer::Encoding &encoding);
-        std::string convertShortEngMonthToMyan(std::string engMonth,const XMwayLoon::Randomizer::Encoding &encoding);
+        std::string convertCompleteEngMonthToMyan(std::string engMonth,const XML_RE::Encoding &encoding);
+        std::string convertShortEngMonthToMyan(std::string engMonth,const XML_RE::Encoding &encoding);
         std::string generateRandomEngDate(const std::string &format);
-        std::string convertEngDateToMyan(std::string engDate, const XMwayLoon::Randomizer::Encoding &encoding);
-        std::string getRandomMyanDate(const std::string &format,const XMwayLoon::Randomizer::Encoding &encoding);
+        std::string convertEngDateToMyan(std::string engDate, const XML_RE::Encoding &encoding);
+        std::string getRandomMyanDate(const std::string &format,const XML_RE::Encoding &encoding);
         
     };
 

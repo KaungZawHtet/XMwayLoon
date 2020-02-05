@@ -11,11 +11,12 @@
 #include <boost/multi_index/member.hpp>
 #include <string>
 #include <tuple>
-#include <randomizer/global_objects.h>
 #include <model/type/numeric_type.h>
 #include <model/type/alphanumeric_type.h>
 #include <randomizer/root_randomizer.h>
 #include <model/type/enums.h>
+#include "faster_random.h"
+
 class T;
 namespace XMwayLoon::Randomizer {
 

@@ -4,8 +4,7 @@
 
 #ifndef SHINMWAYLOON_PH_NUMBER_H
 #define SHINMWAYLOON_PH_NUMBER_H
-
-#include <randomizer/global_objects.h>
+#include "faster_random.h"
 #include <map>
 #include <array>
 #include <boost/logic/tribool.hpp>

@@ -11,7 +11,7 @@ TEST(NameTest,getFemaleName) {
 
     XMwayLoon_NameRandomizer objRan
     (XMwayLoon_NameRandomizer::Gender::female
-            ,XMwayLoon::Randomizer::Encoding::random);
+            ,XML_RE::Encoding::random);
     objRan.getFemaleName();
 
 

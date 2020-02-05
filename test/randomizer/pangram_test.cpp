@@ -10,6 +10,6 @@
 TEST(PangramTest,getPangram){
 
     XMwayLoon::Randomizer::PangramRandomizer objPangramRandomizer;
-    std::string myanNum =objPangramRandomizer.getPangram(XMwayLoon::Randomizer::Encoding::random);
+    std::string myanNum =objPangramRandomizer.getPangram(XML_RE::Encoding::random);
     std::cerr<<myanNum<<std::endl;
 }

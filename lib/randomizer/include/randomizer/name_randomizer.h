@@ -5,9 +5,9 @@
 #ifndef SHINMWAYLOON_NAME_H
 #define SHINMWAYLOON_NAME_H
 
-
+#include "faster_random.h"
 #include <string>
-#include "global_objects.h"
+#include <model/type/enums.h>
 #include <boost/multi_index_container.hpp>
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/multi_index/hashed_index.hpp>

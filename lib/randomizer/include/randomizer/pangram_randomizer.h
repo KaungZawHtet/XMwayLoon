@@ -4,9 +4,9 @@
 
 #ifndef SHINMWAYLOON_PANGRAM_H
 #define SHINMWAYLOON_PANGRAM_H
-
+#include "faster_random.h"
 #include <map>
-#include "global_objects.h"
+#include <model/type/enums.h>
 #include <model/type/numeric_type.h>
 #include <model/type/alphanumeric_type.h>
 namespace XMwayLoon::Randomizer
@@ -23,7 +23,7 @@ namespace XMwayLoon::Randomizer
         pcg objPCG;
 
     public:
-        std::string getPangram(XMwayLoon::Randomizer::Encoding encoding);
+        std::string getPangram(XML_RE::Encoding encoding);
         PangramRandomizer();
 
 

@@ -17,6 +17,11 @@ struct AlphanumericType : public Type
 {
     XML_RE::Encoding encoding;
 
+   void setEncoding(std::string tmp){
+       this->encoding= XML_RE::encodingMap["Unicode"];
+
+    }
+
 };
 
 struct NumericType : public Type

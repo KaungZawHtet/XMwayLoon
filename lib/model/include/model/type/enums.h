@@ -5,16 +5,23 @@
 #ifndef XMWAYLOON_ENUMS_H
 #define XMWAYLOON_ENUMS_H
 #include <parallel_hashmap/phmap.h>
-//Encoding
+
+
+
 namespace XML_RE {
+
+
+    //Encoding
 enum class Encoding {unicode=1,zawgyi=2,random=3};
 
-static const  phmap::flat_hash_map<std::string, Encoding> encodingMap =
+static   phmap::flat_hash_map<std::string, Encoding> encodingMap =
         {
                 { "Unicode",  Encoding::unicode},
                 { "Zawgyi", Encoding::zawgyi},
                 { "Random",  Encoding::random}
         };
+
+
 
 
 
@@ -25,7 +32,7 @@ enum class Gender {
     male = 1, female = 2, both = 3
 };
 
- static const phmap::flat_hash_map<std::string, Gender > genderMap =
+ static  phmap::flat_hash_map<std::string, Gender > genderMap =
         {
                 { "ကျား",  Gender::male},
                 { "မ", Gender::female},
@@ -36,7 +43,7 @@ enum class Gender {
 
 
 enum class BoolType{num=1,alpha=2};
-static const phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
+static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
         {
                 { "မှား/မှန်",  BoolType::alpha},
                 { "၀/၁", BoolType::num},

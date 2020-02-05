@@ -8,13 +8,13 @@
 
 
 std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan
-        (const std::string engMonth, const XMwayLoon::Randomizer::Encoding &encoding) {
+        (const std::string engMonth, const XML_RE::Encoding &encoding) {
     return [&]() {
     
         switch (encoding) {
-            case XMwayLoon::Randomizer::Encoding::unicode:
+            case XML_RE::Encoding::unicode:
                 return this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->unicodeMyanMonth;
-            case XMwayLoon::Randomizer::Encoding::zawgyi:
+            case XML_RE::Encoding::zawgyi:
                 return this->myanMonths.get<XMwayLoon::Randomizer::tag::completeEngMonth>().find(engMonth)->zawgyiMyanMonth;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
@@ -30,13 +30,13 @@ std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan
 }
 
 std::string XMwayLoon_DateRandomizer::convertShortEngMonthToMyan
-        (const std::string engMonth, const XMwayLoon::Randomizer::Encoding &encoding) {
+        (const std::string engMonth, const XML_RE::Encoding &encoding) {
     return [&]() {
         
         switch (encoding) {
-            case XMwayLoon::Randomizer::Encoding::unicode:
+            case XML_RE::Encoding::unicode:
                 return this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->unicodeMyanMonth;
-            case XMwayLoon::Randomizer::Encoding::zawgyi:
+            case XML_RE::Encoding::zawgyi:
                 return this->myanMonths.get<XMwayLoon::Randomizer::tag::shortEngMonth>().find(engMonth)->zawgyiMyanMonth;
             default :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
@@ -105,7 +105,7 @@ std::string XMwayLoon_DateRandomizer::generateRandomEngDate
 }
 
 std::string XMwayLoon_DateRandomizer::convertEngDateToMyan
-(std::string engDate, const XMwayLoon::Randomizer::Encoding &encoding){
+(std::string engDate, const XML_RE::Encoding &encoding){
 
 
     std::smatch matchingBehaviour;
@@ -148,7 +148,7 @@ std::string XMwayLoon_DateRandomizer::convertEngDateToMyan
 }
 
 std::string XMwayLoon_DateRandomizer::getRandomMyanDate
-(const std::string &format,const XMwayLoon::Randomizer::Encoding &encoding){
+(const std::string &format,const XML_RE::Encoding &encoding){
 
     return XMwayLoon_DateRandomizer::convertEngDateToMyan(
             XMwayLoon_DateRandomizer::generateRandomEngDate(format),encoding);

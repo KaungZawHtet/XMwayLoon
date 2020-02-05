@@ -9,14 +9,14 @@
 
 TEST(DateTest,convertCompleteEngMonthToMyan){
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer;
-    std::string MyanMonth= objDateRandomizer.convertCompleteEngMonthToMyan("April",XMwayLoon::Randomizer::Encoding::random);
+    std::string MyanMonth= objDateRandomizer.convertCompleteEngMonthToMyan("April",XML_RE::Encoding::random);
     std::cerr<<MyanMonth <<std::endl;
 }
 
 
 TEST(DateTest,convertShortEngMonthToMyan){
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer;
-    std::string MyanMonth= objDateRandomizer.convertShortEngMonthToMyan("May",XMwayLoon::Randomizer::Encoding::random);
+    std::string MyanMonth= objDateRandomizer.convertShortEngMonthToMyan("May",XML_RE::Encoding::random);
     std::cerr<<MyanMonth <<std::endl;
 }
 
@@ -45,7 +45,7 @@ TEST(DateTest,create){
 TEST(DateTest,myanmarDateGeneration){
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer;
-    std::string myanDate= objDateRandomizer.getRandomMyanDate("%d-%B-%Y",XMwayLoon::Randomizer::Encoding::random);
+    std::string myanDate= objDateRandomizer.getRandomMyanDate("%d-%B-%Y",XML_RE::Encoding::random);
     std::cerr<< myanDate <<std::endl;
     //  EXPECT_TRUE(true);
 

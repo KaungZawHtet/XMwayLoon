@@ -15,6 +15,12 @@ struct NameType : public AlphanumericType
 {
 
     XML_RE::Gender gender;
+
+    void setGender(std::string tmp)
+    {
+        this->gender=XML_RE::genderMap[tmp];
+
+    }
 };
 
 struct PangramType : public AlphanumericType
@@ -40,6 +46,11 @@ struct DateType : public AlphanumericType
 struct BooleanType : public AlphanumericType
 {
     XML_RE::BoolType type;
+
+    void setType(std::string tmp)
+    {
+        this->type=XML_RE::boolTypeMap[tmp];
+    }
 
 };
 
