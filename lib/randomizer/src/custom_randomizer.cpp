@@ -11,7 +11,7 @@ XMwayLoon_CustomRandomizer::CustomRandomizer
 : encoding(tmp_encoding)
 {
 
-    load(typeName,encoding);
+    load();
 }
 
 std::string XMwayLoon_CustomRandomizer::getRandom
@@ -62,14 +62,17 @@ XMwayLoon_CustomRandomizer::CustomRandomizer(CustomType tmp_objCustomType)
 
 :objCustomType(std::move(tmp_objCustomType))
 {
-    load(objCustomType.fieldName,objCustomType.encoding);
+    this->typeName=objCustomType.fieldName;
+    this->encoding = objCustomType.encoding;
+    load();
 
 }
 
-void XMwayLoon_CustomRandomizer::load(const std::string &typeName, XML_RE::Encoding tmp_encoding) {
+void XMwayLoon_CustomRandomizer::load() {
+    //const std::string &typeName, XML_RE::Encoding tmp_encoding
     std::random_device objRandomDevice;
     this->objPCG.seed(objRandomDevice);
-    switch (tmp_encoding)
+    switch (this->encoding)
     {
 
         case XML_RE::Encoding::unicode :

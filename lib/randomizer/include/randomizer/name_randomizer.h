@@ -6,6 +6,7 @@
 #define SHINMWAYLOON_NAME_H
 
 #include "faster_random.h"
+#include "root_randomizer.h"
 #include <string>
 #include <model/type/enums.h>
 #include <boost/multi_index_container.hpp>
@@ -20,7 +21,7 @@
 namespace XMwayLoon::Randomizer {
 
 
-    class NameRandomizer {
+    class NameRandomizer : public RootRandomizer {
 
 
     public:
@@ -69,12 +70,10 @@ namespace XMwayLoon::Randomizer {
 
 
         std::string getFemaleName();
-
         std::string getMaleName();
-
         std::string getRandomName();
-
-        std::string getName();
+        std::string getRandom() override;
+        void load() override ;
 
 
     };

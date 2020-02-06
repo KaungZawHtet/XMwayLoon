@@ -31,7 +31,12 @@ struct PangramType : public AlphanumericType
 
 struct NRCType : public AlphanumericType
 {
-    std::string type;
+    XML_RE::NRCType type;
+
+    void setType(std::string tmp)
+    {
+        this->type= XML_RE::nrcTypeMap[tmp];
+    }
 
 
 };

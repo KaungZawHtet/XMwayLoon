@@ -12,15 +12,12 @@
 
 using namespace XMwayLoon::Randomizer;
 
-void Generator::generate() {
 
-
-
-}
 
 
 Generator::Generator(GenerateInfo tmp_objGenerateInfo)
         : objGenerateInfo(std::move(tmp_objGenerateInfo)) {
+/*
     auto size = objGenerateInfo.vecTypeNames.size();
     vecRanResults.reserve(size);
     vecRandomizers.reserve(size);
@@ -32,22 +29,26 @@ Generator::Generator(GenerateInfo tmp_objGenerateInfo)
         int count = 0;
         for (auto element : this->objGenerateInfo.vecTypeNames) {
             if (strcmp(element.c_str(), typeid(BooleanType).name()) == 0) {
-                BooleanRandomizer objBoolRan;
-                this->vecRandomizers.emplace_back(objBoolRan);
+                //  BooleanRandomizer objBoolRan;
+                //  this->vecRandomizers.emplace_back(objBoolRan);
 
                 //auto encoding =XML_RE::encodingMap[std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).encoding];
-                auto type= [&](){
-                   auto tmp_type= std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type;
-                    /*if((tmp_type.compare(BooleanRow::arrBoolType[0].ToStdString())) == 0){
+                auto type = [&]() {
+                    auto tmp_type = std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type;
+                    */
+/*if((tmp_type.compare(BooleanRow::arrBoolType[0].ToStdString())) == 0){
 
                     }
-*/
+*//*
+
 
                 };
-               /* std::get<BooleanRandomizer>(this->vecRandomizers[count])
-                        .getBooleanRandomizer
-                                (std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type,encoding);
-*/
+                */
+/* std::get<BooleanRandomizer>(this->vecRandomizers[count])
+                         .getBooleanRandomizer
+                                 (std::get<BooleanType>(this->objGenerateInfo.vecTypes[count]).type,encoding);
+ *//*
+
 
             } else if (strcmp(element.c_str(), typeid(DateType).name()) == 0) {
 
@@ -74,6 +75,7 @@ Generator::Generator(GenerateInfo tmp_objGenerateInfo)
 
     }).name("taskRandomization");
 
+*/
 
 }
 

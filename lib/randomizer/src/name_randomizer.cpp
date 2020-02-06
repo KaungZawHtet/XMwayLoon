@@ -48,21 +48,29 @@ std::string XMwayLoon_NameRandomizer::getRandomName() {
 
 }
 
-std::string XMwayLoon_NameRandomizer::getName() {
-
-    return std::string("နာမည်တု");
 
 
+std::string XMwayLoon_NameRandomizer::NameRandomizer::getRandom() {
 
+return std::string("နာမည်တု");
+
+}
+
+void XMwayLoon_NameRandomizer::NameRandomizer::load() {
+    std::random_device objRD;
+    this->objPCG.seed(objRD);
+}
+
+XMwayLoon_NameRandomizer::NameRandomizer::NameRandomizer() {
+    this->load();
 }
 
 XMwayLoon_NameRandomizer::NameRandomizer(NameType tmp_nameType)
 : objNameType (std::move(tmp_nameType)) {
 
 
-    std::random_device objRD;
-    this->objPCG.seed(objRD);
 
+this->load();
 
 }
 

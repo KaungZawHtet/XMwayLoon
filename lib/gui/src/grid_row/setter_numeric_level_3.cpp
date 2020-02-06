@@ -9,22 +9,14 @@ void NRCRow::setTypeOnGrid() {
 this->setNoEncodingCell();
 
     //NRC type field
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNRCType[0]));
-    this->gTypeGrid->SetCellEditor
-            (this->gTypeGrid->rowPointer,this->colPointer
-                    ,new wxGridCellChoiceEditor(this->nrcCount,this->arrNRCType));
+    this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrNRCType,this->nrcCount);
+
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 
@@ -37,22 +29,14 @@ void NumberRow::setTypeOnGrid() {
 
 this->setNoEncodingCell();
 
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
-    this->gTypeGrid->SetCellValue
-            (this->gTypeGrid->rowPointer, this->colPointer, _(this->arrNumberType[0]));
-    this->gTypeGrid->SetCellEditor(this->gTypeGrid->rowPointer, this->colPointer
-            ,new wxGridCellChoiceEditor(this->NumberRowCount,this->arrNumberType));
+    this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrNumberType,this->NumberRowCount);
+
 
     //prefix field
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Prefix"));
+    this->setTextCtrl(this->gTypeGrid->rowPointer, this->colPointer,"Prefix");
 
     //post field
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Postfix"));
+    this->setTextCtrl(this->gTypeGrid->rowPointer, this->colPointer,"Postfix");
 
     ++(this->gTypeGrid->rowPointer);
 
@@ -67,25 +51,15 @@ this->setNoEncodingCell();
 
 
     //country code field
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrCountryCodeMode[0]));
-    this->gTypeGrid->SetCellEditor
-            (this->gTypeGrid->rowPointer,this->colPointer
-                    ,new wxGridCellChoiceEditor(this->countryCodeCount,this->arrCountryCodeMode));
+    this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrCountryCodeMode,this->countryCodeCount);
+
 
     //telecom field
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrTelecom[0]));
-    this->gTypeGrid->SetCellEditor
-            (this->gTypeGrid->rowPointer,this->colPointer
-                    ,new wxGridCellChoiceEditor(this->telecomCount,this->arrTelecom));
+    this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrTelecom,this->telecomCount);
+
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 

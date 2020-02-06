@@ -56,8 +56,7 @@ std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XML_RE::Encoding &en
 }
 
 XMwayLoon_BooleanRandomizer::BooleanRandomizer() {
-    std::random_device objRD;
-    this->objPCG.seed( objRD);
+   this->load();
 
 }
 
@@ -69,9 +68,13 @@ std::string XMwayLoon_BooleanRandomizer::BooleanRandomizer::getRandom() {
 XMwayLoon_BooleanRandomizer::BooleanRandomizer(BooleanType tmp_objBoolType) :
 objBoolType(std::move(tmp_objBoolType))
 {
-    std::random_device objRD;
-    this->objPCG.seed( objRD);
+  this->load();
 }
 
 
+void XMwayLoon_BooleanRandomizer::load()
+{
+    std::random_device objRD;
+    this->objPCG.seed( objRD);
+}
 

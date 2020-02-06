@@ -7,7 +7,7 @@
 #include <randomizer/typedef.h>
 
 std::string XMwayLoon_NRCRandomizer::getNRC
-(XMwayLoon_NRCRandomizer::Type type) {
+(XML_RE::NRCType type) {
 
     std::uniform_int_distribution<> typeDistribution(0, 1);
     int boolean =typeDistribution(this->objPCG) ;
@@ -22,10 +22,10 @@ std::string XMwayLoon_NRCRandomizer::getNRC
 
         switch (type)
         {
-            case Type::n:
+            case XML_RE::NRCType::n:
                 return "၁၂/"+city+"("+ this->type[0]+ ")" +idNum;
                 break;
-            case Type::naing:
+            case XML_RE::NRCType::naing:
                 return "၁၂/"+city+"("+ this->type[1]+ ")" +idNum;
                 break;
             default:
@@ -45,9 +45,26 @@ std::string XMwayLoon_NRCRandomizer::getNRC
 
 }
 
-XMwayLoon_NRCRandomizer::NRCRandomizer() {
+XMwayLoon_NRCRandomizer::NRCRandomizer(NRCType
+tmp_objNRCType)
+: objNRCType(std::move(tmp_objNRCType))
+{
+    this->load();
+}
+
+
+void XMwayLoon_NRCRandomizer::load()
+{
     std::random_device objRD;
     this->objPCG.seed( objRD);
+}
+std::string XMwayLoon_NRCRandomizer::getRandom()
+{
+    return this->getNRC(objNRCType.type);
+}
+
+XMwayLoon_NRCRandomizer::NRCRandomizer() {
+    this->load();
 
 }
 

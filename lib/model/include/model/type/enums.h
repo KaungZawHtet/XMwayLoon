@@ -51,8 +51,70 @@ static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
         };
 
 
-//
+//Phone Number
 
+    enum class CountryCodeFlag {
+        withCountryCode, noCountryCode, random
+    };
+    enum class Telecom {
+        MPT, Telenor, Ooredoo, Mytel ,Random
+    };
+    // TODO:: not sync with actual randomizer
+    //{"MPT","Telenor","Ooredoo","MyTel","Random"};
+    //{"+95 included", "no +95","random"}
+    static  phmap::flat_hash_map<std::string, CountryCodeFlag > countryCodeFlagMap =
+            {
+                    { "+95 included",  CountryCodeFlag::withCountryCode},
+                    { "no +95", CountryCodeFlag::noCountryCode},
+                    { "random", CountryCodeFlag::random}
+
+            };
+
+    static  phmap::flat_hash_map<std::string, Telecom > telecomMap =
+            {
+                    { "MPT",  Telecom::MPT},
+                    { "Telenor", Telecom::Telenor},
+                    { "Ooredoo", Telecom::Ooredoo},
+                    { "MyTel", Telecom::Mytel},
+                    { "Random", Telecom::Random}
+            };
+
+//Number
+
+    enum class NumberSign{
+        positive=1,negative=2,random=3
+    };
+
+    enum class NumberSystem{
+        //rational look like random
+                integer=1,fraction=2,rational=3
+    };
+
+    static  phmap::flat_hash_map<std::string, NumberSign > numSignMap =
+            {
+                    { "+95 included",  NumberSign::positive},
+                    { "no +95", NumberSign::negative},
+                    { "random", NumberSign::random}
+
+            };
+
+    static  phmap::flat_hash_map<std::string, NumberSystem > numSystemMap =
+            {
+                    { "Integer",  NumberSystem::integer},
+                    { "Fraction", NumberSystem::fraction},
+                    { "Rational", NumberSystem::rational}
+
+            };
+    //NRC
+    //"န","နိုင်"
+    enum class NRCType {naing=1, n=2,random=3};
+    static  phmap::flat_hash_map<std::string, NRCType > nrcTypeMap =
+            {
+                    { "နိုင်",  NRCType::naing},
+                    { "န", NRCType::n},
+                    { "random", NRCType::random}
+
+            };
 
 };
 

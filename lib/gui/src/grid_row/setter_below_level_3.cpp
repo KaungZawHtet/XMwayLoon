@@ -26,6 +26,32 @@ void Row::setNameCell() {
     this->colPointer++;
 }
 
+void Row::setBlankCell(int &rowPointer, int &colPointer) {
+    this->colPointer++;
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+
+}
+
+void Row::setComboBox(int &rowPointer, int &colPointer, wxString *arr, int &size) {
+
+    this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(arr[0]));
+    this->gTypeGrid->SetCellEditor
+            (this->gTypeGrid->rowPointer,this->colPointer
+                    ,new wxGridCellChoiceEditor(size,arr));
+
+}
+
+void Row::setTextCtrl(int &rowPointer,int &colPointer,wxString prompt) {
+    this->colPointer++;
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(prompt));
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
+
+}
+
+
 void AlphaNumericRow::setEncodingCell() {
     this->setNameCell();
     //Encoding

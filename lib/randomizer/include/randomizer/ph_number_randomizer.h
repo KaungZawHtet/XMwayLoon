@@ -5,6 +5,7 @@
 #ifndef SHINMWAYLOON_PH_NUMBER_H
 #define SHINMWAYLOON_PH_NUMBER_H
 #include "faster_random.h"
+#include "root_randomizer.h"
 #include <map>
 #include <array>
 #include <boost/logic/tribool.hpp>
@@ -14,7 +15,7 @@
 
 namespace XMwayLoon::Randomizer {
 
-    class PhoneNumberRandomizer {
+    class PhoneNumberRandomizer : public RootRandomizer {
 
         typedef std::map<std::string, std::string> type_myanNum;
 
@@ -33,20 +34,19 @@ namespace XMwayLoon::Randomizer {
                                                              std::pair("46", 9), std::pair("48", 9)};
         typedef XMwayLoon::Randomizer::NumberRandomizer XMwayLoon_NumRan;
         NumberRandomizer objNumberRandomizer;
+        PhNumberType objPhNumberType;
          pcg objPCG;
 
 
     public:
 
-        enum class CountryCodeFlag {
-            withCountryCode, noCountryCode, random
-        };
-        enum class PhoneOperator {
-            MPT, Telenor, Ooredoo, Mytel
-        };
-        std::string generateEngPhNum(CountryCodeFlag countryCodeSwitch);
-        std::string getRandomMyanPhNum(CountryCodeFlag countryCodeSwitch);
+
+        std::string generateEngPhNum(XML_RE::CountryCodeFlag countryCodeSwitch);
+        std::string getRandomMyanPhNum(XML_RE::CountryCodeFlag countryCodeSwitch);
         PhoneNumberRandomizer();
+        explicit PhoneNumberRandomizer(PhNumberType tmp_objPhNumberType);
+        std::string getRandom () override ;
+        void load() override ;
 
     };
 };

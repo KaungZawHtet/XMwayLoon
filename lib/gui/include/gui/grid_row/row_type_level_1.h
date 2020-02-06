@@ -17,6 +17,9 @@ public:
     TypeGrid *gTypeGrid;
     virtual void setTypeOnGrid()=0;
     void setNameCell();
+    void setBlankCell(int &rowPointer,int &colPointer);
+    void setComboBox (int &rowPointer,int &colPointer , wxString  *arr,int &size );
+    void setTextCtrl(int &rowPointer,int &colPointer,wxString prompt);
 
     explicit Row( const wxString& tmp_typeName,TypeGrid *tmp_gTypeGrid)
     : typeName(tmp_typeName),gTypeGrid(tmp_gTypeGrid){};

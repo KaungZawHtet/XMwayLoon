@@ -36,7 +36,23 @@ std::string XMwayLoon_PangramRandomizer::getPangram(XML_RE::Encoding encoding){
 }
 
 XMwayLoon_PangramRandomizer::PangramRandomizer() {
+
+    this->load();
+
+}
+
+XMwayLoon_PangramRandomizer::PangramRandomizer(PangramType tmp_objPangramType) :
+objPangramType(std::move(tmp_objPangramType))
+{
+    this->load();
+}
+
+std::string XMwayLoon_PangramRandomizer::PangramRandomizer::getRandom() {
+    return this->getPangram(objPangramType.encoding);
+}
+
+
+void XMwayLoon_PangramRandomizer::load(){
     std::random_device objRandomDevice;
     this->objPCG.seed(objRandomDevice);
-
 }

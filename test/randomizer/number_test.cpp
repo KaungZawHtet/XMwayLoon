@@ -12,7 +12,7 @@ typedef XMwayLoon::Randomizer::NumberRandomizer XMwayLoon_NumRan;
 
 TEST(NumberTest,convertEngNumToMyan){
 
-    XMwayLoon_NumRan objNumber(XMwayLoon_NumRan::Sign::negative , XMwayLoon_NumRan::System::fraction
+    XMwayLoon_NumRan objNumber(XML_RE::NumberSign::negative , XML_RE::NumberSystem::fraction
             //,"Pre","MMK"
                                );
     std::string myanNum =objNumber.convertEngNumToMyan("645875423486");
@@ -21,7 +21,7 @@ TEST(NumberTest,convertEngNumToMyan){
 
 TEST(NumberTest,getRandomMyanNum){
     XMwayLoon::Randomizer::NumberRandomizer objNumber
-            (XMwayLoon_NumRan::Sign::random , XMwayLoon_NumRan::System::rational, "MMK");
+            (XML_RE::NumberSign::random , XML_RE::NumberSystem::rational, "MMK");
 
     for (int i = 0; i < 100 ; ++i) {
         std::string myanNum =objNumber.getRandomMyanNum(4345364,78322424);

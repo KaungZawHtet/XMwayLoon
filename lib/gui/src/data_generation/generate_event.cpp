@@ -82,7 +82,9 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         std::string tmp_encode(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2).mb_str());
                         objNRCType.setEncoding(  tmp_encode );
                         objNRCType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
-                        objNRCType.type=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
+
+                        std::string tmp(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
+                        objNRCType.setType(tmp);
 
                         vecTypes.emplace_back(objNRCType);
                     } else if (strcmp(element.c_str(), typeid(NumberType).name()) == 0) {
@@ -91,7 +93,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         objNumberType.index=i;
 
                         objNumberType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
-                        objNumberType.type=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
+                        std::string tmp(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
+                        objNumberType.setSystem(tmp);
                         objNumberType.prefix=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 5);
                         objNumberType.postfix=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 6);
 
@@ -112,8 +115,10 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         objPhNumberType.index=i;
 
                         objPhNumberType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
-                        objPhNumberType.countryCode=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
-                        objPhNumberType.telecom=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 5);
+                        std::string tmp_countryCodeFlat(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
+                        objPhNumberType.setCountryCodeFlag(tmp_countryCodeFlat);
+                        std::string tmp_telecom(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 5).mb_str());
+                        objPhNumberType.setTelecom(tmp_telecom);
 
                         vecTypes.emplace_back(objPhNumberType);
                     } else {
@@ -129,7 +134,7 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
         objGenerateInfo.vecTypes=std::move(vecTypes) ;
 
         Generator objGenerator(objGenerateInfo);
-        objGenerator.generate();
+       // objGenerator.generate();
 
     }
 

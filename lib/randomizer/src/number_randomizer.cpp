@@ -21,7 +21,7 @@ std::string XMwayLoon_NumberRandomizer::convertEngNumToMyan(const std::string &e
     return result;
 
 }
-
+//TODO: this can be fixed by gui option
 void XMwayLoon_NumberRandomizer::addFracNSignToNumberSequence()
 {
     std::uniform_int_distribution<int> boolDistribution(0, 1);
@@ -31,11 +31,11 @@ void XMwayLoon_NumberRandomizer::addFracNSignToNumberSequence()
     std::uniform_int_distribution<int> fractionDistribution(1, length-1);
     switch (this->isFraction)
     {
-        case XMwayLoon_NumberRandomizer::System::fraction:
+        case XML_RE::NumberSystem::fraction:
             this->engNumSequence.insert(fractionDistribution(this->objPCG),".");
             break;
 
-        case XMwayLoon_NumberRandomizer::System::integer:
+        case XML_RE::NumberSystem::integer:
             break;
         default:
             if(boolDistribution(this->objPCG))
@@ -44,10 +44,10 @@ void XMwayLoon_NumberRandomizer::addFracNSignToNumberSequence()
 
     switch (this->isSigned)
     {
-        case XMwayLoon_NumberRandomizer::Sign::positive:
+        case XML_RE::NumberSign::positive:
             break;
 
-        case XMwayLoon_NumberRandomizer::Sign::negative:
+        case XML_RE::NumberSign::negative:
             this->engNumSequence= "-"+this->engNumSequence;
             break;
         default:
@@ -57,7 +57,7 @@ void XMwayLoon_NumberRandomizer::addFracNSignToNumberSequence()
 
 }
 
-
+//TODO: This one too
 std::string XMwayLoon_NumberRandomizer::getRandomMyanNum
 ( const unsigned long long min, const unsigned long long max){
 
@@ -91,16 +91,33 @@ std::string XMwayLoon_NumberRandomizer::getRandomMyanNum
 
 }
 
+XMwayLoon_NumberRandomizer::NumberRandomizer(NumberType tmp_objNumType)
+: objNumType(std::move(tmp_objNumType))
+
+{
+    this->load();
+}
+
+std::string XMwayLoon_NumberRandomizer::getRandom() {
+
+//TODO: Total mistake
+    return this->getRandomMyanNum(100,1000);
+}
+
+void XMwayLoon_NumberRandomizer::load() {
+
+    std::random_device objRD;
+    this->objPCG.seed( objRD);
+}
 
 
 XMwayLoon_NumberRandomizer::NumberRandomizer(
-        XMwayLoon_NumberRandomizer::Sign tempIsSigned,
-XMwayLoon_NumberRandomizer ::System tempIsFraction, std::string tempPrefix,
+        XML_RE::NumberSign tempIsSigned,
+XML_RE::NumberSystem tempIsFraction, std::string tempPrefix,
         std::string tempPostfix) : isSigned(tempIsSigned) , isFraction(tempIsFraction),
                                    prefix(std::move(tempPrefix)) , postfix(std::move(tempPostfix))
 {
-    std::random_device objRD;
-    this->objPCG.seed( objRD);
+    this->load();
 }
 
 

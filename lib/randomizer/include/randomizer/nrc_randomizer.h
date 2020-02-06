@@ -11,7 +11,9 @@
 #include <string>
 namespace XMwayLoon::Randomizer {
 
-class NRCRandomizer{
+class NRCRandomizer : public RootRandomizer
+
+        {
 
 
 private:
@@ -27,12 +29,16 @@ std::string alphabet[25]
 
     pcg objPCG;
     NumberRandomizer objNumberRandomizer;
+    NRCType objNRCType;
     std::string get3Alpha ();
     std::string get2Alpha ();
 public:
-    enum class Type { n=1,naing=2,random=3};
+
+    explicit NRCRandomizer(NRCType tmp_objNRCType);
+    std::string getRandom() override ;
+    void load() override ;
     NRCRandomizer();
-    std::string getNRC(NRCRandomizer::Type type);
+    std::string getNRC(XML_RE::NRCType type);
   
 
 

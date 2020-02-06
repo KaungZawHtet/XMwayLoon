@@ -5,6 +5,7 @@
 #ifndef FAKEDATAGENERATOR_DATE_H
 #define FAKEDATAGENERATOR_DATE_H
 #include "faster_random.h"
+#include "root_randomizer.h"
 #include <map>
 #include <string>
 #include <boost/date_time/gregorian/gregorian.hpp>
@@ -35,7 +36,7 @@ namespace XMwayLoon::Randomizer{
         struct zawgyiMyanMonth;
     }
 
-    class DateRandomizer{
+    class DateRandomizer: public RootRandomizer{
 
 
         struct Month
@@ -90,12 +91,14 @@ namespace XMwayLoon::Randomizer{
     public:
 
         DateRandomizer();
-        DateRandomizer(DateType tmp_objDateType);
+        explicit DateRandomizer(DateType tmp_objDateType);
         std::string convertCompleteEngMonthToMyan(std::string engMonth,const XML_RE::Encoding &encoding);
         std::string convertShortEngMonthToMyan(std::string engMonth,const XML_RE::Encoding &encoding);
         std::string generateRandomEngDate(const std::string &format);
         std::string convertEngDateToMyan(std::string engDate, const XML_RE::Encoding &encoding);
         std::string getRandomMyanDate(const std::string &format,const XML_RE::Encoding &encoding);
+        std::string getRandom() override;
+        void load() override;
         
     };
 

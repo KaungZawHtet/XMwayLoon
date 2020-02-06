@@ -15,6 +15,7 @@ namespace XMwayLoon::Randomizer {
     public:
 
         virtual std::string getRandom() = 0;
+        virtual void load() = 0;
     };
 
 }

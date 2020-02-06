@@ -8,10 +8,8 @@
 
 
 
-
-
-
-std::string XMwayLoon_PhoneNumberRandomizer::generateEngPhNum(CountryCodeFlag countryCodeSwitch) {
+//TODO:: This need to break
+std::string XMwayLoon_PhoneNumberRandomizer::generateEngPhNum(XML_RE::CountryCodeFlag countryCodeSwitch) {
     std::uniform_int_distribution<> operatorDistribution(1, 4);
     std::uniform_int_distribution<> numDistribution(1000000, 9999999);
 
@@ -46,13 +44,13 @@ std::string XMwayLoon_PhoneNumberRandomizer::generateEngPhNum(CountryCodeFlag co
         }
 
         switch (countryCodeSwitch) {
-            case PhoneNumberRandomizer::CountryCodeFlag::withCountryCode :
+            case XML_RE::CountryCodeFlag::withCountryCode :
                 result = "+95" + result;
                 // std::cout<<endl<<result<<endl;
                 break;
-            case PhoneNumberRandomizer::CountryCodeFlag::noCountryCode :
+            case XML_RE::CountryCodeFlag::noCountryCode :
                 break;
-            case PhoneNumberRandomizer::CountryCodeFlag::random :
+            case XML_RE::CountryCodeFlag::random :
                 std::uniform_int_distribution<> encodingDistribution(0, 1);
                 if (encodingDistribution(this->objPCG)) result = "+95" + result;
                 break;
@@ -62,15 +60,29 @@ std::string XMwayLoon_PhoneNumberRandomizer::generateEngPhNum(CountryCodeFlag co
 
 
 std::string XMwayLoon_PhoneNumberRandomizer::getRandomMyanPhNum
-(const XMwayLoon_PhoneNumberRandomizer::CountryCodeFlag countryCodeSwitch) {
+(const XML_RE::CountryCodeFlag countryCodeSwitch) {
     return this->objNumberRandomizer.convertEngNumToMyan(this->generateEngPhNum(countryCodeSwitch));
 
 }
 
 XMwayLoon_PhoneNumberRandomizer::PhoneNumberRandomizer() {
 
+  this->load();
+
+}
+
+std::string XMwayLoon_PhoneNumberRandomizer::getRandom() {
+    return this->getRandomMyanPhNum(objPhNumberType.countryCode);
+}
+
+void XMwayLoon_PhoneNumberRandomizer::load() {
     std::random_device objRD;
     this->objPCG.seed( objRD);
+}
 
+XMwayLoon_PhoneNumberRandomizer::PhoneNumberRandomizer(PhNumberType tmp_objPhNumberType) 
+: objPhNumberType(std::move(tmp_objPhNumberType))
+{
+this->load();
 }
 

@@ -7,18 +7,14 @@
 void NameRow::setTypeOnGrid() {
    this->setEncodingCell();
 
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrGenderType[0]));
-    this->gTypeGrid->SetCellEditor
-            (this->gTypeGrid->rowPointer,this->colPointer
-                    ,new wxGridCellChoiceEditor(this->genderCount,this->arrGenderType));
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrGenderType,this->genderCount);
+
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
 
 
@@ -32,19 +28,13 @@ void PangramRow::setTypeOnGrid() {
     this->setEncodingCell();
    
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 
@@ -58,19 +48,13 @@ void DateRow::setTypeOnGrid() {
    this->setEncodingCell();
 
     //field for format
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("Date Format"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
+    this->setTextCtrl(this->gTypeGrid->rowPointer, this->colPointer,"Date Format");
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 
@@ -81,22 +65,14 @@ void BooleanRow::setTypeOnGrid() {
    this->setEncodingCell();
 
     //field for boolean type
-    this->colPointer++;
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(this->arrBoolType[0]));
-    this->gTypeGrid->SetCellEditor
-            (this->gTypeGrid->rowPointer,this->colPointer
-                    ,new wxGridCellChoiceEditor(this->boolCount,this->arrBoolType));
+    this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrBoolType,this->boolCount);
+
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 
@@ -109,19 +85,13 @@ void CustomRow::setTypeOnGrid() {
    this->setEncodingCell();
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
-    this->colPointer++;
-    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _("-"));
-    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
+this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 

@@ -19,14 +19,16 @@ namespace XMwayLoon::Randomizer  {
         XML_RE::Encoding encoding;
         
         CustomType objCustomType;
+        std::string typeName;
+
         
         
 
     public:
-         explicit CustomRandomizer(const std::string& typeName,XML_RE::Encoding tmp_encoding=XML_RE::Encoding::unicode);
+         explicit CustomRandomizer(const std::string& tmp_typeName,XML_RE::Encoding tmp_encoding=XML_RE::Encoding::unicode);
          std::string getRandom() override;
          explicit CustomRandomizer(CustomType tmp_objCustomType);
-         void load(const std::string& typeName,XML_RE::Encoding tmp_encoding=XML_RE::Encoding::unicode);
+         void load() override ;
          
     };
 

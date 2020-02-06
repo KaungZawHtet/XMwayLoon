@@ -18,12 +18,12 @@
 class Generator
 {
 public:
-    tf::Executor executor;
-    tf::Taskflow taskflow;
+  //  tf::Executor executor;
+   // tf::Taskflow taskflow;
 
-    tf::Task taskRandomization;
-    std::vector<std::string> vecRanResults;
-    std::vector<randomizer> vecRandomizers;
+   // tf::Task taskRandomization;
+   // std::vector<std::string> vecRanResults;
+  //  std::vector<randomizer> vecRandomizers;
 
     GenerateInfo objGenerateInfo;
 
@@ -32,7 +32,7 @@ public:
     explicit Generator( GenerateInfo tmp_objGenerateInfo );
 
 
-    void generate();
+
 
 
 

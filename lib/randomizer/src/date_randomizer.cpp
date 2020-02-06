@@ -154,6 +154,14 @@ std::string XMwayLoon_DateRandomizer::getRandomMyanDate
             XMwayLoon_DateRandomizer::generateRandomEngDate(format),encoding);
 }
 XMwayLoon_DateRandomizer::DateRandomizer() {
+    this->load();
+}
+
+std::string XMwayLoon_DateRandomizer::getRandom() {
+    return this->getRandomMyanDate(this->objDateType.format,this->objDateType.encoding);
+}
+
+void XMwayLoon_DateRandomizer::DateRandomizer::load() {
     std::random_device objRandomDevice;
     this->objPCG.seed(objRandomDevice);
 }
@@ -161,8 +169,7 @@ XMwayLoon_DateRandomizer::DateRandomizer() {
 XMwayLoon_DateRandomizer::DateRandomizer(DateType tmp_dateType)
 : objDateType(std::move(tmp_dateType))
 {
-    std::random_device objRandomDevice;
-    this->objPCG.seed(objRandomDevice);
+  this->load();
 
 }
 
