@@ -93,10 +93,15 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         objNumberType.index=i;
 
                         objNumberType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
-                        std::string tmp(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
-                        objNumberType.setSystem(tmp);
+                        std::string tmpSystem(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
+                        objNumberType.setSystem(tmpSystem);
                         objNumberType.prefix=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 5);
                         objNumberType.postfix=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 6);
+
+                        std::string tmpMin(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 7).mb_str());
+                        std::string tmpMax(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 8).mb_str());
+                        objNumberType.setMin(tmpMin);
+                        objNumberType.setMax(tmpMax);
 
                         vecTypes.emplace_back(objNumberType);
                     } else if (strcmp(element.c_str(), typeid(PangramType).name()) == 0) {

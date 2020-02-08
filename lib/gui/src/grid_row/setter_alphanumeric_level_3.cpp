@@ -16,6 +16,12 @@ void NameRow::setTypeOnGrid() {
     //null field
     this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
 
 
     ++(this->gTypeGrid->rowPointer);
@@ -27,6 +33,12 @@ void NameRow::setTypeOnGrid() {
 void PangramRow::setTypeOnGrid() {
     this->setEncodingCell();
    
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
     //null field
     this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
@@ -56,6 +68,12 @@ void DateRow::setTypeOnGrid() {
     //null field
     this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
     ++(this->gTypeGrid->rowPointer);
 
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(DateType).name());
@@ -67,6 +85,12 @@ void BooleanRow::setTypeOnGrid() {
     //field for boolean type
     this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrBoolType,this->boolCount);
 
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
     this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
@@ -92,6 +116,12 @@ void CustomRow::setTypeOnGrid() {
 
     //null field
 this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+//null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     ++(this->gTypeGrid->rowPointer);
 

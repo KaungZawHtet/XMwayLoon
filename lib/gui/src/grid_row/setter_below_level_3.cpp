@@ -51,6 +51,20 @@ void Row::setTextCtrl(int &rowPointer,int &colPointer,wxString prompt) {
 
 }
 
+void Row::setNumCtrl(int &rowPointer, int &colPointer) {
+    this->colPointer++;
+    this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
+   // this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(arr[0]));
+    this->gTypeGrid->SetCellEditor
+            (this->gTypeGrid->rowPointer,this->colPointer
+                    ,new wxGridCellNumberEditor);
+    this->gTypeGrid->SetCellRenderer
+            (this->gTypeGrid->rowPointer,this->colPointer
+                    ,new wxGridCellNumberRenderer);
+
+
+}
+
 
 void AlphaNumericRow::setEncodingCell() {
     this->setNameCell();

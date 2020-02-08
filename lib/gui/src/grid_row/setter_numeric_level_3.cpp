@@ -18,6 +18,12 @@ this->setNoEncodingCell();
     //null field
     this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
     ++(this->gTypeGrid->rowPointer);
 
 
@@ -38,6 +44,12 @@ this->setNoEncodingCell();
     //post field
     this->setTextCtrl(this->gTypeGrid->rowPointer, this->colPointer,"Postfix");
 
+    //min field
+    this->setNumCtrl(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //max field
+    this->setNumCtrl(this->gTypeGrid->rowPointer, this->colPointer);
+
     ++(this->gTypeGrid->rowPointer);
 
 
@@ -57,6 +69,12 @@ this->setNoEncodingCell();
     //telecom field
     this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrTelecom,this->telecomCount);
 
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
 
     //null field
     this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);

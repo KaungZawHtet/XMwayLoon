@@ -5,10 +5,16 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <randomizer/number_randomizer.h>
-
+#include <model/type/alphanumeric_type.h>
+#include <model/type/numeric_type.h>
 
 
 typedef XMwayLoon::Randomizer::NumberRandomizer XMwayLoon_NumRan;
+
+
+
+
+
 
 TEST(NumberTest,convertEngNumToMyan){
 
@@ -28,4 +34,15 @@ TEST(NumberTest,getRandomMyanNum){
         std::cerr<<myanNum<<std::endl;
     }
     
+}
+
+TEST(NumberTest,getRandom){
+    NumberType data;
+    data.prefix="-";
+    data.postfix="Kyat";
+    data.setMin("100");
+    data.setMin("12000");
+    data.setSystem("Rational");
+    data.setSign("positive");
+
 }

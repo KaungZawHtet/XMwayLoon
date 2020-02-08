@@ -11,7 +11,7 @@ TypeGrid::TypeGrid(wxWindow *wParent)
 :wxGrid (wParent,wxID_ANY,wxDefaultPosition,wxSize(-1,147))
 {
 
-    this->CreateGrid(6,7);
+    this->CreateGrid(this->rows,this->columns);
     this->Fit();
 
     this->EnableEditing(true);
@@ -29,6 +29,8 @@ TypeGrid::TypeGrid(wxWindow *wParent)
     this->SetColLabelValue(4, _("Type Specific Option 1"));
     this->SetColLabelValue(5, _("Type Specific Option 2"));
     this->SetColLabelValue(6, _("Type Specific Option 3"));
+    this->SetColLabelValue(7, _("Type Specific Option 4"));
+    this->SetColLabelValue(8, _("Type Specific Option 5"));
 
 
     this->HideRowLabels();
@@ -40,6 +42,8 @@ TypeGrid::TypeGrid(wxWindow *wParent)
     this->SetColSize(4,135);
     this->SetColSize(5,135);
     this->SetColSize(6,135);
+    this->SetColSize(7,135);
+    this->SetColSize(8,135);
 
 
     for (int row = 0; row < this->rows; ++row) {
