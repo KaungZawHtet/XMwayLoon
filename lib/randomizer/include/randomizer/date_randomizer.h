@@ -85,12 +85,12 @@ namespace XMwayLoon::Randomizer{
                 Month("Dec", "December", "ဒီဇင်ဘာ", "ဒီဇင္ဘာ")
 
         };
-       pcg objPCG;
+
         DateType objDateType;
 
     public:
 
-        DateRandomizer();
+       // DateRandomizer();
         explicit DateRandomizer(DateType tmp_objDateType);
         std::string convertCompleteEngMonthToMyan(std::string engMonth,const XML_RE::Encoding &encoding);
         std::string convertShortEngMonthToMyan(std::string engMonth,const XML_RE::Encoding &encoding);

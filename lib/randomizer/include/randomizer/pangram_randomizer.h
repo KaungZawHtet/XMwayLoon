@@ -21,12 +21,12 @@ namespace XMwayLoon::Randomizer
         };
 
     private:
-        pcg objPCG;
+
         PangramType objPangramType;
 
     public:
         std::string getPangram(XML_RE::Encoding encoding);
-        PangramRandomizer();
+       // PangramRandomizer();
         explicit PangramRandomizer(PangramType tmp_objPangramType);
         std::string getRandom() override;
         void load() override;

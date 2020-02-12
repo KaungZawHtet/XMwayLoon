@@ -38,11 +38,21 @@ TEST(NumberTest,getRandomMyanNum){
 
 TEST(NumberTest,getRandom){
     NumberType data;
-    data.prefix="-";
+   data.prefix="";
     data.postfix="Kyat";
     data.setMin("100");
-    data.setMin("12000");
-    data.setSystem("Rational");
-    data.setSign("positive");
+    data.setMax("101");
+    data.setSystem("Integer");
+   // data.setSign("Negative");
+
+    XMwayLoon::Randomizer::NumberRandomizer objNumber
+            (data);
+    for (int i = 0; i < 100 ; ++i) {
+        std::string myanNum =objNumber.getRandom();
+        std::cerr<<myanNum<<std::endl;
+    }
+
+
+
 
 }

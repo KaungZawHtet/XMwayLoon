@@ -6,21 +6,22 @@
 #include <iostream>
 #include <randomizer/ph_number_randomizer.h>
 
+#include <model/type/numeric_type.h>
+
+
 TEST(PhoneNumberTest,getRandomMyanPhNum){
-    XMwayLoon::Randomizer::PhoneNumberRandomizer objPhNumRD;
+
+//"09...", "+959...","959...","random"
+    PhNumberType obj;
+    obj.setTelecom("MPT");
+    obj.setCountryCodeFlag("+959...");
+
+
+
+    XMwayLoon::Randomizer::PhoneNumberRandomizer objPhNumRD(obj);
     for(int i=0;i<10;i++)
     {
-        std::string ss=objPhNumRD.getRandomMyanPhNum(XMwayLoon::Randomizer::PhoneNumberRandomizer::CountryCodeFlag::random);
-        std::cerr<<ss<<std::endl;
-
-    }
-
-}
-TEST(PhoneNumberTest,generateEngPhNum){
-    XMwayLoon::Randomizer::PhoneNumberRandomizer objPhNumRD;
-    for(int i=0;i<100;i++)
-    {
-        std::string ss=objPhNumRD.generateEngPhNum(XMwayLoon::Randomizer::PhoneNumberRandomizer::CountryCodeFlag::random);
+        std::string ss=objPhNumRD.getRandom();
         std::cerr<<ss<<std::endl;
 
     }

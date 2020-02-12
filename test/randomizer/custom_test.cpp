@@ -6,12 +6,17 @@
 #include <iostream>
 #include <randomizer/custom_randomizer.h>
 #include <model/db/initializer.h>
+#include <model/type/alphanumeric_type.h>
 using namespace sqlite_orm;
 typedef XMwayLoon::Randomizer::CustomRandomizer XMwayLoon_CustomRandomizer;
 
 TEST(CustomTest,getData){
+CustomType objCusType;
+objCusType.encoding=XML_RE::Encoding::random;
+objCusType.fieldName="myself";
 
-    XMwayLoon_CustomRandomizer obj("myself",XML_RE::Encoding::unicode);
+
+    XMwayLoon_CustomRandomizer obj(objCusType);
 
     for (int i = 0; i < 10; ++i) {
        std::cerr<< obj.getRandom() << '\n';

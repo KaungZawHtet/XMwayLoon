@@ -153,9 +153,17 @@ std::string XMwayLoon_DateRandomizer::getRandomMyanDate
     return XMwayLoon_DateRandomizer::convertEngDateToMyan(
             XMwayLoon_DateRandomizer::generateRandomEngDate(format),encoding);
 }
+
+
+/*
 XMwayLoon_DateRandomizer::DateRandomizer() {
     this->load();
 }
+*/
+
+
+
+
 
 std::string XMwayLoon_DateRandomizer::getRandom() {
     return this->getRandomMyanDate(this->objDateType.format,this->objDateType.encoding);

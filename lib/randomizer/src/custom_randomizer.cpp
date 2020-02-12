@@ -6,6 +6,9 @@
 #include <randomizer/typedef.h>
 #include <model/db/initializer.h>
 using namespace sqlite_orm;
+
+
+/*
 XMwayLoon_CustomRandomizer::CustomRandomizer
 ( const std::string& typeName,XML_RE::Encoding tmp_encoding)
 : encoding(tmp_encoding)
@@ -13,6 +16,7 @@ XMwayLoon_CustomRandomizer::CustomRandomizer
 
     load();
 }
+*/
 
 std::string XMwayLoon_CustomRandomizer::getRandom
 () {

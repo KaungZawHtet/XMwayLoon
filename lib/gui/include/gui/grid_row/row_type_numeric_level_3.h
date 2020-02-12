@@ -29,7 +29,7 @@ public:
             : NumericRow(tmp_typeName,tmp_gTypeGrid) {}
     wxString arrTelecom[5]={"MPT","Telenor","Ooredoo","MyTel","Random"};
     int telecomCount= sizeof(arrTelecom)/ sizeof(arrTelecom[0]);
-    wxString arrCountryCodeMode[3]= {"+95 included", "no +95","random"};
+    wxString arrCountryCodeMode[4]= {"09...", "+959...","959...","random"};
     int countryCodeCount= sizeof(arrCountryCodeMode) / sizeof(arrCountryCodeMode[0]);
 
     void setTypeOnGrid();

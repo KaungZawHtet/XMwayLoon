@@ -35,11 +35,11 @@ std::string XMwayLoon_PangramRandomizer::getPangram(XML_RE::Encoding encoding){
 
 }
 
-XMwayLoon_PangramRandomizer::PangramRandomizer() {
+/*XMwayLoon_PangramRandomizer::PangramRandomizer() {
 
     this->load();
 
-}
+}*/
 
 XMwayLoon_PangramRandomizer::PangramRandomizer(PangramType tmp_objPangramType) :
 objPangramType(std::move(tmp_objPangramType))

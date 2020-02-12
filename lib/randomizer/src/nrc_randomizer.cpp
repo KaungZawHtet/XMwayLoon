@@ -63,10 +63,10 @@ std::string XMwayLoon_NRCRandomizer::getRandom()
     return this->getNRC(objNRCType.type);
 }
 
-XMwayLoon_NRCRandomizer::NRCRandomizer() {
+/*XMwayLoon_NRCRandomizer::NRCRandomizer() {
     this->load();
 
-}
+}*/
 
 std::string XMwayLoon_NRCRandomizer::get3Alpha() {
     std::uniform_int_distribution<> alphabetDistribution(0, 24);

@@ -8,81 +8,72 @@
 
 
 
-//TODO:: This need to break
-std::string XMwayLoon_PhoneNumberRandomizer::generateEngPhNum(XML_RE::CountryCodeFlag countryCodeSwitch) {
-    std::uniform_int_distribution<> operatorDistribution(1, 4);
-    std::uniform_int_distribution<> numDistribution(1000000, 9999999);
+/*
+XMwayLoon_PhoneNumberRandomizer::PhoneNumberRandomizer() :
 
-    std::string result = std::to_string(numDistribution(this->objPCG));
-        switch (operatorDistribution(this->objPCG)) {
+{
 
-            case 1: //MPT
-            {
-                std::uniform_int_distribution<> MPTPrefixDistribution(0, 9);
-                result = "09" + this->mpt.operator[](MPTPrefixDistribution(this->objPCG)).first + result;
-            }
-                break;
-
-            case 2: //Telenor
-            {
-                std::uniform_int_distribution<> telenorPrefixDistribution(0, 4);
-                result = "09" + this->telenor.operator[](telenorPrefixDistribution(this->objPCG)).first + result;
-            }
-                break;
-            case 3: //Ooredoo
-
-            {
-                std::uniform_int_distribution<> ooredooPrefixDistribution(0, 2);
-                result = "09" + this->ooredoo.operator[](ooredooPrefixDistribution(this->objPCG)).first + result;
-            }
-                 break;
-
-            case 4: //Mytel
-
-                result = "09" + this->mytel.operator[](0).first + result;
-                break;
-        }
-
-        switch (countryCodeSwitch) {
-            case XML_RE::CountryCodeFlag::withCountryCode :
-                result = "+95" + result;
-                // std::cout<<endl<<result<<endl;
-                break;
-            case XML_RE::CountryCodeFlag::noCountryCode :
-                break;
-            case XML_RE::CountryCodeFlag::random :
-                std::uniform_int_distribution<> encodingDistribution(0, 1);
-                if (encodingDistribution(this->objPCG)) result = "+95" + result;
-                break;
-        }
-    return result;
-}
-
-
-std::string XMwayLoon_PhoneNumberRandomizer::getRandomMyanPhNum
-(const XML_RE::CountryCodeFlag countryCodeSwitch) {
-    return this->objNumberRandomizer.convertEngNumToMyan(this->generateEngPhNum(countryCodeSwitch));
 
 }
-
-XMwayLoon_PhoneNumberRandomizer::PhoneNumberRandomizer() {
-
-  this->load();
-
-}
+*/
 
 std::string XMwayLoon_PhoneNumberRandomizer::getRandom() {
-    return this->getRandomMyanPhNum(objPhNumberType.countryCode);
-}
 
+  switch (this->objPhNumberType.telecom)
+  {
+      case XML_RE::Telecom::MPT:
+          return  this->vecTelecom[0]->getRandom();
+
+      case XML_RE::Telecom::Mytel:
+          return  this->vecTelecom[1]->getRandom();
+
+      case XML_RE::Telecom::Ooredoo:
+          return  this->vecTelecom[2]->getRandom();
+
+      case XML_RE::Telecom::Telenor:
+          return this->vecTelecom[3]->getRandom();
+
+      case XML_RE::Telecom::Random:
+      {
+          std::uniform_int_distribution<> telecomDistribution(0, 3);
+          int index =telecomDistribution(this->objPCG) ;
+
+         return this->vecTelecom[index]->getRandom();
+
+      }
+
+
+
+  }
+}
 void XMwayLoon_PhoneNumberRandomizer::load() {
+
     std::random_device objRD;
     this->objPCG.seed( objRD);
 }
+XMwayLoon_PhoneNumberRandomizer::~PhoneNumberRandomizer() {
 
-XMwayLoon_PhoneNumberRandomizer::PhoneNumberRandomizer(PhNumberType tmp_objPhNumberType) 
+    for (int j = 0; j < 4 ; ++j) {
+       delete this->vecTelecom[j];
+    }
+
+}
+
+
+XMwayLoon_PhoneNumberRandomizer::PhoneNumberRandomizer(PhNumberType tmp_objPhNumberType)
 : objPhNumberType(std::move(tmp_objPhNumberType))
+
+
 {
-this->load();
+    this->vecTelecom.reserve(4);
+this->vecTelecom={
+new MPT(this->objPhNumberType.countryCode),
+new MyTel(this->objPhNumberType.countryCode),
+new Ooredoo(this->objPhNumberType.countryCode),
+new Telenor(this->objPhNumberType.countryCode)
+};
+   this->load();
+
+
 }
 

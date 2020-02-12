@@ -61,9 +61,9 @@ void XMwayLoon_NameRandomizer::NameRandomizer::load() {
     this->objPCG.seed(objRD);
 }
 
-XMwayLoon_NameRandomizer::NameRandomizer::NameRandomizer() {
+/*XMwayLoon_NameRandomizer::NameRandomizer::NameRandomizer() {
     this->load();
-}
+}*/
 
 XMwayLoon_NameRandomizer::NameRandomizer(NameType tmp_nameType)
 : objNameType (std::move(tmp_nameType)) {

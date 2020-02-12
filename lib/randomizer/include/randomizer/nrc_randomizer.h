@@ -27,7 +27,7 @@ std::string alphabet[25]
    ,"ဟ","အ"
 };
 
-    pcg objPCG;
+
     NumberRandomizer objNumberRandomizer;
     NRCType objNRCType;
     std::string get3Alpha ();
@@ -37,7 +37,7 @@ public:
     explicit NRCRandomizer(NRCType tmp_objNRCType);
     std::string getRandom() override ;
     void load() override ;
-    NRCRandomizer();
+   // NRCRandomizer();
     std::string getNRC(XML_RE::NRCType type);
   
 

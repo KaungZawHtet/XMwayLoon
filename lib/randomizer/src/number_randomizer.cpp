@@ -29,7 +29,7 @@ void XMwayLoon_NumberRandomizer::addFracNSignToNumberSequence()
 
     int length= this->engNumSequence.length();
     std::uniform_int_distribution<int> fractionDistribution(1, length-1);
-    switch (this->isFraction)
+    switch (this->objNumType.system)
     {
         case XML_RE::NumberSystem::fraction:
             this->engNumSequence.insert(fractionDistribution(this->objPCG),".");
@@ -42,7 +42,7 @@ void XMwayLoon_NumberRandomizer::addFracNSignToNumberSequence()
                 this->engNumSequence.insert(fractionDistribution(this->objPCG),".");
     }
 
-    switch (this->isSigned)
+    switch (this->objNumType.sign)
     {
         case XML_RE::NumberSign::positive:
             break;
@@ -50,8 +50,9 @@ void XMwayLoon_NumberRandomizer::addFracNSignToNumberSequence()
         case XML_RE::NumberSign::negative:
             this->engNumSequence= "-"+this->engNumSequence;
             break;
-        default:
+        case XML_RE::NumberSign::random:
             if(boolDistribution(this->objPCG))   this->engNumSequence= "-"+this->engNumSequence;
+            break;
 
     }
 
@@ -66,7 +67,7 @@ std::string XMwayLoon_NumberRandomizer::getRandomMyanNum
 
     this->myanNumSequence= this->convertEngNumToMyan(std::to_string(randomNum));
 
-    return  this->prefix+this->myanNumSequence+this->postfix;
+    return  this->objNumType.prefix+this->myanNumSequence+this->objNumType.postfix;
 
 
 }
@@ -101,7 +102,7 @@ XMwayLoon_NumberRandomizer::NumberRandomizer(NumberType tmp_objNumType)
 std::string XMwayLoon_NumberRandomizer::getRandom() {
 
 //TODO: Total mistake
-    return this->getRandomMyanNum(100,1000);
+    return this->getRandomMyanNum(this->objNumType.min,this->objNumType.max);
 }
 
 void XMwayLoon_NumberRandomizer::load() {
@@ -112,11 +113,16 @@ void XMwayLoon_NumberRandomizer::load() {
 
 
 XMwayLoon_NumberRandomizer::NumberRandomizer(
-        XML_RE::NumberSign tempIsSigned,
-XML_RE::NumberSystem tempIsFraction, std::string tempPrefix,
-        std::string tempPostfix) : isSigned(tempIsSigned) , isFraction(tempIsFraction),
-                                   prefix(std::move(tempPrefix)) , postfix(std::move(tempPostfix))
+        XML_RE::NumberSign tmp_isSigned,
+XML_RE::NumberSystem tmp_isFraction, std::string tmp_prefix,
+        std::string tmp_postfix, unsigned long long tmp_min , unsigned long long tmp_max)
 {
+    this->objNumType.sign=std::move(tmp_isSigned);
+    this->objNumType.system=std::move(tmp_isFraction);
+    this->objNumType.prefix=std::move(tmp_prefix);
+    this->objNumType.postfix=std::move(tmp_postfix);
+    this->objNumType.min=std::move(tmp_min);
+    this->objNumType.max=std::move(tmp_max);
     this->load();
 }
 

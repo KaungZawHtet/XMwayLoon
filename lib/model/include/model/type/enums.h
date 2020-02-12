@@ -54,7 +54,7 @@ static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
 //Phone Number
 
     enum class CountryCodeFlag {
-        withCountryCode, noCountryCode, random
+        zero_nine, plus_nine_five, nine_five, random
     };
     enum class Telecom {
         MPT, Telenor, Ooredoo, Mytel ,Random
@@ -64,8 +64,10 @@ static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
     //{"+95 included", "no +95","random"}
     static  phmap::flat_hash_map<std::string, CountryCodeFlag > countryCodeFlagMap =
             {
-                    { "+95 included",  CountryCodeFlag::withCountryCode},
-                    { "no +95", CountryCodeFlag::noCountryCode},
+            //"09...", "+959...","959...","random"
+                    { "09...",  CountryCodeFlag::zero_nine},
+                    { "+959...", CountryCodeFlag::plus_nine_five},
+                    { "959...", CountryCodeFlag::nine_five},
                     { "random", CountryCodeFlag::random}
 
             };
@@ -92,9 +94,9 @@ static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
 
     static  phmap::flat_hash_map<std::string, NumberSign > numSignMap =
             {
-                    { "+95 included",  NumberSign::positive},
-                    { "no +95", NumberSign::negative},
-                    { "random", NumberSign::random}
+                    { "Positive",  NumberSign::positive},
+                    { "Negative", NumberSign::negative},
+                    { "Random", NumberSign::random}
 
             };
 

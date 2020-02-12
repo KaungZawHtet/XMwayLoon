@@ -29,7 +29,7 @@ namespace XMwayLoon::Randomizer {
     {
     private:
 
-            pcg objPCG;
+
 
 
         static inline constexpr std::string_view num[2]= {"၀","၁"};
@@ -44,7 +44,7 @@ namespace XMwayLoon::Randomizer {
 
 
     public:
-        BooleanRandomizer();
+      //  BooleanRandomizer();
         std::string getRandom() override;
         explicit BooleanRandomizer(BooleanType tmp_objBoolType);
         void load() override;

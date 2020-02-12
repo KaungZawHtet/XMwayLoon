@@ -44,7 +44,7 @@ namespace XMwayLoon::Randomizer {
         };
 
     private:
-        pcg objPCG;
+
 
         NameType objNameType;
 
@@ -65,7 +65,7 @@ namespace XMwayLoon::Randomizer {
 
 
     public:
-        NameRandomizer();
+      //  NameRandomizer();
         explicit NameRandomizer(NameType tmp_nameType);
 
 

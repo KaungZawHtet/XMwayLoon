@@ -15,7 +15,6 @@ namespace XMwayLoon::Randomizer  {
     private:
         std::vector<std::string> vecUniRecords;
         std::vector<std::string> vecZgRecords;
-        pcg objPCG;
         XML_RE::Encoding encoding;
         
         CustomType objCustomType;
@@ -25,7 +24,7 @@ namespace XMwayLoon::Randomizer  {
         
 
     public:
-         explicit CustomRandomizer(const std::string& tmp_typeName,XML_RE::Encoding tmp_encoding=XML_RE::Encoding::unicode);
+        // explicit CustomRandomizer(const std::string& tmp_typeName,XML_RE::Encoding tmp_encoding=XML_RE::Encoding::unicode);
          std::string getRandom() override;
          explicit CustomRandomizer(CustomType tmp_objCustomType);
          void load() override ;

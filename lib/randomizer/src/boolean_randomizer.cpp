@@ -55,10 +55,10 @@ std::string XMwayLoon_BooleanRandomizer::getAlphaBool(const XML_RE::Encoding &en
     }();
 }
 
-XMwayLoon_BooleanRandomizer::BooleanRandomizer() {
+/*XMwayLoon_BooleanRandomizer::BooleanRandomizer() {
    this->load();
 
-}
+}*/
 
 std::string XMwayLoon_BooleanRandomizer::BooleanRandomizer::getRandom() {
    return this->getBoolRandom(this->objBoolType.type, this->objBoolType.encoding);

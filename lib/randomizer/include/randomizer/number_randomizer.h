@@ -23,21 +23,22 @@ namespace XMwayLoon::Randomizer
         void addFracNSignToNumberSequence();
         std::string myanNumSequence{};
         std::string engNumSequence{};
-        std::string prefix{},postfix{};
-        pcg objPCG;
+
+
 
     public:
 
 
-        XML_RE::NumberSign isSigned;
-        XML_RE::NumberSystem isFraction;
+       // XML_RE::NumberSign isSigned;
+      //  XML_RE::NumberSystem isFraction;
 
         NumberType objNumType;
-        explicit NumberRandomizer(XML_RE::NumberSign tempIsSigned=XML_RE::NumberSign::positive
-                ,XML_RE::NumberSystem tempIsFraction=XML_RE::NumberSystem::integer,std::string tempPrefix=""
-                        ,std::string tempPostfix="");
+       //Number Randomizer is only one that needs customized constucture like this
+        explicit NumberRandomizer(XML_RE::NumberSign tmp_isSigned=XML_RE::NumberSign::positive
+                , XML_RE::NumberSystem tmp_isFraction=XML_RE::NumberSystem::integer, std::string tmp_prefix=""
+                        , std::string tmp_postfix="", unsigned long long tmp_min=0, unsigned long long tmp_max=0);
 
-        NumberRandomizer(NumberType tmp_objNumType);
+        explicit NumberRandomizer(NumberType tmp_objNumType);
         std::string getRandom() override;
         void load() override;
 
