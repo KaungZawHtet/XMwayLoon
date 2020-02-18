@@ -30,8 +30,12 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
         objGenerateInfo.encodingType = this->ctEncodeingTypeContainer->targetEncodingType;
 
 
-        std::vector<type> vecTypes;
-        vecTypes.reserve(this->ctTypeGeneration->gTypeGrid->rowPointer + 1);
+        this->cleanVec();
+        this->vecRandomizer.reserve(this->ctTypeGeneration->gTypeGrid->rowPointer + 1);
+
+        std::vector<std::string> vecTitles;
+        vecTitles.reserve(this->ctTypeGeneration->gTypeGrid->rowPointer + 1);
+
 
         int i = 0;
         //hard code in getting cell value; look like hard code in seting cell value
@@ -50,7 +54,10 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         std::string tmp_type( this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
                         objBooleanType.setType(tmp_type );
 
-                        vecTypes.emplace_back(objBooleanType);
+
+
+                        vecTitles.emplace_back(objBooleanType.fieldName);
+                        this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::BooleanRandomizer(objBooleanType));
 
                     } else if (strcmp(element.c_str(), typeid(DateType).name()) == 0) {
                         DateType objDateType;
@@ -61,7 +68,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         objDateType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
                         objDateType.format=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4);
 
-                        vecTypes.emplace_back(objDateType);
+                        vecTitles.emplace_back(objDateType.fieldName);
+                        this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::DateRandomizer(objDateType));
                     } else if (strcmp(element.c_str(), typeid(NameType).name()) == 0) {
 
                         NameType objNameType;
@@ -73,7 +81,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         std::string strGender{this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).c_str() };
                         objNameType.gender=XML_RE::genderMap[strGender];
 
-                        vecTypes.emplace_back(objNameType);
+                        vecTitles.emplace_back(objNameType.fieldName);
+                        this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::NameRandomizer(objNameType));
                     } else if (strcmp(element.c_str(), typeid(NRCType).name()) == 0) {
 
                         NRCType objNRCType;
@@ -86,7 +95,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         std::string tmp(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
                         objNRCType.setType(tmp);
 
-                        vecTypes.emplace_back(objNRCType);
+                        vecTitles.emplace_back(objNRCType.fieldName);
+                        this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::NRCRandomizer(objNRCType));
                     } else if (strcmp(element.c_str(), typeid(NumberType).name()) == 0) {
                         NumberType objNumberType;
 
@@ -103,7 +113,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         objNumberType.setMin(tmpMin);
                         objNumberType.setMax(tmpMax);
 
-                        vecTypes.emplace_back(objNumberType);
+                        vecTitles.emplace_back(objNumberType.fieldName);
+                        this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::NumberRandomizer(objNumberType));
                     } else if (strcmp(element.c_str(), typeid(PangramType).name()) == 0) {
 
                         PangramType objPangramType;
@@ -113,7 +124,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         objPangramType.setEncoding(  tmp_encode );
                         objPangramType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
 
-                        vecTypes.emplace_back(objPangramType);
+                        vecTitles.emplace_back(objPangramType.fieldName);
+                        this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::PangramRandomizer(objPangramType));
                     } else if (strcmp(element.c_str(), typeid(PhNumberType).name()) == 0) {
                         PhNumberType objPhNumberType;
 
@@ -125,7 +137,8 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         std::string tmp_telecom(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 5).mb_str());
                         objPhNumberType.setTelecom(tmp_telecom);
 
-                        vecTypes.emplace_back(objPhNumberType);
+                        vecTitles.emplace_back(objPhNumberType.fieldName);
+                        this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::PhoneNumberRandomizer(objPhNumberType));
                     } else {
 
                     }
@@ -133,14 +146,21 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                 });
 
         //just type names
-        objGenerateInfo.vecTypeNames=this->ctTypeGeneration->gTypeGrid->vecTypeNames; // dont move for safety
+     //   objGenerateInfo.vecTypeNames=this->ctTypeGeneration->gTypeGrid->vecTypeNames; // dont move for safety
 
         //actual type obj
-        objGenerateInfo.vecTypes=std::move(vecTypes) ;
+        objGenerateInfo.vecRandomizers=vecRandomizer;
+        objGenerateInfo.fieldCount =vecRandomizer.size();
+
+        objGenerateInfo.vecTitles=std::move(vecTitles);
 
         Generator objGenerator(objGenerateInfo);
-       // objGenerator.generate();
+        objGenerator.generate();
 
+    } else
+    {
+        wxMessageDialog *dial = new wxMessageDialog(this,
+                                                    wxT("This is error"), wxT("Error")); dial->ShowModal();
     }
 
 

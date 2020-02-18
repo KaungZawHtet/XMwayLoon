@@ -5,14 +5,14 @@
 
 bool GeneratePage::validate() {
 
-    bool doesLocationExist=this->ctGeneratedFileContainer->tcGeneratedFile->GetValue()=="";
+    bool doesLocationExist=this->ctGeneratedFileContainer->tcGeneratedFile->GetValue()!="";
     bool doesFormatExist
     = (this->ctOutputFormatContainer->cbXML->GetValue()
             or this->ctOutputFormatContainer->cbJSON->GetValue()
             or this->ctOutputFormatContainer->cbHTML->GetValue()
             or this->ctOutputFormatContainer->cbCSV->GetValue());
 
-    if(doesLocationExist)
+    if(!doesLocationExist)
     {
         this->ctGeneratedFileContainer->stError->SetLabelText("Fill the location");
         this->ctGeneratedFileContainer->stError->SetForegroundColour(wxColor(*wxRED));
@@ -30,4 +30,16 @@ bool GeneratePage::validate() {
     if(doesFormatExist and doesLocationExist) return true;
     else return false;
 
+}
+
+void GeneratePage::cleanVec() {
+    std::for_each(this->vecRandomizer.begin(),this->vecRandomizer.end(),[](auto item){
+        delete item;
+    });
+    this->vecRandomizer.clear();
+
+}
+
+GeneratePage::~GeneratePage() {
+this->cleanVec();
 }

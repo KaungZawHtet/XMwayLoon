@@ -9,6 +9,7 @@
 #include <gui/data_generation/output_amount_container.h>
 #include <gui/data_generation/generated_file_container.h>
 #include <gui/data_generation/output_format_container.h>
+#include <randomizer/root_randomizer.h>
 class GeneratePage : public wxPanel
 {
 public:
@@ -25,9 +26,13 @@ public:
     wxButton *btnGenerate;
 
 
+
+    std::vector<XMwayLoon::Randomizer::RootRandomizer*> vecRandomizer;
     std::shared_ptr<wxFont> font= std::make_shared<wxFont>();
     void createGenerateButton();
 
+    void cleanVec();
+    ~GeneratePage();
 
     void onGenerate(wxCommandEvent& event);
     bool validate();

@@ -14,7 +14,7 @@ TEST(PhoneNumberTest,getRandomMyanPhNum){
 //"09...", "+959...","959...","random"
     PhNumberType obj;
     obj.setTelecom("MPT");
-    obj.setCountryCodeFlag("+959...");
+    obj.setCountryCodeFlag("random");
 
 
 

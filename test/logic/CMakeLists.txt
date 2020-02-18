@@ -4,7 +4,7 @@ add_executable(XMLTest xml_test.cpp)
 add_executable(HTMLTest html_test.cpp)
 add_executable(FileTest file_test.cpp)
 add_executable(GeneralLogicTest general_test.cpp)
-
+add_executable(ParallelTest parallel_test.cpp)
 
 add_test(Name CSVTest
         COMMAND CSVTest)
@@ -18,6 +18,9 @@ add_test(Name FileTest
         COMMAND FileTest)
 add_test(Name GeneralLogicTest
         COMMAND GeneralLogicTest)
+add_test(Name ParallelTest
+        COMMAND ParallelTest)
+
 
 message("${Boost_LIBRARIES}")
 
@@ -27,3 +30,4 @@ target_link_libraries(XMLTest gtest_main logic model)
 target_link_libraries(HTMLTest gtest_main logic model)
 target_link_libraries(FileTest gtest_main customized_third_parties sqlite3)
 target_link_libraries(GeneralLogicTest gtest_main ${Boost_LIBRARIES} customized_third_parties)
+target_link_libraries(ParallelTest gtest_main ${Boost_LIBRARIES} customized_third_parties)

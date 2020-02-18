@@ -37,3 +37,31 @@ TEST(JsonTest, jsonRead) {
 
 
 }
+
+TEST(JsonTest, jsonWrite) {
+
+    json objJson;
+    json innerJson;
+    string path = Initializer::directory+"/key.json";
+
+    cout <<path;
+    std::fstream file(path);
+
+    std::vector<std::string> title= {"id","name","email","age"};
+    std::vector<std::string> data= {"6","Mya","r@gmail.com","21"};
+
+
+
+    for (int i = 0; i < 10; ++i) {
+
+        for (int j = 0; j <4 ; ++j) {
+            innerJson[title[j]] =data[j];
+
+
+        }
+
+        objJson["object"+std::to_string(i)] =innerJson;
+
+}
+    file << objJson;
+}

@@ -22,8 +22,8 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     this->stAddTypeTitle = new wxStaticText(this->gpParent, -1,
                                             wxT("Choose the type to generate : "));
     this->stAddTypeTitle->SetFont(this->gpParent->font->Bold());
-    this->btnAddType = new wxButton(this->gpParent, BTN_ADD_TYPE_ID, wxT("+"),wxDefaultPosition,wxSize(60,-1));
-    this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("-"),wxDefaultPosition,wxSize(60,-1));
+    this->btnAddType = new wxButton(this->gpParent, BTN_ADD_TYPE_ID, wxT("Add"),wxDefaultPosition,wxSize(90,-1));
+    this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("Remove"),wxDefaultPosition,wxSize(90,-1));
     this->btnReadMe =  new wxButton(this->gpParent, BTN_README_ID, wxT("?"),wxDefaultPosition,wxSize(30,-1));
 
 

@@ -10,7 +10,7 @@
 #include <vector>
 #include <model/type/typedef.h>
 #include <randomizer/typedef.h>
-
+#include <randomizer/root_randomizer.h>
 
 
 namespace hana = boost::hana;
@@ -28,13 +28,15 @@ enum class EncodingType{
 
 struct GenerateInfo
 {
+    int fieldCount;
     OutputFormat objOutputFormat;
     EncodingType encodingType;
     std::string targetFile;
-    double outputRecordAmount=-1;
-    double outputFileSize=-1;
-    std::vector<type> vecTypes;
-    std::vector<std::string> vecTypeNames;
+    double outputRecordAmount;
+    double outputFileSize;
+    std::vector<XMwayLoon::Randomizer::RootRandomizer*> vecRandomizers;
+    std::vector<std::string> vecTitles;
+
 
 };
 

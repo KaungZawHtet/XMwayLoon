@@ -18,12 +18,13 @@
 class Generator
 {
 public:
-  //  tf::Executor executor;
-   // tf::Taskflow taskflow;
+    tf::Executor executor;
+    tf::Taskflow taskflow;
 
-   // tf::Task taskRandomization;
-   // std::vector<std::string> vecRanResults;
-  //  std::vector<randomizer> vecRandomizers;
+
+    bool isFirst=true;
+    tf::Task taskRandomization;
+    std::string *arrRanResults;
 
     GenerateInfo objGenerateInfo;
 
@@ -31,10 +32,16 @@ public:
 
     explicit Generator( GenerateInfo tmp_objGenerateInfo );
 
+    void writeCsvRow(std::string *arrItems,std::fstream &fout);
+    void prepareRanTask();
+    void prepareJSONTask();
+    void prepareCSVTask();
+    void prepareXMLTask();
+    void prepareHTMLTask();
+    void connectTasks();
+    void generate();
 
-
-
-
+    ~Generator();
 
 
 };
