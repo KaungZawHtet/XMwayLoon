@@ -60,7 +60,7 @@ void DateRow::setTypeOnGrid() {
    this->setEncodingCell();
 
     //field for format
-    this->setTextCtrl(this->gTypeGrid->rowPointer, this->colPointer,"Date Format");
+    this->setTextCtrl(this->gTypeGrid->rowPointer, this->colPointer,"%d-%b-%y");
 
     //null field
     this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);

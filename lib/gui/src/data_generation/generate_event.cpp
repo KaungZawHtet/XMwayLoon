@@ -11,7 +11,6 @@
 #include <logic/generation_task_manager/generator.h>
 
 void GeneratePage::onGenerate(wxCommandEvent &event) {
-    // int a = this->scRecordNumber->GetValue();
 
     /* wxMessageDialog *dial = new wxMessageDialog(this,
              wxString::Format(wxT("%d"),a), wxT("Error")); dial->ShowModal();*/
@@ -25,19 +24,18 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                 = std::string(this->ctGeneratedFileContainer->tcGeneratedFile->GetValue().mb_str());
         objGenerateInfo.objOutputFormat
                 = this->ctOutputFormatContainer->objOutputFormat;
-        objGenerateInfo.outputRecordAmount = this->ctOutputAmountContainer->outputRecordAmount;
-        objGenerateInfo.outputFileSize = this->ctOutputAmountContainer->outputFileSize;
         objGenerateInfo.encodingType = this->ctEncodeingTypeContainer->targetEncodingType;
 
 
         this->cleanVec();
+
         this->vecRandomizer.reserve(this->ctTypeGeneration->gTypeGrid->rowPointer + 1);
 
         std::vector<std::string> vecTitles;
         vecTitles.reserve(this->ctTypeGeneration->gTypeGrid->rowPointer + 1);
 
 
-        int i = 0;
+       int i = 0;
         //hard code in getting cell value; look like hard code in seting cell value
         std::for_each(this->ctTypeGeneration->gTypeGrid->vecTypeNames.begin(),
                       this->ctTypeGeneration->gTypeGrid->vecTypeNames.end(), [&](auto &element) {
@@ -144,6 +142,11 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                     }
                     i++;
                 });
+
+        objGenerateInfo.setRecordAmount(
+                this->ctOutputAmountContainer->outputRecordAmount
+                ,this->ctOutputAmountContainer->outputFileSize
+                ,this->ctOutputAmountContainer->isRecordAmount);
 
         //just type names
      //   objGenerateInfo.vecTypeNames=this->ctTypeGeneration->gTypeGrid->vecTypeNames; // dont move for safety

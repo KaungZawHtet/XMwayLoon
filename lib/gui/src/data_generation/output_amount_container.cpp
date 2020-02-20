@@ -32,14 +32,16 @@ OutputAmountContainer::OutputAmountContainer(GeneratePage *tmp_gpParent, wxBoxSi
                                               wxT("GB"));
       this->scRecordNumber = new wxSpinCtrl(this->gpParent, wxID_ANY, wxString(""),
                                             wxPoint(-1, -1), wxSize(-1, -1), wxSP_ARROW_KEYS,
-                                            1, 2147483647, 100);
+                                            1, INT_MAX, 100);
+      this->outputRecordAmount=100;
       this->scFileSize = new wxSpinCtrlDouble(this->gpParent, wxID_ANY, wxString(""),
                                               wxPoint(-1, -1), wxSize(-1, -1), wxSP_ARROW_KEYS,
-                                              0.000001, 2147483647, 1);
+                                              0.1, DBL_MAX, 1);
+      this->outputFileSize=1;
 
       this->rdRecordNumber->SetValue(true);
       this->gpParent->Bind(wxEVT_RADIOBUTTON, &OutputAmountContainer::onChangeOutputAmountType,
-               this); //TODO:: hander 'this' need to change if refactoring
+               this); //TODO:: handler 'this' need to change if refactoring
 
     //connect Record Size's widgets to horrizontal BoxSizer
     this->bsRecordSizeTitle->Add(this->stRecordSizeTitle, 0);
@@ -58,17 +60,21 @@ OutputAmountContainer::OutputAmountContainer(GeneratePage *tmp_gpParent, wxBoxSi
 
 void OutputAmountContainer::onChangeOutputAmountType(wxCommandEvent &event) {
     int id = event.GetId();
-    if (id == RD_FILE_SIZE_ID)
-    {
-        this->scRecordNumber->SetValue(100);
-        this->outputRecordAmount=this->scRecordNumber->GetValue();
-    }
 
     if (id == RD_RECORD_NUMBER_ID)
     {
         this->scFileSize->SetValue(1);
         this->outputRecordAmount= this->scFileSize->GetValue();
+        this->isRecordAmount=true;
     }
+    if (id == RD_FILE_SIZE_ID)
+    {
+        this->scRecordNumber->SetValue(100);
+        this->outputFileSize=this->scRecordNumber->GetValue();
+        this->isRecordAmount=false;
+    }
+
+
 
     event.Skip();
 }

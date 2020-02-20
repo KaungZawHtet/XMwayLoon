@@ -45,7 +45,7 @@ TEST(JsonTest, jsonWrite) {
     string path = Initializer::directory+"/key.json";
 
     cout <<path;
-    std::fstream file(path);
+    std::ofstream file(path);
 
     std::vector<std::string> title= {"id","name","email","age"};
     std::vector<std::string> data= {"6","Mya","r@gmail.com","21"};

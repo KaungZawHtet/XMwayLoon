@@ -35,6 +35,7 @@ void NumberRow::setTypeOnGrid() {
 
 this->setNoEncodingCell();
 
+    //type field
     this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrNumberType,this->NumberRowCount);
 
 
@@ -45,10 +46,10 @@ this->setNoEncodingCell();
     this->setTextCtrl(this->gTypeGrid->rowPointer, this->colPointer,"Postfix");
 
     //min field
-    this->setNumCtrl(this->gTypeGrid->rowPointer, this->colPointer);
+    this->setNumCtrl(this->gTypeGrid->rowPointer, this->colPointer,"10");
 
     //max field
-    this->setNumCtrl(this->gTypeGrid->rowPointer, this->colPointer);
+    this->setNumCtrl(this->gTypeGrid->rowPointer, this->colPointer,"100");
 
     ++(this->gTypeGrid->rowPointer);
 

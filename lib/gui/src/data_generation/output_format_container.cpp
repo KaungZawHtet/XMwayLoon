@@ -27,6 +27,7 @@ wxControl(tmp_gpParent,-1)
     this->stError= new wxStaticText(this->gpParent, -1,
                                     wxT(""));
     this->cbCSV = new wxCheckBox(this->gpParent, CB_CSV_ID, wxT("CSV"));
+    this->cbCSV->SetValue(true);
     this->cbJSON = new wxCheckBox(this->gpParent, CB_JSON_ID, wxT("JSON"));
     this->cbXML = new wxCheckBox(this->gpParent, CB_XML_ID, wxT("XML"));
     this->cbHTML = new wxCheckBox(this->gpParent, CB_HTML_ID, wxT("HTML"));
@@ -58,9 +59,17 @@ wxControl(tmp_gpParent,-1)
 void OutputFormatContainer::onChecked(wxCommandEvent &event) {
 
     if(this->cbCSV->IsChecked()) objOutputFormat.CSV= true;
+    else  objOutputFormat.CSV= false;
+
     if(this->cbHTML->IsChecked()) objOutputFormat.HTML= true;
+    else objOutputFormat.HTML= false;
+
     if(this->cbJSON->IsChecked()) objOutputFormat.JSON= true;
+    else  objOutputFormat.JSON= false;
+
     if(this->cbXML->IsChecked()) objOutputFormat.XML= true;
+    else objOutputFormat.XML= false;
+
 
     event.Skip();
 

@@ -32,10 +32,24 @@ struct GenerateInfo
     OutputFormat objOutputFormat;
     EncodingType encodingType;
     std::string targetFile;
-    double outputRecordAmount;
-    double outputFileSize;
+     long outputRecordAmount;
+    //double outputFileSize;
     std::vector<XMwayLoon::Randomizer::RootRandomizer*> vecRandomizers;
     std::vector<std::string> vecTitles;
+    
+     long calculateFileSize(double value){
+        //TODO:: this need to do
+        return (long)value;
+    }
+    void setRecordAmount(int iValue,double dValue,bool isRecordAmount)
+    {
+        if(isRecordAmount)
+        {
+            this->outputRecordAmount=iValue;
+        } else{
+            this->outputRecordAmount=calculateFileSize(dValue);
+        }
+    }
 
 
 };

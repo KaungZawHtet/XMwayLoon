@@ -33,7 +33,7 @@ bool GeneratePage::validate() {
 }
 
 void GeneratePage::cleanVec() {
-    std::for_each(this->vecRandomizer.begin(),this->vecRandomizer.end(),[](auto item){
+    std::for_each(this->vecRandomizer.begin(),this->vecRandomizer.end(),[](auto &item){
         delete item;
     });
     this->vecRandomizer.clear();

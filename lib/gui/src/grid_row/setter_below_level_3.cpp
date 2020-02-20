@@ -24,6 +24,8 @@ void Row::setNameCell() {
             , _(this->typeName));
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer,true);
     this->colPointer++;
+
+
 }
 
 void Row::setBlankCell(int &rowPointer, int &colPointer) {
@@ -51,7 +53,9 @@ void Row::setTextCtrl(int &rowPointer,int &colPointer,wxString prompt) {
 
 }
 
-void Row::setNumCtrl(int &rowPointer, int &colPointer) {
+
+
+void Row::setNumCtrl(int &rowPointer, int &colPointer,wxString value) {
     this->colPointer++;
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false);
    // this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer, _(arr[0]));
@@ -61,6 +65,8 @@ void Row::setNumCtrl(int &rowPointer, int &colPointer) {
     this->gTypeGrid->SetCellRenderer
             (this->gTypeGrid->rowPointer,this->colPointer
                     ,new wxGridCellNumberRenderer);
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer,this->colPointer
+            ,_(value));
 
 
 }
@@ -76,8 +82,10 @@ void AlphaNumericRow::setEncodingCell() {
                     ,new wxGridCellChoiceEditor(encodeCount,this->arrEncodingType));
     this->colPointer++;
 
+    //field Name
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false); //for field name
-
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer
+            ,_("My field")+wxString::Format(wxT("%d"), 1+this->gTypeGrid->rowPointer));
 
 }
 
@@ -87,8 +95,10 @@ void NumericRow::setNoEncodingCell() {
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer,this->colPointer);
     this->colPointer++;
 
+    //field Name
     this->gTypeGrid->SetReadOnly(this->gTypeGrid->rowPointer, this->colPointer, false); //for field name
-
+    this->gTypeGrid->SetCellValue(this->gTypeGrid->rowPointer, this->colPointer
+            , _("My field")+wxString::Format(wxT("%d"), 1+this->gTypeGrid->rowPointer));
 
 
 

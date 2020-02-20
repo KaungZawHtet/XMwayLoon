@@ -42,8 +42,9 @@ public:
     wxStaticLine *sl1;
 
 
-    double outputRecordAmount=NULL;
-    double outputFileSize=NULL;
+    double outputRecordAmount;
+    bool isRecordAmount=true;
+    double outputFileSize;
 
     void onChangeOutputAmountType(wxCommandEvent& event);
 

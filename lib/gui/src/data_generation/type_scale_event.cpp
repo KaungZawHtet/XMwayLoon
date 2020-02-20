@@ -68,8 +68,11 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
             break;
         default:
         {
-            CustomRow objCustomRow(this->objTypeLoader.vecAllTypes[index], this->gTypeGrid);
-            objCustomRow.setTypeOnGrid();
+            if(index>0){
+                CustomRow objCustomRow(this->objTypeLoader.vecAllTypes[index], this->gTypeGrid);
+                objCustomRow.setTypeOnGrid();
+            }
+
 
         }
             break;
@@ -86,6 +89,7 @@ void TypeGenerationContainer::onRemoveType(wxCommandEvent &event) {
     if(this->gTypeGrid->rowPointer>0)
     {
         this->gTypeGrid->DeleteRows(this->gTypeGrid->rowPointer-1);
+        this->gTypeGrid->vecTypeNames.pop_back();
         --(this->gTypeGrid->rowPointer);
     }
 
