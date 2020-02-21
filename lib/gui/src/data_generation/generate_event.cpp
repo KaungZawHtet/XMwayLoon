@@ -17,14 +17,14 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
 
     if(validate())
     {
-        GenerateInfo objGenerateInfo;
+        GenerateInfo *objGenerateInfo= new GenerateInfo();
 
 
-        objGenerateInfo.targetFile
+        objGenerateInfo->targetFile
                 = std::string(this->ctGeneratedFileContainer->tcGeneratedFile->GetValue().mb_str());
-        objGenerateInfo.objOutputFormat
+        objGenerateInfo->objOutputFormat
                 = this->ctOutputFormatContainer->objOutputFormat;
-        objGenerateInfo.encodingType = this->ctEncodeingTypeContainer->targetEncodingType;
+        objGenerateInfo->encodingType = this->ctEncodeingTypeContainer->targetEncodingType;
 
 
         this->cleanVec();
@@ -143,19 +143,19 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                     i++;
                 });
 
-        objGenerateInfo.setRecordAmount(
+        objGenerateInfo->setRecordAmount(
                 this->ctOutputAmountContainer->outputRecordAmount
                 ,this->ctOutputAmountContainer->outputFileSize
                 ,this->ctOutputAmountContainer->isRecordAmount);
 
         //just type names
-     //   objGenerateInfo.vecTypeNames=this->ctTypeGeneration->gTypeGrid->vecTypeNames; // dont move for safety
+     //   objGenerateInfo->vecTypeNames=this->ctTypeGeneration->gTypeGrid->vecTypeNames; // dont move for safety
 
         //actual type obj
-        objGenerateInfo.vecRandomizers=vecRandomizer;
-        objGenerateInfo.fieldCount =vecRandomizer.size();
+        objGenerateInfo->vecRandomizers=vecRandomizer;
+        objGenerateInfo->fieldCount =vecRandomizer.size();
 
-        objGenerateInfo.vecTitles=std::move(vecTitles);
+        objGenerateInfo->vecTitles=std::move(vecTitles);
 
         Generator objGenerator(objGenerateInfo);
         objGenerator.generate();

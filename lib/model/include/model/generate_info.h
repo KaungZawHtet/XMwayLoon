@@ -4,7 +4,7 @@
 
 #ifndef XMWAYLOON_GENERATE_INFO_H
 #define XMWAYLOON_GENERATE_INFO_H
-#include <boost/hana.hpp>
+
 #include <string>
 #include <any>
 #include <vector>
@@ -13,7 +13,7 @@
 #include <randomizer/root_randomizer.h>
 
 
-namespace hana = boost::hana;
+
 struct OutputFormat {
     bool CSV;
     bool JSON;

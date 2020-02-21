@@ -5,7 +5,7 @@
 #ifndef XMWAYLOON_GENERATOR_H
 #define XMWAYLOON_GENERATOR_H
 
-
+#include <logic/generation_task_manager/random_data_writers.h>
 #include <taskflow/taskflow.hpp>
 #include <model/type/typedef.h>
 #include <model/generate_info.h>
@@ -14,7 +14,7 @@
 #include <taskflow/taskflow.hpp>
 #include <model/type/typedef.h>
 #include <variant>
-
+#include <logic/generation_task_manager/random_data_writers.h>
 class Generator
 {
 public:
@@ -26,13 +26,18 @@ public:
     tf::Task taskRandomization;
     std::string *arrRanResults;
 
-    GenerateInfo objGenerateInfo;
+    GenerateInfo *objGenerateInfo;
+
+    CSVWriter *objCSVWriter= nullptr;
+    HTMLWriter *objHTMLWriter= nullptr;
+    JSONWriter *objJSONWriter= nullptr;
+    XMLWriter *objXMLWriter= nullptr;
 
 
 
-    explicit Generator( GenerateInfo tmp_objGenerateInfo );
+    explicit Generator( GenerateInfo *tmp_objGenerateInfo );
 
-    void writeCsvRow(std::string *arrItems,std::fstream &fout);
+
     void prepareRanTask();
     void prepareJSONTask();
     void prepareCSVTask();

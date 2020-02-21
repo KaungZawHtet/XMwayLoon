@@ -76,3 +76,42 @@ TEST(XMLTest, writeXML2) {
 
     fclose(ptrFile);
 }
+
+TEST(XMLTest, writeXML3) {
+    long iHTML=0;
+
+    std::string path = Initializer::directory+"/key.html";
+    FILE* ptrFile = fopen(path.c_str(), "w");
+
+    tinyxml2::XMLDocument xml=  tinyxml2::XMLDocument(true, tinyxml2::COLLAPSE_WHITESPACE);
+    tinyxml2::XMLElement* htmlElement = xml.NewElement("html");
+    tinyxml2::XMLElement* bodyElement = xml.NewElement("body");
+    tinyxml2::XMLElement* tableElement = xml.NewElement("table");
+
+    std::vector<std::string> title= {"id","name","email","age"};
+    std::vector<std::string> arrData= {"6","Mya","r@gmail.com","21"};
+
+    while ( iHTML < 3) {
+
+        tinyxml2::XMLElement* trElement= xml.NewElement("tr");
+        for (int i = 0; i < 4; ++i) {
+          //  std::cout<<arrData[i]<< std::endl;
+            tinyxml2::XMLText* data = xml.NewText( arrData[i].c_str());
+            // std::cout<<"HTML::" <<data<<"\n";
+            tinyxml2::XMLElement* tdElement = xml.NewElement("td");
+            tdElement->InsertEndChild(data);
+            trElement->InsertEndChild(tdElement);
+        }
+        tableElement->InsertEndChild(trElement);
+
+        ++(iHTML);
+    }
+
+    bodyElement->InsertEndChild(tableElement);
+    htmlElement->InsertEndChild(bodyElement);
+
+    xml.InsertEndChild(htmlElement);
+    xml.SaveFile(ptrFile);
+    fclose(ptrFile);
+    
+}

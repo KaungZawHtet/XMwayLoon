@@ -32,6 +32,13 @@ wxControl(tmp_gpParent,-1)
     this->cbXML = new wxCheckBox(this->gpParent, CB_XML_ID, wxT("XML"));
     this->cbHTML = new wxCheckBox(this->gpParent, CB_HTML_ID, wxT("HTML"));
 
+    objOutputFormat.CSV= true;
+    objOutputFormat.JSON= false;
+    objOutputFormat.XML= false;
+    objOutputFormat.HTML= false;
+
+
+
     //connect Output format's widgets to horrizontal BoxSizer
     this->bsFormatTypeTitle->Add(this->stFormatTypeTitle);
     this->bsFormatTypeTitle->Add(this->stError);
