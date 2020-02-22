@@ -39,6 +39,8 @@ GeneratedFileContainer::GeneratedFileContainer
     this->bsMain->Add(this->st5,0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
     this->bsMain->Add(-1,0,wxTOP ,5);
 
+
+
 }
 
 void GeneratedFileContainer::onTarget

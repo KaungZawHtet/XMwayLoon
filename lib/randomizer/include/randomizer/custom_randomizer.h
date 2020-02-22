@@ -18,7 +18,7 @@ namespace XMwayLoon::Randomizer  {
         XML_RE::Encoding encoding;
         
         CustomType objCustomType;
-        std::string typeName;
+
 
         
         

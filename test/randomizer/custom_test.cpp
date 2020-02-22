@@ -13,7 +13,7 @@ typedef XMwayLoon::Randomizer::CustomRandomizer XMwayLoon_CustomRandomizer;
 TEST(CustomTest,getData){
 CustomType objCusType;
 objCusType.encoding=XML_RE::Encoding::random;
-objCusType.fieldName="myself";
+objCusType.fieldName="တိုင်းဒေသကြီး";
 
 
     XMwayLoon_CustomRandomizer obj(objCusType);
@@ -28,7 +28,7 @@ TEST(CustomTest,VceTest){
                                   inner_join<CustomTypeName>
                                           (on(c(&CustomTypeName::id) == &CustomTypeRecord::custom_type_name_id
                                           )),
-                                  where(c(&CustomTypeName::type_name) == "myself")
+                                  where(c(&CustomTypeName::type_name) == "တိုင်းဒေသကြီး")
     );
 
    for( auto &element  : a)

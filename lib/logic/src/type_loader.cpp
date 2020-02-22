@@ -14,11 +14,13 @@ void TypeLoader::load() {
     std::vector<std::string> tmpType= Initializer::storage
             .select(&CustomTypeName::type_name);
 
+
     TypeLoader::totalCount+= tmpType.size();
 
 
     TypeLoader::vecAllTypes.reserve(TypeLoader::totalCount);
     TypeLoader::vecAllTypes.insert(TypeLoader::vecAllTypes.end(), tmpType.begin(), tmpType.end());
+
 
 
 

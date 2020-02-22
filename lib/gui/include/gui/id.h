@@ -2,11 +2,11 @@
 #define ID_H
 
 #include <wx/wx.h>
-
-class cache {
+#include <logic/type_loader.h>
+class WidgetsCache {
 public:
     static inline wxComboBox *cbAddType;
-
+static inline TypeLoader* objTypeLoader;
 
 };
 

@@ -61,11 +61,13 @@ TEST(GeneralTest, Zg2UniconversionTest) {
 
 TEST(GeneralTest, encodingDetect) {
 
-    if(MyanmarZawgyiConverter::isZawgyiEncoded("ကောင်းဇော်ထက်")) std::cerr<<"Unicode"<<"\n";
-    else std::cerr<<"may be zawgyi"<<"\n";
-
-    if(MyanmarZawgyiConverter::isZawgyiEncoded("ေကာင္းေဇာ္ထက္"))std::cerr<<"zawgyi"<<"\n";
+    //input is unicode
+    if(MyanmarZawgyiConverter::isZawgyiEncoded("မေကြးတိုင္း")) std::cerr<<"yes this is zawgyi"<<"\n";
     else std::cerr<<"may be unicode"<<"\n";
+
+    //input is zawgyi
+    /*if(MyanmarZawgyiConverter::isZawgyiEncoded("ေကာင္းေဇာ္ထက္")) std::cerr<<"yes this is zawgyi"<<"\n";
+    else std::cerr<<"may be unicode"<<"\n";*/
 
     //std::u16string st= u"";
 }

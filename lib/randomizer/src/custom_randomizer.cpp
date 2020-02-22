@@ -66,9 +66,9 @@ XMwayLoon_CustomRandomizer::CustomRandomizer(CustomType tmp_objCustomType)
 
 :objCustomType(std::move(tmp_objCustomType))
 {
-    this->typeName=objCustomType.fieldName;
+
     this->encoding = objCustomType.encoding;
-    load();
+    this->load();
 
 }
 
@@ -85,7 +85,7 @@ void XMwayLoon_CustomRandomizer::load() {
                                                               inner_join<CustomTypeName>
                                                                       (on(c(&CustomTypeName::id) == &CustomTypeRecord::custom_type_name_id
                                                                       )),
-                                                              where(c(&CustomTypeName::type_name) == typeName)
+                                                              where(c(&CustomTypeName::type_name) ==  this->objCustomType.typeName)
             );
 
 
@@ -95,7 +95,7 @@ void XMwayLoon_CustomRandomizer::load() {
                                                              inner_join<CustomTypeName>
                                                                      (on(c(&CustomTypeName::id) == &CustomTypeRecord::custom_type_name_id
                                                                      )),
-                                                             where(c(&CustomTypeName::type_name) == typeName)
+                                                             where(c(&CustomTypeName::type_name) ==  this->objCustomType.typeName)
             );
             break;
         case XML_RE::Encoding::random :
@@ -104,14 +104,14 @@ void XMwayLoon_CustomRandomizer::load() {
                                                               inner_join<CustomTypeName>
                                                                       (on(c(&CustomTypeName::id) == &CustomTypeRecord::custom_type_name_id
                                                                       )),
-                                                              where(c(&CustomTypeName::type_name) == typeName)
+                                                              where(c(&CustomTypeName::type_name) ==  this->objCustomType.typeName)
             );
 
             this->vecZgRecords = Initializer::storage.select(&CustomTypeRecord::zawgyi_unit,
                                                              inner_join<CustomTypeName>
                                                                      (on(c(&CustomTypeName::id) == &CustomTypeRecord::custom_type_name_id
                                                                      )),
-                                                             where(c(&CustomTypeName::type_name) == typeName)
+                                                             where(c(&CustomTypeName::type_name) == this->objCustomType.typeName)
             );
 
             break;

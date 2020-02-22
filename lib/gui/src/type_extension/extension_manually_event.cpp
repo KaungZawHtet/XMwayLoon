@@ -90,8 +90,8 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
 
 
                 //Extend combobox at gen page
-                cache::cbAddType->Append(objTypeName.type_name.data());
-
+                WidgetsCache::cbAddType->Append(objTypeName.type_name.data());
+                WidgetsCache::objTypeLoader->load();
             }
 
         }

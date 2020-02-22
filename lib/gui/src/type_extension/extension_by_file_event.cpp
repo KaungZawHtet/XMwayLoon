@@ -72,20 +72,20 @@ void ExtensionByFile_Container::onExtend(wxCommandEvent &event) {
 
                 } else {
 
-                    objCTR.zawgyi_unit = value;
-                    objCTR.unicode_unit = unicode_to_zawgyi(value.c_str());
+                    objCTR.zawgyi_unit = unicode_to_zawgyi(value.c_str());
+                    objCTR.unicode_unit = value;
 
                 }
                 Initializer::storage.insert(objCTR);
 
             }
             //Extend combobox at gen page
-            cache::cbAddType->Append(objTypeName.type_name.data());
+            WidgetsCache::cbAddType->Append(objTypeName.type_name.data());
 
 
         }
 
-
+            WidgetsCache::objTypeLoader->load();
 
     }
         catch (exception e){

@@ -62,7 +62,7 @@ struct BooleanType : public AlphanumericType
 struct CustomType : public AlphanumericType
 {
 
-
+std::string typeName;
 };
 
 

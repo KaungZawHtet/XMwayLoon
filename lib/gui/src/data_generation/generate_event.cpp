@@ -138,6 +138,19 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
                         vecTitles.emplace_back(objPhNumberType.fieldName);
                         this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::PhoneNumberRandomizer(objPhNumberType));
                     } else {
+                        CustomType objCustomType;
+
+                        objCustomType.index=i;
+                        objCustomType.typeName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 1);
+                        std::string tmp_encode(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2).mb_str());
+                        objCustomType.setEncoding(  tmp_encode );
+                        objCustomType.fieldName=this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
+
+
+                        vecTitles.emplace_back(objCustomType.fieldName);
+                        this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::CustomRandomizer(objCustomType));
+
+
 
                     }
                     i++;

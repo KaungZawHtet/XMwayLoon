@@ -16,7 +16,9 @@
 #include <randomizer/pangram_randomizer.h>
 #include <randomizer/ph_number_randomizer.h>
 #include <randomizer/typedef.h>
-typedef std::variant<BooleanType,DateType,NameType,NRCType,NumberType,PangramType,PhNumberType> type;
+#include <randomizer/custom_randomizer.h>
+
+typedef std::variant<BooleanType,DateType,NameType,NRCType,NumberType,PangramType,PhNumberType,CustomType> type;
 typedef std::variant<
         XMwayLoon::Randomizer::BooleanRandomizer
 ,XMwayLoon::Randomizer::DateRandomizer
@@ -25,5 +27,6 @@ typedef std::variant<
 ,XMwayLoon::Randomizer::NumberRandomizer
 ,XMwayLoon::Randomizer::PangramRandomizer
 ,XMwayLoon::Randomizer::PhoneNumberRandomizer
+,XMwayLoon::Randomizer::CustomRandomizer
 > randomizer;
 #endif //XMWAYLOON_TYPEDEF_H

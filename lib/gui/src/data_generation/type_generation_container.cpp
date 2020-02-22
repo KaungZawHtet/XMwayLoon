@@ -32,7 +32,7 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
             ,this->objTypeLoader.totalCount,this->objTypeLoader.vecAllTypes.data()
             );
 //cache attempt
-    cache::cbAddType=this->cbAddType;
+    WidgetsCache::cbAddType=this->cbAddType;
 
     this->cbAddType->SetEditable(false);
 
@@ -61,7 +61,7 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
 
     this->bsMain->Add(sl0, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 20);
 
-
+    WidgetsCache::objTypeLoader=&(this->objTypeLoader);
 }
 
 
