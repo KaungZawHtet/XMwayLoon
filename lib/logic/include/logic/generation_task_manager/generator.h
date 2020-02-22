@@ -24,6 +24,7 @@ public:
 
     bool isFirst=true;
     tf::Task taskRandomization;
+    tf::Task taskStop;
     std::string *arrRanResults;
 
     GenerateInfo *objGenerateInfo;

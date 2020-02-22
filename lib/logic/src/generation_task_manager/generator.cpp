@@ -39,7 +39,7 @@ Generator::Generator(GenerateInfo *tmp_objGenerateInfo)
 
 void Generator::prepareRanTask() {
 
-
+    this->taskStop= taskflow.emplace([](){}).name("stop");
 
     this->taskRandomization = this->taskflow.emplace([&](tf::Subflow &subflow) {
         subflow.parallel_for(0, this->objGenerateInfo->fieldCount, 1, [&](int index) {
@@ -60,11 +60,11 @@ void Generator::prepareJSONTask() {
     tf::Task taskJson = this->taskflow.emplace([&]() {
 
 
-        this->objJSONWriter->write();
+        return this->objJSONWriter->write();
 
     }).name("taskJSON");
     this->taskRandomization.precede(taskJson);
-
+    taskJson.precede(this->taskRandomization,this->taskStop);
 }
 
 
@@ -72,40 +72,36 @@ void Generator::prepareCSVTask() {
 
     tf::Task taskCSV = this->taskflow.emplace([&]() {
 
-
-        this->objCSVWriter->write();
-
+        return this->objCSVWriter->write();
 
     }).name("taskCSV");
 
     this->taskRandomization.precede(taskCSV);
-
+    taskCSV.precede(this->taskRandomization,this->taskStop);
 
 }
 
 void Generator::prepareXMLTask() {
     tf::Task taskXML = this->taskflow.emplace([&]() {
 
-
-        this->objXMLWriter->write();
+        return   this->objXMLWriter->write();
 
     }).name("taskXML");
     this->taskRandomization.precede(taskXML);
-
+    taskXML.precede(this->taskRandomization,this->taskStop);
 
 }
 
 void Generator::prepareHTMLTask() {
 
     tf::Task taskHTML = this->taskflow.emplace([&]() {
-
-
-        this->objHTMLWriter->write();
+        return this->objHTMLWriter->write();
 
     }).name("taskHTML");
 
 
     this->taskRandomization.precede(taskHTML);
+    taskHTML.precede(this->taskRandomization,this->taskStop);
 
 }
 

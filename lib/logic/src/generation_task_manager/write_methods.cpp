@@ -4,7 +4,7 @@
 
 #include <logic/generation_task_manager/random_data_writers.h>
 
-void HTMLWriter::write() {
+int HTMLWriter::write() {
 
     while ( this->iHTML < this->objGenerateInfo->outputRecordAmount) {
 
@@ -20,6 +20,9 @@ void HTMLWriter::write() {
         this->tableElement->InsertEndChild(trElement);
 
         ++(this->iHTML);
+
+        if ((this->iHTML+1) == this->objGenerateInfo->outputRecordAmount) return 1;
+        else return 0;
     }
 
     this->bodyElement->InsertEndChild(this->tableElement);
@@ -33,7 +36,7 @@ void HTMLWriter::write() {
 
 
 
-void XMLWriter::write() {
+int XMLWriter::write() {
 
 
     while ( this->iXML < this->objGenerateInfo->outputRecordAmount) {
@@ -51,6 +54,9 @@ void XMLWriter::write() {
         this->mainElement->InsertEndChild(itemElement);
 
         ++(this->iXML);
+
+        if ((this->iXML+1) == this->objGenerateInfo->outputRecordAmount) return 1;
+        else return 0;
     }
 
     xml.InsertEndChild(mainElement);
@@ -62,7 +68,7 @@ void XMLWriter::write() {
 
 
 
-void CSVWriter::write() {
+int CSVWriter::write() {
 
 
     while (this->iCSV < this->objGenerateInfo->outputRecordAmount) {
@@ -73,6 +79,9 @@ void CSVWriter::write() {
         }
         this->writeCSVRow(this->arrRanResults );
         ++(this->iCSV);
+
+        if ((this->iCSV+1) == this->objGenerateInfo->outputRecordAmount) return 1;
+        else return 0;
     }
 }
 
@@ -87,17 +96,20 @@ void CSVWriter::writeCSVRow(std::string *arrItems) {
     fout <<"\n";
 }
 
-void JSONWriter::write() {
+int JSONWriter::write() {
 
     while (this->iJSON < this->objGenerateInfo->outputRecordAmount) {
 
         for (int j = 0; j <this->objGenerateInfo->fieldCount ; ++j) {
-            innerJson[this->objGenerateInfo->vecTitles[j]] =this->arrRanResults[j];
+            this->innerJson[this->objGenerateInfo->vecTitles[j]] =this->arrRanResults[j];
 
         }
-        mainJson["item"+std::to_string(1+this->iJSON)] =innerJson;
+        this->mainJson["item"+std::to_string(1+this->iJSON)] =innerJson;
 
         ++(this->iJSON);
+
+        if ((this->iJSON+1) == this->objGenerateInfo->outputRecordAmount) return 1;
+        else return 0;
 
     }
     file << mainJson;

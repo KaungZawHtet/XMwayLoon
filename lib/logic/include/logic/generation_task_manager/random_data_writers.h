@@ -21,7 +21,7 @@ protected:
 
 public:
     RootWriter(std::string *tmp_arrRanResults,GenerateInfo *tmp_objGenerateInfo);
-    virtual void write()=0;
+    virtual int write()=0;
 };
 ////////////////////////////////////////
 
@@ -38,7 +38,7 @@ class XMLWriter :public RootWriter
     tinyxml2::XMLElement* mainElement = xml.NewElement("data");
 public:
     XMLWriter(std::string *tmp_arrRanResults,GenerateInfo *tmp_objGenerateInfo);
-    void write() override;
+    int write() override;
 
 };
 
@@ -59,7 +59,7 @@ class HTMLWriter :public RootWriter
     
 public:
     HTMLWriter(std::string *tmp_arrRanResults,GenerateInfo *tmp_objGenerateInfo);
-    void write() override;
+    int write() override;
 };
 
 
@@ -78,7 +78,7 @@ class CSVWriter :public RootWriter
     void writeCSVRow(std::string *arrItems);
 public:
     CSVWriter(std::string *tmp_arrRanResults,GenerateInfo *tmp_objGenerateInfo);
-    void write() override;
+    int write() override;
 
 };
 
@@ -100,7 +100,7 @@ class JSONWriter :public RootWriter
     std::ofstream file;
 public:
     JSONWriter(std::string *tmp_arrRanResults,GenerateInfo *tmp_objGenerateInfo);
-    void write() override;
+    int write() override;
 };
 
 
