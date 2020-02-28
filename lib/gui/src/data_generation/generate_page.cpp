@@ -17,10 +17,12 @@ GeneratePage::GeneratePage(wxWindow *wParent)
     this->bsMain = new wxBoxSizer(wxVERTICAL);
     this->ctTypeGeneration= new TypeGenerationContainer(this, this->bsMain);
 
-    this->ctOutputAmountContainer= new OutputAmountContainer(this, this->bsMain);
+
    this->ctOutputFormatContainer= new OutputFormatContainer(this,this->bsMain);
 
     this->ctEncodeingTypeContainer =new EncodingTypeContainer(this, this->bsMain);
+
+    this->ctOutputAmountContainer= new OutputAmountContainer(this, this->bsMain);
     this->ctGeneratedFileContainer= new GeneratedFileContainer(this, this->bsMain);
 
 

@@ -28,7 +28,11 @@ HTMLWriter::HTMLWriter(std::string *tmp_arrRanResults, GenerateInfo *tmp_objGene
     this->path =this->objGenerateInfo->targetFile + ".html";
     this->ptrFile=fopen(path.c_str(), "w");
 
+    this->tableElement->SetAttribute("border","1px solid black");
+
 }
+
+
 
 CSVWriter::CSVWriter(std::string *tmp_arrRanResults, GenerateInfo *tmp_objGenerateInfo)
 : RootWriter(tmp_arrRanResults,tmp_objGenerateInfo) {

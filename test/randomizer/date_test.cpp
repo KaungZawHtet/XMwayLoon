@@ -36,12 +36,17 @@ TEST(DateTest,generateRandomEngDate){
 
     DateType objDateType;
     objDateType.encoding=XML_RE::Encoding::random;
-    objDateType.format="%d-%B-%Y";
+    objDateType.format="YYYY-mmm-DD";
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
-    std::string MyanMonth= objDateRandomizer.generateRandomEngDate("%d-%B-%Y");
-    std::cerr<<MyanMonth <<std::endl;
+
+    for (int j = 0; j < 100; ++j) {
+        std::string engDate= objDateRandomizer.generateRandomEngDate("%d-%b-%y");
+        std::cerr<<engDate <<std::endl;
+    }
+
+
 }
 
 TEST(DateTest,convertEngDateToMyan){
@@ -49,11 +54,12 @@ TEST(DateTest,convertEngDateToMyan){
 
     DateType objDateType;
     objDateType.encoding=XML_RE::Encoding::random;
-    objDateType.format="%d-%B-%Y";
+    objDateType.format="%d-%b-%y";
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
-    std::string MyanMonth= objDateRandomizer.generateRandomEngDate("%d-%B-%Y");
+    std::string engDate= objDateRandomizer.generateRandomEngDate("%d-%b-%y");
+    std::string MyanMonth= objDateRandomizer.convertShortEngMonthToMyan(engDate);
     std::cerr<<MyanMonth <<std::endl;
 }
 
@@ -63,7 +69,7 @@ TEST(DateTest,create){
 
     DateType objDateType;
     objDateType.encoding=XML_RE::Encoding::random;
-    objDateType.format="%d-%B-%Y";
+    objDateType.format="%d-%b-%y";
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
@@ -77,7 +83,7 @@ TEST(DateTest,myanmarDateGeneration){
 
     DateType objDateType;
     objDateType.encoding=XML_RE::Encoding::random;
-    objDateType.format="%d-%B-%Y";
+    objDateType.format="%d-%b-%y";
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
@@ -90,8 +96,8 @@ TEST(DateTest,getRandom){
 
 
     DateType objDateType;
-    objDateType.encoding=XML_RE::Encoding::zawgyi;
-    objDateType.format="%d-%B-%Y";
+    objDateType.encoding=XML_RE::Encoding::unicode;
+    objDateType.format="%d-%b-%y";
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);

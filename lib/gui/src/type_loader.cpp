@@ -1,7 +1,7 @@
 //
 // Created by Kaung Zaw Htet on 2019-12-17.
 //
-#include <logic/type_loader.h>
+#include "../include/gui/type_loader.h"
 #include <model/db/initializer.h>
 TypeLoader::TypeLoader() {
 

@@ -28,6 +28,7 @@ std::string alphabet[25]
 };
 
 
+
     NumberRandomizer objNumberRandomizer;
     NRCType objNRCType;
     std::string get3Alpha ();

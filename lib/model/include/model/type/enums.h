@@ -29,14 +29,14 @@ static   phmap::flat_hash_map<std::string, Encoding> encodingMap =
 //For Name Randomizer
 
 enum class Gender {
-    male = 1, female = 2, both = 3
+    male = 1, female = 2, random = 3
 };
 
  static  phmap::flat_hash_map<std::string, Gender > genderMap =
         {
                 { "ကျား",  Gender::male},
                 { "မ", Gender::female},
-                { "ကျပန်း",  Gender::both}
+                { "ကျပန်း",  Gender::random}
         };
 
 //For Bool Randomizer

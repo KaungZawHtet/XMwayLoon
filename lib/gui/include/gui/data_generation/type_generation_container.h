@@ -7,7 +7,7 @@
 
 #include <wx/wx.h>
 #include <gui/data_generation/type_grid.h>
-#include <logic/type_loader.h>
+#include <gui/type_loader.h>
 #include <wx/statline.h>
 class GeneratePage;
 //this class depend on TypeLoader

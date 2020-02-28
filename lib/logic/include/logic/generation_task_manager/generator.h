@@ -23,6 +23,7 @@ public:
 
 
     bool isFirst=true;
+    tf::Task taskStart;
     tf::Task taskRandomization;
     tf::Task taskStop;
     std::string *arrRanResults;
@@ -36,7 +37,7 @@ public:
 
 
 
-    explicit Generator( GenerateInfo *tmp_objGenerateInfo );
+    explicit Generator( GenerateInfo *tmp_objGenerateInfo ,std::function<void()> funcStart);
 
 
     void prepareRanTask();
@@ -45,7 +46,8 @@ public:
     void prepareXMLTask();
     void prepareHTMLTask();
     void connectTasks();
-    void generate();
+    void generate(std::function<void()> func);
+    tf::Taskflow* getTaskFow();
 
     ~Generator();
 

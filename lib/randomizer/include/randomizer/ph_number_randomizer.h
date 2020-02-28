@@ -30,11 +30,7 @@ namespace XMwayLoon::Randomizer {
         PhNumberType objPhNumberType;
 
 
-       // MyTel objMytel;
-       // MPT objMPT;
-        //Ooredoo objOoredoo;
-        //Telenor objTelenor;
-        //std::tuple<MPT,MyTel,Ooredoo,Telenor> tpTelecom ;
+
         std::vector<RootRandomizer*> vecTelecom;
 
 

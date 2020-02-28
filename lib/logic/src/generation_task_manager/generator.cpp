@@ -8,7 +8,7 @@
 using namespace XMwayLoon::Randomizer;
 
 
-Generator::Generator(GenerateInfo *tmp_objGenerateInfo)
+Generator::Generator(GenerateInfo *tmp_objGenerateInfo,std::function<void()> funcStart)
         : objGenerateInfo(tmp_objGenerateInfo) {
 
 
@@ -32,24 +32,29 @@ Generator::Generator(GenerateInfo *tmp_objGenerateInfo)
         this->objCSVWriter = new CSVWriter(this->arrRanResults, this->objGenerateInfo);
     }
 
+    this->taskStart= taskflow.emplace(funcStart).name("start");
 
+
+    this->taskStop= taskflow.emplace([](){}).name("stop");
 
 }
 
 
 void Generator::prepareRanTask() {
 
-    this->taskStop= taskflow.emplace([](){}).name("stop");
+
 
     this->taskRandomization = this->taskflow.emplace([&](tf::Subflow &subflow) {
         subflow.parallel_for(0, this->objGenerateInfo->fieldCount, 1, [&](int index) {
 
             this->arrRanResults[index] = this->objGenerateInfo->vecRandomizers[index]->getRandom();
 
-            std::cout << this->arrRanResults[index] << "\n";
+            //std::cout << this->arrRanResults[index] << "\n";
 
         });
     });
+
+    this->taskStart.precede(this->taskRandomization);
 
 
 }
@@ -59,12 +64,11 @@ void Generator::prepareJSONTask() {
 
     tf::Task taskJson = this->taskflow.emplace([&]() {
 
-
-        return this->objJSONWriter->write();
+         this->objJSONWriter->write();
 
     }).name("taskJSON");
     this->taskRandomization.precede(taskJson);
-    taskJson.precede(this->taskRandomization,this->taskStop);
+    taskJson.precede(this->taskStop);
 }
 
 
@@ -72,36 +76,36 @@ void Generator::prepareCSVTask() {
 
     tf::Task taskCSV = this->taskflow.emplace([&]() {
 
-        return this->objCSVWriter->write();
+         this->objCSVWriter->write();
 
     }).name("taskCSV");
 
     this->taskRandomization.precede(taskCSV);
-    taskCSV.precede(this->taskRandomization,this->taskStop);
+    taskCSV.precede(this->taskStop);
 
 }
 
 void Generator::prepareXMLTask() {
     tf::Task taskXML = this->taskflow.emplace([&]() {
 
-        return   this->objXMLWriter->write();
+           this->objXMLWriter->write();
 
     }).name("taskXML");
     this->taskRandomization.precede(taskXML);
-    taskXML.precede(this->taskRandomization,this->taskStop);
+    taskXML.precede(this->taskStop);
 
 }
 
 void Generator::prepareHTMLTask() {
 
     tf::Task taskHTML = this->taskflow.emplace([&]() {
-        return this->objHTMLWriter->write();
+         this->objHTMLWriter->write();
 
     }).name("taskHTML");
 
 
     this->taskRandomization.precede(taskHTML);
-    taskHTML.precede(this->taskRandomization,this->taskStop);
+    taskHTML.precede(this->taskStop);
 
 }
 
@@ -125,13 +129,17 @@ void Generator::connectTasks() {
 
 }
 
-void Generator::generate() {
+void Generator::generate(std::function<void()> func) {
 
 
     this->prepareRanTask();
     this->connectTasks();
 //this->taskflow.dump(std::cout);
-    this->executor.run(this->taskflow).wait();
+    executor.run_n(taskflow, this->objGenerateInfo->outputRecordAmount,func).get();
+}
+
+tf::Taskflow* Generator::getTaskFow(){
+    return &(this->taskflow);
 }
 
 

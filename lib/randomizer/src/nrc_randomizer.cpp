@@ -13,6 +13,7 @@ std::string XMwayLoon_NRCRandomizer::getNRC
     int boolean =typeDistribution(this->objPCG) ;
 
     std::string idNum= this->objNumberRandomizer.getRandomMyanNum(100000,999999);
+    std::string stateCode =this->objNumberRandomizer.getRandomMyanNum(1,14);
 
     std::string city;
     if(boolean) city =this->get2Alpha();
@@ -23,15 +24,15 @@ std::string XMwayLoon_NRCRandomizer::getNRC
         switch (type)
         {
             case XML_RE::NRCType::n:
-                return "၁၂/"+city+"("+ this->type[0]+ ")" +idNum;
+                return stateCode+"/"+city+"("+ this->type[0]+ ")" +idNum;
                 break;
             case XML_RE::NRCType::naing:
-                return "၁၂/"+city+"("+ this->type[1]+ ")" +idNum;
+                return stateCode+"/"+city+"("+ this->type[1]+ ")" +idNum;
                 break;
             default:
             {
                 int boolean =typeDistribution(this->objPCG) ;
-                return "၁၂/"+city+"("+ this->type[boolean]+ ")" +idNum;
+                return stateCode+"/"+city+"("+ this->type[boolean]+ ")" +idNum;
             }
                 break;
 

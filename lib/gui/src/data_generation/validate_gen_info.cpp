@@ -37,6 +37,7 @@ void GeneratePage::cleanVec() {
         delete item;
     });
     this->vecRandomizer.clear();
+    this->vecTitles.clear();
 
 }
 

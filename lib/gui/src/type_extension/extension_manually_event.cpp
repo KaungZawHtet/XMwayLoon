@@ -7,7 +7,7 @@
 #include <dry_comparisons/dry_comparisons.h>
 #include <unicode/errorcode.h>
 #include <string>
-#include <logic/type_loader.h>
+#include <gui/type_loader.h>
 #include <gui/id.h>
 
 void ExtensionManually_Container::onInsert(wxCommandEvent &event) {

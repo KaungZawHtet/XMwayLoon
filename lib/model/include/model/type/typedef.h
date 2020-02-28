@@ -10,7 +10,7 @@
 #include <model/type/numeric_type.h>
 #include <randomizer/date_randomizer.h>
 #include <randomizer/boolean_randomizer.h>
-#include <randomizer/name_randomizer.h>
+#include <randomizer/name/name_randomizer.h>
 #include <randomizer/nrc_randomizer.h>
 #include <randomizer/number_randomizer.h>
 #include <randomizer/pangram_randomizer.h>
@@ -22,7 +22,7 @@ typedef std::variant<BooleanType,DateType,NameType,NRCType,NumberType,PangramTyp
 typedef std::variant<
         XMwayLoon::Randomizer::BooleanRandomizer
 ,XMwayLoon::Randomizer::DateRandomizer
-,XMwayLoon::Randomizer::NameRandomizer
+,XMwayLoon::Randomizer::RootNameRandomizer
 ,XMwayLoon::Randomizer::NRCRandomizer
 ,XMwayLoon::Randomizer::NumberRandomizer
 ,XMwayLoon::Randomizer::PangramRandomizer

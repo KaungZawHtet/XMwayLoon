@@ -4,44 +4,59 @@
 
 #include <logic/generation_task_manager/random_data_writers.h>
 
-int HTMLWriter::write() {
 
-    while ( this->iHTML < this->objGenerateInfo->outputRecordAmount) {
+tinyxml2::XMLElement *HTMLWriter::writeHTMLRow(const char *tag,std::string *arrItems ) {
 
-        tinyxml2::XMLElement* trElement= xml.NewElement("tr");
-        for (int i = 0; i < this->objGenerateInfo->fieldCount; ++i) {
-            std::cout<<this->arrRanResults[i]<< std::endl;
-            tinyxml2::XMLText* data = xml.NewText(this->arrRanResults[i].c_str());
-            // std::cout<<"HTML::" <<data<<"\n";
-            tinyxml2::XMLElement* tdElement = xml.NewElement("td");
-            tdElement->InsertEndChild(data);
-            trElement->InsertEndChild(tdElement);
-        }
-        this->tableElement->InsertEndChild(trElement);
-
-        ++(this->iHTML);
-
-        if ((this->iHTML+1) == this->objGenerateInfo->outputRecordAmount) return 1;
-        else return 0;
+    tinyxml2::XMLElement* trElement= xml.NewElement("tr");
+    for (int i = 0; i < this->objGenerateInfo->fieldCount; ++i) {
+        // std::cout<<this->arrRanResults[i]<< std::endl;
+        tinyxml2::XMLText* data = xml.NewText(arrItems[i].c_str());
+        // std::cout<<"HTML::" <<data<<"\n";
+        tinyxml2::XMLElement* tdElement = xml.NewElement(tag);
+        tdElement->SetAttribute("border","1px solid black");
+        tdElement->InsertEndChild(data);
+        trElement->InsertEndChild(tdElement);
     }
 
-    this->bodyElement->InsertEndChild(this->tableElement);
-    this->htmlElement->InsertEndChild(this->bodyElement);
+    return trElement;
+}
 
-    this->xml.InsertEndChild(this->htmlElement);
-    this->xml.SaveFile(this->ptrFile);
-    fclose(this->ptrFile);
+
+void HTMLWriter::write() {
+
+
+    if(this->isFirst)
+    {
+        this->tableElement->InsertEndChild(this->writeHTMLRow("th",this->objGenerateInfo->vecTitles.data()));
+    this->isFirst= false;
+    }
+
+    this->tableElement->InsertEndChild(this->writeHTMLRow("td",this->arrRanResults));
+
+
+
+    if(this->iHTML == this->objGenerateInfo->outputRecordAmount)
+        {
+            this->bodyElement->InsertEndChild(this->tableElement);
+            this->htmlElement->InsertEndChild(this->bodyElement);
+
+            this->xml.InsertEndChild(this->htmlElement);
+            this->xml.SaveFile(this->ptrFile);
+            fclose(this->ptrFile);
+        }
+
+    ++(this->iHTML);
 
 }
 
 
 
-int XMLWriter::write() {
+void XMLWriter::write() {
 
 
-    while ( this->iXML < this->objGenerateInfo->outputRecordAmount) {
 
-        std::string strItem= "item" + std::to_string(this->iXML+1);
+
+        std::string strItem= "item" + std::to_string(this->iXML);
         tinyxml2::XMLElement* itemElement= xml.NewElement(strItem.c_str());
         for (int i = 0; i < this->objGenerateInfo->fieldCount; ++i) {
 
@@ -53,25 +68,27 @@ int XMLWriter::write() {
         }
         this->mainElement->InsertEndChild(itemElement);
 
-        ++(this->iXML);
 
-        if ((this->iXML+1) == this->objGenerateInfo->outputRecordAmount) return 1;
-        else return 0;
+
+
+    if(this->iXML == this->objGenerateInfo->outputRecordAmount)
+    {
+        xml.InsertEndChild(mainElement);
+        xml.SaveFile(ptrFile);
+        fclose(ptrFile);
     }
 
-    xml.InsertEndChild(mainElement);
-    xml.SaveFile(ptrFile);
-    fclose(ptrFile);
+    ++(this->iXML);
 
 
 }
 
 
 
-int CSVWriter::write() {
+void CSVWriter::write() {
 
 
-    while (this->iCSV < this->objGenerateInfo->outputRecordAmount) {
+
         // std::cout<<"CSV::" <<this->arrRanResults[i]<<"\n";
         if(this->isFirst)   {
             this->writeCSVRow(this->objGenerateInfo->vecTitles.data());
@@ -80,9 +97,7 @@ int CSVWriter::write() {
         this->writeCSVRow(this->arrRanResults );
         ++(this->iCSV);
 
-        if ((this->iCSV+1) == this->objGenerateInfo->outputRecordAmount) return 1;
-        else return 0;
-    }
+
 }
 
 void CSVWriter::writeCSVRow(std::string *arrItems) {
@@ -96,21 +111,27 @@ void CSVWriter::writeCSVRow(std::string *arrItems) {
     fout <<"\n";
 }
 
-int JSONWriter::write() {
+void JSONWriter::write() {
 
-    while (this->iJSON < this->objGenerateInfo->outputRecordAmount) {
+
 
         for (int j = 0; j <this->objGenerateInfo->fieldCount ; ++j) {
+
             this->innerJson[this->objGenerateInfo->vecTitles[j]] =this->arrRanResults[j];
+            std::cout<<this->arrRanResults[j] <<"\n";
 
         }
-        this->mainJson["item"+std::to_string(1+this->iJSON)] =innerJson;
+
+        this->mainJson["item"+std::to_string(this->iJSON)] =innerJson;
+
+
+        if(this->iJSON == this->objGenerateInfo->outputRecordAmount) file << mainJson;
 
         ++(this->iJSON);
 
-        if ((this->iJSON+1) == this->objGenerateInfo->outputRecordAmount) return 1;
-        else return 0;
 
-    }
-    file << mainJson;
+
+
+
+
 }

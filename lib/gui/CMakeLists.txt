@@ -2,7 +2,7 @@ file(GLOB XMwayLoon_GUI_main_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/app.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/main_frame.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/preference_dialog.cpp
-
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/type_loader.cpp
         )
 
 file(GLOB XMwayLoon_GUI_data_generation_CPPs
@@ -20,7 +20,10 @@ file(GLOB XMwayLoon_GUI_data_generation_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/input_validator.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/read_me_dialog.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/read_me_panel.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/data_generation/gen_info_packaging.cpp
         )
+
+
 
 file(GLOB XMwayLoon_GUI_type_extension_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/type_extension/extend_page.cpp

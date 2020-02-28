@@ -5,7 +5,7 @@
 #include <randomizer/date_randomizer.h>
 #include <regex>
 #include <randomizer/typedef.h>
-
+#include <exception>
 
 std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan
         (const std::string engMonth, const XML_RE::Encoding &encoding) {
@@ -53,15 +53,11 @@ std::string XMwayLoon_DateRandomizer::convertShortEngMonthToMyan
 
 std::string XMwayLoon_DateRandomizer::generateRandomEngDate
         (const std::string &format) {
-    //TODO: windows implementation is needed
-#ifdef _WIN32
 
-#else
-//linux code goes here
 
     boost::posix_time::ptime timeLocal = boost::posix_time::second_clock::local_time();
     int currentYear = timeLocal.date().year();
-#endif
+
     std::uniform_int_distribution<> febDistribution(1, 28);
     std::uniform_int_distribution<> thirdyOneDistribution(1, 31);
     std::uniform_int_distribution<> thirdyDistribution(1, 30);
@@ -78,24 +74,49 @@ std::string XMwayLoon_DateRandomizer::generateRandomEngDate
             days = febDistribution(this->objPCG);
             break;
 
+
+            //31-day months
         case 1:
+            days = thirdyOneDistribution(this->objPCG);
+            break;
         case 3:
-        case 4:
+            days = thirdyOneDistribution(this->objPCG);
+            break;
+        case 5:
+            days = thirdyOneDistribution(this->objPCG);
+            break;
         case 7:
+            days = thirdyOneDistribution(this->objPCG);
+            break;
         case 8:
+            days = thirdyOneDistribution(this->objPCG);
+            break;
         case 10:
-        case 12: //31-day months
+            days = thirdyOneDistribution(this->objPCG);
+            break;
+        case 12:
             days = thirdyOneDistribution(this->objPCG);
             break;
 
-        case 5:
+            //30-day months
+
+        case 4:
+            days = thirdyDistribution(this->objPCG);
+            break;
+
         case 6:
+            days = thirdyDistribution(this->objPCG);
+            break;
         case 9:
-        case 11: //30-day months
+            days = thirdyDistribution(this->objPCG);
+            break;
+        case 11:
             days = thirdyDistribution(this->objPCG);
             break;
     }
-    boost::gregorian::date dateObj{year, month, days};
+    boost::gregorian::date dateObj=boost::gregorian::date{year, month, days};;
+
+
     std::stringstream stream  ;
     boost::gregorian::date_facet* facet(new boost::gregorian::date_facet(format.c_str()));
     stream.imbue(std::locale(std::cout.getloc(), facet));
@@ -121,7 +142,7 @@ std::string XMwayLoon_DateRandomizer::convertEngDateToMyan
     for (auto element : matchingBehaviour) tempEngDay+=element;
 
     std::string tempEngYear{};
-    std::regex yearRegex("[0-9]{4}");
+    std::regex yearRegex("[0-9]{(4|2)}");
     std::regex_search((engDate), matchingBehaviour, yearRegex);
     for (auto element : matchingBehaviour) tempEngYear+=element;
 

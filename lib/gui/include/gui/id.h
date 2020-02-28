@@ -2,7 +2,7 @@
 #define ID_H
 
 #include <wx/wx.h>
-#include <logic/type_loader.h>
+#include <gui/type_loader.h>
 class WidgetsCache {
 public:
     static inline wxComboBox *cbAddType;
@@ -72,7 +72,9 @@ static inline TypeLoader* objTypeLoader;
 
 
 #define RD_RECORD_NUMBER_ID 1210
+#define SC_RECORD_NUMBER_ID 1220
 #define RD_FILE_SIZE_ID 1230
+#define SC_FILE_SIZE_ID 1240
 
 #define CB_CSV_ID 1311
 #define CB_JSON_ID 1312

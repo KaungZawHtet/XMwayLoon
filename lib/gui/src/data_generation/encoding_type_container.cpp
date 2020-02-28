@@ -25,8 +25,11 @@ EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSi
                                         wxT("Unicode"),wxDefaultPosition,wxDefaultSize, wxRB_GROUP);
     this->rdZawgyi = new wxRadioButton(this->gpParent, RD_ZAWGYI_ID,
                                        wxT("Zawgyi"));
-    this->rdRandom = new wxRadioButton(this->gpParent, RD_UNIFORM_RANDOM_ID,
-                                       wxT("Uniform Random"));
+/*
+ * TODO:: skip for coming version
+ * remove only this cmt; the rest can keep evolving
+ * this->rdRandom = new wxRadioButton(this->gpParent, RD_UNIFORM_RANDOM_ID,
+                                       wxT("Uniform Random"));*/
     this->rdCustom = new wxRadioButton(this->gpParent, RD_CUSTOM_ID,
                                        wxT("Custom"));
     this->rdUnicode->SetValue(true);
@@ -36,7 +39,10 @@ EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSi
     this->bsEncodeTypeTitle->Add(this->stEncodeTypeTitle);
     this->bsEncodeType->Add(this->rdUnicode, 0, wxRIGHT, 100);
     this->bsEncodeType->Add(this->rdZawgyi, 0, wxRIGHT, 100);
-    this->bsEncodeType->Add(this->rdRandom, 0, wxRIGHT, 100);
+    /*
+     * TODO::skip for coming version
+     *  remove only this cmt; the rest can keep evolving
+     * this->bsEncodeType->Add(this->rdRandom, 0, wxRIGHT, 100);*/
     this->bsEncodeType->Add(this->rdCustom, 0);
     //---
     this->bsMain->Add(this->bsEncodeTypeTitle, 0, wxLEFT | wxTOP, 9);

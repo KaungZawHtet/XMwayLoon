@@ -9,8 +9,7 @@ target_link_libraries(logic PUBLIC nlohmann_json::nlohmann_json
         customized_third_parties
         randomizer
         model
-        ${wxWidgets_LIBRARIES}
-        ${Boost_LIBRARIES}
+
         )
 target_include_directories(logic
         PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")

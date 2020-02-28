@@ -11,7 +11,7 @@
 #include <myanmar_encoding_handler/mmtext.h>
 #include <gui/type_extension/read_me_dialog.h>
 #include <myanmar_encoding_handler/parabaik.h>
-#include <logic/type_loader.h>
+#include <gui/type_loader.h>
 using json = nlohmann::json;
 using namespace std;
 
