@@ -7,6 +7,11 @@
 #include <randomizer/date_randomizer.h>
 #include <model/type/alphanumeric_type.h>
 
+
+#include <boost/algorithm/string.hpp>
+#include <boost/regex.hpp>
+using namespace std;
+using namespace boost;
 TEST(DateTest,convertCompleteEngMonthToMyan){
 
     DateType objDateType;
@@ -15,7 +20,7 @@ TEST(DateTest,convertCompleteEngMonthToMyan){
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
-    std::string MyanMonth= objDateRandomizer.convertCompleteEngMonthToMyan("April",XML_RE::Encoding::random);
+    std::string MyanMonth= objDateRandomizer.convertCompleteEngMonthToMyan("July",XML_RE::Encoding::random);
     std::cerr<<MyanMonth <<std::endl;
 }
 
@@ -28,7 +33,7 @@ TEST(DateTest,convertShortEngMonthToMyan){
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
-    std::string MyanMonth= objDateRandomizer.convertShortEngMonthToMyan("May",XML_RE::Encoding::random);
+    std::string MyanMonth= objDateRandomizer.convertShortEngMonthToMyan("Jun",XML_RE::Encoding::random);
     std::cerr<<MyanMonth <<std::endl;
 }
 
@@ -42,7 +47,7 @@ TEST(DateTest,generateRandomEngDate){
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
 
     for (int j = 0; j < 100; ++j) {
-        std::string engDate= objDateRandomizer.generateRandomEngDate("%d-%b-%y");
+        std::string engDate= objDateRandomizer.generateRandomEngDate("%D-%B-%Y");
         std::cerr<<engDate <<std::endl;
     }
 
@@ -53,15 +58,19 @@ TEST(DateTest,convertEngDateToMyan){
     std::random_device gen;
 
     DateType objDateType;
-    objDateType.encoding=XML_RE::Encoding::random;
+    objDateType.encoding=XML_RE::Encoding::unicode;
     objDateType.format="%d-%b-%y";
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
-    std::string engDate= objDateRandomizer.generateRandomEngDate("%d-%b-%y");
-    std::string MyanMonth= objDateRandomizer.convertShortEngMonthToMyan(engDate);
-    std::cerr<<MyanMonth <<std::endl;
-}
+
+    for (int j = 0; j < 10; ++j) {
+        std::string engDate= objDateRandomizer.generateRandomEngDate("%d-%b-%y");
+        std::string MyanMonth= objDateRandomizer.convertEngDateToMyan(engDate,objDateType.encoding);
+        std::cerr<<MyanMonth <<std::endl;
+    }
+    }
+
 
 
 TEST(DateTest,create){
@@ -97,7 +106,7 @@ TEST(DateTest,getRandom){
 
     DateType objDateType;
     objDateType.encoding=XML_RE::Encoding::unicode;
-    objDateType.format="%d-%b-%y";
+    objDateType.format="%D-%B-%Y";
 
 
     XMwayLoon::Randomizer::DateRandomizer objDateRandomizer(objDateType);
@@ -108,5 +117,27 @@ TEST(DateTest,getRandom){
 
 
     //  EXPECT_TRUE(true);
+
+}
+
+
+
+
+TEST(DateTest,regexTest){
+
+
+
+
+    std::string test = "12-Jan-13";
+     test= boost::regex_replace(test, boost::regex(R"([A-Za-z]+)"), [](auto element){
+
+        // std::string a= element ;
+         std::cerr<< element <<"\n";
+    return "ကိန်";
+
+    });
+    std::cerr<< test;
+
+
 
 }

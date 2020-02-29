@@ -7,6 +7,14 @@
 #include <randomizer/typedef.h>
 #include <exception>
 
+#include <boost/regex.hpp>
+
+/*
+ * TODO:: This trash code will be deprecated in coming version and replaced with new class
+ *
+ *
+ */
+
 std::string XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan
         (const std::string engMonth, const XML_RE::Encoding &encoding) {
     return [&]() {
@@ -128,43 +136,24 @@ std::string XMwayLoon_DateRandomizer::generateRandomEngDate
 std::string XMwayLoon_DateRandomizer::convertEngDateToMyan
 (std::string engDate, const XML_RE::Encoding &encoding){
 
-
-    std::smatch matchingBehaviour;
-
-    std::string tempEngMonth{};
-    std::regex monthRegex("[A-Za-z]+");
-    std::regex_search((engDate), matchingBehaviour, monthRegex);
-    for (auto element : matchingBehaviour) tempEngMonth+=element;
-
-    std::string tempEngDay{};
-    std::regex dayRegex("[0-9]{1,2}");
-    std::regex_search((engDate), matchingBehaviour, dayRegex);
-    for (auto element : matchingBehaviour) tempEngDay+=element;
-
-    std::string tempEngYear{};
-    std::regex yearRegex("[0-9]{(4|2)}");
-    std::regex_search((engDate), matchingBehaviour, yearRegex);
-    for (auto element : matchingBehaviour) tempEngYear+=element;
+    std::string tempDate= boost::regex_replace(engDate, boost::regex(R"([A-Za-z]+)"), [&](auto tempEngMonth){
 
 
-    std::string tempMyanMonth = [&](){
-        if((tempEngMonth).size()==3)
-            return XMwayLoon_DateRandomizer::convertShortEngMonthToMyan((tempEngMonth),encoding);
+        if(tempEngMonth.str().size()==3)
+            return XMwayLoon_DateRandomizer::convertShortEngMonthToMyan(tempEngMonth.str(),encoding);
         else
-            return XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan((tempEngMonth),encoding);
+            return XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan(tempEngMonth.str(),encoding);
 
-    }();
-
-    std::string tempMyanDay=this->objNumberRandomizer.convertEngNumToMyan(tempEngDay);
-    std::string tempMyanYear=this->objNumberRandomizer.convertEngNumToMyan(tempEngYear);
+    });
 
 
-    //engDate now become MyanDate from now on
-    boost::replace_all(engDate,tempEngMonth, tempMyanMonth);
-    boost::replace_all(engDate,tempEngYear, tempMyanYear);
-    boost::replace_all(engDate,tempEngDay, tempMyanDay);
+    tempDate= boost::regex_replace(tempDate, boost::regex(R"(\d)"), [&](auto tempNum){
 
-    return engDate;
+        return this->objNumberRandomizer.convertEngNumToMyan(tempNum.str());
+    });
+
+
+    return tempDate;
 
 }
 
@@ -198,7 +187,21 @@ void XMwayLoon_DateRandomizer::DateRandomizer::load() {
 XMwayLoon_DateRandomizer::DateRandomizer(DateType tmp_dateType)
 : objDateType(std::move(tmp_dateType))
 {
+    this->validateFormat();
   this->load();
 
 }
 
+void XMwayLoon_DateRandomizer::validateFormat() {
+
+
+    this->objDateType.format
+    = boost::regex_replace(this->objDateType.format, boost::regex(R"(D)")
+            , [](auto element){
+
+
+        return "d";
+
+    });
+
+}

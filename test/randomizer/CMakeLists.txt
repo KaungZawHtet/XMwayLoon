@@ -44,7 +44,7 @@ add_test(Name CustomTest
 
 target_link_libraries(NumberTest gtest_main randomizer)
 target_link_libraries(PhNumTest gtest_main randomizer)
-target_link_libraries(DateTest gtest_main randomizer)
+target_link_libraries(DateTest gtest_main randomizer ${Boost_LIBRARIES})
 target_link_libraries(PangramTest gtest_main randomizer)
 target_link_libraries(GeneralTest gtest_main randomizer ${Boost_LIBRARIES})
 target_link_libraries(BooleanTest gtest_main randomizer)

@@ -611,5 +611,40 @@ public:
 libc++abi.dylib: terminating with uncaught exception of type boost::wrapexcept<boost::gregorian::bad_day_of_month>: Day of month is not valid for year
 
 
+/////
 
+ std::smatch matchingBehaviour;
+
+    std::string tempEngMonth{};
+    std::regex monthRegex("[A-Za-z]+");
+    std::regex_search((engDate), matchingBehaviour, monthRegex);
+    for (auto element : matchingBehaviour) tempEngMonth+=element;
+
+    std::string tempEngDay{};
+    std::regex dayRegex("[0-9]{1,2}");
+    std::regex_search((engDate), matchingBehaviour, dayRegex);
+    for (auto element : matchingBehaviour) tempEngDay+=element;
+
+    std::string tempEngYear{};
+    std::regex yearRegex("[0-9]{4}");
+    std::regex_search((engDate), matchingBehaviour, yearRegex);
+    for (auto element : matchingBehaviour) tempEngYear+=element;
+
+
+    std::string tempMyanMonth = [&](){
+        if((tempEngMonth).size()==3)
+            return XMwayLoon_DateRandomizer::convertShortEngMonthToMyan((tempEngMonth),encoding);
+        else
+            return XMwayLoon_DateRandomizer::convertCompleteEngMonthToMyan((tempEngMonth),encoding);
+
+    }();
+
+    std::string tempMyanDay=this->objNumberRandomizer.convertEngNumToMyan(tempEngDay);
+    std::string tempMyanYear=this->objNumberRandomizer.convertEngNumToMyan(tempEngYear);
+
+
+    //engDate now become MyanDate from now on
+    boost::replace_all(engDate,tempEngMonth, tempMyanMonth);
+    boost::replace_all(engDate,tempEngYear, tempMyanYear);
+    boost::replace_all(engDate,tempEngDay, tempMyanDay);
 

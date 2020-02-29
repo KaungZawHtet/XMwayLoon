@@ -15,7 +15,7 @@ set(BOOST_ROOT vendor/boost)
 set(BOOST_INCLUDEDIR vendor/boost/build/include)
 set(BOOST_LIBRARYDIR vendor/boost/build/lib)
 set(BOOST_NO_SYSTEM_PATHS ON)
-find_package(Boost)
+find_package(Boost 1.71 COMPONENTS regex REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 #[[if(EXISTS ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
     include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
@@ -76,5 +76,5 @@ add_subdirectory(lib/model)
 
 
 add_executable(Executable main.cpp)
-target_link_libraries(Executable
+target_link_libraries(Executable ${Boost_LIBRARIES}
          ${wxWidgets_LIBRARIES} GUI )

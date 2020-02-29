@@ -24,6 +24,11 @@
 #include <model/type/alphanumeric_type.h>
 
 
+/*
+ * TODO:: This trash code will be deprecated in coming version and replaced with new class
+ *
+ *
+ */
 
 
 
@@ -79,7 +84,7 @@ namespace XMwayLoon::Randomizer{
                 Month("Jun", "June", "ဇွန်", "ဇြန္"),
                 Month("Jul", "July", "ဇူလိုင်", "ဇူလိုင္"),
                 Month("Aug", "August", "ဩဂုတ်", "ဩဂုတ္"),
-                Month("Sept", "September", "စက်တင်ဘာ", "စက္တင္ဘာ"),
+                Month("Sep", "September", "စက်တင်ဘာ", "စက္တင္ဘာ"),
                 Month("Oct", "October", "အောက်တိုဘာ", "ေအာက္တိုဘာ"),
                 Month("Nov", "November", "နိုဝင်ဘာ", "ႏိုဝင္ဘာ"),
                 Month("Dec", "December", "ဒီဇင်ဘာ", "ဒီဇင္ဘာ")
@@ -92,6 +97,7 @@ namespace XMwayLoon::Randomizer{
 
        // DateRandomizer();
         explicit DateRandomizer(DateType tmp_objDateType);
+        void validateFormat();
         std::string convertCompleteEngMonthToMyan(std::string engMonth,const XML_RE::Encoding &encoding);
         std::string convertShortEngMonthToMyan(std::string engMonth,const XML_RE::Encoding &encoding);
         std::string generateRandomEngDate(const std::string &format);
