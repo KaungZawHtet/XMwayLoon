@@ -2,8 +2,8 @@
 // Created by Kaung Zaw Htet on 2020-01-29.
 //
 
-#ifndef XMWAYLOON_EXAMPLE_DIALOG_H
-#define XMWAYLOON_EXAMPLE_DIALOG_H
+#ifndef XMWAYLOON_READ_ME_DIALOG_TE_H
+#define XMWAYLOON_READ_ME_DIALOG_TE_H
 
 #include <gui/type_extension/read_me_panel.h>
 #include <wx/wx.h>
@@ -16,4 +16,4 @@ public:
     ReadMeDialog(const wxString & title);
 };
 
-#endif //XMWAYLOON_EXAMPLE_DIALOG_H
+#endif //XMWAYLOON_READ_ME_DIALOG_TE_H

@@ -118,7 +118,7 @@ void JSONWriter::write() {
         for (int j = 0; j <this->objGenerateInfo->fieldCount ; ++j) {
 
             this->innerJson[this->objGenerateInfo->vecTitles[j]] =this->arrRanResults[j];
-            std::cout<<this->arrRanResults[j] <<"\n";
+
 
         }
 

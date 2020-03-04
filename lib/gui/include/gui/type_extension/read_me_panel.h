@@ -2,8 +2,8 @@
 // Created by Kaung Zaw Htet on 2020-01-29.
 //
 
-#ifndef XMWAYLOON_EXAMPLE_DIALOG_PANEL_H
-#define XMWAYLOON_EXAMPLE_DIALOG_PANEL_H
+#ifndef XMWAYLOON_READ_ME_DIALOG_PANEL_TE_H
+#define XMWAYLOON_READ_ME_DIALOG_PANEL_TE_H
 
 #include <wx/wx.h>
 class ReadMePanel : public wxPanel
@@ -58,4 +58,4 @@ public:
 
 };
 
-#endif //XMWAYLOON_EXAMPLE_DIALOG_PANEL_H
+#endif //XMWAYLOON_READ_ME_DIALOG_PANEL_TE_H

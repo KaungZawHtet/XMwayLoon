@@ -2,9 +2,9 @@
 // Created by Kaung Zaw Htet on 2020-01-29.
 //
 
-#include <gui/type_extension/read_me_panel.h>
+#include <gui/data_generation/read_me_panel.h>
 
-ReadMePanel::ReadMePanel(wxWindow *tmp_wParent) :
+DataGenerationReadMePanel::DataGenerationReadMePanel(wxWindow *tmp_wParent) :
 wxPanel(tmp_wParent,-1)
 {
 

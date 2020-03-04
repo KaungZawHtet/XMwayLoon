@@ -27,6 +27,7 @@ public:
     tf::Task taskRandomization;
     tf::Task taskStop;
     std::string *arrRanResults;
+    int count=1;
 
     GenerateInfo *objGenerateInfo;
 

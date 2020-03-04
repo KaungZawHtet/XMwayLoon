@@ -25,8 +25,8 @@ MainFrame::MainFrame():
 
 
     this->mMain->Append(wxID_ABOUT, _("About"));
-    this->mMain->Append(wxID_HELP, _("Help"));
-    this->mMain->Append(wxID_PREFERENCES, _("Preferences"));
+   // this->mMain->Append(wxID_HELP, _("Help"));
+   // this->mMain->Append(wxID_PREFERENCES, _("Preferences"));
     this->mMain->Append(wxID_EXIT, _("Exit"));
 
     this->mbMain->Append(this->mMain, _("File"));
@@ -66,8 +66,8 @@ void MainFrame::onAbout(wxCommandEvent &event) {
     wxAboutDialogInfo info;
 
     info.SetName(L"XMwayLoon");
-    info.SetVersion(L"1.0.0");
-    info.SetDescription(L"XMwayLoon is the open project designed for Burmese data randomization.");
+    info.SetVersion(VERSION);
+    info.SetDescription(L"XMwayLoon is the open project crafted for Myanmar data randomization.");
     info.SetCopyright(L"Copyright (c) 2020 Xlotgative");
     info.SetWebSite(L"https://github.com/KaungZawHtet/XMwayLoon");
 
@@ -96,7 +96,8 @@ void MainFrame::onAbout(wxCommandEvent &event) {
             L"THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER "
             L"LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING "
             L"FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS "
-            L"IN THE SOFTWARE.");
+            L"IN THE SOFTWARE."
+            L"The licensing announcement for XMwayLoon can be evolved or changed." );
 
     wxAboutBox(info);
 
@@ -107,15 +108,30 @@ void MainFrame::onCredit(wxCommandEvent &event) {
 
     wxAboutDialogInfo info;
 
-    info.SetName(L"Credit");
+    //info.SetTitle(nullptr);
+
+    //info.SetName(L"Credit");
+    info.SetVersion(VERSION);
     info.SetDescription
-            (L"We want to say thank you to the open source community.");
+            (R"(
+We want to say thank you to the local and global open source projects participated directly or indirectly in XMwayLoon.
+Although it’s hard to mention all of global efforts (from c++ itself to a single line of code from stack overflow ) in this version,
+we can mention local ones surviving in our nation’s developing open source community.
+Here are the ones:
+
+Technomatin’s mmtext
+Ko Thant Thet’s uni-zg converter
+Melomap’s phone number regex project
+)");
 
     // info.SetCopyright(L"From Xlotgative with love.");
-
+/*
     wxArrayString developers;
-    developers.Add(L"Xavier Leclercq");
-    info.SetDevelopers(developers);
+    developers.Add(L"technomatin’s mmtext");
+    developers.Add(L"Ko thant that’s uni-zg converter");
+    developers.Add(L"Melomap’s phone number regex project");
+
+    info.SetDevelopers(developers);*/
 
     wxAboutBox(info);
     event.Skip();
@@ -150,5 +166,5 @@ wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
 
                 EVT_MENU(MENU_ITEM_CREDIT_ID, MainFrame::onCredit)
                 EVT_MENU(wxID_ABOUT, MainFrame::onAbout)
-                EVT_MENU(wxID_PREFERENCES, MainFrame::onPreference)
+             //   EVT_MENU(wxID_PREFERENCES, MainFrame::onPreference)
 wxEND_EVENT_TABLE()

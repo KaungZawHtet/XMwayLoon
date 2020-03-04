@@ -98,7 +98,7 @@ void TypeGenerationContainer::onRemoveType(wxCommandEvent &event) {
 
 void TypeGenerationContainer::onReadMe(wxCommandEvent &event) {
 
-    ReadMeDialog panel("Read Me");
+    DataGenerationReadMeDialog panel("Read Me");
 
 
     event.Skip();

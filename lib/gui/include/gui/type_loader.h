@@ -35,7 +35,7 @@ public:
 
 
      TypeLoader();
-    static inline void load();
+    static void load();
 
 
 

@@ -10,7 +10,7 @@ static inline TypeLoader* objTypeLoader;
 
 };
 
-
+#define VERSION L"0.9.6"
 
 /*
  *wxFrame 100000 as MainFrame
