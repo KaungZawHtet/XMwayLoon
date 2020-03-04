@@ -67,7 +67,7 @@ void MainFrame::onAbout(wxCommandEvent &event) {
 
     info.SetName(L"XMwayLoon");
     info.SetVersion(VERSION);
-    info.SetDescription(L"XMwayLoon is the open project crafted for Myanmar data randomization.");
+    info.SetDescription(L"XMwayLoon is a open project crafted for Myanmar data randomization.");
     info.SetCopyright(L"Copyright (c) 2020 Xlotgative");
     info.SetWebSite(L"https://github.com/KaungZawHtet/XMwayLoon");
 
@@ -97,7 +97,7 @@ void MainFrame::onAbout(wxCommandEvent &event) {
             L"LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING "
             L"FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS "
             L"IN THE SOFTWARE."
-            L"The licensing announcement for XMwayLoon can be evolved or changed." );
+            L"The licensing announcement may be evolved or changed in coming version." );
 
     wxAboutBox(info);
 

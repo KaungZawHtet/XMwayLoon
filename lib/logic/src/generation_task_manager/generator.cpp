@@ -37,7 +37,8 @@ Generator::Generator(GenerateInfo *tmp_objGenerateInfo,std::function<void()> fun
 
     this->taskStop= taskflow.emplace([&](){
 
-        std::cout<< ++ (this->count) << " record finished" <<"\n";
+        std::cout<<  this->count << " record finished" <<"\n";
+        ++ (this->count);
     }).name("stop");
 
 }
