@@ -4,7 +4,7 @@ add_library(model
         ${XMwayLoon_model_CPPs})
 
 target_link_libraries(model PUBLIC
-        randomizer sqlite3 customized_third_parties
+        randomizer customization
         )
 
 target_include_directories(model

@@ -5,6 +5,8 @@
 
 bool GeneratePage::validate() {
 
+    bool doesTypeExist= !this->ctTypeGeneration->gTypeGrid->vecTypeNames.empty();
+
     bool doesLocationExist=this->ctGeneratedFileContainer->tcGeneratedFile->GetValue()!="";
     bool doesFormatExist
     = (this->ctOutputFormatContainer->cbXML->GetValue()
@@ -14,7 +16,7 @@ bool GeneratePage::validate() {
 
     if(!doesLocationExist)
     {
-        this->ctGeneratedFileContainer->stError->SetLabelText("Fill the location");
+        this->ctGeneratedFileContainer->stError->SetLabelText("Fill a location for generated file");
         this->ctGeneratedFileContainer->stError->SetForegroundColour(wxColor(*wxRED));
 
     } else this->ctGeneratedFileContainer->stError->SetLabelText("");
@@ -26,8 +28,14 @@ bool GeneratePage::validate() {
         this->ctOutputFormatContainer->stError->SetForegroundColour(wxColor(*wxRED));
     } else  this->ctOutputFormatContainer->stError->SetLabelText("");
 
+    if(!doesTypeExist)
+    {
+        this->ctTypeGeneration->stError->SetLabelText("add at least one type");
+        this->ctTypeGeneration->stError->SetForegroundColour(wxColor(*wxRED));
+    } else  this->ctTypeGeneration->stError->SetLabelText("");
 
-    if(doesFormatExist and doesLocationExist) return true;
+
+    if(doesFormatExist and doesLocationExist and doesTypeExist) return true;
     else return false;
 
 }

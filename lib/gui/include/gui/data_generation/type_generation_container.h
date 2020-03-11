@@ -32,6 +32,7 @@ public:
 
     wxBoxSizer *bsMain;
     wxStaticLine *sl0;
+    wxStaticText *stError;
 
 
     TypeLoader objTypeLoader;

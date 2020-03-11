@@ -25,7 +25,8 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     this->btnAddType = new wxButton(this->gpParent, BTN_ADD_TYPE_ID, wxT("Add"),wxDefaultPosition,wxSize(90,-1));
     this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("Remove"),wxDefaultPosition,wxSize(90,-1));
     this->btnReadMe =  new wxButton(this->gpParent, BTN_README_ID, wxT("?"),wxDefaultPosition,wxSize(30,-1));
-
+    this->stError= new wxStaticText(this->gpParent, -1,
+                                    wxT(""));
 
     this->cbAddType =  new wxComboBox(this->gpParent, CB_ADD_TYPE_ID,wxT("Choose Type:"),
             wxPoint(-1,-1),wxSize(-1,-1)
@@ -44,6 +45,7 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
 
     //connect Type Addition's widgets to horrizontal BoxSizer
     this->bsAddTypeTitle->Add(this->stAddTypeTitle);
+    this->bsAddTypeTitle->Add(this->stError);
     this->bsAddType->Add(this->cbAddType, 2, wxRIGHT, 8);
     this->bsAddType->Add(this->btnAddType, 0);
     this->bsAddType->Add(this->btnRemoveType, 0);

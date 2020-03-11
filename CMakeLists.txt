@@ -3,24 +3,23 @@ cmake_minimum_required(VERSION 3.12)
 set(project XMwayLoon)
 set(version 0.9.6)
 project(${project} VERSION ${version})
-#CMAKE_PREFIX_PATH=~/Desktop/c++/wxWidgets/cmake-build
+
 #conan install . -s build_type=Debug --install-folder=cmake-build-debug
 #conan install . -s build_type=Release --install-folder=cmake-build-release
 
 set(CMAKE_CXX_STANDARD 17)
 
-#CMAKE_PREFIX_PATH=~/ClionProjects/XMwayLoon/vendor/wxWidgets/cmake-build
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")
-add_subdirectory(vendor/nlohmann_json)
+add_subdirectory(vendor/projects/nlohmann_json)
 
 
-if(WIN32)
-    set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/wxWidgets/cmake-build-windows")
-elseif(APPLE)
-    set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/wxWidgets/cmake-build-mac")
-elseif(LINUX)
-    set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/wxWidgets/cmake-build-ubuntu")
+if(${WIN32})
+    list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/projects/wxWidgets/cmake-build-windows")
+elseif(${APPLE})
+    list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/projects/wxWidgets/cmake-build-mac")
+else()
+    list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/projects/wxWidgets/cmake-build-ubuntu")
 endif()
 
 
@@ -41,14 +40,14 @@ endif()
 
 
 
-set(BOOST_ROOT vendor/boost)
-set(BOOST_INCLUDEDIR vendor/boost/build/include)
-if(WIN32)
-    set(BOOST_LIBRARYDIR vendor/boost/build/lib-windows)
-elseif(APPLE)
-    set(BOOST_LIBRARYDIR vendor/boost/build/lib-mac)
-elseif(LINUX)
-    set(BOOST_LIBRARYDIR vendor/boost/build/lib-ubuntu)
+set(BOOST_ROOT vendor/projects/boost)
+set(BOOST_INCLUDEDIR vendor/projects/boost/build/include)
+if(${WIN32})
+    set(BOOST_LIBRARYDIR vendor/projects/boost/build/lib-windows)
+elseif(${APPLE})
+    set(BOOST_LIBRARYDIR vendor/projects/boost/build/lib-mac)
+else()
+    set(BOOST_LIBRARYDIR vendor/projects/boost/build/lib-ubuntu)
 endif()
 set(BOOST_NO_SYSTEM_PATHS ON)
 find_package(Boost 1.71 COMPONENTS regex REQUIRED)
@@ -67,10 +66,10 @@ find_package(wxWidgets 3.1.3 COMPONENTS all REQUIRED)
 # Include the wxWidgets use file to initialize various settings
 include(${wxWidgets_USE_FILE})
 # Define a variable containing a list of source files for the project
-if(WIN32)
+if(${WIN32})
     # Include a RC file for windows
     list(APPEND SRC_FILES ../sample.rc)
-elseif(APPLE)
+elseif(${APPLE})
     # Add an icon for the apple .app file
     list(APPEND SRC_FILES ../../src/osx/carbon/wxmac.icns)
 endif()
@@ -79,25 +78,14 @@ endif()
 
 
 
-
-
 #TODO:: gtest's subdirectory condition for other contributors
-add_subdirectory(vendor/benchmark/googletest)
+add_subdirectory(vendor/projects/benchmark/googletest)
 enable_testing()
 add_subdirectory(test)
 
-add_subdirectory(vendor/benchmark)
+add_subdirectory(vendor/projects/benchmark)
 add_subdirectory(benchmark)
-add_subdirectory(vendor/customized_third_parties)
-#add_subdirectory(vendor/glog)
-
-#add_subdirectory(vendor/wxWidgets)
-
-
-#[[file(GLOB parallel_hashmap_files
-        "vendor/parallel_hashmap/*.h")
-add_library(parallel_hashmap INTERFACE)
-target_include_directories(parallel_hashmap INTERFACE ${parallel_hashmap_files})]]
+add_subdirectory(vendor/customization)
 
 
 

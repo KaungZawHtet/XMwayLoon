@@ -5,7 +5,7 @@ file(GLOB XMwayLoon_randomizer_CPPs
         )
 add_library(randomizer
         ${XMwayLoon_randomizer_CPPs})
-target_link_libraries(randomizer model customized_third_parties)
+target_link_libraries(randomizer model customization)
 
 target_include_directories(randomizer
         PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")

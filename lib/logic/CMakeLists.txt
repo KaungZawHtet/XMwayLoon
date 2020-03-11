@@ -6,7 +6,7 @@ add_library(logic
         ${XMwayLoon_logic_CPPs})
 
 target_link_libraries(logic PUBLIC nlohmann_json::nlohmann_json
-        customized_third_parties
+        customization
         randomizer
         model
 

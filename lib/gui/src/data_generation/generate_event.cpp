@@ -83,7 +83,7 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
 
     } else {
         wxMessageDialog *dial = new wxMessageDialog(this,
-                                                    wxT("This is error"), wxT("Error"));
+                                                    wxT("There are some errors. Recheck your input."), wxT("Error"),wxICON_NONE);
         dial->ShowModal();
     }
 

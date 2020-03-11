@@ -341,7 +341,56 @@ CMakeLists.txt.user*
 
 # Qt Creator backups
 
-# End of https://www.gitignore.io/api/c,qt,c++,cmake,clion,qtcreator,netbeans,visualstudiocode,eclipse
+# End of https://www.ggitignore.io/api/c,qt,c++,cmake,clion,qtcreator,netbeans,visualstudiocode,eclipse
 
 
-vendor
+
+
+
+vendor/projects/boost/*
+!vendor/projects/boost/.gitkeep
+
+vendor/projects/icu/*
+!vendor/projects/icu/.gitkeep
+
+vendor/projects/nlohmann_json/*
+!vendor/projects/nlohmann_json/.gitkeep
+
+vendor/projects/sqlite/*
+!vendor/projects/sqlite/.gitkeep
+
+vendor/projects/wxWidgets/*
+!vendor/projects/wxWidgets/.gitkeep
+
+
+
+vendor/customization/include/csv_writer/*
+!vendor/customization/include/csv_writer/.gitkeep
+
+vendor/customization/include/dry_comparisons/*
+!vendor/customization/include/dry_comparisons/.gitkeep
+
+vendor/customization/include/fifo_map/*
+!vendor/customization/include/fifo_map/.gitkeep
+
+vendor/customization/include/parallel_hashmap/*
+!vendor/customization/include/parallel_hashmap/.gitkeep
+
+vendor/customization/include/sqlite/*
+!vendor/customization/include/sqlite/.gitkeep
+
+vendor/customization/include/sqlite_orm/*
+!vendor/customization/include/sqlite_orm/.gitkeep
+
+vendor/customization/include/taskflow/*
+!vendor/customization/include/taskflow/.gitkeep
+
+vendor/customization/include/tinyxml2/*
+!vendor/customization/include/tinyxml2/.gitkeep
+
+vendor/customization/include/unicode/*
+!vendor/customization/include/unicode/.gitkeep
+
+!vendor/customization/include/myanmar_encoding_handler/
+
+
