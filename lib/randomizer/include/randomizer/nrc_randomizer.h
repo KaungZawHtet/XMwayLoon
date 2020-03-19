@@ -17,7 +17,8 @@ class NRCRandomizer : public RootRandomizer
 
 
 private:
-std::string type[2]= {"န","နိုင်"};
+std::string uniTypes[6]= {"နိုင်","ဧည့်","ပြု","စ","သ","သီ"};
+std::string zgTypes[6]= {"ႏိုင္","ဧည့္","ျပဳ","စ","သ","သီ"};
 std::string alphabet[25]
 = {"က","ခ","ဂ","ဃ","င"
    ,"စ","ဆ","ဇ"

@@ -11,7 +11,7 @@
 #include <wx/statline.h>
 class GeneratePage;
 //this class depend on TypeLoader
-class TypeGenerationContainer : public wxControl
+class TypeGenerationContainer
 {
 public:
 

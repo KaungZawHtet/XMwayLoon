@@ -38,7 +38,7 @@ std::string XMwayLoon_RootNameRandomizer::getFemaleName() {
 
 std::string XMwayLoon_RootNameRandomizer::getMaleName() {
 
-    this->nameTypeDistribution = std::uniform_int_distribution<>(1, 6);
+    this->nameTypeDistribution = std::uniform_int_distribution<>(1, 9);
     int index = this->nameTypeDistribution(this->objPCG);
 
     switch (index) {
@@ -54,6 +54,12 @@ std::string XMwayLoon_RootNameRandomizer::getMaleName() {
             return getTwoOne(this->maleSyllablesOne, this->maleSyllablesTwo, this->sizeMaleOne, this->sizeMaleTwo);
         case 6 :
             return getTwoTwo(this->maleSyllablesTwo, this->sizeMaleTwo);
+        case 7 :
+            return getTwoOneOne(this->maleSyllablesOne, this->maleSyllablesTwo, this->sizeMaleOne, this->sizeMaleTwo);
+        case 8 :
+            return getOneTwoOne(this->maleSyllablesOne, this->maleSyllablesTwo, this->sizeMaleOne, this->sizeMaleTwo);
+        case 9 :
+            return getOneOneTwo(this->maleSyllablesOne, this->maleSyllablesTwo, this->sizeMaleOne, this->sizeMaleTwo);
 
     }
 
@@ -87,10 +93,18 @@ std::string XMwayLoon_RootNameRandomizer::RootNameRandomizer::getRandom() {
 
 }
 
+/*  ----------------------------------------------------------------------------------------------------  */
+/*  ----------------------------------------------------------------------------------------------------  */
+
+
+
 void XMwayLoon_RootNameRandomizer::RootNameRandomizer::load() {
     std::random_device objRD;
     this->objPCG.seed(objRD);
 }
+
+/*  ----------------------------------------------------------------------------------------------------  */
+/*  ----------------------------------------------------------------------------------------------------  */
 
 
 std::string
@@ -158,6 +172,47 @@ XMwayLoon_RootNameRandomizer::getOneTwo(std::vector<std::string> &vecOne, std::v
 
     return vecOne[indexOne] + vecTwo[indexTwo];
 }
+
+std::string XMwayLoon_RootNameRandomizer::getTwoOneOne(std::vector<std::string> &vecOne,
+                                                                    std::vector<std::string> &vecTwo, int sizeOne,
+                                                                    int sizeTwo) {
+    this->oneDistribution = std::uniform_int_distribution<>(0, sizeOne - 1);
+    this->twoDistribution = std::uniform_int_distribution<>(0, sizeTwo - 1);
+
+    int indexOne1 = this->oneDistribution(this->objPCG);
+    int indexOne2 = this->oneDistribution(this->objPCG);
+    int indexTwo = this->twoDistribution(this->objPCG);
+
+    return  vecTwo[indexTwo] + vecOne[indexOne1] + vecOne[indexOne2] ;
+}
+
+std::string XMwayLoon_RootNameRandomizer::getOneTwoOne(std::vector<std::string> &vecOne,
+                                                                    std::vector<std::string> &vecTwo, int sizeOne,
+                                                                    int sizeTwo) {
+    this->oneDistribution = std::uniform_int_distribution<>(0, sizeOne - 1);
+    this->twoDistribution = std::uniform_int_distribution<>(0, sizeTwo - 1);
+
+    int indexOne1 = this->oneDistribution(this->objPCG);
+    int indexOne2 = this->oneDistribution(this->objPCG);
+    int indexTwo = this->twoDistribution(this->objPCG);
+
+    return vecOne[indexOne1] + vecTwo[indexTwo] + vecOne[indexOne2];
+}
+
+std::string XMwayLoon_RootNameRandomizer::getOneOneTwo(std::vector<std::string> &vecOne,
+                                                                    std::vector<std::string> &vecTwo, int sizeOne,
+                                                                    int sizeTwo) {
+    this->oneDistribution = std::uniform_int_distribution<>(0, sizeOne - 1);
+    this->twoDistribution = std::uniform_int_distribution<>(0, sizeTwo - 1);
+
+    int indexOne1 = this->oneDistribution(this->objPCG);
+    int indexOne2 = this->oneDistribution(this->objPCG);
+    int indexTwo = this->twoDistribution(this->objPCG);
+
+    return vecOne[indexOne1] +vecOne[indexOne2]  + vecTwo[indexTwo];
+}
+/*  ----------------------------------------------------------------------------------------------------  */
+/*  ----------------------------------------------------------------------------------------------------  */
 
 
 XMwayLoon_RootNameRandomizer::RootNameRandomizer(NameType

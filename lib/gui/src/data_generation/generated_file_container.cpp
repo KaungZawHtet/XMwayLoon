@@ -8,7 +8,7 @@
 #include <gui/data_generation/generate_page.h>
 GeneratedFileContainer::GeneratedFileContainer
 (GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain)
-: wxControl(reinterpret_cast<wxWindow *>(tmp_gpParent), -1)
+
 {
     this->gpParent= tmp_gpParent;
     this->bsMain=tmp_bsMain;
@@ -47,7 +47,7 @@ void GeneratedFileContainer::onTarget
 (wxCommandEvent &event) {
 
 
-wxFileDialog saveFileDialog(this, _("Generated file's location: "), "", "",
+wxFileDialog saveFileDialog(this->gpParent, _("Generated file's location: "), "", "",
                            "", wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
     if (saveFileDialog.ShowModal() == wxID_CANCEL)
         return;     // the user changed idea...

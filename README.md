@@ -1,17 +1,19 @@
 
 # XMwayLoon 
-Portable GUI exe for parallel Myanmar data randomization.
+Portable GUI executable for parallel Myanmar data randomization.
 
 ## Platform
 - Mac
-- Windows
 - Ubuntu
+- Windows (coming soon)
+
+
+## Requirement
+- For ubuntu, run "sudo apt-get install libgtk-3-dev" in case of err at app launch
 
 ## Download:
-download binary executable from https://github.com/KaungZawHtet/XMwayLoon/releases by platform.
+download binary executable from https://github.com/KaungZawHtet/XMwayLoon/releases .
 
-## Build Guide:
-Download whole project from https://github.com/KaungZawHtet/XMwayLoon/releases instead of cloning which lack of some of third party components.
 
 ## Todo:
 - Better performance
@@ -19,7 +21,7 @@ Download whole project from https://github.com/KaungZawHtet/XMwayLoon/releases i
 - More types
 - Better UI/UX
 - Better Build management
-- More explicit information
+- More explicit documentation
 - More customizability
 
 
@@ -30,7 +32,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-The licensing announcement may be evolved or changed in coming version.
+The licensing announcement may be evolved or changed in coming versions.
 
 
 

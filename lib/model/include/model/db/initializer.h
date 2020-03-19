@@ -58,7 +58,7 @@ CREATE UNIQUE INDEX IF NOT EXISTS IndexNPid ON name_properties (id ASC);)";
     );
     )";
 
-
+//TODO:: need fix
     static constexpr std::string_view sqlInsert_NameProperties = R"(INSERT INTO "name_properties" VALUES (1,'ကို','ကို',1,1,1);
 INSERT INTO "name_properties" VALUES (2,'ကျော်','ေက်ာ္',1,1,1);
 INSERT INTO "name_properties" VALUES (3,'ကောင်း','ေကာင္း',1,1,1);

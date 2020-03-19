@@ -34,9 +34,9 @@ enum class Gender {
 
  static  phmap::flat_hash_map<std::string, Gender > genderMap =
         {
-                { "ကျား",  Gender::male},
-                { "မ", Gender::female},
-                { "ကျပန်း",  Gender::random}
+                { "Male",  Gender::male},
+                { "Female", Gender::female},
+                { "Random",  Gender::random}
         };
 
 //For Bool Randomizer
@@ -45,8 +45,8 @@ enum class Gender {
 enum class BoolType{num=1,alpha=2};
 static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
         {
-                { "မှား/မှန်",  BoolType::alpha},
-                { "၀/၁", BoolType::num},
+                { "Mhar/Mhan",  BoolType::alpha},
+                { "0/1", BoolType::num},
 
         };
 
@@ -109,12 +109,16 @@ static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
             };
     //NRC
     //"န","နိုင်"
-    enum class NRCType {naing=1, n=2,random=3};
+    enum class NRCType {naing=1, ae=2,pyu=3, sa=4 , tha=5, thi=6, random=7};
     static  phmap::flat_hash_map<std::string, NRCType > nrcTypeMap =
             {
-                    { "နိုင်",  NRCType::naing},
-                    { "န", NRCType::n},
-                    { "random", NRCType::random}
+                    { "C",  NRCType::naing},
+                    { "AC", NRCType::ae},
+                    { "NC", NRCType::pyu},
+                    { "V",  NRCType::sa},
+                    { "M", NRCType::tha},
+                    { "N", NRCType::thi},
+                    { "Random", NRCType::random}
 
             };
 

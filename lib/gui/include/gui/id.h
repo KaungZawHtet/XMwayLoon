@@ -83,8 +83,9 @@ static inline TypeLoader* objTypeLoader;
 
 #define RD_UNICODE_ID 1411
 #define RD_ZAWGYI_ID 1412
-#define RD_UNIFORM_RANDOM_ID 1413
-#define RD_CUSTOM_ID 1414
+#define RD_RANDOM_ID 1413
+#define RD_UNIFORM_RANDOM_ID 1414
+#define RD_CUSTOM_ID 1415
 
 
 #define BTN_TARGET_ID 1500

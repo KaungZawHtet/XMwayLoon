@@ -11,8 +11,8 @@ TEST(NameTest,getRandomName) {
 
     NameType objNameType;
 
-    objNameType.setEncoding("Random");
-    objNameType.setGender("ကျပန်း");
+    objNameType.setEncoding("Unicode");
+    objNameType.setGender("Random");
 
     XMwayLoon_NameRandomizer objRan(objNameType);
 
@@ -29,7 +29,7 @@ TEST(NameTest,getMaleName) {
     NameType objNameType;
 
     objNameType.setEncoding("Unicode");
-    objNameType.setGender("ကျား");
+    objNameType.setGender("Male");
 
     XMwayLoon_NameRandomizer objRan(objNameType);
 
@@ -46,7 +46,7 @@ TEST(NameTest,getFemaleName) {
     NameType objNameType;
 
     objNameType.setEncoding("Unicode");
-    objNameType.setGender("မ");
+    objNameType.setGender("Female");
 
     XMwayLoon_NameRandomizer objRan(objNameType);
 
@@ -62,7 +62,7 @@ TEST(NameTest,getZgUni) {
     NameType objNameType;
 
     objNameType.setEncoding("Zawgyi");
-    objNameType.setGender("ကျား");
+    objNameType.setGender("Male");
 
     XMwayLoon_ZgNameRandomizer objRan(objNameType);
 

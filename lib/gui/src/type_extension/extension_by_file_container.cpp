@@ -4,7 +4,23 @@
 #include <gui/type_extension/extension_by_file_container.h>
 #include <gui/id.h>
 #include <wx/dialog.h>
-#include <gui/type_extension/extend_page.h>
+
+#ifdef __APPLE__
+
+#define BTN_PADDING 0
+#define READ_ME_BTN_SIZE 30
+
+#elif __linux__
+
+#define BTN_PADDING 5
+#define READ_ME_BTN_SIZE 35
+
+#else
+
+#define BTN_PADDING 0
+#define READ_ME_BTN_SIZE 30
+#endif
+
 ExtensionByFile_Container::ExtensionByFile_Container
 (wxWindow *tmp_wParent)
 : wxPanel(tmp_wParent,-1)
@@ -26,7 +42,7 @@ ExtensionByFile_Container::ExtensionByFile_Container
     this->stTitle->SetFont(this->font->Bold());
     this->btnBrowse = new wxButton(this, BTN_BROWSE_BY_FILE_ID, wxT("Browse"));
     this->btnExtend = new wxButton(this, BTN_EXTEND_BY_FILE_ID, wxT("Extend"));
-    this->btnReadMe = new wxButton(this, BTN_README_BY_FILE_ID, wxT("?"),wxDefaultPosition,wxSize(30,-1));
+    this->btnReadMe = new wxButton(this, BTN_README_BY_FILE_ID, wxT("?"),wxDefaultPosition,wxSize(READ_ME_BTN_SIZE,-1));
 
 
     this->tcPath = new wxTextCtrl(this, TC_PATH_BY_FILE_ID,wxT(""),
@@ -42,7 +58,7 @@ ExtensionByFile_Container::ExtensionByFile_Container
     this->bsTitle->Add(this->stTitle);
     this->bsFileExtender->Add(this->tcPath, 2, wxRIGHT, 8);
     this->bsFileExtender->Add(this->btnBrowse, 0);
-    this->bsFileExtender->Add(this->btnReadMe, 0);
+    this->bsFileExtender->Add(this->btnReadMe, 0,wxLEFT,BTN_PADDING);
     this->bsExtendBtn->Add(this->btnExtend, 0);
     //---
     this->bsMain->Add(this->bsTitle, 0, wxLEFT | wxTOP, 9); //title should be one less pixel

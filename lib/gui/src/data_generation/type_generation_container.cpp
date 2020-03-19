@@ -8,8 +8,26 @@
 #include <gui/id.h>
 #include <gui/data_generation/generate_page.h>
 
+#ifdef __APPLE__
+
+#define BTN_PADDING 0
+#define READ_ME_BTN_SIZE 30
+
+#elif __linux__
+
+#define BTN_PADDING 5
+#define READ_ME_BTN_SIZE 35
+
+#else
+
+#define BTN_PADDING 0
+#define READ_ME_BTN_SIZE 30
+#endif
+
+
+
 TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain)
-: wxControl(tmp_gpParent, -1)
+
 {
 
     this->gpParent= tmp_gpParent;
@@ -24,7 +42,7 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     this->stAddTypeTitle->SetFont(this->gpParent->font->Bold());
     this->btnAddType = new wxButton(this->gpParent, BTN_ADD_TYPE_ID, wxT("Add"),wxDefaultPosition,wxSize(90,-1));
     this->btnRemoveType = new wxButton(this->gpParent, BTN_REMOVE_TYPE_ID, wxT("Remove"),wxDefaultPosition,wxSize(90,-1));
-    this->btnReadMe =  new wxButton(this->gpParent, BTN_README_ID, wxT("?"),wxDefaultPosition,wxSize(30,-1));
+    this->btnReadMe =  new wxButton(this->gpParent, BTN_README_ID, wxT(R"(?)"),wxDefaultPosition,wxSize(READ_ME_BTN_SIZE,-1));
     this->stError= new wxStaticText(this->gpParent, -1,
                                     wxT(""));
 
@@ -48,8 +66,8 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
     this->bsAddTypeTitle->Add(this->stError);
     this->bsAddType->Add(this->cbAddType, 2, wxRIGHT, 8);
     this->bsAddType->Add(this->btnAddType, 0);
-    this->bsAddType->Add(this->btnRemoveType, 0);
-    this->bsAddType->Add(this->btnReadMe, 0);
+    this->bsAddType->Add(this->btnRemoveType, 0,wxLEFT,BTN_PADDING);
+    this->bsAddType->Add(this->btnReadMe, 0,wxLEFT,BTN_PADDING);
     //---
     this->bsMain->Add(this->bsAddTypeTitle, 0, wxLEFT | wxTOP, 9); //title should be one less pixel
     this->bsMain->Add(this->bsAddType, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
@@ -63,7 +81,7 @@ TypeGenerationContainer::TypeGenerationContainer(GeneratePage *tmp_gpParent, wxB
 
     this->bsMain->Add(sl0, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 20);
 
-    WidgetsCache::objTypeLoader=&(this->objTypeLoader);
+    WidgetsCache::objTypeLoader=&(this->objTypeLoader); //for communicating with type extension
 }
 
 

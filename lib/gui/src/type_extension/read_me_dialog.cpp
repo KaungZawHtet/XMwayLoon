@@ -6,7 +6,7 @@
 #include <gui/type_extension/read_me_panel.h>
 
 ReadMeDialog::ReadMeDialog(const wxString & title)
-: wxDialog(NULL,-1,title,wxDefaultPosition,wxSize(600,750))
+: wxDialog(NULL,-1,title,wxDefaultPosition,wxSize(600,470))
 
 {
   this->pnlReadMe= new ReadMePanel(this);

@@ -9,7 +9,7 @@
 #include <wx/wx.h>
 #include <gui/data_generation/type_grid.h>
 class GeneratePage;
-class OutputAmountContainer : public wxControl
+class OutputAmountContainer
 {
 public:
 
@@ -27,7 +27,7 @@ public:
     wxCheckBox *cbXML;
     wxCheckBox *cbHTML;
     wxStaticLine *sl2;
-    OutputAmountContainer(GeneratePage *gpParent, wxBoxSizer *tmp_bsMain);
+    OutputAmountContainer(GeneratePage *tmp_pgParent, wxBoxSizer *tmp_bsMain);
 
 
     wxStaticText *stRecordSizeTitle;

@@ -10,7 +10,7 @@
 
 
 OutputAmountContainer::OutputAmountContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain)
-:wxControl(tmp_gpParent,-1)
+
 {
 
     this->bsMain=tmp_bsMain;

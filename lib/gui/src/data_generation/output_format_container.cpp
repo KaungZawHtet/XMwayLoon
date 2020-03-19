@@ -9,8 +9,7 @@
 #include <gui/data_generation/generate_page.h>
 OutputFormatContainer::OutputFormatContainer
 
-(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain) :
-wxControl(tmp_gpParent,-1)
+(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain)
 {
 
     this->bsMain=tmp_bsMain;

@@ -14,13 +14,8 @@ set(JSON_BuildTests OFF CACHE INTERNAL "")
 add_subdirectory(vendor/projects/nlohmann_json)
 
 
-if(${WIN32})
-    list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/projects/wxWidgets/cmake-build-windows")
-elseif(${APPLE})
-    list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/projects/wxWidgets/cmake-build-mac")
-else()
-    list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/projects/wxWidgets/cmake-build-ubuntu")
-endif()
+list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vendor/projects/wxWidgets/cmake-build")
+
 
 
 
@@ -41,14 +36,8 @@ endif()
 
 
 set(BOOST_ROOT vendor/projects/boost)
-set(BOOST_INCLUDEDIR vendor/projects/boost/build/include)
-if(${WIN32})
-    set(BOOST_LIBRARYDIR vendor/projects/boost/build/lib-windows)
-elseif(${APPLE})
-    set(BOOST_LIBRARYDIR vendor/projects/boost/build/lib-mac)
-else()
-    set(BOOST_LIBRARYDIR vendor/projects/boost/build/lib-ubuntu)
-endif()
+#set(BOOST_INCLUDEDIR vendor/projects/boost/build/include)
+#set(BOOST_LIBRARYDIR vendor/projects/boost/build/lib)
 set(BOOST_NO_SYSTEM_PATHS ON)
 find_package(Boost 1.71 COMPONENTS regex REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
@@ -76,20 +65,22 @@ endif()
 
 
 
+if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 
 
-#TODO:: gtest's subdirectory condition for other contributors
-add_subdirectory(vendor/projects/benchmark/googletest)
-enable_testing()
-add_subdirectory(test)
+    #TODO:: gtest's subdirectory condition for other contributors
+    add_subdirectory(vendor/projects/benchmark/googletest)
+    enable_testing()
+    add_subdirectory(test)
 
-add_subdirectory(vendor/projects/benchmark)
-add_subdirectory(benchmark)
+    add_subdirectory(vendor/projects/benchmark)
+    add_subdirectory(benchmark)
+
+endif()
+
+
+
 add_subdirectory(vendor/customization)
-
-
-
-
 add_subdirectory(lib/randomizer)
 add_subdirectory(lib/gui)
 #target_compile_options(randomizer PRIVATE -Werror -Wall -Wextra -Wsign-conversion -pedantic-errors -Wconversion)
@@ -104,13 +95,26 @@ if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 
 elseif (${CMAKE_BUILD_TYPE} STREQUAL "Release")
 
-    message("Compiler option works")
-    target_compile_options(${project} PRIVATE -O3 -flto=full)
+    if(${APPLE})
+
+        message("Compiler option works at Apple for exe")
+        target_compile_options(${project} PRIVATE -O3 -flto=full)
+
+    elseif(${WIN32})
+
+        message("Compiler option works at Win32 for exe")
+        target_compile_options(${project} PRIVATE -O3)
+    else()
+
+        message("Compiler option works for exe")
+        target_compile_options(${project} PRIVATE -O3)
+    endif()
+
 else()
     message("Error compiler option!")
 
 endif()
 
 
-target_link_libraries(${project} ${Boost_LIBRARIES}
+target_link_libraries(${project}
          ${wxWidgets_LIBRARIES} GUI )

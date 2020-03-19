@@ -37,7 +37,7 @@ Generator::Generator(GenerateInfo *tmp_objGenerateInfo,std::function<void()> fun
 
     this->taskStop= taskflow.emplace([&](){
 
-        std::cout<<  this->count << " record finished" <<"\n";
+        std::cout<< " Record " <<  this->count << " randomization finished\n";
         ++ (this->count);
     }).name("stop");
 
@@ -133,13 +133,15 @@ void Generator::connectTasks() {
 
 }
 
-void Generator::generate(std::function<void()> func) {
+bool Generator::generate(std::function<void()> func) {
 
 
     this->prepareRanTask();
     this->connectTasks();
 //this->taskflow.dump(std::cout);
     executor.run_n(taskflow, this->objGenerateInfo->outputRecordAmount,func).get();
+
+    return true;
 }
 
 tf::Taskflow* Generator::getTaskFow(){

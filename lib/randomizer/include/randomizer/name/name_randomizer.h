@@ -94,6 +94,9 @@ namespace XMwayLoon::Randomizer {
         std::string getOneOne(std::vector<std::string> &vecOne,int sizeOne);
         std::string getOneOneOne(std::vector<std::string> &vecOne,int sizeOne);
         std::string getOneTwo(std::vector<std::string> &vecOne,std::vector<std::string> &vecTwo,int sizeOne,int sizeTwo);
+        std::string getTwoOneOne(std::vector<std::string> &vecOne,std::vector<std::string> &vecTwo,int sizeOne,int sizeTwo);
+        std::string getOneTwoOne(std::vector<std::string> &vecOne,std::vector<std::string> &vecTwo,int sizeOne,int sizeTwo);
+        std::string getOneOneTwo(std::vector<std::string> &vecOne,std::vector<std::string> &vecTwo,int sizeOne,int sizeTwo);
 
 
 

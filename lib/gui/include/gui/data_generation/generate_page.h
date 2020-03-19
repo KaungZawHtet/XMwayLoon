@@ -28,7 +28,7 @@ public:
     wxBoxSizer *bsGenerate;
     wxButton *btnGenerate;
 
-    friend class GenInfoPackaging;
+    //friend class GenInfoPackaging;
 
 
     std::vector<XMwayLoon::Randomizer::RootRandomizer*> vecRandomizer;
@@ -37,7 +37,7 @@ public:
     void createGenerateButton();
 
     void cleanVec();
-    ~GeneratePage();
+    ~GeneratePage() final ;
 
     void onGenerate(wxCommandEvent& event);
     bool validate();

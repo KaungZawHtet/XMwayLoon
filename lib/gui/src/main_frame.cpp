@@ -1,4 +1,8 @@
 
+
+
+
+
 #include <wx/wx.h>
 #include <gui/main_frame.h>
 #include <gui/data_generation/generate_page.h>
@@ -7,10 +11,38 @@
 #include <wx/aboutdlg.h>
 #include <gui/app.h>
 #include <model/db/initializer.h>
+
+
+#ifdef __APPLE__
+
+#define DATA_GEN_SIZE_X 770
+#define DATA_GEN_SIZE_Y 630
+
+#define TYPE_EX_SIZE_X 500
+#define TYPE_EX_SIZE_Y 470
+
+#elif __linux__
+
+#define DATA_GEN_SIZE_X 770
+#define DATA_GEN_SIZE_Y 700
+
+#define TYPE_EX_SIZE_X 500
+#define TYPE_EX_SIZE_Y 540
+
+#else
+
+#define DATA_GEN_SIZE_X 770
+#define DATA_GEN_SIZE_Y 630
+
+#define TYPE_EX_SIZE_X 500
+#define TYPE_EX_SIZE_Y 470
+#endif
+
+
 MainFrame::MainFrame():
     wxFrame(nullptr, wxID_ANY
             , wxString("XMwayLoon")
-            , wxDefaultPosition, wxSize(770, 630),
+            , wxDefaultPosition, wxSize(DATA_GEN_SIZE_X, DATA_GEN_SIZE_Y),
             wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX)
             )
 {
@@ -52,8 +84,8 @@ void MainFrame::onTabChanged(wxCommandEvent &event)
     wxWindow* currentPage= this->nbMain->GetCurrentPage();
     int tabId= this->nbMain->FindPage(currentPage);
 
-    if(tabId==0)  this->SetSize( wxSize(770,630) );
-    if(tabId==1) this->SetSize( wxSize(500,470) );
+    if(tabId==0)  this->SetSize( wxSize(DATA_GEN_SIZE_X,DATA_GEN_SIZE_Y) );
+    if(tabId==1) this->SetSize( wxSize(TYPE_EX_SIZE_X,TYPE_EX_SIZE_Y) );
 
 
 
@@ -79,6 +111,10 @@ void MainFrame::onAbout(wxCommandEvent &event) {
     docWriters.Add(L"Kaung Zaw Htet");
     info.SetDocWriters(docWriters);
 
+
+
+#ifdef __APPLE__
+
     info.SetLicence(
             L"Permission is hereby granted, free of charge, to any person obtaining a "
             L"copy of this software and associated documentation files (the \"Software\"), "
@@ -97,7 +133,54 @@ void MainFrame::onAbout(wxCommandEvent &event) {
             L"LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING "
             L"FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS "
             L"IN THE SOFTWARE."
-            L"The licensing announcement may be evolved or changed in coming version." );
+            L"The licensing announcement may be evolved or changed in coming versions." );
+
+#elif __linux__
+    info.SetLicence(
+            "Permission is hereby granted, free of charge, to any person obtaining a "
+            "copy of\nthis software and associated documentation files (the \"Software\"), "
+            "to deal in\nthe Software without restriction, including without limitation "
+            "the rights to use,\ncopy, modify, merge, publish, distribute, sublicense, "
+            "and / or sell copies of the\nSoftware, and to permit persons to whom the "
+            "Software is furnished to do so,\nsubject to the following conditions :\n"
+            "\n"
+            "The above copyright notice and this permission notice shall be included in "
+            "all\ncopies or substantial portions of the Software.\n"
+            "\n"
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR "
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\nOF MERCHANTABILITY, "
+            "FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL "
+            "THE AUTHORS OR COPYRIGHT\nHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER "
+            "LIABILITY,\nWHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n"
+            "FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS "
+            "IN THE SOFTWARE."
+            "The licensing announcement may be\nevolved or changed in coming version." );
+
+
+#else
+info.SetLicence(
+            "Permission is hereby granted, free of charge, to any person obtaining a "
+            "copy of this software and associated documentation files (the \"Software\"), "
+            "to deal in the Software without restriction, including without limitation "
+            "the rights to use, copy, modify, merge, publish, distribute, sublicense, "
+            "and / or sell copies of the Software, and to permit persons to whom the "
+            "Software is furnished to do so, subject to the following conditions :\n"
+            "\n"
+            "The above copyright notice and this permission notice shall be included in "
+            "all copies or substantial portions of the Software.\n"
+            "\n"
+            "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR "
+            "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, "
+            "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL "
+            "THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER "
+            "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING "
+            "FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS "
+            "IN THE SOFTWARE."
+            "The licensing announcement may be evolved or changed in coming version." );
+
+#endif
+
+
 
     wxAboutBox(info);
 
@@ -113,16 +196,14 @@ void MainFrame::onCredit(wxCommandEvent &event) {
     //info.SetName(L"Credit");
     info.SetVersion(VERSION);
     info.SetDescription
-            (R"(
-We want to say thank you to the local and global open source projects participated directly or indirectly in XMwayLoon.
-Although it’s hard to mention all of global efforts (from c++ itself to a single line of code from stack overflow ) in this version,
-we can mention local ones surviving in our nation’s developing open source community.
-Here are the ones:
-
-Technomatin’s mmtext
-Ko Thant Thet’s uni-zg converter
-Melomap’s phone number regex project
-)");
+            (L"We want to say thank you to the local and global open source projects participated directly or indirectly in XMwayLoon.\n"
+             L"Although it’s hard to mention all of global efforts (from c++ itself to a single line of code from different sources) in this version,\n"
+             L"we can mention local ones surviving in the developing open source community of our nation.\n"
+             L"Here are the ones:\n"
+             L"Technomatin’s mmtext\n"
+             L"Ko Thant Thet’s uni-zg converter\n"
+             L"Melomap’s phone number regex project\n"
+);
 
     // info.SetCopyright(L"From Xlotgative with love.");
 /*

@@ -10,11 +10,11 @@
 TEST(NRCTest,getNRC){
 
     NRCType objNRC;
-    objNRC.type=XML_RE::NRCType::random;
-    objNRC.encoding= XML_RE::Encoding ::random;
+    objNRC.type=XML_RE::NRCType::pyu;
+    objNRC.encoding= XML_RE::Encoding ::unicode;
    
     XMwayLoon::Randomizer::NRCRandomizer objNRCRan(objNRC);
-    for (int i = 0; i < 60; ++i) {
+    for (int i = 0; i < 100; ++i) {
         std::string nrc= objNRCRan.getRandom( );
         std::cerr<<nrc<<std::endl;
         

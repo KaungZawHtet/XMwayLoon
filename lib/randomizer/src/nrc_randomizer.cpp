@@ -9,30 +9,63 @@
 std::string XMwayLoon_NRCRandomizer::getNRC
 (XML_RE::NRCType type) {
 
-    std::uniform_int_distribution<> typeDistribution(0, 1);
-    int boolean =typeDistribution(this->objPCG) ;
+    std::uniform_int_distribution<> typeDistribution(0, 5);
+    std::uniform_int_distribution<> boolDistribution(0, 1);
+    int boolSD =boolDistribution(this->objPCG) ;
 
     std::string idNum= this->objNumberRandomizer.getRandomMyanNum(100000,999999);
     std::string stateCode =this->objNumberRandomizer.getRandomMyanNum(1,14);
 
     std::string city;
-    if(boolean) city =this->get2Alpha();
+    if(boolSD) city =this->get2Alpha();
     else  city=this->get3Alpha();
 
     return [&](){
+        std::string *tmp;
+        int boolEncoding =boolDistribution(this->objPCG) ;
+
+        switch (this->objNRCType.encoding)
+        {
+            case XML_RE::Encoding::unicode :
+                tmp= this->uniTypes;
+                break;
+            case XML_RE::Encoding::zawgyi :
+                tmp= this->zgTypes;
+                break;
+            case XML_RE::Encoding::random :
+                if(boolEncoding) tmp= this->uniTypes;
+                else  tmp= this->zgTypes;
+                break;
+
+
+        }
+
+
 
         switch (type)
         {
-            case XML_RE::NRCType::n:
-                return stateCode+"/"+city+"("+ this->type[0]+ ")" +idNum;
-                break;
             case XML_RE::NRCType::naing:
-                return stateCode+"/"+city+"("+ this->type[1]+ ")" +idNum;
+                return stateCode+"/"+city+"("+ tmp[0]+ ")" +idNum;
+                break;
+            case XML_RE::NRCType::ae:
+                return stateCode+"/"+city+"("+ tmp[1]+ ")" +idNum;
+                break;
+            case XML_RE::NRCType::pyu:
+                return stateCode+"/"+city+"("+ tmp[2]+ ")" +idNum;
+                break;
+            case XML_RE::NRCType::sa:
+                return stateCode+"/"+city+"("+ tmp[3]+ ")" +idNum;
+                break;
+            case XML_RE::NRCType::tha:
+                return stateCode+"/"+city+"("+ tmp[4]+ ")" +idNum;
+                break;
+            case XML_RE::NRCType::thi:
+                return stateCode+"/"+city+"("+ tmp[5]+ ")" +idNum;
                 break;
             default:
             {
-                int boolean =typeDistribution(this->objPCG) ;
-                return stateCode+"/"+city+"("+ this->type[boolean]+ ")" +idNum;
+                int indexType = typeDistribution(this->objPCG);
+                return stateCode+"/"+city+"("+ tmp[indexType]+ ")" +idNum;
             }
                 break;
 

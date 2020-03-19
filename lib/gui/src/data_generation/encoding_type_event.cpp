@@ -35,13 +35,13 @@ void EncodingTypeContainer::onTargetEncode(wxCommandEvent &event) {
         targetEncodingType = EncodingType::zawgyi;
 
     }
-    if (id == RD_UNIFORM_RANDOM_ID)
+    if (id == RD_RANDOM_ID)
     {
         int rowPointer = this->gpParent->ctTypeGeneration->gTypeGrid->rowPointer ;
         for (int i=0;i<rowPointer;i++)
         {
             wxString value=  this->gpParent->ctTypeGeneration->gTypeGrid->GetCellValue(i,2);
-            if(value.Cmp("-"))  this->gpParent->ctTypeGeneration->gTypeGrid->SetCellValue(i,2,"Uni: Random");
+            if(value.Cmp("-"))  this->gpParent->ctTypeGeneration->gTypeGrid->SetCellValue(i,2,"Random");
 
         }
         targetEncodingType = EncodingType::uniform_random;

@@ -20,7 +20,7 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
              wxString::Format(wxT("%d"),a), wxT("Error")); dial->ShowModal();*/
 
     if (validate()) {
-        this->btnGenerate->SetLabel("Loading");
+        //this->btnGenerate->SetLabel("Loading");
 
         GenerateInfo *objGenerateInfo = new GenerateInfo();
 
@@ -64,19 +64,20 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
         objGenerateInfo->vecTitles = vecTitles;
 
 
-       /* std::function<void()> funcStart = [&]() {
+       /* std::function<void()> funcComplete = [&]() {
 
         };*/
 
-        std::function<void()> funcComplete = [&]() {
-            this->btnGenerate->SetLabel("Generate");
+
+
+        Generator objGenerator(objGenerateInfo,[](){});
+        if (objGenerator.generate([](){}))
+        {
+           // this->btnGenerate->SetLabel("Generate");
             wxMessageDialog mdFinish =  wxMessageDialog(this,
                                                         wxT("Generation completed!"));
             mdFinish.ShowModal();
-        };
-
-        Generator objGenerator(objGenerateInfo,[](){});
-        objGenerator.generate(funcComplete);
+        }
 
 
 
@@ -88,5 +89,5 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
     }
 
 
-    event.Skip();
+  //  event.Skip();
 }

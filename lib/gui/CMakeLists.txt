@@ -43,13 +43,30 @@ file(GLOB XMwayLoon_GUI_type_CPPs
         ${CMAKE_CURRENT_SOURCE_DIR}/src/grid_row/setter_below_level_3.cpp
         )
 
+
 add_library(GUI
         ${XMwayLoon_GUI_main_CPPs}
         ${XMwayLoon_GUI_data_generation_CPPs}
         ${XMwayLoon_GUI_type_extension_CPPs}
         ${XMwayLoon_GUI_type_CPPs})
 
-target_link_libraries(GUI PRIVATE logic model)
+
+if(${APPLE})
+
+    message("Compiler option works at Apple for GUI")
+    target_compile_options(GUI PRIVATE -O3 -flto=full)
+
+elseif(${WIN32})
+
+    message("Compiler option works at Win32 for GUI")
+    target_compile_options(GUI PRIVATE -O3)
+else()
+
+    message("Compiler option works for GUI")
+    target_compile_options(GUI PRIVATE -O3)
+endif()
+
+target_link_libraries(GUI PRIVATE logic model ${wxWidgets_LIBRARIES})
 
 
 target_include_directories(GUI

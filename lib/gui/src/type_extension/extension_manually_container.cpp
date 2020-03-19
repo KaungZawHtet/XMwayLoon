@@ -5,7 +5,21 @@
 #include <gui/type_extension/extension_manually_container.h>
 #include <gui/id.h>
 
+#ifdef __APPLE__
 
+#define BTN_PADDING 0
+#define MATHS_BTN_SIZE 30
+
+#elif __linux__
+
+#define BTN_PADDING 5
+#define MATHS_BTN_SIZE 35
+
+#else
+
+#define BTN_PADDING 0
+#define MATHS_BTN_SIZE 30
+#endif
 
 ExtensionManually_Container::ExtensionManually_Container
 (wxWindow *tmp_wParent)
@@ -27,8 +41,8 @@ ExtensionManually_Container::ExtensionManually_Container
                                       wxT(""));
    // this->stTypeName->Wrap(200);
     this->btnExtend = new wxButton(this, BTN_EXTEND_MANUALLY_ID, wxT("Extend"));
-    this->btnInsert= new wxButton(this, BTN_ADD_MANUALLY_ID, wxT("+"),wxDefaultPosition,wxSize(30,-1));
-    this->btnRemove= new wxButton(this, BTN_REMOVE_MANUALLY_ID, wxT("-"),wxDefaultPosition,wxSize(30,-1));
+    this->btnInsert= new wxButton(this, BTN_ADD_MANUALLY_ID, wxT("+"),wxDefaultPosition,wxSize(MATHS_BTN_SIZE,-1));
+    this->btnRemove= new wxButton(this, BTN_REMOVE_MANUALLY_ID, wxT("-"),wxDefaultPosition,wxSize(MATHS_BTN_SIZE,-1));
     this-> tcRecord =new wxTextCtrl(this, TC_RECORD_MANUALLY_ID,wxEmptyString,wxDefaultPosition,wxDefaultSize,wxTE_PROCESS_ENTER);
     this->tcTypeName= new wxTextCtrl(this, TC_TYPE_NAME_MANUALLY_ID);
 
@@ -84,8 +98,8 @@ ExtensionManually_Container::ExtensionManually_Container
     this->bsTypeName->Add(this->tcTypeName,2);
     this->bsRecordAddition->Add(this->stRecord,0,wxRIGHT,8);
     this-> bsRecordAddition->Add(this->tcRecord,2,wxRIGHT,8);
-    this-> bsRecordAddition->Add(this->btnInsert);
-    this-> bsRecordAddition->Add(this->btnRemove);
+    this-> bsRecordAddition->Add(this->btnInsert,0);
+    this-> bsRecordAddition->Add(this->btnRemove,0,wxLEFT,BTN_PADDING);
 
     this->bsMain->Add(this->bsTitle,0, wxLEFT | wxTOP, 9);
     this->bsMain->Add(this->bsTypeName,0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);

@@ -24,10 +24,10 @@ add_test(Name ParallelTest
 
 message("${Boost_LIBRARIES}")
 
-target_link_libraries(CSVTest gtest_main logic model)
-target_link_libraries(JSONTest PUBLIC gtest_main logic model nlohmann_json::nlohmann_json)
-target_link_libraries(XMLTest gtest_main logic model)
+target_link_libraries(CSVTest gtest_main logic model  ${CMAKE_DL_LIBS})
+target_link_libraries(JSONTest PUBLIC gtest_main logic model nlohmann_json::nlohmann_json  ${CMAKE_DL_LIBS})
+target_link_libraries(XMLTest gtest_main logic model  ${CMAKE_DL_LIBS})
 target_link_libraries(HTMLTest gtest_main logic model)
-target_link_libraries(FileTest gtest_main customization sqlite3)
-target_link_libraries(GeneralLogicTest gtest_main ${Boost_LIBRARIES} customization)
-target_link_libraries(ParallelTest gtest_main ${Boost_LIBRARIES} customization)
+target_link_libraries(FileTest gtest_main customization sqlite3  ${CMAKE_DL_LIBS})
+target_link_libraries(GeneralLogicTest gtest_main ${Boost_LIBRARIES} customization  ${CMAKE_DL_LIBS})
+target_link_libraries(ParallelTest gtest_main ${Boost_LIBRARIES} customization  ${CMAKE_DL_LIBS})

@@ -12,7 +12,7 @@
 class GeneratePage;
 
 
-class EncodingTypeContainer : public wxControl
+class EncodingTypeContainer
 {
 
 public:

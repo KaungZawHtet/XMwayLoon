@@ -47,7 +47,7 @@ public:
     void prepareXMLTask();
     void prepareHTMLTask();
     void connectTasks();
-    void generate(std::function<void()> func);
+    bool generate(std::function<void()> func);
     tf::Taskflow* getTaskFow();
 
     ~Generator();

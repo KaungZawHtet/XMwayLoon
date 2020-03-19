@@ -7,7 +7,7 @@
 
 #include <wx/statline.h>
 #include <wx/wx.h>
-
+#include <memory>
 class ExtendPage;
 class ExtensionByFile_Container  : public wxPanel {
     wxWindow *wParent;

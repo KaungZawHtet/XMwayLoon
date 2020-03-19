@@ -5,30 +5,6 @@
 #include <wx/grid.h>
 #include <model/type/numeric_type.h>
 
-void NRCRow::setTypeOnGrid() {
-this->setNoEncodingCell();
-
-    //NRC type field
-    this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrNRCType,this->nrcCount);
-
-
-    //null field
-    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
-
-    //null field
-    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
-
-    //null field
-    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
-
-    //null field
-    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
-
-    ++(this->gTypeGrid->rowPointer);
-
-
-    this->gTypeGrid->vecTypeNames.emplace_back(typeid(NRCType).name());
-}
 
 
 void NumberRow::setTypeOnGrid() {

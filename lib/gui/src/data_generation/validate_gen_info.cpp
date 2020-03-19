@@ -51,4 +51,11 @@ void GeneratePage::cleanVec() {
 
 GeneratePage::~GeneratePage() {
 this->cleanVec();
+
+    delete this->ctTypeGeneration ;
+    delete this->ctEncodeingTypeContainer ;
+    delete this->ctGeneratedFileContainer ;
+    delete this->ctOutputFormatContainer;
+    delete this->ctOutputAmountContainer ;
+
 }

@@ -43,8 +43,8 @@ void GeneratePage::setNameType(int i) {
     objNameType.setEncoding(tmp_encode);
     objNameType.fieldName = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
 
-    std::string strGender{this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).c_str()};
-    objNameType.gender = XML_RE::genderMap[strGender];
+    std::string tmp_gender{this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).c_str()};
+    objNameType.setGender(tmp_gender);
 
     this->vecTitles.emplace_back(objNameType.fieldName);
     this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::NameRandomizer(objNameType));
@@ -58,8 +58,8 @@ void GeneratePage::setNRCType(int i) {
     objNRCType.setEncoding(tmp_encode);
     objNRCType.fieldName = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);
 
-    std::string tmp(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
-    objNRCType.setType(tmp);
+    std::string tmp_type(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 4).mb_str());
+    objNRCType.setType(tmp_type);
 
     this->vecTitles.emplace_back(objNRCType.fieldName);
     this->vecRandomizer.emplace_back(new XMwayLoon::Randomizer::NRCRandomizer(objNRCType));

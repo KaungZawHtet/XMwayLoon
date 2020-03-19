@@ -9,7 +9,7 @@
 #include <wx/wx.h>
 #include <wx/statline.h>
 class GeneratePage;
-class OutputFormatContainer : public wxControl
+class OutputFormatContainer
 {
 public:
     OutputFormatContainer(GeneratePage *tmp_pgParent,wxBoxSizer *tmp_bsMain);

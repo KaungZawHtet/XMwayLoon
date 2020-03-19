@@ -36,17 +36,6 @@ public:
 };
 
 
-class NRCRow : public NumericRow {
-public:
-    explicit NRCRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
-            : NumericRow(tmpTypeName, tmp_gTypeGrid) {}
-
-    wxString arrNRCType[2] = {"နိုင်", "န"};
-    int nrcCount = sizeof(arrNRCType) / sizeof(arrNRCType[0]);
-
-    void setTypeOnGrid() override;
-
-};
 
 
 

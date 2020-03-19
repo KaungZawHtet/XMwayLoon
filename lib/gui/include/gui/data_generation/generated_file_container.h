@@ -7,7 +7,7 @@
 #include <wx/statline.h>
 #include <wx/wx.h>
 class GeneratePage;
-class GeneratedFileContainer : public wxControl
+class GeneratedFileContainer
 {
 public:
     GeneratedFileContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain);

@@ -37,12 +37,14 @@ void HTMLWriter::write() {
 
     if(this->iHTML == this->objGenerateInfo->outputRecordAmount)
         {
+        std::cout<< "Writing HTML under progress  : \n";
             this->bodyElement->InsertEndChild(this->tableElement);
             this->htmlElement->InsertEndChild(this->bodyElement);
 
             this->xml.InsertEndChild(this->htmlElement);
             this->xml.SaveFile(this->ptrFile);
             fclose(this->ptrFile);
+            std::cout<< "Finished HTML writing! \n";
         }
 
     ++(this->iHTML);
@@ -74,8 +76,10 @@ void XMLWriter::write() {
     if(this->iXML == this->objGenerateInfo->outputRecordAmount)
     {
         xml.InsertEndChild(mainElement);
+        std::cout<<"Writing XML under progress : \n";
         xml.SaveFile(ptrFile);
         fclose(ptrFile);
+        std::cout<<"Finished XML writing! \n";
     }
 
     ++(this->iXML);
@@ -125,7 +129,15 @@ void JSONWriter::write() {
         this->mainJson["item"+std::to_string(this->iJSON)] =innerJson;
 
 
-        if(this->iJSON == this->objGenerateInfo->outputRecordAmount) file << mainJson;
+
+        if(this->iJSON == this->objGenerateInfo->outputRecordAmount)
+        {
+            std::cout<< "Writing JSON under progress : \n";
+            file << mainJson;
+            std::cout<<"Finished JSON writing! \n";
+        }
+
+
 
         ++(this->iJSON);
 

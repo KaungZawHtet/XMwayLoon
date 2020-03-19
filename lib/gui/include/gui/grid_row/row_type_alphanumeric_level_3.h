@@ -15,7 +15,7 @@ public:
     explicit NameRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
             : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
 
-    wxString arrGenderType[3] = {"ကျား", "မ", "ကျပန်း"};
+    wxString arrGenderType[3] = {"Male", "Female", "Random"};
     int genderCount = sizeof(arrGenderType) / sizeof(arrGenderType[0]);
 
     void setTypeOnGrid() override;
@@ -29,7 +29,7 @@ public:
     explicit BooleanRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
             : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
 
-    wxString arrBoolType[2] = {"မှား/မှန်", "၀/၁"};
+    wxString arrBoolType[2] = {"Mhar/Mhan", "0/1"};
     int boolCount = sizeof(arrBoolType) / sizeof(arrBoolType[0]);
 
     void setTypeOnGrid() override;
@@ -66,6 +66,19 @@ public:
     void setTypeOnGrid() override;
 
 };
+
+class NRCRow : public AlphaNumericRow {
+public:
+    explicit NRCRow(const wxString &tmpTypeName, TypeGrid *tmp_gTypeGrid)
+            : AlphaNumericRow(tmpTypeName, tmp_gTypeGrid) {}
+
+    wxString arrNRCType[7] = {"N", "AC","NC", "V","M", "N","Random"};
+    int nrcCount = sizeof(arrNRCType) / sizeof(arrNRCType[0]);
+
+    void setTypeOnGrid() override;
+
+};
+
 
 
 #endif //XMWAYLOON_ROW_TYPE_ALPHANUMERIC_LEVEL_3_H

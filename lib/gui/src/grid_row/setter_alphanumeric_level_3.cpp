@@ -129,3 +129,29 @@ this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
     this->gTypeGrid->vecTypeNames.emplace_back(typeid(CustomType).name());
 
 }
+
+void NRCRow::setTypeOnGrid() {
+    this->setEncodingCell();
+
+    //NRC type field
+    this->setComboBox(this->gTypeGrid->rowPointer, this->colPointer,this->arrNRCType,this->nrcCount);
+
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    //null field
+    this->setBlankCell(this->gTypeGrid->rowPointer, this->colPointer);
+
+    ++(this->gTypeGrid->rowPointer);
+
+
+    this->gTypeGrid->vecTypeNames.emplace_back(typeid(NRCType).name());
+}
+

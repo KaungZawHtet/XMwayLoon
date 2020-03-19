@@ -7,7 +7,7 @@
 #include <gui/data_generation/generate_page.h>
 #include <gui/id.h>
 EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSizer *tmp_bsMain)
-:wxControl(tmp_gpParent,-1)
+
 {
     this->bsMain=tmp_bsMain;
 
@@ -30,8 +30,8 @@ EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSi
  * remove only this cmt; the rest can keep evolving
  * this->rdRandom = new wxRadioButton(this->gpParent, RD_UNIFORM_RANDOM_ID,
                                        wxT("Uniform Random"));*/
-    this->rdCustom = new wxRadioButton(this->gpParent, RD_CUSTOM_ID,
-                                       wxT("Custom"));
+    this->rdRandom = new wxRadioButton(this->gpParent, RD_RANDOM_ID,
+                                       wxT("Random"));
     this->rdUnicode->SetValue(true);
 
 
@@ -43,7 +43,7 @@ EncodingTypeContainer::EncodingTypeContainer(GeneratePage *tmp_gpParent, wxBoxSi
      * TODO::skip for coming version
      *  remove only this cmt; the rest can keep evolving
      * this->bsEncodeType->Add(this->rdRandom, 0, wxRIGHT, 100);*/
-    this->bsEncodeType->Add(this->rdCustom, 0);
+    this->bsEncodeType->Add(this->rdRandom, 0);
     //---
     this->bsMain->Add(this->bsEncodeTypeTitle, 0, wxLEFT | wxTOP, 9);
     this->bsMain->Add(this->bsEncodeType, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);

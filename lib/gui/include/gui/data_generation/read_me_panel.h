@@ -9,14 +9,14 @@
 class DataGenerationReadMePanel : public wxPanel
 {
 public:
-    static inline constexpr std::string_view strExplanation =
+    static inline constexpr std::string_view strIntro =
             R"(
 Instead of whole boring story, here are short notable facts:
 1. There are characteristics for every type and mentioned under type specific option columns.
 2. Some types' characteristics are worth mentioning below:
 )";
 
-    static inline constexpr std::string_view strJson= R"(
+    static inline constexpr std::string_view strDetail= R"(
 Boolean:
     -No notable facts to be mentioned.
 
@@ -49,7 +49,7 @@ Ph Number:
 
     wxBoxSizer *bsMain;
     wxTextCtrl *tcExample;
-    wxStaticText *stExplanation;
+    wxStaticText *stIntro;
 
 
     
