@@ -11,7 +11,7 @@ TypeLoader::TypeLoader() {
 
 void TypeLoader::load() {
 
-    std::vector<std::string> tmpType= Initializer::storage
+    std::vector<std::wstring> tmpType= Initializer::storage
             .select(&CustomTypeName::type_name);
 
 

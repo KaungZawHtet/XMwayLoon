@@ -116,7 +116,10 @@ void GeneratePage::setCustomType(int i) {
     CustomType objCustomType;
 
     objCustomType.index = i;
-    objCustomType.typeName = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 1);
+
+    std::wstring tmp_fieldName = static_cast<const wchar_t *>(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 1));
+    objCustomType.typeName =std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(tmp_fieldName);
+
     std::string tmp_encode(this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 2).mb_str());
     objCustomType.setEncoding(tmp_encode);
     objCustomType.fieldName = this->ctTypeGeneration->gTypeGrid->GetCellValue(i, 3);

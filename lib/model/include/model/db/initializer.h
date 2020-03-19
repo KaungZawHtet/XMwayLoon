@@ -237,7 +237,17 @@ INSERT INTO "name_properties" VALUES (175,'ဧရာ','ဧရာ',1,1,2);
 INSERT INTO "name_properties" VALUES (176,'ဥက္ကာ','ဥကၠာ',1,1,2);
 INSERT INTO "name_properties" VALUES (177,'ဥမ္မာ','ဥမၼာ',2,2,2);
 INSERT INTO "name_properties" VALUES (178,'ထိုက်','ထိုက္',3,3,1);
-INSERT INTO "name_properties" VALUES (179,'မြိုင်','ၿမိဳင္',2,2,1);)";
+INSERT INTO "name_properties" VALUES (179,'မြိုင်','ၿမိဳင္',2,2,1);
+
+INSERT INTO "name_properties" VALUES (180,'ရတီ','ရတီ',2,2,2);
+INSERT INTO "name_properties" VALUES (181,'သက်ထား','သက္ထား',2,2,2);
+INSERT INTO "name_properties" VALUES (182,'ယမင်း','ယမင္း',2,2,2);
+INSERT INTO "name_properties" VALUES (183,'၀တီ','၀တီ',2,2,2);
+INSERT INTO "name_properties" VALUES (184,'သိမ့်','သိမ့္',2,1,1);
+INSERT INTO "name_properties" VALUES (185,'ကောင်းကင်','ေကာင္းကင္',1,2,2);
+INSERT INTO "name_properties" VALUES (186,'လမင်း','လမင္း',2,2,2);
+INSERT INTO "name_properties" VALUES (187,'သုတ','သုတ',1,2,2);
+)";
 
     static inline auto storage = sqlite_orm::make_storage
             (Initializer::dbPath,
