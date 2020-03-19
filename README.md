@@ -21,7 +21,7 @@ download binary executable from https://github.com/KaungZawHtet/XMwayLoon/releas
 - More types
 - Better UI/UX
 - Better Build management
-- More explicit documentation
+- More detailed documentation
 - More customizability
 
 

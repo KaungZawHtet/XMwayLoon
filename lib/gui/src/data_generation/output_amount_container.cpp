@@ -65,7 +65,21 @@ OutputAmountContainer::OutputAmountContainer(GeneratePage *tmp_gpParent, wxBoxSi
      * TODO:: skip for coming version
      * this->bsRecordSize->Add(this->rdRecordNumber, 0, wxRIGHT, 20);*/
     this->bsRecordSize->Add(this->scRecordNumber, 0); //In case of cus, getBoxSizer should be called
-    this->bsRecordSize->Add(this->stRecordNumberUnit, 0, wxRIGHT, 100);
+
+#ifdef __APPLE__
+
+    this->bsRecordSize->Add(this->stRecordNumberUnit, 0, wxLEFT, 0);
+
+#elif __linux__
+
+    this->bsRecordSize->Add(this->stRecordNumberUnit, 0, wxLEFT|wxTOP, 5);
+
+#else
+    this->bsRecordSize->Add(this->stRecordNumberUnit, 0, wxLEFT, 0);
+#endif
+
+
+
 
     /**
      * TODO: skip for coming version

@@ -57,7 +57,8 @@ void ExtensionByFile_Container::onExtend(wxCommandEvent &event) {
 
             CustomTypeName objTypeName;
             objTypeName.id = -1;
-            objTypeName.type_name = element["name"].get<std::string>();
+             std::string tmp_name= element["name"].get<std::string>();
+            objTypeName.type_name=std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(tmp_name);
             int idTypeName = Initializer::storage.insert(objTypeName);
 
             for (auto i : element["items"]) {

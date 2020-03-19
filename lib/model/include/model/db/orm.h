@@ -16,7 +16,7 @@ struct CustomTypeRecord {
 struct CustomTypeName {
 
     int id;
-    std::string type_name;
+    std::wstring type_name;
 };
 
 

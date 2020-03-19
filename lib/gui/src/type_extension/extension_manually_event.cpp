@@ -61,9 +61,9 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
 
     if(result ==wxID_YES)
     {
-        std::string value(this->tcTypeName->GetValue().c_str());
+        std::string typeName(this->tcTypeName->GetValue().c_str());
 
-        if (value.compare("")==0) // not to become empty type name
+        if (typeName.compare("")==0) // not to become empty type name
         {
             this->stError->SetLabelText("Type name required!");
             this->stError->SetForegroundColour(wxColor(*wxRED));
@@ -79,7 +79,7 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
 
                 CustomTypeName objTypeName;
                 objTypeName.id=-1;
-                objTypeName.type_name=this->tcTypeName->GetValue();
+                objTypeName.type_name=std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(typeName);
                 this->strTypeName=this->tcTypeName->GetValue(); // not to become duplicate extension
 
                 int idTypeName=Initializer::storage.insert(objTypeName);

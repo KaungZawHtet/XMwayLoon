@@ -389,17 +389,17 @@ RegexReplacePair** regex_pairs_for_zg2uni()
     }
 
     char * tallAA = "\u102B";
-    __unused char * AA = "\u102C";
+     char * AA = "\u102C";
     char * vi = "\u102D";
     // lone gyi tin
-    __unused char * ii = "\u102E";
+     char * ii = "\u102E";
     char * u = "\u102F";
     char * uu = "\u1030";
-    __unused char * ve = "\u1031";
-    __unused char * ai = "\u1032";
+     char * ve = "\u1031";
+     char * ai = "\u1032";
     char * ans = "\u1036";
     char * db = "\u1037";
-    __unused char * visarga = "\u1038";
+     char * visarga = "\u1038";
 
     char * asat = "\u103A";
 
@@ -580,7 +580,7 @@ char *unicode_to_zawgyi(const char *input)
         uregex_setText(regex, temp, length, &errorCode);
 
         errorCode = U_ZERO_ERROR;
-        __unused int32_t after_replaced = uregex_replaceAll(regex, pattern[i]->replace, -1, output, outputCapacity, &errorCode);
+         int32_t after_replaced = uregex_replaceAll(regex, pattern[i]->replace, -1, output, outputCapacity, &errorCode);
 
         free(temp);
 
@@ -639,7 +639,7 @@ char *zawgyi_to_unicode(const char *input)
         uregex_setText(regex, temp, length, &errorCode);
 
         errorCode = U_ZERO_ERROR;
-        __unused int32_t after_replaced = uregex_replaceAll(regex, pattern[i]->replace, -1, output, outputCapacity, &errorCode);
+         int32_t after_replaced = uregex_replaceAll(regex, pattern[i]->replace, -1, output, outputCapacity, &errorCode);
 
         free(temp);
 
