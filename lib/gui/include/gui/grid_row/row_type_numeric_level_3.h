@@ -11,7 +11,7 @@
 class NumberRow : public NumericRow
 {
 public:
-    wxString arrNumberType[3]= {"Integer", "Float", "Rational"};
+    wxString arrNumberType[3]= {"Integer", "Float", "Random"};
     int NumberRowCount= sizeof(arrNumberType) / sizeof(arrNumberType[0]);
 
     void setTypeOnGrid();
@@ -29,7 +29,7 @@ public:
             : NumericRow(tmp_typeName,tmp_gTypeGrid) {}
     wxString arrTelecom[5]={"MPT","Telenor","Ooredoo","MyTel","Random"};
     int telecomCount= sizeof(arrTelecom)/ sizeof(arrTelecom[0]);
-    wxString arrCountryCodeMode[4]= {"09...", "+959...","959...","random"};
+    wxString arrCountryCodeMode[4]= {"09...", "+959...","959...","Random"};
     int countryCodeCount= sizeof(arrCountryCodeMode) / sizeof(arrCountryCodeMode[0]);
 
     void setTypeOnGrid();

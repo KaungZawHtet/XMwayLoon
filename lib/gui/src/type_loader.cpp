@@ -11,8 +11,10 @@ TypeLoader::TypeLoader() {
 
 void TypeLoader::load() {
 
+    TypeLoader::vecAllTypes.resize(DEFAULT_COUNT);
     std::vector<std::wstring> tmpType= Initializer::storage
             .select(&CustomTypeName::type_name);
+
 
 
     TypeLoader::totalCount+= tmpType.size();

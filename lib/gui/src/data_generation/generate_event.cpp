@@ -25,8 +25,9 @@ void GeneratePage::onGenerate(wxCommandEvent &event) {
         GenerateInfo *objGenerateInfo = new GenerateInfo();
 
 
+        std::wstring tmp_file ( this->ctGeneratedFileContainer->tcGeneratedFile->GetValue().c_str());
         objGenerateInfo->targetFile
-                = std::string(this->ctGeneratedFileContainer->tcGeneratedFile->GetValue().mb_str());
+                = std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(tmp_file);
         objGenerateInfo->objOutputFormat
                 = this->ctOutputFormatContainer->objOutputFormat;
         objGenerateInfo->encodingType = this->ctEncodeingTypeContainer->targetEncodingType;

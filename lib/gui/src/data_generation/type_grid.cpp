@@ -6,7 +6,21 @@
 #include <wx/wx.h>
 #include <gui/data_generation/type_grid.h>
 
+#ifdef __APPLE__
 
+#define TSO_COL_WIDTH 135
+
+
+#elif __linux__
+
+#define TSO_COL_WIDTH 170
+
+
+#else
+
+#define TSO_COL_WIDTH 135
+
+#endif
 TypeGrid::TypeGrid(wxWindow *wParent)
 :wxGrid (wParent,wxID_ANY,wxDefaultPosition,wxSize(-1,147))
 {
@@ -39,11 +53,11 @@ TypeGrid::TypeGrid(wxWindow *wParent)
     this->SetColSize(1,90);
     this->SetColSize(2,90);
     this->SetColSize(3,87); //field name
-    this->SetColSize(4,135);
-    this->SetColSize(5,135);
-    this->SetColSize(6,135);
-    this->SetColSize(7,135);
-    this->SetColSize(8,135);
+    this->SetColSize(4,TSO_COL_WIDTH);
+    this->SetColSize(5,TSO_COL_WIDTH);
+    this->SetColSize(6,TSO_COL_WIDTH);
+    this->SetColSize(7,TSO_COL_WIDTH);
+    this->SetColSize(8,TSO_COL_WIDTH);
 
 
     for (int row = 0; row < this->rows; ++row) {

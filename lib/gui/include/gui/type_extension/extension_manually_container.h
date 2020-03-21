@@ -47,7 +47,7 @@ class ExtensionManually_Container : public wxPanel
 
     int indexLB=0;
     std::vector<CustomTypeRecord> vecRecords;
-    std::string strTypeName;
+    std::wstring strTypeName;
 
 
 

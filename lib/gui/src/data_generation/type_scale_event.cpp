@@ -11,8 +11,7 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
   //  wxString tmp_typeName=this->objTypeLoader.vecAllTypes[0];;
 
 
-
-  int index = this->cbAddType->GetSelection();
+  int index = this->cbAddType->GetCurrentSelection();
 
 
     switch (index)
@@ -69,6 +68,7 @@ void TypeGenerationContainer::onAddType(wxCommandEvent &event) {
         default:
         {
             if(index>0){
+
                 CustomRow objCustomRow(this->objTypeLoader.vecAllTypes[index], this->gTypeGrid);
                 objCustomRow.setTypeOnGrid();
             }

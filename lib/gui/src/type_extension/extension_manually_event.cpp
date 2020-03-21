@@ -61,9 +61,9 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
 
     if(result ==wxID_YES)
     {
-        std::string typeName(this->tcTypeName->GetValue().c_str());
+        std::wstring typeName(this->tcTypeName->GetValue().c_str());
 
-        if (typeName.compare("")==0) // not to become empty type name
+        if (typeName.compare(reinterpret_cast<const wchar_t *>("")) == 0) // not to become empty type name
         {
             this->stError->SetLabelText("Type name required!");
             this->stError->SetForegroundColour(wxColor(*wxRED));
@@ -79,7 +79,7 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
 
                 CustomTypeName objTypeName;
                 objTypeName.id=-1;
-                objTypeName.type_name=std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(typeName);
+                objTypeName.type_name=typeName;
                 this->strTypeName=this->tcTypeName->GetValue(); // not to become duplicate extension
 
                 int idTypeName=Initializer::storage.insert(objTypeName);
@@ -96,13 +96,7 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
 
         }
 
-
-
     }
-
-
-
-
 
     event.Skip();
 
@@ -128,26 +122,28 @@ void ExtensionManually_Container::appendRecordList() {
         CustomTypeRecord objCTR;
         objCTR.id=-1;
 
-        std::string value( this->tcRecord->GetValue().c_str());
+        std::wstring tmp_value( this->tcRecord->GetValue().c_str());
+        std::string value =std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(tmp_value);
+
         if(mmtext::isZawgyiEncoded(value.c_str()))
         {
-            this->lbZawgyi->Append(value);
+            this->lbZawgyi->Append(std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(value));
             objCTR.zawgyi_unit=value;
             //   this->vecZgRecords.emplace_back(value);
 
             std::string uniValue( zawgyi_to_unicode(value.c_str()) );
-            this->lbUnicode->Append(uniValue);
+            this->lbUnicode->Append(std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(uniValue));
             objCTR.unicode_unit=uniValue;
             //    this->vecUniRecords.emplace_back(uniValue);
             this->vecRecords.emplace_back(objCTR);
         } else
         {
-            this->lbUnicode->Append(value);
+            this->lbUnicode->Append(std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(value));
             objCTR.unicode_unit=value;
             //  this->vecUniRecords.emplace_back(value);
 
             std::string zgValue( unicode_to_zawgyi(value.c_str()) );
-            this->lbZawgyi->Append(zgValue);
+            this->lbZawgyi->Append(std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(zgValue));
             objCTR.zawgyi_unit=zgValue;
             //   this->vecZgRecords.emplace_back(zgValue);
             this->vecRecords.emplace_back(objCTR);

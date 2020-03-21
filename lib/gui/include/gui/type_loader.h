@@ -30,6 +30,7 @@ public:
             "Pangram",
             "Ph Number"
     };
+#define DEFAULT_COUNT 7
 
     static inline int totalCount= vecAllTypes.size();
 

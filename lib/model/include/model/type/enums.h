@@ -68,7 +68,7 @@ static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
                     { "09...",  CountryCodeFlag::zero_nine},
                     { "+959...", CountryCodeFlag::plus_nine_five},
                     { "959...", CountryCodeFlag::nine_five},
-                    { "random", CountryCodeFlag::random}
+                    { "Random", CountryCodeFlag::random}
 
             };
 
@@ -104,7 +104,7 @@ static  phmap::flat_hash_map<std::string, BoolType > boolTypeMap =
             {
                     { "Integer",  NumberSystem::integer},
                     { "Fraction", NumberSystem::fraction},
-                    { "Rational", NumberSystem::rational}
+                    { "Random", NumberSystem::rational}
 
             };
     //NRC

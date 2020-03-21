@@ -106,7 +106,7 @@ void OutputAmountContainer::onChangeOutputAmountType(wxCommandEvent &event) {
         this->outputRecordAmount= this->scRecordNumber->GetValue();
         this->isRecordAmount=true;
 
-        std::cout<< "Record Amount :"<<this->outputRecordAmount << "\n";
+        std::cout<< "Record Amount "<<this->outputRecordAmount << "will be generated.\n";
     }
     /*
      TODO : skip for coming version
