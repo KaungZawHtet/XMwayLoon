@@ -108,9 +108,9 @@ void ExtensionManually_Container::onExtend(wxCommandEvent &event) {
 
 void ExtensionManually_Container::appendRecordList() {
 
-    std::string value(this->tcRecord->GetValue().c_str());
+    std::wstring value(this->tcRecord->GetValue().c_str());
 
-    if (value.compare("")==0)
+    if (value.compare(reinterpret_cast<const wchar_t *>("")) == 0)
     {
         this->stError->SetLabelText("Empty record!");
         this->stError->SetForegroundColour(wxColor(*wxRED));
